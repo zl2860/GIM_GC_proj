@@ -1,0 +1,35 @@
+{
+  "research_title": "Genetically Influenced Metabotypes and Gastric Cancer Risk",
+  "datasets": [
+    {
+      "name": "Metabolite-GC Risk Associations",
+      "file": "metabolite_risk_associations.json",
+      "description": "Heatmap showing relative risks across different cohorts",
+      "visualization": "heatmap"
+    },
+    {
+      "name": "Gene-Metabolite Interactions",
+      "file": "gene_metabolite_interactions.json",
+      "description": "Causal relationships between genes and metabolites",
+      "visualization": "interactive_table"
+    },
+    {
+      "name": "Biomarker Information",
+      "file": "biomarker_information.json",
+      "description": "Detailed information about NMR biomarkers",
+      "visualization": "searchable_table"
+    },
+    {
+      "name": "Regulatory Effects",
+      "file": "regulatory_effects.json",
+      "description": "Multi-ancestry gene loci regulatory effects",
+      "visualization": "interactive_table"
+    }
+  ],
+  "key_statistics": {
+    "total_subjects": "145,938",
+    "metabolic_traits": "249",
+    "causal_gene_loci": "117",
+    "significant_traits": "188"
+  }
+}

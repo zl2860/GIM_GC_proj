@@ -1,0 +1,5808 @@
+{
+  "title": "GIMs for Gastric Lesion Progression - Gene-Metabolic Trait Heatmap",
+  "description": "Gene-metabolic trait association heatmap with causal indicators for gastric lesion progression",
+  "data": [
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.555202960459836,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.453607621075201,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.570688133682637,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.651475648134085,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.346587449929892,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.549393509934939,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.422432914529024,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.626588403945104,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.646682976979362,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.443364510383075,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.384093302687687,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.618489316912556,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.771613779494447,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": 0.437387354026258,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": 0.0113806483035475,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.0075650895707306,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -0.357438117677776,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.316091600523704,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.303489561692774,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "ABCA1",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.70022080431014,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.491141786053352,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.860879014766397,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.585226811323513,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.423552410299418,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.0437085936265745,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.450225238859499,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.804897819368918,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.493579474398367,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 1.0,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.376207216797755,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.517237306228877,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.731981260363128,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.51744253862134,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": 0.256285057457688,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": 0.267939009067137,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.682257438197735,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.919302327984987,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.761276338772238,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.813207516525637,
+      "is_causal": true,
+      "group": "PL"
+    },
+    {
+      "gene": "ABCA8",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.539144018509304,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.592156464174407,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.881100068232143,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.59334510404937,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.469047334267471,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.0308219649245883,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.54637461739492,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.825309601024784,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.487794131044138,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.426245143650042,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.565494490920663,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.752308025054397,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.535650829909848,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": 0.365646820264389,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": 0.315766087075617,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.80496638281021,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.942569730337399,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -1.0,
+      "is_causal": true,
+      "group": "TG"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.776156429469593,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.814939058966577,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "ABCA9",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.545321078402513,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": -0.580182216310546,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": -0.791181145539628,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": -0.700347166903175,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": -0.651136165750892,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.413425021952656,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": -0.51742392524611,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": -0.728129411372402,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": -0.57481131830796,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": -0.930345796019992,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": -0.614707724000459,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": -0.764399275284458,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": -0.900005557634523,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": -0.817241264324803,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.654573006939633,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.577757605622844,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": 0.693215610283847,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": 0.855600798817335,
+      "is_causal": true,
+      "group": "TG"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": 1.0,
+      "is_causal": true,
+      "group": "TG"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": 0.804017058232894,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": -1.0,
+      "is_causal": true,
+      "group": "PL"
+    },
+    {
+      "gene": "ABCG8",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": -0.882141097225258,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.775747792680903,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.551629392091104,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.367721225485984,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": 0.0547813932560097,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.765533879011168,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.914859565246195,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.435499581198056,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.866071270448981,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.325644256444532,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.589139878537598,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.71240736015721,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.552032124109677,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.333108573010264,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.302031304215502,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.975358572518328,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.933020549171678,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -1.0,
+      "is_causal": true,
+      "group": "TG"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.64219424670419,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.761545913745821,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "ABO",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.532365158564254,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.350131504614821,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.837951895125537,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.169003819806877,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.123485639247113,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.324470333830919,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.324694808280114,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.612675323897924,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.116748712077848,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 1.0,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.0906731614607299,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.418754840230311,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.284902222671171,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.0922423126854253,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.672764889203153,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.396543841730548,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.385044763946411,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.174470520892959,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -0.402378680913312,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.128002065164933,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.420790075236353,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "AC012181.1",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.0022761709148455,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.242687645788877,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": -0.442395129538179,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.464459717185219,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.9182544420293,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": 0.0764328622207238,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.343821422288501,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": -0.23914712448576,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.520154104686075,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.0644074558520549,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": -0.25461059050154,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.201367333133611,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.722192002249445,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": 0.655128198522403,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": 0.300041146598928,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.0179695073522863,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.421857161679635,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -0.539243476718312,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.9072722013136,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.124530660104802,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "AC012361.1",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.753622409659661,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": -0.858256539141767,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.693413734524807,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.918592339197617,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": -0.709063459927395,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": 0.462222493716839,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": -0.88484361910081,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.895763520431909,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": -0.67164083589314,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.677734920413293,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": -0.730737456948711,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": -0.478730336032766,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.830808433398492,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.942692334543423,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.839418691240808,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": 0.412252164199944,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.63710672065531,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.748554291166341,
+      "is_causal": true,
+      "group": "TG"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -0.69596190542679,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.722226100716746,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "AC022431.2",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.968747091129107,
+      "is_causal": true,
+      "group": "PL"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.0452616578416316,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.712973888569356,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": -0.0397353873034133,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": -0.815087351046651,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.905279604385439,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": -0.102563114318298,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.698515852450949,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": -0.151727354841515,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": -0.0220645640748931,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": -0.780917764113633,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.466393713175491,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.205256677082777,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": -0.741676499712421,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": 0.589364103354699,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.973101925695774,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -0.267571504525178,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": 0.0369505106266073,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.503304693969922,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "ALDH1A2",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": -0.847570990637359,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": -0.0203065974390881,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.639463533943922,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": -0.12714369490281,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": -0.848266688280419,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.794834630953119,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": -0.169183238534778,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.611302085568211,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": -0.222381676623296,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": -0.159062122057311,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": -0.817213605857327,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.447522285209359,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.110345359161768,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": -0.777148701029355,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": 0.458162290676367,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.898994642649973,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -0.21473581160436,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": 0.0489909079206456,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.409984282351894,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "ALDH1A2:LIPC",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": -0.868249874052213,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.031915184242518,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": -0.524056477059041,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.187031311894149,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.991751999963575,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": 0.888541586038274,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.164786981682747,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": -0.516204599574737,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.267108851745443,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.102852993001835,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.96861070259392,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": -0.490231253614049,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": -0.024639278055266,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.860086782710844,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -1.0,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.444048827795965,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": 0.851342491201071,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": 0.174803873805372,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.156992018358231,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": -0.292602525167442,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.974495626715962,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.567371671329396,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 1.0,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.577454771526267,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.215428038545229,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": 0.199360066314372,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.493769350326391,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.872772562428764,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.462150657962905,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.942865195316547,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.132840120194798,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.779660553310538,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.819596725727904,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.546772769661175,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": 0.172341933478396,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": 0.248896901875453,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.926699409387628,
+      "is_causal": true,
+      "group": "TG"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.949561288985597,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -1.0,
+      "is_causal": true,
+      "group": "TG"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.56721914827479,
+      "is_causal": true,
+      "group": "TG"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.919698269609367,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "APOB",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.555600870376127,
+      "is_causal": true,
+      "group": "PL"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": -0.605058802133851,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": -0.340417070805044,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": -0.766828322017459,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.533999151309408,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": -0.656783462657614,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": -0.439188288069835,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": -0.734578079534433,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": -0.574456838021339,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": -0.995895974781765,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": -0.309970295829292,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": -0.747090203685742,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": -0.980922647914646,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.500213991270611,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.847478176527643,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": 0.426033583899127,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": 0.661354267701261,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": 0.735632880698351,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": 0.894804801163919,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": -0.67961323957323,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "APOE",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": -0.9867907371484,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": -0.625663983320785,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": -0.736585394104361,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": -0.759025887531129,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": -0.514102044362078,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.476147564718828,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": -0.627897144842764,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": -0.657503909190942,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": -0.684040076446401,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": -0.991666184050501,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": -0.444628482075636,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": -0.52533850697863,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": -0.880371807494064,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": -0.903037007007587,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.57220710024903,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.749931082411537,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": 0.642369838420108,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": 0.819427810273933,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": 0.60097990386286,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": -0.968907163954364,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "CELSR2",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": -0.942432385475184,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.347815633962274,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.81273753669108,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.142185480047566,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.0802905752176852,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.368786480583845,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.328733940770947,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.598806195967285,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.0838403805250354,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.0477034557621512,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.385497146321306,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.275253178166443,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.0592820077048029,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.640863953491385,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.415499244804958,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.410226092183019,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.200159070242206,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -0.428041959310143,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.147804234791823,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.423955874847471,
+      "is_causal": true,
+      "group": "PL"
+    },
+    {
+      "gene": "CETP",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": -0.0303932972877746,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": -0.621614057720718,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": -0.251673984061258,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": -0.634031086789155,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": -0.845469110884538,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.405171768035124,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": -0.591482344618074,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": -0.468450238248819,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": -0.541966124971389,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": -0.205021952183774,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": -0.787091907863251,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": -0.532025219001644,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": -0.749964626812876,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": -0.75709648556982,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.712434715661999,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": 0.644231049335192,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": 0.778395305769991,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": 0.688331009800454,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": -0.503724588526603,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "FADS2",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": -0.767395284962234,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": -0.709480769729281,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": -0.729750105850737,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": -0.852642812086858,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": -0.934409266475991,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.13743810972185,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": -0.722992940403875,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": -0.790862705112807,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": -0.808788203475361,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": -1.0,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": -0.932778301030856,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": -0.567971295008166,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": -0.766253488753899,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": -0.805545714557285,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.326273017134858,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.188576761226659,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": 0.599646588149902,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": 0.923837154040906,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": 0.957355114102775,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": -0.6531076912442,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "GCK",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": -0.790517070051586,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": -0.977252646715673,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": -0.644203380598011,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": -0.886791739102005,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.330041972417199,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": -0.962911665543547,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": -0.852825802309753,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": -0.861105722180102,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": -0.708826960914909,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": -0.997238585658695,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": -0.805091702193082,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": -0.774230870450759,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": -0.880838756639418,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.853752037961612,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.400015455274004,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": 0.721194422483425,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": 0.807472679020439,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": 0.776786934997603,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": -0.650284976879234,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "GCKR",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": -0.892216216040953,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.280545892294379,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.044787169944186,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.524352657927167,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.979568711365896,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": 0.320731559150316,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.30569819713714,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.177816182869951,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.486172927054845,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.400428461975239,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.0850427594141376,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.548490836914181,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.744720470713087,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": 0.635033709146721,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": 0.430824962869108,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.241723468459198,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.614510678075789,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -0.729801166864615,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.490539371142788,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "GPAM",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.722208860335777,
+      "is_causal": true,
+      "group": "PL"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.665673569798035,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.829541940665364,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.733964018443529,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.725913707164123,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": 0.413703470351151,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.604247204078768,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.774390765148949,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.615362290391656,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.960094602766529,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.659738206578924,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.776106785880505,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.94047750968032,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.933592319488022,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": 0.659869071628563,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": 0.541425648072221,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.700103742212738,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.815070799047218,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.846733808880038,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.992694775212893,
+      "is_causal": true,
+      "group": "PL"
+    },
+    {
+      "gene": "HMGCR",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.975819515989281,
+      "is_causal": true,
+      "group": "PL"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.586779921316235,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.744489928671972,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.650717749726179,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": -0.528556520165811,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.224384643634488,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.574243936902211,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.679931762888963,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.546162901024957,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 1.0,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": -0.476822967991238,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": -0.673198517652152,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.827470822065486,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.730069238697421,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.415571114248697,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.541346670586854,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.709813500307476,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.825898439140703,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -1.0,
+      "is_causal": true,
+      "group": "TG"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": 0.706302563091865,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.943667766257739,
+      "is_causal": true,
+      "group": "PL"
+    },
+    {
+      "gene": "LDLR",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.771465988603455,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.459574757239718,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": -0.169994348437865,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.494617757175081,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.562635384745423,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": 0.665248527859218,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.533479290588077,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.118084170156769,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.472744057158673,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.0277171832349146,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.522544097929473,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": -0.0448174180813527,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.451679143746903,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.720729963057678,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": 0.200988111831322,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.0919540648984956,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.29108428782859,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.591874346382752,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -0.600635096366592,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.649221957230436,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.203028309188512,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "LILRA3",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.695160373434012,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.925719348774031,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.976971151371791,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.431031020323312,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.166714937770642,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.259546830203112,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.935797749792872,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 1.0,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.378061641022432,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.606666861769387,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.167548497322215,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.614000369349632,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.450854802201162,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.284457747310358,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.415148986155444,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.217803257744485,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -1.0,
+      "is_causal": true,
+      "group": "TG"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.657899490479156,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -0.603611149514951,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.374474105664269,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.384539387707116,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "LPA",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.270025864565747,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.636372206144361,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.0769412995729679,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.735892384121568,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.970918449109643,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": 0.354629952583403,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.691052120549392,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.329672608666962,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.734382217362205,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.332603387977112,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.221888933927848,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.590501597835616,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.904930194851104,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": 0.574274375241561,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": 0.328951461618952,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.420539964743922,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.73485638332972,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -0.764167004458857,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.952960473600362,
+      "is_causal": true,
+      "group": "TG"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.410644696034163,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "LPL",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.924713190863585,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": -0.328535822500244,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": -0.32048023979409,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": -0.595314892646532,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": -0.993481141193975,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.283213327686009,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": -0.326374634824444,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": -0.346569250317662,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": -0.537228901269562,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": -0.655293280769774,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": -0.324316619424625,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": -0.688509323515677,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": -0.794472681067344,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.490399548214034,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.567561550407802,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": 0.325630708413428,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": 0.667568066551548,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": 0.841372625680122,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": -0.609881188979029,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "MARC1",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": -0.786566426655372,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.941349499168203,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.761959769823862,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.870490858017789,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.756643667234185,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": 0.363168311431277,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.958661409653528,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.842951927160239,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.802562014703533,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.938772290034402,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.716937504139508,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.664267375220612,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.886295013499667,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.959734759791641,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": 0.627498801977614,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": 0.397488243796582,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.738157110408964,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.901234255258636,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.799620528844093,
+      "is_causal": true,
+      "group": "TG"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.805869725292493,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "MIR148A",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.995262454562809,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.87148433955839,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.629742879126913,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.896194856168556,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 1.0,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": 0.241673117960284,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.839655601077926,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.784650516633733,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.847306422896142,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.862549150609132,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.981930486280249,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.788571960498052,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.848649705950626,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.94357268516391,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": 0.790967481945215,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": 0.433648297860056,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.639234234393467,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.841879088028638,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -0.877830762831593,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -1.0,
+      "is_causal": true,
+      "group": "TG"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.742568050837372,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "MLXIPL",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.944871192116578,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.747407784297797,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.310437656823607,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.805157436284675,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.975027648227465,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": 0.333387240638478,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.76407509370541,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.493524281301588,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.785661237371695,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.574387727048239,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.988873532218116,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.470477664337456,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.693509601927725,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.989965777154664,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": 0.62739270683922,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": 0.346961929417092,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.545932134020195,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.791916143454803,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -0.862762782562397,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.94967960400523,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.575584469222454,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "MYO1F",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.0618534278399394,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.371300315285416,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": -0.0590277119286934,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": -0.20234626872748,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": 0.0985450644794235,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.150117343068462,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.106863384221506,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": -0.0218412194196852,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.372038569125735,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": -0.214223994879575,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": -0.165984140906505,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": -0.0634144462355395,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": -0.0333550635311967,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.577304191162526,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": 0.620162857955623,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": 0.795170562298502,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": 0.604386141665087,
+      "is_causal": true,
+      "group": "TG"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.0801802816233643,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "PLTP",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": -0.0513927081357861,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.566519635241926,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.33146552270305,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.865951267037319,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.820366363077044,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": 0.424471228911456,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.599174408929449,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.489468223050379,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.833141624629195,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.682136174658127,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.760192825636123,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.231739640338515,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.885242278034406,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.993475803170304,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": 0.619743790820227,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": 0.191383667544725,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.50574633348304,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.92265856093169,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.99886241885231,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.799002927018819,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "PTPRM",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 1.0,
+      "is_causal": true,
+      "group": "PL"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.982142857142857,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.957705099778271,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.478167564143174,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.313883433639531,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": 0.0223487488121634,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.994068736141907,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.425209851124485,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.600763382958505,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.305749920810896,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.676493506493507,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.502477035159962,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.384779854292049,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.0159430630345264,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.040706525182135,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.65128207158695,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -0.610589958821666,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.450621634463098,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.402219670573329,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "RP1-81D8.4",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.374667405764967,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": -0.72649460615802,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": -0.68613010920362,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": -0.860547384843852,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": -0.703848222713682,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.31591680926892,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": -0.745875191523951,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": -0.681978725155837,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": -0.800418655172166,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": -0.922103602368703,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": -0.671810471814308,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": -0.525835851685131,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": -0.884074558665675,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": -0.971777941715975,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.57185595001075,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.56344608036293,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": 0.637729798768971,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": 0.903881951709988,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": 0.765127894439431,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": -0.901957320830692,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "RP11-116D2.1",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": -0.897411590140961,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": -0.173716636859214,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": -0.764537853074946,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": -0.991206502922803,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.571330009712809,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": -0.962085995993018,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": -0.491183206517259,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": -0.818974384706089,
+      "is_causal": true,
+      "group": "CE"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": -0.237035729517979,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": -0.42212190829818,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": -0.491840881966073,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": -0.891031959084344,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.534898015504654,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.0374005870694197,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": 0.45551999369205,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": 0.520852074992922,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": 0.540499905022347,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": 0.847078809947924,
+      "is_causal": true,
+      "group": "TG"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": -0.196936701874106,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "RP11-136O12.2",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": -0.90816198528384,
+      "is_causal": true,
+      "group": "PL"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.242362071114683,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.48956141568442,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.295106560483191,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.212847315505724,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": 0.396762345972535,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.331327531379848,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.268759495841443,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.302752969424145,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.859264788540708,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.153940999206516,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.0874781729610876,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.285740417068906,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.401497858759939,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.918961883034332,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.0715764558694783,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": 0.936099295104479,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": 0.553512064465903,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": 0.946375665840442,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.32978093571119,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "SCARB1",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.477555321697934,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": -0.596038770908357,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": -0.373849156934675,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": -0.677168242856662,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.617066603843436,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": -0.546030357082758,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": -0.510402853969643,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": -0.604435768855383,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": -0.655514421297075,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": -0.971992057348635,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": -0.651627233870696,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": -0.726059300642816,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": -0.968926059300643,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.436493454043685,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.284195469996298,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": 0.428452192642951,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": 0.582893009793693,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": 0.798549456466866,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": 0.974926799717296,
+      "is_causal": true,
+      "group": "TG"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": -0.67940295493555,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "SPTLC3",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": -0.99536229933026,
+      "is_causal": true,
+      "group": "PL"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.379853875539772,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.727586266220331,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.390456908315005,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.277179212985139,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.0676424595776354,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.388568101622508,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.548663936378181,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.312624671654589,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.213972098902482,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.289294377676225,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.544219898388357,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.449471704571075,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.510493018387343,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.302782051084706,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.731383799906013,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.772015780500018,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.617794623510845,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.707493926571961,
+      "is_causal": true,
+      "group": "PL"
+    },
+    {
+      "gene": "ST3GAL4",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.436729955876534,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.431537769381059,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.396527388281548,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": -0.0926534177815824,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": 0.128046680508133,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.36814254304685,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.811309986519331,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.262737483367828,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.849272339043758,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": -0.182341634932974,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.63683316878826,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.706121404744802,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.338001821475701,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.0421941675604579,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": 0.201299304756063,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.986208826831889,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.959011330103658,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.401930589311895,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.854214157873619,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "TDRD15",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.352061952040304,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.51929251120465,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 1.0,
+      "is_causal": true,
+      "group": "C"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.517314068937782,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.238445478800573,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.101133677109045,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.382820481330981,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.874985661016995,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.427544612793477,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 0.762373698863813,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.173980110312327,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.893053454379092,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.712227070110542,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.329094842419637,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": 0.620352313873253,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": 0.178282479989528,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -1.0,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.9316614191612,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -0.821527233271299,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.605404683213066,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.840731348863071,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "TRIM6",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.334703577795562,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "XL_VLDL_C_pct",
+      "association_strength": 0.537281766435133,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "L_VLDL_C_pct",
+      "association_strength": 0.753774050132078,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "M_VLDL_C_pct",
+      "association_strength": 0.404760903554813,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "XS_VLDL_C_pct",
+      "association_strength": 0.464837971015601,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "L_LDL_C_pct",
+      "association_strength": -0.189695667631284,
+      "is_causal": false,
+      "group": "C"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "XL_VLDL_CE_pct",
+      "association_strength": 0.510560459346532,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "L_VLDL_CE_pct",
+      "association_strength": 0.657714965078807,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "M_VLDL_CE_pct",
+      "association_strength": 0.344066455393767,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "S_VLDL_CE_pct",
+      "association_strength": 1.0,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "XS_VLDL_CE_pct",
+      "association_strength": 0.430595323197841,
+      "is_causal": false,
+      "group": "CE"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "XL_VLDL_FC_pct",
+      "association_strength": 0.488913906930337,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "M_VLDL_FC_pct",
+      "association_strength": 0.416751086628261,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "S_VLDL_FC_pct",
+      "association_strength": 0.469308724755246,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "XL_HDL_FC",
+      "association_strength": -0.875780327154429,
+      "is_causal": true,
+      "group": "FC"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "L_HDL_FC_pct",
+      "association_strength": -0.314344257594929,
+      "is_causal": false,
+      "group": "FC"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "XL_VLDL_TG_pct",
+      "association_strength": -0.714370634850854,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "M_VLDL_TG_pct",
+      "association_strength": -0.60540580834821,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "S_VLDL_TG_pct",
+      "association_strength": -0.929391144123033,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "XS_VLDL_TG_pct",
+      "association_strength": -0.783840299095146,
+      "is_causal": false,
+      "group": "TG"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "M_VLDL_PL_pct",
+      "association_strength": 0.434154341352274,
+      "is_causal": false,
+      "group": "PL"
+    },
+    {
+      "gene": "TTC39B",
+      "metabolic_trait": "S_VLDL_PL_pct",
+      "association_strength": 0.514715832852299,
+      "is_causal": true,
+      "group": "PL"
+    }
+  ],
+  "genes": [
+    "ABCA1",
+    "ABCA8",
+    "ABCA9",
+    "ABCG8",
+    "ABO",
+    "AC012181.1",
+    "AC012361.1",
+    "AC022431.2",
+    "ALDH1A2",
+    "ALDH1A2:LIPC",
+    "ALDH1A2:LIPC:RP11-355N15.1",
+    "APOB",
+    "APOE",
+    "CELSR2",
+    "CETP",
+    "FADS2",
+    "GCK",
+    "GCKR",
+    "GPAM",
+    "HMGCR",
+    "LDLR",
+    "LILRA3",
+    "LPA",
+    "LPL",
+    "MARC1",
+    "MIR148A",
+    "MLXIPL",
+    "MYO1F",
+    "PLTP",
+    "PTPRM",
+    "RP1-81D8.4",
+    "RP11-116D2.1",
+    "RP11-136O12.2",
+    "SCARB1",
+    "SPTLC3",
+    "ST3GAL4",
+    "TDRD15",
+    "TRIM6",
+    "TTC39B"
+  ],
+  "metabolic_traits": [
+    "L_HDL_FC_pct",
+    "L_LDL_C_pct",
+    "L_VLDL_CE_pct",
+    "L_VLDL_C_pct",
+    "M_VLDL_CE_pct",
+    "M_VLDL_C_pct",
+    "M_VLDL_FC_pct",
+    "M_VLDL_PL_pct",
+    "M_VLDL_TG_pct",
+    "S_VLDL_CE_pct",
+    "S_VLDL_FC_pct",
+    "S_VLDL_PL_pct",
+    "S_VLDL_TG_pct",
+    "XL_HDL_FC",
+    "XL_VLDL_CE_pct",
+    "XL_VLDL_C_pct",
+    "XL_VLDL_FC_pct",
+    "XL_VLDL_TG_pct",
+    "XS_VLDL_CE_pct",
+    "XS_VLDL_C_pct",
+    "XS_VLDL_TG_pct"
+  ],
+  "visualization_type": "gene_metabolite_heatmap",
+  "causal_indicators": true,
+  "total_associations": 819,
+  "unique_genes": 39,
+  "unique_traits": 21
+}
