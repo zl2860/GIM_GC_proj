@@ -45,7 +45,7 @@ const GCGimsPage: React.FC = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch('${import.meta.env.BASE_URL}data/gc_gim_heatmap.json');
+        const response = await fetch(`${import.meta.env.BASE_URL}data/gc_gim_heatmap.json`);
         const gcGimData = await response.json();
         setData(gcGimData);
       } catch (error) {
