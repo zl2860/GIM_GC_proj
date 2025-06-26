@@ -63,8 +63,8 @@ const RegulatoryEffectsPageEnhanced: React.FC = () => {
       try {
         // 1) fetch both in parallel
         const [basicRes, ancestryRes] = await Promise.all([
-          fetch('/data/regulatory_effects.json'),
-          fetch('/data/ancestry_reg_effects.json'),
+          fetch(`${import.meta.env.BASE_URL}data/regulatory_effects.json`),
+          fetch(`${import.meta.env.BASE_URL}data/ancestry_reg_effects.json`),
         ]);
   
         // 2) guard status codes

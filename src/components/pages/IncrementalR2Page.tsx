@@ -24,7 +24,7 @@ const IncrementalR2Page: React.FC = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch('/data/simple_incremental_r2.json');
+        const response = await fetch(`${import.meta.env.BASE_URL}data/simple_incremental_r2.json`);
         const r2Data = await response.json();
         setData(r2Data);
       } catch (error) {

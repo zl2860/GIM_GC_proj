@@ -39,7 +39,7 @@ const LesionProgressionPage: React.FC = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch('/data/lesion_progression_heatmap.json');
+        const response = await fetch(`${import.meta.env.BASE_URL}data/lesion_progression_heatmap.json`);
         const lesionData = await response.json();
         setData(lesionData);
       } catch (error) {

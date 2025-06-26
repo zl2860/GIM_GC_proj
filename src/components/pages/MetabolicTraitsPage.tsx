@@ -39,7 +39,7 @@ const MetabolicTraitsPage: React.FC = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch('/data/biomarker_information.json');
+        const response = await fetch(`${import.meta.env.BASE_URL}data/biomarker_information.json`);
         const traitData = await response.json();
         setData(traitData);
       } catch (error) {

@@ -47,7 +47,7 @@ export default function RiskAssociationsPage() {
   );
 
   useEffect(() => {
-    fetch('/data/improved_risk_comparison.json')
+    fetch(`${import.meta.env.BASE_URL}data/improved_risk_comparison.json`)
       .then(r => r.json())
       .then(setResp)
       .catch(e => { console.error(e); toast.error('Failed to load data'); })

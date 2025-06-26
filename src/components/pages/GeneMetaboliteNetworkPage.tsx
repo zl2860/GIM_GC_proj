@@ -52,7 +52,7 @@ const GeneMetaboliteNetworkPage: React.FC = () => {
 
   // 1) Load & filter out zero‐value edges
   useEffect(() => {
-    fetch('/data/GIM_ggm_network.json')
+    fetch(`${import.meta.env.BASE_URL}data/GIM_ggm_network.json`)
       .then(res => {
         if (!res.ok) throw new Error(`Fetch failed ${res.status}`);
         return res.json() as Promise<NetworkJSON>;

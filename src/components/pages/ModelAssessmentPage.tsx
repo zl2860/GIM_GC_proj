@@ -54,7 +54,7 @@ const ModelAssessmentPageFixed: React.FC = () => {
     const loadData = async () => {
       try {
         setLoading(true);
-        const response = await fetch('/data/multi_center_assessment.json');
+        const response = await fetch(`${import.meta.env.BASE_URL}data/multi_center_assessment.json`);
         if (!response.ok) {
           throw new Error('Failed to load assessment data');
         }

@@ -1,0 +1,1581 @@
+{
+  "nodes": [
+    {
+      "id": "XL_VLDL_C_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 0
+    },
+    {
+      "id": "M_HDL_C_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 1
+    },
+    {
+      "id": "XS_VLDL_C_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 2
+    },
+    {
+      "id": "M_VLDL_C_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 3
+    },
+    {
+      "id": "L_VLDL_C_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 4
+    },
+    {
+      "id": "S_VLDL_PL_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 5
+    },
+    {
+      "id": "M_VLDL_PL_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 6
+    },
+    {
+      "id": "M_HDL_TG_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 7
+    },
+    {
+      "id": "S_LDL_L",
+      "group": "Lipoprotein subclasses",
+      "index": 8
+    },
+    {
+      "id": "IDL_C",
+      "group": "Lipoprotein subclasses",
+      "index": 9
+    },
+    {
+      "id": "L_HDL_TG_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 10
+    },
+    {
+      "id": "Total_C",
+      "group": "Cholesterol",
+      "index": 11
+    },
+    {
+      "id": "LDL_FC",
+      "group": "Free cholesterol",
+      "index": 12
+    },
+    {
+      "id": "XL_HDL_C",
+      "group": "Lipoprotein subclasses",
+      "index": 13
+    },
+    {
+      "id": "IDL_L",
+      "group": "Lipoprotein subclasses",
+      "index": 14
+    },
+    {
+      "id": "HDL_PL",
+      "group": "Phospholipids",
+      "index": 15
+    },
+    {
+      "id": "L_LDL_C",
+      "group": "Lipoprotein subclasses",
+      "index": 16
+    },
+    {
+      "id": "M_VLDL_TG_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 17
+    },
+    {
+      "id": "M_LDL_FC",
+      "group": "Lipoprotein subclasses",
+      "index": 18
+    },
+    {
+      "id": "S_VLDL_TG_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 19
+    },
+    {
+      "id": "LDL_PL",
+      "group": "Phospholipids",
+      "index": 20
+    },
+    {
+      "id": "M_HDL_P",
+      "group": "Lipoprotein subclasses",
+      "index": 21
+    },
+    {
+      "id": "XL_HDL_P",
+      "group": "Lipoprotein subclasses",
+      "index": 22
+    },
+    {
+      "id": "M_VLDL_C",
+      "group": "Lipoprotein subclasses",
+      "index": 23
+    },
+    {
+      "id": "LDL_C",
+      "group": "Cholesterol",
+      "index": 24
+    },
+    {
+      "id": "M_HDL_FC_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 25
+    },
+    {
+      "id": "L_LDL_L",
+      "group": "Lipoprotein subclasses",
+      "index": 26
+    },
+    {
+      "id": "S_LDL_PL",
+      "group": "Lipoprotein subclasses",
+      "index": 27
+    },
+    {
+      "id": "HDL_L",
+      "group": "Total lipids",
+      "index": 28
+    },
+    {
+      "id": "LDL_P",
+      "group": "Lipoprotein particle concentrations",
+      "index": 29
+    },
+    {
+      "id": "XL_VLDL_FC_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 30
+    },
+    {
+      "id": "M_LDL_PL",
+      "group": "Lipoprotein subclasses",
+      "index": 31
+    },
+    {
+      "id": "XL_VLDL_TG_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 32
+    },
+    {
+      "id": "M_VLDL_CE_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 33
+    },
+    {
+      "id": "L_HDL_PL_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 34
+    },
+    {
+      "id": "LDL_CE",
+      "group": "Cholesteryl esters",
+      "index": 35
+    },
+    {
+      "id": "M_VLDL_FC",
+      "group": "Lipoprotein subclasses",
+      "index": 36
+    },
+    {
+      "id": "L_HDL_FC_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 37
+    },
+    {
+      "id": "M_LDL_L",
+      "group": "Lipoprotein subclasses",
+      "index": 38
+    },
+    {
+      "id": "HDL_P",
+      "group": "Lipoprotein particle concentrations",
+      "index": 39
+    },
+    {
+      "id": "ApoA1",
+      "group": "Apolipoproteins",
+      "index": 40
+    },
+    {
+      "id": "L_LDL_PL",
+      "group": "Lipoprotein subclasses",
+      "index": 41
+    },
+    {
+      "id": "S_LDL_P",
+      "group": "Lipoprotein subclasses",
+      "index": 42
+    },
+    {
+      "id": "HDL_CE",
+      "group": "Cholesteryl esters",
+      "index": 43
+    },
+    {
+      "id": "L_LDL_FC",
+      "group": "Lipoprotein subclasses",
+      "index": 44
+    },
+    {
+      "id": "Total_CE",
+      "group": "Cholesteryl esters",
+      "index": 45
+    },
+    {
+      "id": "L_VLDL_CE_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 46
+    },
+    {
+      "id": "IDL_PL",
+      "group": "Lipoprotein subclasses",
+      "index": 47
+    },
+    {
+      "id": "XS_VLDL_C",
+      "group": "Lipoprotein subclasses",
+      "index": 48
+    },
+    {
+      "id": "M_HDL_C",
+      "group": "Lipoprotein subclasses",
+      "index": 49
+    },
+    {
+      "id": "Remnant_C",
+      "group": "Cholesterol",
+      "index": 50
+    },
+    {
+      "id": "Sphingomyelins",
+      "group": "Other lipids",
+      "index": 51
+    },
+    {
+      "id": "L_LDL_CE",
+      "group": "Lipoprotein subclasses",
+      "index": 52
+    },
+    {
+      "id": "LDL_size",
+      "group": "Lipoprotein particle sizes",
+      "index": 53
+    },
+    {
+      "id": "XL_HDL_CE",
+      "group": "Lipoprotein subclasses",
+      "index": 54
+    },
+    {
+      "id": "XS_VLDL_CE_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 55
+    },
+    {
+      "id": "XS_VLDL_TG_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 56
+    },
+    {
+      "id": "IDL_CE",
+      "group": "Lipoprotein subclasses",
+      "index": 57
+    },
+    {
+      "id": "M_VLDL_FC_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 58
+    },
+    {
+      "id": "XL_VLDL_CE_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 59
+    },
+    {
+      "id": "Omega_6",
+      "group": "Fatty acids",
+      "index": 60
+    },
+    {
+      "id": "S_VLDL_FC",
+      "group": "Lipoprotein subclasses",
+      "index": 61
+    },
+    {
+      "id": "M_HDL_FC",
+      "group": "Lipoprotein subclasses",
+      "index": 62
+    },
+    {
+      "id": "XL_HDL_FC",
+      "group": "Lipoprotein subclasses",
+      "index": 63
+    },
+    {
+      "id": "S_VLDL_FC_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 64
+    },
+    {
+      "id": "S_LDL_FC",
+      "group": "Lipoprotein subclasses",
+      "index": 65
+    },
+    {
+      "id": "S_VLDL_CE_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 66
+    },
+    {
+      "id": "M_HDL_CE_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 67
+    },
+    {
+      "id": "S_HDL_TG_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 68
+    },
+    {
+      "id": "S_LDL_CE",
+      "group": "Lipoprotein subclasses",
+      "index": 69
+    },
+    {
+      "id": "S_HDL_FC_pct",
+      "group": "Relative lipoprotein lipid concentrations",
+      "index": 70
+    },
+    {
+      "id": "Total_L",
+      "group": "Total lipids",
+      "index": 71
+    }
+  ],
+  "links": [
+    {
+      "source": 0,
+      "target": 59,
+      "value": 0.7764
+    },
+    {
+      "source": 1,
+      "target": 67,
+      "value": 0.7702
+    },
+    {
+      "source": 2,
+      "target": 55,
+      "value": 0.6829
+    },
+    {
+      "source": 3,
+      "target": 33,
+      "value": 0.6747
+    },
+    {
+      "source": 4,
+      "target": 46,
+      "value": 0.657
+    },
+    {
+      "source": 5,
+      "target": 64,
+      "value": 0.4801
+    },
+    {
+      "source": 6,
+      "target": 58,
+      "value": 0.476
+    },
+    {
+      "source": 7,
+      "target": 68,
+      "value": 0.4352
+    },
+    {
+      "source": 8,
+      "target": 27,
+      "value": 0.3693
+    },
+    {
+      "source": 9,
+      "target": 57,
+      "value": 0.3674
+    },
+    {
+      "source": 10,
+      "target": 7,
+      "value": 0.3503
+    },
+    {
+      "source": 11,
+      "target": 45,
+      "value": 0.3424
+    },
+    {
+      "source": 12,
+      "target": 44,
+      "value": 0.3128
+    },
+    {
+      "source": 3,
+      "target": 58,
+      "value": 0.3087
+    },
+    {
+      "source": 13,
+      "target": 54,
+      "value": 0.2725
+    },
+    {
+      "source": 14,
+      "target": 57,
+      "value": 0.2548
+    },
+    {
+      "source": 14,
+      "target": 9,
+      "value": 0.2481
+    },
+    {
+      "source": 15,
+      "target": 28,
+      "value": 0.2462
+    },
+    {
+      "source": 16,
+      "target": 52,
+      "value": 0.2446
+    },
+    {
+      "source": 17,
+      "target": 19,
+      "value": 0.2341
+    },
+    {
+      "source": 18,
+      "target": 65,
+      "value": 0.2322
+    },
+    {
+      "source": 19,
+      "target": 56,
+      "value": 0.2317
+    },
+    {
+      "source": 13,
+      "target": 63,
+      "value": 0.2242
+    },
+    {
+      "source": 20,
+      "target": 41,
+      "value": 0.216
+    },
+    {
+      "source": 0,
+      "target": 30,
+      "value": 0.2109
+    },
+    {
+      "source": 21,
+      "target": 62,
+      "value": 0.2097
+    },
+    {
+      "source": 22,
+      "target": 54,
+      "value": 0.2095
+    },
+    {
+      "source": 23,
+      "target": 36,
+      "value": 0.2034
+    },
+    {
+      "source": 1,
+      "target": 25,
+      "value": 0.2025
+    },
+    {
+      "source": 8,
+      "target": 69,
+      "value": 0.1913
+    },
+    {
+      "source": 24,
+      "target": 35,
+      "value": 0.191
+    },
+    {
+      "source": 22,
+      "target": 13,
+      "value": 0.1882
+    },
+    {
+      "source": 14,
+      "target": 47,
+      "value": 0.1879
+    },
+    {
+      "source": 25,
+      "target": 70,
+      "value": 0.1805
+    },
+    {
+      "source": 22,
+      "target": 63,
+      "value": 0.1804
+    },
+    {
+      "source": 26,
+      "target": 16,
+      "value": 0.1802
+    },
+    {
+      "source": 27,
+      "target": 65,
+      "value": 0.1701
+    },
+    {
+      "source": 26,
+      "target": 52,
+      "value": 0.1688
+    },
+    {
+      "source": 28,
+      "target": 40,
+      "value": 0.1649
+    },
+    {
+      "source": 29,
+      "target": 42,
+      "value": 0.1635
+    },
+    {
+      "source": 20,
+      "target": 31,
+      "value": 0.1625
+    },
+    {
+      "source": 12,
+      "target": 18,
+      "value": 0.1555
+    },
+    {
+      "source": 30,
+      "target": 4,
+      "value": 0.1504
+    },
+    {
+      "source": 31,
+      "target": 18,
+      "value": 0.1466
+    },
+    {
+      "source": 32,
+      "target": 17,
+      "value": 0.1423
+    },
+    {
+      "source": 33,
+      "target": 19,
+      "value": 0.1363
+    },
+    {
+      "source": 34,
+      "target": 25,
+      "value": 0.1342
+    },
+    {
+      "source": 12,
+      "target": 65,
+      "value": 0.134
+    },
+    {
+      "source": 35,
+      "target": 52,
+      "value": 0.1323
+    },
+    {
+      "source": 36,
+      "target": 61,
+      "value": 0.1266
+    },
+    {
+      "source": 37,
+      "target": 25,
+      "value": 0.1251
+    },
+    {
+      "source": 38,
+      "target": 31,
+      "value": 0.1215
+    },
+    {
+      "source": 39,
+      "target": 21,
+      "value": 0.1189
+    },
+    {
+      "source": 16,
+      "target": 44,
+      "value": 0.1175
+    },
+    {
+      "source": 40,
+      "target": 21,
+      "value": 0.114
+    },
+    {
+      "source": 23,
+      "target": 61,
+      "value": 0.1111
+    },
+    {
+      "source": 41,
+      "target": 18,
+      "value": 0.1083
+    },
+    {
+      "source": 24,
+      "target": 16,
+      "value": 0.1083
+    },
+    {
+      "source": 11,
+      "target": 71,
+      "value": 0.1005
+    },
+    {
+      "source": 12,
+      "target": 16,
+      "value": 0.0997
+    },
+    {
+      "source": 42,
+      "target": 69,
+      "value": 0.0985
+    },
+    {
+      "source": 21,
+      "target": 49,
+      "value": 0.098
+    },
+    {
+      "source": 22,
+      "target": 70,
+      "value": 0.0974
+    },
+    {
+      "source": 43,
+      "target": 49,
+      "value": 0.097
+    },
+    {
+      "source": 0,
+      "target": 46,
+      "value": 0.0966
+    },
+    {
+      "source": 15,
+      "target": 62,
+      "value": 0.0948
+    },
+    {
+      "source": 44,
+      "target": 18,
+      "value": 0.0939
+    },
+    {
+      "source": 3,
+      "target": 64,
+      "value": 0.0934
+    },
+    {
+      "source": 24,
+      "target": 52,
+      "value": 0.0922
+    },
+    {
+      "source": 45,
+      "target": 51,
+      "value": 0.0905
+    },
+    {
+      "source": 46,
+      "target": 58,
+      "value": 0.0893
+    },
+    {
+      "source": 39,
+      "target": 40,
+      "value": 0.0884
+    },
+    {
+      "source": 41,
+      "target": 44,
+      "value": 0.0883
+    },
+    {
+      "source": 47,
+      "target": 57,
+      "value": 0.0874
+    },
+    {
+      "source": 12,
+      "target": 41,
+      "value": 0.087
+    },
+    {
+      "source": 48,
+      "target": 47,
+      "value": 0.0863
+    },
+    {
+      "source": 31,
+      "target": 69,
+      "value": 0.0804
+    },
+    {
+      "source": 35,
+      "target": 38,
+      "value": 0.0797
+    },
+    {
+      "source": 49,
+      "target": 62,
+      "value": 0.0759
+    },
+    {
+      "source": 31,
+      "target": 8,
+      "value": 0.0753
+    },
+    {
+      "source": 24,
+      "target": 26,
+      "value": 0.0747
+    },
+    {
+      "source": 32,
+      "target": 33,
+      "value": 0.0746
+    },
+    {
+      "source": 50,
+      "target": 14,
+      "value": 0.0736
+    },
+    {
+      "source": 40,
+      "target": 49,
+      "value": 0.0735
+    },
+    {
+      "source": 15,
+      "target": 40,
+      "value": 0.0714
+    },
+    {
+      "source": 51,
+      "target": 44,
+      "value": 0.0713
+    },
+    {
+      "source": 35,
+      "target": 16,
+      "value": 0.0701
+    },
+    {
+      "source": 52,
+      "target": 18,
+      "value": 0.068
+    },
+    {
+      "source": 29,
+      "target": 61,
+      "value": 0.0675
+    },
+    {
+      "source": 42,
+      "target": 8,
+      "value": 0.0668
+    },
+    {
+      "source": 20,
+      "target": 65,
+      "value": 0.0667
+    },
+    {
+      "source": 28,
+      "target": 25,
+      "value": 0.0655
+    },
+    {
+      "source": 26,
+      "target": 41,
+      "value": 0.0647
+    },
+    {
+      "source": 47,
+      "target": 9,
+      "value": 0.064
+    },
+    {
+      "source": 6,
+      "target": 3,
+      "value": 0.0635
+    },
+    {
+      "source": 20,
+      "target": 27,
+      "value": 0.0632
+    },
+    {
+      "source": 4,
+      "target": 66,
+      "value": 0.062
+    },
+    {
+      "source": 32,
+      "target": 19,
+      "value": 0.0613
+    },
+    {
+      "source": 38,
+      "target": 8,
+      "value": 0.0605
+    },
+    {
+      "source": 43,
+      "target": 39,
+      "value": 0.0599
+    },
+    {
+      "source": 50,
+      "target": 9,
+      "value": 0.0587
+    },
+    {
+      "source": 11,
+      "target": 51,
+      "value": 0.0568
+    },
+    {
+      "source": 39,
+      "target": 49,
+      "value": 0.0567
+    },
+    {
+      "source": 45,
+      "target": 71,
+      "value": 0.0557
+    },
+    {
+      "source": 39,
+      "target": 62,
+      "value": 0.0554
+    },
+    {
+      "source": 29,
+      "target": 69,
+      "value": 0.0553
+    },
+    {
+      "source": 47,
+      "target": 41,
+      "value": 0.055
+    },
+    {
+      "source": 35,
+      "target": 26,
+      "value": 0.0549
+    },
+    {
+      "source": 20,
+      "target": 38,
+      "value": 0.0531
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "value": 0.0524
+    },
+    {
+      "source": 53,
+      "target": 33,
+      "value": 0.0518
+    },
+    {
+      "source": 45,
+      "target": 26,
+      "value": 0.0506
+    },
+    {
+      "source": 47,
+      "target": 44,
+      "value": 0.0493
+    },
+    {
+      "source": 45,
+      "target": 16,
+      "value": 0.0493
+    },
+    {
+      "source": 24,
+      "target": 38,
+      "value": 0.0488
+    },
+    {
+      "source": 43,
+      "target": 28,
+      "value": 0.0485
+    },
+    {
+      "source": 52,
+      "target": 44,
+      "value": 0.0483
+    },
+    {
+      "source": 20,
+      "target": 26,
+      "value": 0.0462
+    },
+    {
+      "source": 12,
+      "target": 26,
+      "value": 0.0457
+    },
+    {
+      "source": 54,
+      "target": 70,
+      "value": 0.0454
+    },
+    {
+      "source": 20,
+      "target": 12,
+      "value": 0.0453
+    },
+    {
+      "source": 50,
+      "target": 6,
+      "value": 0.0453
+    },
+    {
+      "source": 6,
+      "target": 5,
+      "value": 0.0448
+    },
+    {
+      "source": 55,
+      "target": 37,
+      "value": 0.0442
+    },
+    {
+      "source": 51,
+      "target": 70,
+      "value": 0.0439
+    },
+    {
+      "source": 56,
+      "target": 68,
+      "value": 0.0439
+    },
+    {
+      "source": 57,
+      "target": 41,
+      "value": 0.0431
+    },
+    {
+      "source": 46,
+      "target": 6,
+      "value": 0.043
+    },
+    {
+      "source": 47,
+      "target": 63,
+      "value": 0.0424
+    },
+    {
+      "source": 43,
+      "target": 40,
+      "value": 0.0417
+    },
+    {
+      "source": 50,
+      "target": 57,
+      "value": 0.0415
+    },
+    {
+      "source": 43,
+      "target": 1,
+      "value": 0.0406
+    },
+    {
+      "source": 11,
+      "target": 25,
+      "value": 0.0405
+    },
+    {
+      "source": 42,
+      "target": 63,
+      "value": 0.0387
+    },
+    {
+      "source": 51,
+      "target": 47,
+      "value": 0.0376
+    },
+    {
+      "source": 9,
+      "target": 55,
+      "value": 0.0371
+    },
+    {
+      "source": 26,
+      "target": 44,
+      "value": 0.0371
+    },
+    {
+      "source": 29,
+      "target": 27,
+      "value": 0.0369
+    },
+    {
+      "source": 40,
+      "target": 62,
+      "value": 0.0368
+    },
+    {
+      "source": 27,
+      "target": 63,
+      "value": 0.0367
+    },
+    {
+      "source": 48,
+      "target": 2,
+      "value": 0.0365
+    },
+    {
+      "source": 33,
+      "target": 55,
+      "value": 0.0365
+    },
+    {
+      "source": 31,
+      "target": 27,
+      "value": 0.0356
+    },
+    {
+      "source": 45,
+      "target": 9,
+      "value": 0.0335
+    },
+    {
+      "source": 58,
+      "target": 70,
+      "value": 0.0332
+    },
+    {
+      "source": 24,
+      "target": 12,
+      "value": 0.033
+    },
+    {
+      "source": 20,
+      "target": 18,
+      "value": 0.0328
+    },
+    {
+      "source": 45,
+      "target": 44,
+      "value": 0.0327
+    },
+    {
+      "source": 29,
+      "target": 65,
+      "value": 0.032
+    },
+    {
+      "source": 6,
+      "target": 66,
+      "value": 0.032
+    },
+    {
+      "source": 27,
+      "target": 70,
+      "value": 0.0319
+    },
+    {
+      "source": 59,
+      "target": 46,
+      "value": 0.0312
+    },
+    {
+      "source": 35,
+      "target": 71,
+      "value": 0.0304
+    },
+    {
+      "source": 11,
+      "target": 26,
+      "value": 0.0302
+    },
+    {
+      "source": 50,
+      "target": 48,
+      "value": 0.0291
+    },
+    {
+      "source": 51,
+      "target": 54,
+      "value": 0.0291
+    },
+    {
+      "source": 51,
+      "target": 13,
+      "value": 0.0289
+    },
+    {
+      "source": 59,
+      "target": 64,
+      "value": 0.0286
+    },
+    {
+      "source": 41,
+      "target": 52,
+      "value": 0.0283
+    },
+    {
+      "source": 47,
+      "target": 52,
+      "value": 0.0281
+    },
+    {
+      "source": 8,
+      "target": 65,
+      "value": 0.0281
+    },
+    {
+      "source": 11,
+      "target": 64,
+      "value": 0.028
+    },
+    {
+      "source": 45,
+      "target": 25,
+      "value": 0.0278
+    },
+    {
+      "source": 11,
+      "target": 16,
+      "value": 0.0276
+    },
+    {
+      "source": 12,
+      "target": 52,
+      "value": 0.0276
+    },
+    {
+      "source": 33,
+      "target": 56,
+      "value": 0.0268
+    },
+    {
+      "source": 45,
+      "target": 12,
+      "value": 0.0267
+    },
+    {
+      "source": 24,
+      "target": 20,
+      "value": 0.0262
+    },
+    {
+      "source": 31,
+      "target": 65,
+      "value": 0.0262
+    },
+    {
+      "source": 41,
+      "target": 16,
+      "value": 0.0258
+    },
+    {
+      "source": 57,
+      "target": 44,
+      "value": 0.0255
+    },
+    {
+      "source": 38,
+      "target": 69,
+      "value": 0.0255
+    },
+    {
+      "source": 19,
+      "target": 68,
+      "value": 0.0251
+    },
+    {
+      "source": 28,
+      "target": 49,
+      "value": 0.0248
+    },
+    {
+      "source": 35,
+      "target": 31,
+      "value": 0.0238
+    },
+    {
+      "source": 60,
+      "target": 69,
+      "value": 0.0233
+    },
+    {
+      "source": 14,
+      "target": 26,
+      "value": 0.0224
+    },
+    {
+      "source": 33,
+      "target": 64,
+      "value": 0.0221
+    },
+    {
+      "source": 24,
+      "target": 45,
+      "value": 0.0219
+    },
+    {
+      "source": 14,
+      "target": 41,
+      "value": 0.0213
+    },
+    {
+      "source": 11,
+      "target": 9,
+      "value": 0.0212
+    },
+    {
+      "source": 15,
+      "target": 49,
+      "value": 0.0209
+    },
+    {
+      "source": 42,
+      "target": 22,
+      "value": 0.0207
+    },
+    {
+      "source": 11,
+      "target": 24,
+      "value": 0.0197
+    },
+    {
+      "source": 11,
+      "target": 14,
+      "value": 0.0184
+    },
+    {
+      "source": 8,
+      "target": 5,
+      "value": 0.0183
+    },
+    {
+      "source": 9,
+      "target": 41,
+      "value": 0.0183
+    },
+    {
+      "source": 29,
+      "target": 18,
+      "value": 0.0181
+    },
+    {
+      "source": 45,
+      "target": 64,
+      "value": 0.0177
+    },
+    {
+      "source": 35,
+      "target": 8,
+      "value": 0.0177
+    },
+    {
+      "source": 20,
+      "target": 35,
+      "value": 0.0174
+    },
+    {
+      "source": 50,
+      "target": 7,
+      "value": 0.0172
+    },
+    {
+      "source": 24,
+      "target": 65,
+      "value": 0.017
+    },
+    {
+      "source": 12,
+      "target": 51,
+      "value": 0.0158
+    },
+    {
+      "source": 41,
+      "target": 31,
+      "value": 0.0158
+    },
+    {
+      "source": 29,
+      "target": 41,
+      "value": 0.0154
+    },
+    {
+      "source": 42,
+      "target": 65,
+      "value": 0.0146
+    },
+    {
+      "source": 47,
+      "target": 16,
+      "value": 0.0141
+    },
+    {
+      "source": 47,
+      "target": 26,
+      "value": 0.0131
+    },
+    {
+      "source": 16,
+      "target": 18,
+      "value": 0.0129
+    },
+    {
+      "source": 50,
+      "target": 71,
+      "value": 0.0122
+    },
+    {
+      "source": 61,
+      "target": 41,
+      "value": 0.0115
+    },
+    {
+      "source": 20,
+      "target": 8,
+      "value": 0.0112
+    },
+    {
+      "source": 48,
+      "target": 14,
+      "value": 0.0102
+    },
+    {
+      "source": 24,
+      "target": 18,
+      "value": 0.0095
+    },
+    {
+      "source": 8,
+      "target": 13,
+      "value": 0.0087
+    },
+    {
+      "source": 39,
+      "target": 66,
+      "value": -0.0141
+    },
+    {
+      "source": 43,
+      "target": 7,
+      "value": -0.0141
+    },
+    {
+      "source": 20,
+      "target": 19,
+      "value": -0.0183
+    },
+    {
+      "source": 54,
+      "target": 66,
+      "value": -0.0187
+    },
+    {
+      "source": 27,
+      "target": 21,
+      "value": -0.0189
+    },
+    {
+      "source": 22,
+      "target": 25,
+      "value": -0.0194
+    },
+    {
+      "source": 62,
+      "target": 66,
+      "value": -0.0211
+    },
+    {
+      "source": 63,
+      "target": 17,
+      "value": -0.0233
+    },
+    {
+      "source": 48,
+      "target": 56,
+      "value": -0.0235
+    },
+    {
+      "source": 63,
+      "target": 56,
+      "value": -0.0249
+    },
+    {
+      "source": 55,
+      "target": 56,
+      "value": -0.0268
+    },
+    {
+      "source": 55,
+      "target": 70,
+      "value": -0.0273
+    },
+    {
+      "source": 64,
+      "target": 68,
+      "value": -0.0279
+    },
+    {
+      "source": 14,
+      "target": 17,
+      "value": -0.0304
+    },
+    {
+      "source": 1,
+      "target": 7,
+      "value": -0.0338
+    },
+    {
+      "source": 64,
+      "target": 56,
+      "value": -0.0354
+    },
+    {
+      "source": 65,
+      "target": 21,
+      "value": -0.0373
+    },
+    {
+      "source": 66,
+      "target": 19,
+      "value": -0.0392
+    },
+    {
+      "source": 50,
+      "target": 56,
+      "value": -0.0405
+    },
+    {
+      "source": 49,
+      "target": 68,
+      "value": -0.0415
+    },
+    {
+      "source": 46,
+      "target": 17,
+      "value": -0.0445
+    },
+    {
+      "source": 5,
+      "target": 68,
+      "value": -0.0504
+    },
+    {
+      "source": 10,
+      "target": 25,
+      "value": -0.052
+    },
+    {
+      "source": 43,
+      "target": 68,
+      "value": -0.0554
+    },
+    {
+      "source": 3,
+      "target": 17,
+      "value": -0.0555
+    },
+    {
+      "source": 5,
+      "target": 7,
+      "value": -0.0783
+    },
+    {
+      "source": 17,
+      "target": 5,
+      "value": -0.0799
+    },
+    {
+      "source": 37,
+      "target": 67,
+      "value": -0.0827
+    },
+    {
+      "source": 37,
+      "target": 10,
+      "value": -0.0883
+    },
+    {
+      "source": 6,
+      "target": 17,
+      "value": -0.0891
+    },
+    {
+      "source": 59,
+      "target": 30,
+      "value": -0.1165
+    },
+    {
+      "source": 58,
+      "target": 17,
+      "value": -0.1402
+    },
+    {
+      "source": 2,
+      "target": 56,
+      "value": -0.1862
+    },
+    {
+      "source": 5,
+      "target": 19,
+      "value": -0.235
+    },
+    {
+      "source": 30,
+      "target": 32,
+      "value": -0.2646
+    },
+    {
+      "source": 0,
+      "target": 32,
+      "value": -0.2791
+    },
+    {
+      "source": 53,
+      "target": 42,
+      "value": -0.3859
+    }
+  ]
+}
