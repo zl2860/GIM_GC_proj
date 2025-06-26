@@ -1,0 +1,5742 @@
+{
+  "title": "GIMs for Gastric Lesion Progression - Effect Estimates Comparison",
+  "description": "Comparison of Beta estimates across different methods (True, Predicted, MR)",
+  "data": [
+    {
+      "Gene": "ABCA1",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.555202960459836,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.453607621075201,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.570688133682637,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.651475648134085,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.346587449929892,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.549393509934939,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.422432914529024,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.626588403945104,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 1.0,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.646682976979362,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.443364510383075,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.384093302687687,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.618489316912556,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "XL_HDL_FC",
+      "value": -0.771613779494447,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "L_HDL_FC_pct",
+      "value": 0.437387354026258,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": 0.0113806483035475,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.0075650895707306,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -0.357438117677776,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.316091600523704,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.303489561692774,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA1",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.70022080431014,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.491141786053352,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.860879014766397,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.585226811323513,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.423552410299418,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.0437085936265745,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.450225238859499,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.804897819368918,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.493579474398367,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 1.0,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.376207216797755,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.517237306228877,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.731981260363128,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.51744253862134,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "XL_HDL_FC",
+      "value": 0.256285057457688,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "L_HDL_FC_pct",
+      "value": 0.267939009067137,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.682257438197735,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.919302327984987,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.761276338772238,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.813207516525637,
+      "Group": "PL",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABCA8",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.539144018509304,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.592156464174407,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.881100068232143,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.59334510404937,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.469047334267471,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.0308219649245883,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.54637461739492,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.825309601024784,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.487794131044138,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 1.0,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.426245143650042,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.565494490920663,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.752308025054397,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.535650829909848,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "XL_HDL_FC",
+      "value": 0.365646820264389,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "L_HDL_FC_pct",
+      "value": 0.315766087075617,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.80496638281021,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.942569730337399,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -1.0,
+      "Group": "TG",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.776156429469593,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.814939058966577,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCA9",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.545321078402513,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "XL_VLDL_C_pct",
+      "value": -0.580182216310546,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "L_VLDL_C_pct",
+      "value": -0.791181145539628,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "M_VLDL_C_pct",
+      "value": -0.700347166903175,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "XS_VLDL_C_pct",
+      "value": -0.651136165750892,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.413425021952656,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": -0.51742392524611,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "L_VLDL_CE_pct",
+      "value": -0.728129411372402,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "M_VLDL_CE_pct",
+      "value": -0.57481131830796,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "S_VLDL_CE_pct",
+      "value": -0.930345796019992,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": -0.614707724000459,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": -0.764399275284458,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "M_VLDL_FC_pct",
+      "value": -0.900005557634523,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "S_VLDL_FC_pct",
+      "value": -0.817241264324803,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "XL_HDL_FC",
+      "value": -0.654573006939633,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.577757605622844,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": 0.693215610283847,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "M_VLDL_TG_pct",
+      "value": 0.855600798817335,
+      "Group": "TG",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "S_VLDL_TG_pct",
+      "value": 1.0,
+      "Group": "TG",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": 0.804017058232894,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "M_VLDL_PL_pct",
+      "value": -1.0,
+      "Group": "PL",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABCG8",
+      "Trait": "S_VLDL_PL_pct",
+      "value": -0.882141097225258,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.775747792680903,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "L_VLDL_C_pct",
+      "value": 1.0,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.551629392091104,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.367721225485984,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "L_LDL_C_pct",
+      "value": 0.0547813932560097,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.765533879011168,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.914859565246195,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.435499581198056,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.866071270448981,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.325644256444532,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.589139878537598,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.71240736015721,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.552032124109677,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "XL_HDL_FC",
+      "value": -0.333108573010264,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.302031304215502,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.975358572518328,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.933020549171678,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -1.0,
+      "Group": "TG",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.64219424670419,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.761545913745821,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ABO",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.532365158564254,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.350131504614821,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.837951895125537,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.169003819806877,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.123485639247113,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.324470333830919,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.324694808280114,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.612675323897924,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.116748712077848,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 1.0,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.0906731614607299,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.418754840230311,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.284902222671171,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.0922423126854253,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "XL_HDL_FC",
+      "value": -0.672764889203153,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.396543841730548,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.385044763946411,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.174470520892959,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -0.402378680913312,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.128002065164933,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.420790075236353,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012181.1",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.0022761709148455,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.242687645788877,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "L_VLDL_C_pct",
+      "value": -0.442395129538179,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.464459717185219,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.9182544420293,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "L_LDL_C_pct",
+      "value": 0.0764328622207238,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.343821422288501,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "L_VLDL_CE_pct",
+      "value": -0.23914712448576,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.520154104686075,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.0644074558520549,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 1.0,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": -0.25461059050154,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.201367333133611,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.722192002249445,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "XL_HDL_FC",
+      "value": 0.655128198522403,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "L_HDL_FC_pct",
+      "value": 0.300041146598928,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.0179695073522863,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.421857161679635,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -0.539243476718312,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.9072722013136,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.124530660104802,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC012361.1",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.753622409659661,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "XL_VLDL_C_pct",
+      "value": -0.858256539141767,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.693413734524807,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.918592339197617,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "XS_VLDL_C_pct",
+      "value": -0.709063459927395,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "L_LDL_C_pct",
+      "value": 0.462222493716839,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": -0.88484361910081,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.895763520431909,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "M_VLDL_CE_pct",
+      "value": -0.67164083589314,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.677734920413293,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": -0.730737456948711,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": -0.478730336032766,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.830808433398492,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.942692334543423,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "XL_HDL_FC",
+      "value": -0.839418691240808,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "L_HDL_FC_pct",
+      "value": 0.412252164199944,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.63710672065531,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.748554291166341,
+      "Group": "TG",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -0.69596190542679,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": 1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.722226100716746,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "AC022431.2",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.968747091129107,
+      "Group": "PL",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.0452616578416316,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.712973888569356,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "M_VLDL_C_pct",
+      "value": -0.0397353873034133,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "XS_VLDL_C_pct",
+      "value": -0.815087351046651,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.905279604385439,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": -0.102563114318298,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.698515852450949,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "M_VLDL_CE_pct",
+      "value": -0.151727354841515,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "S_VLDL_CE_pct",
+      "value": -0.0220645640748931,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": -0.780917764113633,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.466393713175491,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.205256677082777,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "S_VLDL_FC_pct",
+      "value": -0.741676499712421,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "XL_HDL_FC",
+      "value": 1.0,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "L_HDL_FC_pct",
+      "value": 0.589364103354699,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.973101925695774,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -0.267571504525178,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": 0.0369505106266073,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.503304693969922,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2",
+      "Trait": "S_VLDL_PL_pct",
+      "value": -0.847570990637359,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "XL_VLDL_C_pct",
+      "value": -0.0203065974390881,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.639463533943922,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "M_VLDL_C_pct",
+      "value": -0.12714369490281,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "XS_VLDL_C_pct",
+      "value": -0.848266688280419,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.794834630953119,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": -0.169183238534778,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.611302085568211,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "M_VLDL_CE_pct",
+      "value": -0.222381676623296,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "S_VLDL_CE_pct",
+      "value": -0.159062122057311,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": -0.817213605857327,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.447522285209359,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.110345359161768,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "S_VLDL_FC_pct",
+      "value": -0.777148701029355,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "XL_HDL_FC",
+      "value": 1.0,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "L_HDL_FC_pct",
+      "value": 0.458162290676367,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.898994642649973,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -0.21473581160436,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": 0.0489909079206456,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.409984282351894,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC",
+      "Trait": "S_VLDL_PL_pct",
+      "value": -0.868249874052213,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.031915184242518,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "L_VLDL_C_pct",
+      "value": -0.524056477059041,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.187031311894149,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.991751999963575,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "L_LDL_C_pct",
+      "value": 0.888541586038274,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.164786981682747,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "L_VLDL_CE_pct",
+      "value": -0.516204599574737,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.267108851745443,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.102852993001835,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.96861070259392,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": -0.490231253614049,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "M_VLDL_FC_pct",
+      "value": -0.024639278055266,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.860086782710844,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "XL_HDL_FC",
+      "value": -1.0,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.444048827795965,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": 1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "M_VLDL_TG_pct",
+      "value": 0.851342491201071,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "S_VLDL_TG_pct",
+      "value": 0.174803873805372,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.156992018358231,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "M_VLDL_PL_pct",
+      "value": -0.292602525167442,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ALDH1A2:LIPC:RP11-355N15.1",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.974495626715962,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.567371671329396,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "L_VLDL_C_pct",
+      "value": 1.0,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.577454771526267,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.215428038545229,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "L_LDL_C_pct",
+      "value": 0.199360066314372,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.493769350326391,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.872772562428764,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.462150657962905,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.942865195316547,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.132840120194798,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.779660553310538,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.819596725727904,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.546772769661175,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "XL_HDL_FC",
+      "value": 0.172341933478396,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "L_HDL_FC_pct",
+      "value": 0.248896901875453,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.926699409387628,
+      "Group": "TG",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.949561288985597,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -1.0,
+      "Group": "TG",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.56721914827479,
+      "Group": "TG",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.919698269609367,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOB",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.555600870376127,
+      "Group": "PL",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "XL_VLDL_C_pct",
+      "value": -0.605058802133851,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "L_VLDL_C_pct",
+      "value": -0.340417070805044,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "M_VLDL_C_pct",
+      "value": -0.766828322017459,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "XS_VLDL_C_pct",
+      "value": -1.0,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.533999151309408,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": -0.656783462657614,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "L_VLDL_CE_pct",
+      "value": -0.439188288069835,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "M_VLDL_CE_pct",
+      "value": -0.734578079534433,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "S_VLDL_CE_pct",
+      "value": -0.574456838021339,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": -0.995895974781765,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": -0.309970295829292,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "M_VLDL_FC_pct",
+      "value": -0.747090203685742,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "S_VLDL_FC_pct",
+      "value": -0.980922647914646,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "XL_HDL_FC",
+      "value": -0.500213991270611,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.847478176527643,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": 0.426033583899127,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "M_VLDL_TG_pct",
+      "value": 0.661354267701261,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "S_VLDL_TG_pct",
+      "value": 0.735632880698351,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": 0.894804801163919,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "M_VLDL_PL_pct",
+      "value": -0.67961323957323,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "APOE",
+      "Trait": "S_VLDL_PL_pct",
+      "value": -0.9867907371484,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "XL_VLDL_C_pct",
+      "value": -0.625663983320785,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "L_VLDL_C_pct",
+      "value": -0.736585394104361,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "M_VLDL_C_pct",
+      "value": -0.759025887531129,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "XS_VLDL_C_pct",
+      "value": -0.514102044362078,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.476147564718828,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": -0.627897144842764,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "L_VLDL_CE_pct",
+      "value": -0.657503909190942,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "M_VLDL_CE_pct",
+      "value": -0.684040076446401,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "S_VLDL_CE_pct",
+      "value": -0.991666184050501,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": -0.444628482075636,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": -0.52533850697863,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "M_VLDL_FC_pct",
+      "value": -0.880371807494064,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "S_VLDL_FC_pct",
+      "value": -0.903037007007587,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "XL_HDL_FC",
+      "value": -0.57220710024903,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.749931082411537,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": 0.642369838420108,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "M_VLDL_TG_pct",
+      "value": 0.819427810273933,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "S_VLDL_TG_pct",
+      "value": 1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": 0.60097990386286,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "M_VLDL_PL_pct",
+      "value": -0.968907163954364,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CELSR2",
+      "Trait": "S_VLDL_PL_pct",
+      "value": -0.942432385475184,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.347815633962274,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.81273753669108,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.142185480047566,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.0802905752176852,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.368786480583845,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.328733940770947,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.598806195967285,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.0838403805250354,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 1.0,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.0477034557621512,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.385497146321306,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.275253178166443,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.0592820077048029,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "XL_HDL_FC",
+      "value": -0.640863953491385,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.415499244804958,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.410226092183019,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.200159070242206,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -0.428041959310143,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.147804234791823,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.423955874847471,
+      "Group": "PL",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "CETP",
+      "Trait": "S_VLDL_PL_pct",
+      "value": -0.0303932972877746,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "XL_VLDL_C_pct",
+      "value": -0.621614057720718,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "L_VLDL_C_pct",
+      "value": -0.251673984061258,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "M_VLDL_C_pct",
+      "value": -0.634031086789155,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "XS_VLDL_C_pct",
+      "value": -0.845469110884538,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.405171768035124,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": -0.591482344618074,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "L_VLDL_CE_pct",
+      "value": -0.468450238248819,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "M_VLDL_CE_pct",
+      "value": -0.541966124971389,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "S_VLDL_CE_pct",
+      "value": -0.205021952183774,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": -0.787091907863251,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": -0.532025219001644,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "M_VLDL_FC_pct",
+      "value": -0.749964626812876,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "S_VLDL_FC_pct",
+      "value": -0.75709648556982,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "XL_HDL_FC",
+      "value": -1.0,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.712434715661999,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": 0.644231049335192,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "M_VLDL_TG_pct",
+      "value": 0.778395305769991,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "S_VLDL_TG_pct",
+      "value": 0.688331009800454,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": 1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "M_VLDL_PL_pct",
+      "value": -0.503724588526603,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "FADS2",
+      "Trait": "S_VLDL_PL_pct",
+      "value": -0.767395284962234,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "XL_VLDL_C_pct",
+      "value": -0.709480769729281,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "L_VLDL_C_pct",
+      "value": -0.729750105850737,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "M_VLDL_C_pct",
+      "value": -0.852642812086858,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "XS_VLDL_C_pct",
+      "value": -0.934409266475991,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.13743810972185,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": -0.722992940403875,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "L_VLDL_CE_pct",
+      "value": -0.790862705112807,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "M_VLDL_CE_pct",
+      "value": -0.808788203475361,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "S_VLDL_CE_pct",
+      "value": -1.0,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": -0.932778301030856,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": -0.567971295008166,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "M_VLDL_FC_pct",
+      "value": -0.766253488753899,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "S_VLDL_FC_pct",
+      "value": -0.805545714557285,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "XL_HDL_FC",
+      "value": -0.326273017134858,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.188576761226659,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": 0.599646588149902,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "M_VLDL_TG_pct",
+      "value": 0.923837154040906,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "S_VLDL_TG_pct",
+      "value": 0.957355114102775,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": 1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "M_VLDL_PL_pct",
+      "value": -0.6531076912442,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCK",
+      "Trait": "S_VLDL_PL_pct",
+      "value": -0.790517070051586,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "XL_VLDL_C_pct",
+      "value": -0.977252646715673,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "L_VLDL_C_pct",
+      "value": -0.644203380598011,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "M_VLDL_C_pct",
+      "value": -0.886791739102005,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "XS_VLDL_C_pct",
+      "value": -1.0,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.330041972417199,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": -0.962911665543547,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "L_VLDL_CE_pct",
+      "value": -0.852825802309753,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "M_VLDL_CE_pct",
+      "value": -0.861105722180102,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "S_VLDL_CE_pct",
+      "value": -0.708826960914909,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": -0.997238585658695,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": -0.805091702193082,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "M_VLDL_FC_pct",
+      "value": -0.774230870450759,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "S_VLDL_FC_pct",
+      "value": -0.880838756639418,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "XL_HDL_FC",
+      "value": -0.853752037961612,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.400015455274004,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": 0.721194422483425,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "M_VLDL_TG_pct",
+      "value": 0.807472679020439,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "S_VLDL_TG_pct",
+      "value": 0.776786934997603,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": 1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "M_VLDL_PL_pct",
+      "value": -0.650284976879234,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GCKR",
+      "Trait": "S_VLDL_PL_pct",
+      "value": -0.892216216040953,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.280545892294379,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.044787169944186,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.524352657927167,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.979568711365896,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "L_LDL_C_pct",
+      "value": 0.320731559150316,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.30569819713714,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.177816182869951,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.486172927054845,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.400428461975239,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 1.0,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.0850427594141376,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.548490836914181,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.744720470713087,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "XL_HDL_FC",
+      "value": 0.635033709146721,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "L_HDL_FC_pct",
+      "value": 0.430824962869108,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.241723468459198,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.614510678075789,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -0.729801166864615,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.490539371142788,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "GPAM",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.722208860335777,
+      "Group": "PL",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.665673569798035,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.829541940665364,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.733964018443529,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.725913707164123,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "L_LDL_C_pct",
+      "value": 0.413703470351151,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.604247204078768,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.774390765148949,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.615362290391656,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.960094602766529,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.659738206578924,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.776106785880505,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.94047750968032,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.933592319488022,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "XL_HDL_FC",
+      "value": 0.659869071628563,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "L_HDL_FC_pct",
+      "value": 0.541425648072221,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.700103742212738,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.815070799047218,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.846733808880038,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.992694775212893,
+      "Group": "PL",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "HMGCR",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.975819515989281,
+      "Group": "PL",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.586779921316235,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.744489928671972,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.650717749726179,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "XS_VLDL_C_pct",
+      "value": -0.528556520165811,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.224384643634488,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.574243936902211,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.679931762888963,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.546162901024957,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 1.0,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": -0.476822967991238,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": -0.673198517652152,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.827470822065486,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.730069238697421,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "XL_HDL_FC",
+      "value": -0.415571114248697,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.541346670586854,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.709813500307476,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.825898439140703,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -1.0,
+      "Group": "TG",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": 0.706302563091865,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.943667766257739,
+      "Group": "PL",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LDLR",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.771465988603455,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.459574757239718,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "L_VLDL_C_pct",
+      "value": -0.169994348437865,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.494617757175081,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.562635384745423,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "L_LDL_C_pct",
+      "value": 0.665248527859218,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.533479290588077,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.118084170156769,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.472744057158673,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.0277171832349146,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.522544097929473,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": -0.0448174180813527,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.451679143746903,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.720729963057678,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "XL_HDL_FC",
+      "value": 0.200988111831322,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.0919540648984956,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.29108428782859,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.591874346382752,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -0.600635096366592,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.649221957230436,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.203028309188512,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LILRA3",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.695160373434012,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.925719348774031,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.976971151371791,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.431031020323312,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.166714937770642,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.259546830203112,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.935797749792872,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 1.0,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.378061641022432,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.606666861769387,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.167548497322215,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.614000369349632,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.450854802201162,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.284457747310358,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "XL_HDL_FC",
+      "value": -0.415148986155444,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.217803257744485,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -1.0,
+      "Group": "TG",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.657899490479156,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -0.603611149514951,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.374474105664269,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.384539387707116,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPA",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.270025864565747,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.636372206144361,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.0769412995729679,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.735892384121568,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.970918449109643,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "L_LDL_C_pct",
+      "value": 0.354629952583403,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.691052120549392,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.329672608666962,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.734382217362205,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.332603387977112,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 1.0,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.221888933927848,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.590501597835616,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.904930194851104,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "XL_HDL_FC",
+      "value": 0.574274375241561,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "L_HDL_FC_pct",
+      "value": 0.328951461618952,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.420539964743922,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.73485638332972,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -0.764167004458857,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.952960473600362,
+      "Group": "TG",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.410644696034163,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "LPL",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.924713190863585,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "XL_VLDL_C_pct",
+      "value": -0.328535822500244,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "L_VLDL_C_pct",
+      "value": -0.32048023979409,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "M_VLDL_C_pct",
+      "value": -0.595314892646532,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "XS_VLDL_C_pct",
+      "value": -0.993481141193975,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.283213327686009,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": -0.326374634824444,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "L_VLDL_CE_pct",
+      "value": -0.346569250317662,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "M_VLDL_CE_pct",
+      "value": -0.537228901269562,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "S_VLDL_CE_pct",
+      "value": -0.655293280769774,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": -1.0,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": -0.324316619424625,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "M_VLDL_FC_pct",
+      "value": -0.688509323515677,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "S_VLDL_FC_pct",
+      "value": -0.794472681067344,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "XL_HDL_FC",
+      "value": -0.490399548214034,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.567561550407802,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": 0.325630708413428,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "M_VLDL_TG_pct",
+      "value": 0.667568066551548,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "S_VLDL_TG_pct",
+      "value": 0.841372625680122,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": 1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "M_VLDL_PL_pct",
+      "value": -0.609881188979029,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MARC1",
+      "Trait": "S_VLDL_PL_pct",
+      "value": -0.786566426655372,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.941349499168203,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.761959769823862,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.870490858017789,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.756643667234185,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "L_LDL_C_pct",
+      "value": 0.363168311431277,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.958661409653528,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.842951927160239,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.802562014703533,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.938772290034402,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.716937504139508,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.664267375220612,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.886295013499667,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.959734759791641,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "XL_HDL_FC",
+      "value": 0.627498801977614,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "L_HDL_FC_pct",
+      "value": 0.397488243796582,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.738157110408964,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.901234255258636,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.799620528844093,
+      "Group": "TG",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.805869725292493,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MIR148A",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.995262454562809,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.87148433955839,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.629742879126913,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.896194856168556,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 1.0,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "L_LDL_C_pct",
+      "value": 0.241673117960284,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.839655601077926,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.784650516633733,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.847306422896142,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.862549150609132,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.981930486280249,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.788571960498052,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.848649705950626,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.94357268516391,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "XL_HDL_FC",
+      "value": 0.790967481945215,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "L_HDL_FC_pct",
+      "value": 0.433648297860056,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.639234234393467,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.841879088028638,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -0.877830762831593,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -1.0,
+      "Group": "TG",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.742568050837372,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MLXIPL",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.944871192116578,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.747407784297797,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.310437656823607,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.805157436284675,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.975027648227465,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "L_LDL_C_pct",
+      "value": 0.333387240638478,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.76407509370541,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.493524281301588,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.785661237371695,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.574387727048239,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.988873532218116,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.470477664337456,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.693509601927725,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.989965777154664,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "XL_HDL_FC",
+      "value": 0.62739270683922,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "L_HDL_FC_pct",
+      "value": 0.346961929417092,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.545932134020195,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.791916143454803,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -0.862762782562397,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.94967960400523,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.575584469222454,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "MYO1F",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 1.0,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.0618534278399394,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.371300315285416,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "M_VLDL_C_pct",
+      "value": -0.0590277119286934,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "XS_VLDL_C_pct",
+      "value": -0.20234626872748,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "L_LDL_C_pct",
+      "value": 0.0985450644794235,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.150117343068462,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.106863384221506,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "M_VLDL_CE_pct",
+      "value": -0.0218412194196852,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.372038569125735,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": -0.214223994879575,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": -0.165984140906505,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "M_VLDL_FC_pct",
+      "value": -0.0634144462355395,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "S_VLDL_FC_pct",
+      "value": -0.0333550635311967,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "XL_HDL_FC",
+      "value": -1.0,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.577304191162526,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": 0.620162857955623,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "M_VLDL_TG_pct",
+      "value": 0.795170562298502,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "S_VLDL_TG_pct",
+      "value": 0.604386141665087,
+      "Group": "TG",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": 1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.0801802816233643,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PLTP",
+      "Trait": "S_VLDL_PL_pct",
+      "value": -0.0513927081357861,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.566519635241926,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.33146552270305,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.865951267037319,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.820366363077044,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "L_LDL_C_pct",
+      "value": 0.424471228911456,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.599174408929449,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.489468223050379,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.833141624629195,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.682136174658127,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.760192825636123,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.231739640338515,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.885242278034406,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.993475803170304,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "XL_HDL_FC",
+      "value": 0.619743790820227,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "L_HDL_FC_pct",
+      "value": 0.191383667544725,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.50574633348304,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.92265856093169,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.99886241885231,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.799002927018819,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "PTPRM",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 1.0,
+      "Group": "PL",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.982142857142857,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.957705099778271,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.478167564143174,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.313883433639531,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "L_LDL_C_pct",
+      "value": 0.0223487488121634,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.994068736141907,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 1.0,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.425209851124485,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.600763382958505,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.305749920810896,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.676493506493507,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.502477035159962,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.384779854292049,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "XL_HDL_FC",
+      "value": -0.0159430630345264,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.040706525182135,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.65128207158695,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -0.610589958821666,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.450621634463098,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.402219670573329,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP1-81D8.4",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.374667405764967,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "XL_VLDL_C_pct",
+      "value": -0.72649460615802,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "L_VLDL_C_pct",
+      "value": -0.68613010920362,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "M_VLDL_C_pct",
+      "value": -0.860547384843852,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "XS_VLDL_C_pct",
+      "value": -0.703848222713682,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.31591680926892,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": -0.745875191523951,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "L_VLDL_CE_pct",
+      "value": -0.681978725155837,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "M_VLDL_CE_pct",
+      "value": -0.800418655172166,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "S_VLDL_CE_pct",
+      "value": -0.922103602368703,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": -0.671810471814308,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": -0.525835851685131,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "M_VLDL_FC_pct",
+      "value": -0.884074558665675,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "S_VLDL_FC_pct",
+      "value": -0.971777941715975,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "XL_HDL_FC",
+      "value": -0.57185595001075,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.56344608036293,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": 0.637729798768971,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "M_VLDL_TG_pct",
+      "value": 0.903881951709988,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "S_VLDL_TG_pct",
+      "value": 1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": 0.765127894439431,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "M_VLDL_PL_pct",
+      "value": -0.901957320830692,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-116D2.1",
+      "Trait": "S_VLDL_PL_pct",
+      "value": -1.0,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "XL_VLDL_C_pct",
+      "value": -0.897411590140961,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "L_VLDL_C_pct",
+      "value": -0.173716636859214,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "M_VLDL_C_pct",
+      "value": -0.764537853074946,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "XS_VLDL_C_pct",
+      "value": -0.991206502922803,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.571330009712809,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": -0.962085995993018,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "L_VLDL_CE_pct",
+      "value": -0.491183206517259,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "M_VLDL_CE_pct",
+      "value": -0.818974384706089,
+      "Group": "CE",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "S_VLDL_CE_pct",
+      "value": -0.237035729517979,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": -1.0,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": -0.42212190829818,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "M_VLDL_FC_pct",
+      "value": -0.491840881966073,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "S_VLDL_FC_pct",
+      "value": -0.891031959084344,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "XL_HDL_FC",
+      "value": -0.534898015504654,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.0374005870694197,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": 0.45551999369205,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "M_VLDL_TG_pct",
+      "value": 0.520852074992922,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "S_VLDL_TG_pct",
+      "value": 0.540499905022347,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": 0.847078809947924,
+      "Group": "TG",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "M_VLDL_PL_pct",
+      "value": -0.196936701874106,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "RP11-136O12.2",
+      "Trait": "S_VLDL_PL_pct",
+      "value": -0.90816198528384,
+      "Group": "PL",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.242362071114683,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.48956141568442,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.295106560483191,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.212847315505724,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "L_LDL_C_pct",
+      "value": 0.396762345972535,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.331327531379848,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.268759495841443,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.302752969424145,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.859264788540708,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.153940999206516,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.0874781729610876,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.285740417068906,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.401497858759939,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "XL_HDL_FC",
+      "value": -0.918961883034332,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.0715764558694783,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": 1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "M_VLDL_TG_pct",
+      "value": 0.936099295104479,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "S_VLDL_TG_pct",
+      "value": 0.553512064465903,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": 0.946375665840442,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.32978093571119,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SCARB1",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.477555321697934,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "XL_VLDL_C_pct",
+      "value": -0.596038770908357,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "L_VLDL_C_pct",
+      "value": -0.373849156934675,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "M_VLDL_C_pct",
+      "value": -0.677168242856662,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "XS_VLDL_C_pct",
+      "value": -1.0,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.617066603843436,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": -0.546030357082758,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "L_VLDL_CE_pct",
+      "value": -0.510402853969643,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "M_VLDL_CE_pct",
+      "value": -0.604435768855383,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "S_VLDL_CE_pct",
+      "value": -0.655514421297075,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": -0.971992057348635,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": -0.651627233870696,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "M_VLDL_FC_pct",
+      "value": -0.726059300642816,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "S_VLDL_FC_pct",
+      "value": -0.968926059300643,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "XL_HDL_FC",
+      "value": -0.436493454043685,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.284195469996298,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": 0.428452192642951,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "M_VLDL_TG_pct",
+      "value": 0.582893009793693,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "S_VLDL_TG_pct",
+      "value": 0.798549456466866,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": 0.974926799717296,
+      "Group": "TG",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "M_VLDL_PL_pct",
+      "value": -0.67940295493555,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "SPTLC3",
+      "Trait": "S_VLDL_PL_pct",
+      "value": -0.99536229933026,
+      "Group": "PL",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.379853875539772,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.727586266220331,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.390456908315005,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.277179212985139,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.0676424595776354,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.388568101622508,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.548663936378181,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.312624671654589,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 1.0,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.213972098902482,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.289294377676225,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.544219898388357,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.449471704571075,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "XL_HDL_FC",
+      "value": -0.510493018387343,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.302782051084706,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.731383799906013,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.772015780500018,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.617794623510845,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.707493926571961,
+      "Group": "PL",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "ST3GAL4",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.436729955876534,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.431537769381059,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "L_VLDL_C_pct",
+      "value": 1.0,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.396527388281548,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "XS_VLDL_C_pct",
+      "value": -0.0926534177815824,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "L_LDL_C_pct",
+      "value": 0.128046680508133,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.36814254304685,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.811309986519331,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.262737483367828,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.849272339043758,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": -0.182341634932974,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.63683316878826,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.706121404744802,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.338001821475701,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "XL_HDL_FC",
+      "value": -0.0421941675604579,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "L_HDL_FC_pct",
+      "value": 0.201299304756063,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.986208826831889,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.959011330103658,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.401930589311895,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.854214157873619,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TDRD15",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.352061952040304,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.51929251120465,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "L_VLDL_C_pct",
+      "value": 1.0,
+      "Group": "C",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.517314068937782,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.238445478800573,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.101133677109045,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.382820481330981,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.874985661016995,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.427544612793477,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 0.762373698863813,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.173980110312327,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.893053454379092,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.712227070110542,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.329094842419637,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "XL_HDL_FC",
+      "value": 0.620352313873253,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "L_HDL_FC_pct",
+      "value": 0.178282479989528,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -1.0,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.9316614191612,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -0.821527233271299,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.605404683213066,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.840731348863071,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TRIM6",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.334703577795562,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "XL_VLDL_C_pct",
+      "value": 0.537281766435133,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "L_VLDL_C_pct",
+      "value": 0.753774050132078,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "M_VLDL_C_pct",
+      "value": 0.404760903554813,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "XS_VLDL_C_pct",
+      "value": 0.464837971015601,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "L_LDL_C_pct",
+      "value": -0.189695667631284,
+      "Group": "C",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "XL_VLDL_CE_pct",
+      "value": 0.510560459346532,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "L_VLDL_CE_pct",
+      "value": 0.657714965078807,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "M_VLDL_CE_pct",
+      "value": 0.344066455393767,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "S_VLDL_CE_pct",
+      "value": 1.0,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "XS_VLDL_CE_pct",
+      "value": 0.430595323197841,
+      "Group": "CE",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "XL_VLDL_FC_pct",
+      "value": 0.488913906930337,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "M_VLDL_FC_pct",
+      "value": 0.416751086628261,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "S_VLDL_FC_pct",
+      "value": 0.469308724755246,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "XL_HDL_FC",
+      "value": -0.875780327154429,
+      "Group": "FC",
+      "is_causal": "*"
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "L_HDL_FC_pct",
+      "value": -0.314344257594929,
+      "Group": "FC",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "XL_VLDL_TG_pct",
+      "value": -0.714370634850854,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "M_VLDL_TG_pct",
+      "value": -0.60540580834821,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "S_VLDL_TG_pct",
+      "value": -0.929391144123033,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "XS_VLDL_TG_pct",
+      "value": -0.783840299095146,
+      "Group": "TG",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "M_VLDL_PL_pct",
+      "value": 0.434154341352274,
+      "Group": "PL",
+      "is_causal": NaN
+    },
+    {
+      "Gene": "TTC39B",
+      "Trait": "S_VLDL_PL_pct",
+      "value": 0.514715832852299,
+      "Group": "PL",
+      "is_causal": "*"
+    }
+  ],
+  "biomarkers": [],
+  "beta_columns": [],
+  "visualization_type": "effect_estimates_plot"
+}

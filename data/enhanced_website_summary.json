@@ -1,0 +1,63 @@
+{
+  "research_title": "Genetically Influenced Metabotypes and Gastric Cancer Risk",
+  "datasets": [
+    {
+      "name": "Metabolic Traits Information",
+      "file": "biomarker_information.json",
+      "description": "Detailed information about NMR metabolic traits (formerly biomarkers)",
+      "visualization": "searchable_table",
+      "priority": 1
+    },
+    {
+      "name": "Risk Associations Heatmap",
+      "file": "metabolite_risk_associations.json",
+      "description": "Genetically predicted metabolic traits-gastric cancer associations with scaled visualization",
+      "visualization": "zoomable_heatmap",
+      "priority": 2,
+      "scaling": "Values scaled -1 to 1 for color balance, original values in tooltips"
+    },
+    {
+      "name": "GIMs for Gastric Cancer",
+      "file": "gc_gim_heatmap.json",
+      "description": "Gene-metabolic trait causal relationships for gastric cancer",
+      "visualization": "gene_metabolite_heatmap",
+      "priority": 3
+    },
+    {
+      "name": "GIMs for Gastric Lesion Progression",
+      "file": "ugced_causal_effects.json",
+      "description": "Effect estimates comparison for gastric lesion progression",
+      "visualization": "effect_estimates_plot",
+      "priority": 4
+    },
+    {
+      "name": "Regulatory Effects",
+      "file": "regulatory_effects.json",
+      "description": "Multi-ancestry regulatory effects with outcome classifications",
+      "visualization": "interactive_table_heatmap",
+      "priority": 5
+    },
+    {
+      "name": "Incremental R² Analysis",
+      "file": "incremental_r2.json",
+      "description": "Incremental R² of metabolic traits by different determinants",
+      "visualization": "stacked_area_plot",
+      "priority": 6
+    }
+  ],
+  "key_statistics": {
+    "total_subjects": "145,938",
+    "metabolic_traits": "249",
+    "causal_gene_loci": "117",
+    "significant_traits": "188",
+    "cohorts": "UKBB, SIT, MITS, UGCED"
+  },
+  "navigation_order": [
+    "Metabolic Traits",
+    "Risk Heatmap",
+    "GIMs - Gastric Cancer",
+    "GIMs - Lesion Progression",
+    "Regulatory Effects",
+    "Incremental R²"
+  ]
+}
