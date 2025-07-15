@@ -3,7 +3,7 @@
   "description": "Gene loci regulatory effects on traits in the GIMs of GC and gastric lesion progression",
   "columns": [
     "Metabolic Trait",
-    "Variant",
+    "Tag variant",
     "CSL Feature ID",
     "Harmony Grade",
     "Cytoband",
