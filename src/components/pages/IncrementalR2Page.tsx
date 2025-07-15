@@ -64,7 +64,7 @@ const IncrementalR2Page: React.FC = () => {
           <div>
             <h1 className="text-3xl font-bold text-gray-900">Incremental R² Analysis</h1>
             <p className="text-gray-600 mt-1">
-              GIM R² compared to other determinants for metabolic traits
+              Incremental R² compared to other determinants for metabolic traits
             </p>
           </div>
         </div>

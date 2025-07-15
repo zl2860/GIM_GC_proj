@@ -31,8 +31,8 @@ interface RiskComparisonResponse {
 const PALETTE = ['#d4de9c', '#94c58f', '#86c7b4', '#9cd2ed', '#a992c0'];
 
 const COHORTS: { key: keyof RiskData; label: string; color: string }[] = [
-  { key: 'ukbb_measured', label: 'UKBB Measured', color: PALETTE[0] },
-  { key: 'ukbb_predicted', label: 'UKBB Predicted', color: PALETTE[1] },
+  { key: 'ukbb_measured', label: 'UKBB Discovery - Measured', color: PALETTE[0] },
+  { key: 'ukbb_predicted', label: 'UKBB Discovery - Predicted', color: PALETTE[1] },
   { key: 'sit_predicted', label: 'SIT Predicted', color: PALETTE[2] },
   { key: 'mits_predicted', label: 'MITS Predicted', color: PALETTE[3] },
   { key: 'ugced_predicted', label: 'UGCED Predicted', color: PALETTE[4] },
@@ -73,13 +73,6 @@ export default function RiskAssociationsPage() {
       return entry;
     });
   }, [filtered, selectedCohorts]);
-
-  const maxAbs = useMemo(() => {
-    if (!chartData.length) return 0;
-    return Math.max(
-      ...chartData.flatMap(d => selectedCohorts.map(k => Math.abs(d[k] || 0)))
-    );
-  }, [chartData, selectedCohorts]);
 
   const toggleCohort = (key: keyof RiskData) => {
     setSelectedCohorts(prev =>
@@ -176,8 +169,18 @@ export default function RiskAssociationsPage() {
                 margin={{ top: 20, right: 30, left: 20, bottom: 100 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="trait" angle={-45} textAnchor="end" interval={0} height={60} />
-                <YAxis domain={[-maxAbs, maxAbs]} />
+                <XAxis
+                  dataKey="trait"
+                  angle={-45}
+                  textAnchor="end"
+                  interval={0}
+                  height={60}
+                />
+                {/* <<< Updated YAxis: auto domain and formatted ticks */}
+                <YAxis
+                  domain={['dataMin', 'dataMax']}
+                  tickFormatter={(v) => v.toFixed(2)}
+                />
                 <Tooltip formatter={(value: number) => value.toFixed(3)} />
                 <Legend verticalAlign="top" />
                 {selectedCohorts.map(c => (

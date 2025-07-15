@@ -11,25 +11,30 @@ import IncrementalR2Page from './components/pages/IncrementalR2Page';
 import RegulatoryEffectsPage from './components/pages/RegulatoryEffectsPage';
 import ModelAssessmentPage from './components/pages/ModelAssessmentPage';
 import GeneMetaboliteNetworkPage from './components/pages/GeneMetaboliteNetworkPage';
+import CorrelationPairs from './components/pages/CorrelationPairs';
+import FullyMatchedVariantsPage from './components/pages/FullyMatchedVariantsPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import './index.css';
 
 function App() {
   return (
     <ErrorBoundary>
-      <Router>
+      <Router basename={import.meta.env.BASE_URL}>
         <div className="min-h-screen bg-gray-50">
           <Layout>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/metabolic-traits" element={<MetabolicTraitsPage />} />
+              <Route path="/correlations" element={<CorrelationPairs />} />
               <Route path="/risk-associations" element={<RiskAssociationsPage />} />
               <Route path="/gc-gims" element={<GCGimsPage />} />
               <Route path="/lesion-progression" element={<LesionProgressionPage />} />
+              <Route path="/variants" element={<FullyMatchedVariantsPage />} />
               <Route path="/incremental-r2" element={<IncrementalR2Page />} />
               <Route path="/regulatory-effects" element={<RegulatoryEffectsPage />} />
               <Route path="/gene-metabolite" element={<GeneMetaboliteNetworkPage />} />
               <Route path="/model-assessment" element={<ModelAssessmentPage />} />
+  
             </Routes>
           </Layout>
           <Toaster position="top-right" />

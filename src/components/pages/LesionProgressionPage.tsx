@@ -238,10 +238,10 @@ const LesionProgressionPage: React.FC = () => {
         <div className="flex justify-between items-start mb-4">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              GIMs for Gastric Lesion Progression - Gene-Trait Heatmap
+              Co-regulatory genetic effects from the GIM for Gastric Lesion Progression
             </h1>
             <p className="text-gray-600">
-              Interactive heatmap showing gene-metabolic trait associations for {filteredAndSortedData.filter(item => item.is_causal === true).length} causal relationships 
+              The interactive heatmap shows gene-metabolic trait associations for {filteredAndSortedData.filter(item => item.is_causal === true).length} causal relationships 
               from {uniqueGenes.length} genes and {data.data.length} total associations
             </p>
           </div>

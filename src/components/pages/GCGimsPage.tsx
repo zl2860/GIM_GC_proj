@@ -198,11 +198,11 @@ const GCGimsPage: React.FC = () => {
         <div className="flex justify-between items-start mb-4">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              GIMs for Gastric Cancer - Gene-Metabolic Trait Associations
+              Co-regulatory genetic effects from the GIM for Gastric Cancer
             </h1>
             <p className="text-gray-600">
-              Interactive heatmap showing putative causal relationships between gene loci and metabolic traits 
-              for gastric cancer, with functional annotation color coding
+              The interactive heatmap shows putative causal relationships between gene loci (for the nearest genes functionally annotated by the tag variants based on both distance and variant functions) and metabolic traits 
+              for gastric cancer.
             </p>
           </div>
           <div className="flex space-x-2">
@@ -393,24 +393,24 @@ const GCGimsPage: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <h4 className="font-medium text-gray-700">Beta Estimates:</h4>
+                  <h4 className="font-medium text-gray-700">Beta Estimates for GC incidence risk:</h4>
                   <div className="grid grid-cols-1 gap-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Predicted:</span>
+                      <span className="text-gray-600">by predicted levels:</span>
                       <span className="font-mono">
                         {selectedAssociation['Beta.pred'].toFixed(3)} 
                         ({selectedAssociation['Beta.pred.lower'].toFixed(2)}, {selectedAssociation['Beta.pred.upper'].toFixed(2)})
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">True:</span>
+                      <span className="text-gray-600">by actual levels:</span>
                       <span className="font-mono">
                         {selectedAssociation['Beta.true'].toFixed(3)}
                         ({selectedAssociation['Beta.true.lower'].toFixed(2)}, {selectedAssociation['Beta.true.upper'].toFixed(2)})
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">MR:</span>
+                      <span className="text-gray-600">by Mendelian randomization:</span>
                       <span className="font-mono">
                         {selectedAssociation['Beta.MR'].toFixed(3)}
                         ({selectedAssociation['Beta.MR.lower'].toFixed(2)}, {selectedAssociation['Beta.MR.upper'].toFixed(2)})

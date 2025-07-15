@@ -353,7 +353,7 @@ const ModelAssessmentPageFixed: React.FC = () => {
               <span>UKBB CSL Model Assessment</span>
             </h1>
             <p className="text-gray-600">
-              Multi-center and ethnic group assessment of UKBB CSL model prediction performance
+              Assessment of CSL model prediction performance by multi-center and ethnic group settings in the UKBB Discovery cohort 
             </p>
             <div className="mt-2 flex items-center space-x-4 text-sm text-gray-500">
               <span>{filteredAndSortedData.length} metabolic traits</span>

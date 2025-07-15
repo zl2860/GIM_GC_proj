@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Beaker, BarChart3, Network, TrendingUp, Activity, PieChart, Settings } from 'lucide-react';
+import { Home, Beaker, BarChart3, Network, TrendingUp, Activity, PieChart, Settings, Table, GitBranch } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -12,12 +12,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const navigationItems = [
     { path: '/', icon: Home, label: 'Home', color: 'text-blue-400' },
     { path: '/metabolic-traits', icon: Beaker, label: 'Metabolic Traits', color: 'text-purple-400' },
-    { path: '/risk-associations', icon: BarChart3, label: 'Risk Comparison', color: 'text-red-400' },
-    { path: '/gc-gims', icon: Network, label: 'GIMs - Gastric Cancer', color: 'text-green-400' },
-    { path: '/lesion-progression', icon: TrendingUp, label: 'GIMs - Lesion Progression', color: 'text-indigo-400' },
-    { path: '/incremental-r2', icon: PieChart, label: 'Incremental R²', color: 'text-cyan-400' },
-    { path: '/regulatory-effects', icon: Activity, label: 'Regulatory Effects', color: 'text-orange-400' },
     { path: '/model-assessment', icon: Settings, label: 'Model Assessment', color: 'text-pink-400' },
+    { path: '/correlations', icon: Table, label: 'LS-MS Correlations', color: 'text-pink-400' },
+    { path: '/risk-associations', icon: BarChart3, label: 'Risk Estimate', color: 'text-red-400' },
+    { path: '/gc-gims', icon: Network, label: 'GIMs - Gastric Cancer', color: 'text-green-400' },
+    { path: '/lesion-progression', icon: TrendingUp, label: 'GIMs - Gastric Lesion Progression', color: 'text-indigo-400' },
+    { path: '/variants', icon: GitBranch, label: 'Matched Variants', color: 'text-yellow-400' },
+    { path: '/incremental-r2', icon: PieChart, label: 'Explained Variance', color: 'text-cyan-400' },
+    { path: '/regulatory-effects', icon: Activity, label: 'Regulatory Effects', color: 'text-orange-400' },
   ];
 
   return (
@@ -66,7 +68,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {/* Footer */}
         <div className="p-4 border-t border-gray-600">
           <p className="text-xs text-gray-400 text-center">
-            © 2024 Gastric Cancer Research
+            © 2025 Dept. of Cancer Epidemiology, Peking University Cancer Hospital & Institute
           </p>
         </div>
       </div>
@@ -81,7 +83,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 Genetically Influenced Metabotypes and Gastric Cancer Risk
               </h2>
               <p className="text-sm text-gray-600">
-                Interactive exploration of research findings on genetic influences and metabolic traits in gastric cancer
+                Interactive exploration of research findings on genetically influenced metabotypes for gastric cancer risk
               </p>
             </div>
             <div className="text-sm text-gray-500">

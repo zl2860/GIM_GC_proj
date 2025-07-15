@@ -1,728 +1,510 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Download, Search, Filter, ArrowUpDown, ArrowUp, ArrowDown, Activity, Target, Globe } from 'lucide-react';
-import { Input } from '../ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
-import { Badge } from '../ui/badge';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
-import toast from 'react-hot-toast';
+// src/components/pages/RegulatoryEffectsPageEnhanced.tsx
+import React, { useState, useEffect, useMemo } from 'react'
+import {
+  Download,
+  Search,
+  Filter,
+  ArrowUpDown,
+  ArrowUp,
+  ArrowDown,
+  Globe
+} from 'lucide-react'
+import { Input } from '../ui/input'
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+  SelectValue
+} from '../ui/select'
+import { Badge } from '../ui/badge'
+import {
+  Table,
+  TableHeader,
+  TableRow,
+  TableHead,
+  TableBody,
+  TableCell
+} from '../ui/table'
+import { Card, CardHeader, CardTitle, CardContent } from '../ui/card'
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '../ui/tabs'
+import toast from 'react-hot-toast'
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip as RechartsTooltip,
+  Cell
+} from 'recharts'
 
 interface RegulatoryEffectData {
-  biomarker: string;
-  variant: string;
-  csl_feature_id: string;
-  harmony_grade: string;
-  cytoband: string;
-  gene_symbol: string;
-  // Ancestry-specific effects
-  effect_europeans?: number | null;
-  effect_finns?: number | null;
-  effect_nonfinnish_europeans?: number | null;
-  effect_south_asians?: number | null;
-  effect_east_asians?: number | null;
-  effect_africans?: number | null;
+  biomarker: string
+  variant: string
+  gene_symbol: string
+  harmony_grade: string
+  cytoband?: string
+  chromosome?: number
+  ref_allele?: string
+  alt_allele?: string
+  region_start?: number
+  region_end?: number
+  effect_europeans?: number | null
+  effect_finns?: number | null
+  effect_nonfinnish_europeans?: number | null
+  effect_south_asians?: number | null
+  effect_east_asians?: number | null
+  effect_africans?: number | null
 }
 
 interface RegulatoryEffectDataset {
-  title: string;
-  description: string;
-  columns: string[];
-  data: RegulatoryEffectData[];
+  title: string
+  description: string
+  data: RegulatoryEffectData[]
 }
 
-type SortField = keyof RegulatoryEffectData;
-type SortDirection = 'asc' | 'desc' | null;
+type SortField = keyof RegulatoryEffectData
+type SortDirection = 'asc' | 'desc' | null
 
 const ancestryGroups = [
-  { key: 'effect_europeans', label: 'Europeans', color: 'bg-blue-100 text-blue-800' },
-  { key: 'effect_finns', label: 'Finns', color: 'bg-green-100 text-green-800' },
-  { key: 'effect_nonfinnish_europeans', label: 'Non-Finnish Europeans', color: 'bg-purple-100 text-purple-800' },
-  { key: 'effect_south_asians', label: 'South Asians', color: 'bg-orange-100 text-orange-800' },
-  { key: 'effect_east_asians', label: 'East Asians', color: 'bg-red-100 text-red-800' },
-  { key: 'effect_africans', label: 'Africans', color: 'bg-yellow-100 text-yellow-800' }
-];
+  { key: 'effect_europeans', label: 'Europeans' },
+  { key: 'effect_finns', label: 'Finns' },
+  { key: 'effect_nonfinnish_europeans', label: 'Non-Finnish Europeans' },
+  { key: 'effect_south_asians', label: 'South Asians' },
+  { key: 'effect_east_asians', label: 'East Asians' },
+  { key: 'effect_africans', label: 'Africans' }
+] as const
 
-const RegulatoryEffectsPageEnhanced: React.FC = () => {
-  const [data, setData] = useState<RegulatoryEffectDataset | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedBiomarker, setSelectedBiomarker] = useState('all');
-  const [selectedGene, setSelectedGene] = useState('all');
-  const [selectedGrade, setSelectedGrade] = useState('all');
-  const [selectedAncestry, setSelectedAncestry] = useState('all');
-  const [sortField, setSortField] = useState<SortField>('harmony_grade');
-  const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
-  const [selectedEffect, setSelectedEffect] = useState<RegulatoryEffectData | null>(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [activeTab, setActiveTab] = useState('table');
-  const itemsPerPage = 30;
+const ANCESTRY_COLORS: Record<string,string> = {
+  effect_europeans:           '#3b82f6',
+  effect_finns:               '#10b981',
+  effect_nonfinnish_europeans:'#f59e0b',
+  effect_south_asians:        '#ef4444',
+  effect_east_asians:         '#8b5cf6',
+  effect_africans:            '#ec4899'
+}
 
+export default function RegulatoryEffectsPageEnhanced() {
+  const [data, setData] = useState<RegulatoryEffectDataset | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedBiomarker, setSelectedBiomarker] = useState('all')
+  const [selectedGene, setSelectedGene] = useState('all')
+  const [selectedGrade, setSelectedGrade] = useState('all')
+  const [selectedAncestry, setSelectedAncestry] = useState('all')
+  const [sortField, setSortField] = useState<SortField>('harmony_grade')
+  const [sortDirection, setSortDirection] = useState<SortDirection>('desc')
+  const [selectedEffect, setSelectedEffect] = useState<RegulatoryEffectData | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [activeTab, setActiveTab] = useState<'table'|'stats'>('table')
+  const itemsPerPage = 25
+
+  // ── Load & parse JSONs ───────────────────────────────────────
   useEffect(() => {
-    const loadData = async () => {
+    async function load() {
       try {
-        // 1) fetch both in parallel
-        const [basicRes, ancestryRes] = await Promise.all([
+        const [basicRes, ancRes] = await Promise.all([
           fetch(`${import.meta.env.BASE_URL}data/regulatory_effects.json`),
-          fetch(`${import.meta.env.BASE_URL}data/ancestry_reg_effects.json`),
-        ]);
-  
-        // 2) guard status codes
-        if (!basicRes.ok || !ancestryRes.ok) {
-          throw new Error(`Fetch failed: basic(${basicRes.status}), ancestry(${ancestryRes.status})`);
-        }
-  
-        // 3) read as text
-        const [basicText, ancestryText] = await Promise.all([
-          basicRes.text(),
-          ancestryRes.text(),
-        ]);
-  
-        // 4) sanitize NaNs → nulls
-        const basicClean   = basicText.replace(/\bNaN\b/g, 'null');
-        const ancestryClean = ancestryText.replace(/\bNaN\b/g, 'null');
-  
-        // 5) parse
-        const basicData   = JSON.parse(basicClean) as any;
-        const ancestryRaw = JSON.parse(ancestryClean) as any;
-  
-        console.log('basicData →', basicData);
-        console.log('ancestryRaw →', ancestryRaw);
-  
-        // 6) drill into the sheet rows
-        const rawRows: any[] = ancestryRaw.sheets?.Sheet1?.data ?? [];
-  
-        // 7) map
-        const processedAncestryData = rawRows
-          .map((item: any) => ({
-            biomarker: item["Supplementary table 10. Multi-ancestry gene loci regulatory effects on traits in the GIMs of GC and gastric lesion progression"],
-            variant:   item["Unnamed: 1"],
-            csl_feature_id: String(item["Unnamed: 2"] || ''),
-            harmony_grade:  String(item["Unnamed: 3"] || ''),
-            cytoband:       item["Unnamed: 4"],
-            gene_symbol:    item["Unnamed: 5"],
-            effect_europeans:               item["Unnamed: 16"],
-            effect_finns:                   item["Unnamed: 17"],
-            effect_nonfinnish_europeans:    item["Unnamed: 18"],
-            effect_south_asians:            item["Unnamed: 19"],
-            effect_east_asians:             item["Unnamed: 20"],
-            effect_africans:                item["Unnamed: 21"],
-          }))
-          .filter((row: any) => row.biomarker && row.variant);
-  
-        // 8) merge with basic
-        const merged: RegulatoryEffectDataset = {
-          ...basicData,
-          title: basicData.title || "Multi-ancestry Gene Loci Regulatory Effects",
-          description: basicData.description || "…",
-          data: processedAncestryData,
-        };
-  
-        setData(merged);
+          fetch(`${import.meta.env.BASE_URL}data/ancestry_reg_effects.json`)
+        ])
+        if (!basicRes.ok || !ancRes.ok) throw new Error('Fetch failed')
+        let [basicText, ancText] = await Promise.all([ basicRes.text(), ancRes.text() ])
+        basicText = basicText.replace(/\bNaN\b/g,'null')
+        ancText   = ancText.replace(/\bNaN\b/g,'null')
+        const basic = JSON.parse(basicText)
+        const ancRaw = JSON.parse(ancText)
+        const KEY = 'Supplementary table 10. Multi-ancestry gene loci regulatory effects on traits in the GIMs of GC and gastric lesion progression'
+        const rows: any[] = ancRaw.sheets?.Sheet1?.data ?? []
+
+        const processed: RegulatoryEffectData[] = rows.map(item => ({
+          biomarker:   item[KEY],
+          variant:     item['Unnamed: 1'],
+          harmony_grade: String(item['Unnamed: 3']),
+          cytoband:      item['Unnamed: 4'],
+          gene_symbol:   item['Unnamed: 5'],
+          chromosome:    item['Unnamed: 7'],
+          region_start:  item['Unnamed: 8'],
+          region_end:    item['Unnamed: 9'],
+          ref_allele:    item['Unnamed: 10'],
+          alt_allele:    item['Unnamed: 11'],
+          effect_europeans:            item['Unnamed: 16'],
+          effect_finns:                item['Unnamed: 17'],
+          effect_nonfinnish_europeans: item['Unnamed: 18'],
+          effect_south_asians:         item['Unnamed: 19'],
+          effect_east_asians:          item['Unnamed: 20'],
+          effect_africans:             item['Unnamed: 21']
+        })).filter(r => r.biomarker && r.variant)
+
+        setData({
+          title: basic.title,
+          description: basic.description,
+          data: processed
+        })
       } catch (err) {
-        console.error('Error loading regulatory effects data:', err);
-        toast.error('Failed to load regulatory effects data');
+        console.error(err)
+        toast.error('Failed to load data')
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
-    };
-  
-    loadData();
-  }, []);
-
-  const uniqueBiomarkers = useMemo(() => {
-    if (!data) return [];
-    const biomarkers = [...new Set(data.data.map(item => item.biomarker))]
-      .filter(biomarker => biomarker && biomarker.trim() !== '')
-      .sort();
-    return biomarkers;
-  }, [data]);
-
-  const uniqueGenes = useMemo(() => {
-    if (!data) return [];
-    const genes = [...new Set(data.data.map(item => item.gene_symbol))]
-      .filter(gene => gene && gene.trim() !== '' && gene !== 'Gastric cancer')
-      .sort();
-    return genes;
-  }, [data]);
-
-  const uniqueGrades = useMemo(() => {
-    if (!data) return [];
-    const grades = [...new Set(data.data.map(item => item.harmony_grade))]
-      .filter(grade => grade && grade.trim() !== '')
-      .sort();
-    return grades;
-  }, [data]);
-
-  const filteredAndSortedData = useMemo(() => {
-    if (!data) return [];
-
-    let filtered = data.data.filter(item => {
-      const matchesSearch = !searchTerm || 
-        (item.biomarker && item.biomarker.toLowerCase().includes(searchTerm.toLowerCase())) ||
-        (item.variant && item.variant.toLowerCase().includes(searchTerm.toLowerCase())) ||
-        (item.gene_symbol && item.gene_symbol.toLowerCase().includes(searchTerm.toLowerCase())) ||
-        (item.cytoband && item.cytoband.toLowerCase().includes(searchTerm.toLowerCase()));
-      
-      const matchesBiomarker = selectedBiomarker === 'all' || item.biomarker === selectedBiomarker;
-      const matchesGene = selectedGene === 'all' || item.gene_symbol === selectedGene;
-      const matchesGrade = selectedGrade === 'all' || item.harmony_grade === selectedGrade;
-      
-      // Ancestry filter
-      const matchesAncestry = selectedAncestry === 'all' || (() => {
-        const ancestryKey = `effect_${selectedAncestry}` as keyof RegulatoryEffectData;
-        return item[ancestryKey] !== null && item[ancestryKey] !== undefined;
-      })();
-
-      return matchesSearch && matchesBiomarker && matchesGene && matchesGrade && matchesAncestry;
-    });
-
-    if (sortField && sortDirection) {
-      filtered.sort((a, b) => {
-        const aVal = a[sortField];
-        const bVal = b[sortField];
-        
-        let comparison = 0;
-        if (sortField === 'harmony_grade') {
-          comparison = parseInt(String(aVal)) - parseInt(String(bVal));
-        } else if (sortField.toString().startsWith('effect_')) {
-          const aNum = Number(aVal) || 0;
-          const bNum = Number(bVal) || 0;
-          comparison = aNum - bNum;
-        } else {
-          comparison = String(aVal).localeCompare(String(bVal));
-        }
-        
-        return sortDirection === 'asc' ? comparison : -comparison;
-      });
     }
+    load()
+  }, [])
 
-    return filtered;
-  }, [data, searchTerm, selectedBiomarker, selectedGene, selectedGrade, selectedAncestry, sortField, sortDirection]);
+  // ── Unique filter lists ──────────────────────────────────────
+  const uniqueBiomarkers = useMemo(() =>
+    data ? Array.from(new Set(data.data.map(d=>d.biomarker))).sort() : [], [data]
+  )
+  const uniqueGenes = useMemo(() =>
+    data ? Array.from(new Set(data.data.map(d=>d.gene_symbol))).sort() : [], [data]
+  )
+  const uniqueGrades = useMemo(() =>
+    data ? Array.from(new Set(data.data.map(d=>d.harmony_grade))).sort() : [], [data]
+  )
 
-  const paginatedData = useMemo(() => {
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    return filteredAndSortedData.slice(startIndex, startIndex + itemsPerPage);
-  }, [filteredAndSortedData, currentPage, itemsPerPage]);
-
-  const totalPages = Math.ceil(filteredAndSortedData.length / itemsPerPage);
-
-  const handleSort = (field: SortField) => {
-    if (sortField === field) {
-      setSortDirection(prev => 
-        prev === 'asc' ? 'desc' : prev === 'desc' ? null : 'asc'
-      );
-      if (sortDirection === 'desc') {
-        setSortField('harmony_grade');
-        setSortDirection('desc');
-      }
-    } else {
-      setSortField(field);
-      setSortDirection('asc');
+  // ── Filter & Sort ──────────────────────────────────────────
+  const filtered = useMemo(() => {
+    if (!data) return []
+    let arr = data.data.filter(d => {
+      const s = searchTerm.toLowerCase()
+      const matchSearch = [d.biomarker, d.variant, d.gene_symbol, d.cytoband]
+        .some(v => v?.toLowerCase().includes(s))
+      const matchBio   = selectedBiomarker === 'all' || d.biomarker === selectedBiomarker
+      const matchGene  = selectedGene      === 'all' || d.gene_symbol === selectedGene
+      const matchGrade = selectedGrade     === 'all' || d.harmony_grade === selectedGrade
+      const matchAnc   = selectedAncestry  === 'all'
+        || d[`effect_${selectedAncestry}` as keyof RegulatoryEffectData] != null
+      return matchSearch && matchBio && matchGene && matchGrade && matchAnc
+    })
+    if (sortField) {
+      arr.sort((a,b) => {
+        let va=a[sortField] as any, vb=b[sortField] as any, c=0
+        if (sortField==='harmony_grade')       c = Number(va)-Number(vb)
+        else if ((sortField as string).startsWith('effect_'))
+                                              c = (Number(va)||0)-(Number(vb)||0)
+        else                                  c = String(va).localeCompare(String(vb))
+        return sortDirection==='asc'? c : -c
+      })
     }
-    setCurrentPage(1);
-  };
+    return arr
+  }, [
+    data, searchTerm,
+    selectedBiomarker, selectedGene, selectedGrade, selectedAncestry,
+    sortField, sortDirection
+  ])
 
-  const getSortIcon = (field: SortField) => {
-    if (sortField !== field) return <ArrowUpDown className="w-4 h-4 text-gray-400" />;
-    if (sortDirection === 'asc') return <ArrowUp className="w-4 h-4 text-blue-600" />;
-    if (sortDirection === 'desc') return <ArrowDown className="w-4 h-4 text-blue-600" />;
-    return <ArrowUpDown className="w-4 h-4 text-gray-400" />;
-  };
+  const paged = useMemo(() =>
+    filtered.slice((currentPage-1)*itemsPerPage, currentPage*itemsPerPage)
+  , [filtered, currentPage])
 
-  const getGradeBadgeColor = (grade: string) => {
-    const gradeNum = parseInt(grade);
-    if (gradeNum >= 5) return 'bg-red-100 text-red-800 border-red-200';
-    if (gradeNum >= 4) return 'bg-orange-100 text-orange-800 border-orange-200';
-    if (gradeNum >= 3) return 'bg-yellow-100 text-yellow-800 border-yellow-200';
-    if (gradeNum >= 2) return 'bg-blue-100 text-blue-800 border-blue-200';
-    return 'bg-gray-100 text-gray-800 border-gray-200';
-  };
+  const totalPages = Math.ceil(filtered.length/itemsPerPage)
 
-  const getGradeLabel = (grade: string) => {
-    const gradeNum = parseInt(grade);
-    if (gradeNum >= 5) return 'Very High';
-    if (gradeNum >= 4) return 'High';
-    if (gradeNum >= 3) return 'Medium';
-    if (gradeNum >= 2) return 'Low';
-    return 'Very Low';
-  };
-
-  const getEffectColor = (
-    effect: number | string | null | undefined
-  ): string => {
-    const num = typeof effect === 'number'
-      ? effect
-      : parseFloat(effect as string);
-    if (isNaN(num)) return 'bg-gray-100 text-gray-500';
-    if (num > 0.1)     return 'bg-red-100 text-red-800';
-    if (num > 0)       return 'bg-orange-100 text-orange-800';
-    if (num < -0.1)    return 'bg-blue-100 text-blue-800';
-    if (num < 0)       return 'bg-cyan-100 text-cyan-800';
-    return 'bg-gray-100 text-gray-800';
-  };
-
-  const formatEffect = (
-    effect: number | string | null | undefined
-  ): string => {
-    if (effect === null || effect === undefined) return 'N/A';
-    const num = typeof effect === 'number'
-      ? effect
-      : parseFloat(effect as string);
-    if (isNaN(num)) return 'N/A';
-    return num.toFixed(4);
-  };
-
-  const exportData = () => {
-    if (!data) return;
-    
-    const exportData = {
-      title: data.title,
-      description: data.description,
-      filtered_data: filteredAndSortedData,
-      filters: {
-        search: searchTerm,
-        biomarker: selectedBiomarker,
-        gene: selectedGene,
-        grade: selectedGrade,
-        ancestry: selectedAncestry,
-        sort: { field: sortField, direction: sortDirection }
-      },
-      total_records: filteredAndSortedData.length,
-      timestamp: new Date().toISOString()
-    };
-    
-    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'regulatory-effects-enhanced.json';
-    a.click();
-    URL.revokeObjectURL(url);
-    
-    toast.success('Enhanced regulatory effects data exported successfully!');
-  };
-
-  const exportCSV = () => {
-    if (!data) return;
-    
-    const headers = [
-      'Biomarker', 'Variant', 'CSL Feature ID', 'Harmony Grade', 'Cytoband', 'Gene Symbol',
-      'Effect Europeans', 'Effect Finns', 'Effect Non-Finnish Europeans',
-      'Effect South Asians', 'Effect East Asians', 'Effect Africans'
-    ];
-    const csvContent = [
-      headers.join(','),
-      ...filteredAndSortedData.map(row => [
-        `"${row.biomarker}"`,
-        `"${row.variant}"`,
-        `"${row.csl_feature_id}"`,
-        `"${row.harmony_grade}"`,
-        `"${row.cytoband}"`,
-        `"${row.gene_symbol}"`,
-        `"${formatEffect(row.effect_europeans)}"`,
-        `"${formatEffect(row.effect_finns)}"`,
-        `"${formatEffect(row.effect_nonfinnish_europeans)}"`,
-        `"${formatEffect(row.effect_south_asians)}"`,
-        `"${formatEffect(row.effect_east_asians)}"`,
-        `"${formatEffect(row.effect_africans)}"`
-      ].join(','))
-    ].join('\n');
-    
-    const blob = new Blob([csvContent], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'regulatory-effects-enhanced.csv';
-    a.click();
-    URL.revokeObjectURL(url);
-    
-    toast.success('Enhanced regulatory effects data exported as CSV!');
-  };
-
-  const getAncestryStats = () => {
-    if (!filteredAndSortedData.length) return {};
-    
-    return ancestryGroups.reduce((stats, ancestry) => {
-      const validEffects = filteredAndSortedData
-        .map(item => item[ancestry.key as keyof RegulatoryEffectData] as number)
-        .filter(effect => effect !== null && effect !== undefined && !isNaN(effect));
-      
-      stats[ancestry.key] = {
-        count: validEffects.length,
-        mean: validEffects.length > 0 ? validEffects.reduce((a, b) => a + b, 0) / validEffects.length : 0,
-        positive: validEffects.filter(e => e > 0).length,
-        negative: validEffects.filter(e => e < 0).length
-      };
-      
-      return stats;
-    }, {} as any);
-  };
-
-  const ancestryStats = getAncestryStats();
-
-  if (loading) {
-    return (
-      <div className="p-6 flex items-center justify-center min-h-96">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading enhanced regulatory effects data...</p>
-        </div>
-      </div>
-    );
+  const handleSort = (f: SortField) => {
+    if (sortField===f) setSortDirection(d=> d==='asc'?'desc': d==='desc'?null:'asc')
+    else { setSortField(f); setSortDirection('asc') }
+    setCurrentPage(1)
+  }
+  const getSortIcon = (f: SortField) => {
+    if (sortField!==f) return <ArrowUpDown className="w-4 h-4 text-gray-400"/>
+    return sortDirection==='asc'
+      ? <ArrowUp className="w-4 h-4 text-blue-600"/>
+      : <ArrowDown className="w-4 h-4 text-blue-600"/>
   }
 
-  if (!data) {
-    return (
-      <div className="p-6 text-center">
-        <p className="text-red-600">Failed to load regulatory effects data. Please try refreshing the page.</p>
-      </div>
-    );
+  // ── Color helpers ──────────────────────────────────────────
+  const gradeColor = (g: string) => {
+    const n = Number(g)
+    if (n>=5) return 'bg-red-600 text-white'
+    if (n>=4) return 'bg-blue-600 text-white'
+    if (n>=3) return 'bg-yellow-500 text-white'
+    if (n>=2) return 'bg-orange-500 text-white'
+    return 'bg-gray-300 text-gray-800'
   }
+  const ancestryBadgeColor = (v?: number|null) => {
+    if (v==null) return 'bg-gray-100 text-gray-500'
+    if (v>0.1)    return 'bg-green-600 text-white'
+    if (v>0)      return 'bg-blue-200 text-red-800'
+    if (v<-0.1)   return 'bg-red-600 text-white'
+    if (v<0)      return 'bg-red-200 text-blue-800'
+    return 'bg-gray-100 text-gray-800'
+  }
+
+  // ── Ancestry stats for the Stats tab ───────────────────────
+  const ancestryStats = useMemo(() => {
+    const S: Record<string, any> = {}
+    ancestryGroups.forEach(a => {
+      const arr = filtered
+        .map(d => d[a.key] as number)
+        .filter(x => x!=null)
+      S[a.key] = {
+        count: arr.length,
+        mean:  arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : 0,
+        pos:   arr.filter(x=>x>0).length,
+        neg:   arr.filter(x=>x<0).length
+      }
+    })
+    return S
+  }, [filtered])
+
+  if (loading) return <div className="p-6 text-center">Loading…</div>
+  if (!data)  return <div className="p-6 text-red-600">No data</div>
 
   return (
-    <div className="p-6 max-w-full mx-auto">
-      {/* Header */}
-      <div className="mb-6">
-        <div className="flex justify-between items-start mb-4">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2 flex items-center space-x-2">
-              <Globe className="w-8 h-8 text-orange-600" />
-              <span>Multi-ancestry Regulatory Effects</span>
-            </h1>
-            <p className="text-gray-600">
-              Gene loci regulatory effects on traits in the GIMs with cross-ancestry effect estimates
-            </p>
-            <div className="mt-2 flex items-center space-x-4 text-sm text-gray-500">
-              <span>{filteredAndSortedData.length} regulatory effects</span>
-              <span>•</span>
-              <span>{uniqueBiomarkers.length} metabolic traits</span>
-              <span>•</span>
-              <span>{uniqueGenes.length} genes</span>
-            </div>
-          </div>
-          <div className="flex space-x-2">
-            <button
-              onClick={exportCSV}
-              className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors flex items-center space-x-2"
-            >
-              <Download className="w-4 h-4" />
-              <span>CSV</span>
-            </button>
-            <button
-              onClick={exportData}
-              className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors flex items-center space-x-2"
-            >
-              <Download className="w-4 h-4" />
-              <span>JSON</span>
-            </button>
-          </div>
+    <div className="p-6 max-w-full mx-auto space-y-6">
+      {/* ── Header */}
+      <div className="flex justify-between items-start">
+        <div>
+          <h1 className="text-3xl font-bold flex items-center space-x-2">
+            <Globe className="w-8 h-8 text-orange-600"/>
+            <span>Multi-ancestry Regulatory Effects</span>
+          </h1>
+          <p className="text-gray-600">{data.description}</p>
         </div>
-
-        {/* Filters */}
-        <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
-          <div className="flex items-center space-x-2 mb-3">
-            <Filter className="w-5 h-5 text-gray-600" />
-            <h3 className="font-semibold text-gray-900">Filters & Search</h3>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Search</label>
-              <div className="relative">
-                <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                <Input
-                  placeholder="Search biomarker, variant, gene..."
-                  value={searchTerm}
-                  onChange={(e) => {
-                    setSearchTerm(e.target.value);
-                    setCurrentPage(1);
-                  }}
-                  className="pl-10"
-                />
-              </div>
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Metabolic Trait</label>
-              <Select value={selectedBiomarker} onValueChange={(value) => {
-                setSelectedBiomarker(value);
-                setCurrentPage(1);
-              }}>
-                <SelectTrigger>
-                  <SelectValue placeholder="All traits" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Traits ({uniqueBiomarkers.length})</SelectItem>
-                  {uniqueBiomarkers.map(biomarker => (
-                    <SelectItem key={biomarker} value={biomarker}>
-                      {biomarker.replace(/_/g, ' ')}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Outcome</label>
-              <Select value={selectedGene} onValueChange={(value) => {
-                setSelectedGene(value);
-                setCurrentPage(1);
-              }}>
-                <SelectTrigger>
-                  <SelectValue placeholder="All genes" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Gastric cancer</SelectItem>
-                  {uniqueGenes.map(gene => (
-                    <SelectItem key={gene} value={gene}>
-                      {gene}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Harmony Grade</label>
-              <Select value={selectedGrade} onValueChange={(value) => {
-                setSelectedGrade(value);
-                setCurrentPage(1);
-              }}>
-                <SelectTrigger>
-                  <SelectValue placeholder="All grades" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Grades</SelectItem>
-                  {uniqueGrades.map(grade => (
-                    <SelectItem key={grade} value={grade}>
-                      Grade {grade} - {getGradeLabel(grade)}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Ancestry Group</label>
-              <Select value={selectedAncestry} onValueChange={(value) => {
-                setSelectedAncestry(value);
-                setCurrentPage(1);
-              }}>
-                <SelectTrigger>
-                  <SelectValue placeholder="All ancestries" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Ancestries</SelectItem>
-                  {ancestryGroups.map(ancestry => (
-                    <SelectItem key={ancestry.key.replace('effect_', '')} value={ancestry.key.replace('effect_', '')}>
-                      {ancestry.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
+        <div className="space-x-2">
+          <button className="bg-orange-600 text-white px-4 py-2 rounded flex items-center">
+            <Download className="w-4 h-4 mr-1"/> CSV
+          </button>
+          <button className="bg-orange-600 text-white px-4 py-2 rounded flex items-center">
+            <Download className="w-4 h-4 mr-1"/> JSON
+          </button>
         </div>
       </div>
 
-      <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as 'table' | 'stats')} className="w-full">
-        <TabsList className="grid w-full grid-cols-2">
+      {/* ── Filters */}
+      <Card>
+        <CardHeader className="flex items-center space-x-2">
+          <Filter className="w-5 h-5 text-gray-600"/>  
+          <CardTitle>Filters & Search</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"/>
+              <Input
+                placeholder="Search…"
+                value={searchTerm}
+                onChange={e=>{ setSearchTerm(e.target.value); setCurrentPage(1) }}
+                className="pl-10"
+              />
+            </div>
+            <Select value={selectedBiomarker} onValueChange={v=>{setSelectedBiomarker(v); setCurrentPage(1)}}>
+              <SelectTrigger><SelectValue placeholder="All Traits"/></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Traits</SelectItem>
+                {uniqueBiomarkers.map(b => (
+                  <SelectItem key={b} value={b}>{b}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Select value={selectedGene} onValueChange={v=>{setSelectedGene(v); setCurrentPage(1)}}>
+              <SelectTrigger><SelectValue placeholder="All Outcomes"/></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Outcomes</SelectItem>
+                {uniqueGenes.map(g => (
+                  <SelectItem key={g} value={g}>{g}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Select value={selectedGrade} onValueChange={v=>{setSelectedGrade(v); setCurrentPage(1)}}>
+              <SelectTrigger><SelectValue placeholder="All Grades"/></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Grades</SelectItem>
+                {uniqueGrades.map(g => (
+                  <SelectItem key={g} value={g}>Grade {g}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Select value={selectedAncestry} onValueChange={v=>{setSelectedAncestry(v); setCurrentPage(1)}}>
+              <SelectTrigger><SelectValue placeholder="All Ancestries"/></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Ancestries</SelectItem>
+                {ancestryGroups.map(a => (
+                  <SelectItem key={a.key} value={a.key.replace('effect_','')}>
+                    {a.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Consistent Grade Notice */}
+      <p className="text-sm italic text-gray-500 mb-4">
+        <strong>Note:</strong><br/>
+        1. Consistent Grade is calculated as the difference between the highest and lowest counts of ancestries showing a consistent effect among those available.<br/>
+        2. Information regarding the Documented regions for tag variants are extracted from Karjalainen et al [Nature. 2024 Apr;628(8006):130-138.]
+      </p>
+
+
+      {/* ── Tabs */}
+      <Tabs value={activeTab} onValueChange={v=>setActiveTab(v as any)}>
+        <TabsList className="grid grid-cols-2">
           <TabsTrigger value="table">Data Table</TabsTrigger>
           <TabsTrigger value="stats">Ancestry Statistics</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="stats" className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            {ancestryGroups.map(ancestry => {
-              const stats = ancestryStats[ancestry.key];
-              if (!stats) return null;
-              
+        {/* ── Ancestry Statistics */}
+        <TabsContent value="stats">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {ancestryGroups.map(a => {
+              const st = ancestryStats[a.key]
               return (
-                <Card key={ancestry.key}>
-                  <CardHeader>
-                    <CardTitle className="text-lg flex items-center space-x-2">
-                      <div className={`w-3 h-3 rounded-full ${ancestry.color.split(' ')[0]}`}></div>
-                      <span>{ancestry.label}</span>
-                    </CardTitle>
+                <Card key={a.key}>
+                  <CardHeader className="flex items-center space-x-2">
+                    <span className="w-3 h-3 rounded-full bg-gray-400"></span>
+                    <CardTitle>{a.label}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-2">
-                      <div className="flex justify-between">
-                        <span className="text-sm text-gray-600">Valid Effects:</span>
-                        <span className="font-semibold">{stats.count}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-sm text-gray-600">Mean Effect:</span>
-                        <span className="font-semibold">{stats.mean.toFixed(4)}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-sm text-gray-600">Positive:</span>
-                        <span className="font-semibold text-red-600">{stats.positive}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-sm text-gray-600">Negative:</span>
-                        <span className="font-semibold text-blue-600">{stats.negative}</span>
-                      </div>
+                    <div className="space-y-1 text-sm">
+                      <div className="flex justify-between"><span>Count</span><span>{st.count}</span></div>
+                      <div className="flex justify-between"><span>Mean</span><span>{st.mean.toFixed(3)}</span></div>
+                      <div className="flex justify-between"><span>Positive</span><span>{st.pos}</span></div>
+                      <div className="flex justify-between"><span>Negative</span><span>{st.neg}</span></div>
                     </div>
                   </CardContent>
                 </Card>
-              );
+              )
             })}
           </div>
         </TabsContent>
 
+        {/* ── Data Table */}
         <TabsContent value="table">
-          {/* Data Table */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow className="bg-gray-50">
-                    <TableHead className="font-semibold text-gray-900 cursor-pointer hover:bg-gray-100" onClick={() => handleSort('biomarker')}>
-                      <div className="flex items-center space-x-1">
-                        <span>Metabolic Trait</span>
-                        {getSortIcon('biomarker')}
-                      </div>
-                    </TableHead>
-                    <TableHead className="font-semibold text-gray-900 cursor-pointer hover:bg-gray-100" onClick={() => handleSort('variant')}>
-                      <div className="flex items-center space-x-1">
-                        <span>Variant</span>
-                        {getSortIcon('variant')}
-                      </div>
-                    </TableHead>
-                    <TableHead className="font-semibold text-gray-900 cursor-pointer hover:bg-gray-100" onClick={() => handleSort('gene_symbol')}>
-                      <div className="flex items-center space-x-1">
-                        <span>Gene</span>
-                        {getSortIcon('gene_symbol')}
-                      </div>
-                    </TableHead>
-                    <TableHead className="font-semibold text-gray-900 cursor-pointer hover:bg-gray-100" onClick={() => handleSort('harmony_grade')}>
-                      <div className="flex items-center space-x-1">
-                        <span>Grade</span>
-                        {getSortIcon('harmony_grade')}
-                      </div>
-                    </TableHead>
-                    {ancestryGroups.map(ancestry => (
-                      <TableHead key={ancestry.key} className="font-semibold text-gray-900 cursor-pointer hover:bg-gray-100 text-center" onClick={() => handleSort(ancestry.key as SortField)}>
-                        <div className="flex items-center justify-center space-x-1">
-                          <span className="text-xs">{ancestry.label.replace(' ', '\n')}</span>
-                          {getSortIcon(ancestry.key as SortField)}
-                        </div>
-                      </TableHead>
-                    ))}
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {paginatedData.map((effect, index) => (
-                    <TableRow
-                      key={`${effect.variant}-${index}`}
-                      className="hover:bg-gray-50 cursor-pointer"
-                      onClick={() => setSelectedEffect(effect)}
+          <div className="overflow-auto bg-white rounded-lg shadow-lg">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-gray-50">
+                  <TableHead onClick={()=>handleSort('biomarker')} className="cursor-pointer px-4 py-2">
+                    Metabolic Trait {getSortIcon('biomarker')}
+                  </TableHead>
+                  <TableHead onClick={()=>handleSort('variant')} className="cursor-pointer px-4 py-2">
+                    Tag variant {getSortIcon('variant')}
+                  </TableHead>
+                  <TableHead onClick={()=>handleSort('gene_symbol')} className="cursor-pointer px-4 py-2">
+                    Outcome {getSortIcon('gene_symbol')}
+                  </TableHead>
+                  <TableHead onClick={()=>handleSort('harmony_grade')} className="cursor-pointer px-4 py-2">
+                    Consistent Grade {getSortIcon('harmony_grade')}
+                  </TableHead>
+                  {ancestryGroups.map(a => (
+                    <TableHead
+                      key={a.key}
+                      onClick={()=>handleSort(a.key as SortField)}
+                      className="cursor-pointer text-center px-4 py-2"
                     >
-                      <TableCell className="font-medium text-indigo-700">
-                        {effect.biomarker?.replace(/_/g, ' ') || ''}
-                      </TableCell>
-                      <TableCell className="font-mono text-sm">
-                        {effect.variant}
-                      </TableCell>
-                      <TableCell>
-                        {effect.gene_symbol}
-                      </TableCell>
-                      <TableCell>
-                        <Badge className={`${getGradeBadgeColor(effect.harmony_grade)} border`}>
-                          {effect.harmony_grade} - {getGradeLabel(effect.harmony_grade)}
+                      {a.label} {getSortIcon(a.key as SortField)}
+                    </TableHead>
+                  ))}
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {paged.map((r,i) => (
+                  <TableRow
+                    key={`${r.variant}-${i}`}
+                    onClick={()=>setSelectedEffect(r)}
+                    className="hover:bg-gray-50 cursor-pointer"
+                  >
+                    <TableCell className="px-4 py-2">{r.biomarker}</TableCell>
+                    <TableCell className="px-4 py-2 font-mono">{r.variant}</TableCell>
+                    <TableCell className="px-4 py-2">{r.gene_symbol}</TableCell>
+                    <TableCell className="px-4 py-2">
+                      <Badge className={`${gradeColor(r.harmony_grade)} px-2`}>
+                        {r.harmony_grade}
+                      </Badge>
+                    </TableCell>
+                    {ancestryGroups.map(a => (
+                      <TableCell key={a.key} className="px-4 py-2 text-center">
+                        <Badge className={`${ancestryBadgeColor(r[a.key] as any)} px-2`}>
+                          {(r[a.key] as any)?.toFixed(3) ?? 'N/A'}
                         </Badge>
                       </TableCell>
-                      {ancestryGroups.map(ancestry => (
-                        <TableCell key={ancestry.key} className="text-center">
-                          <Badge className={`${getEffectColor(effect[ancestry.key as keyof RegulatoryEffectData] as number)} border text-xs font-mono`}>
-                            {formatEffect(effect[ancestry.key as keyof RegulatoryEffectData] as number)}
-                          </Badge>
-                        </TableCell>
-                      ))}
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-
-            {/* Pagination */}
-            {totalPages > 1 && (
-              <div className="flex items-center justify-between px-6 py-4 border-t border-gray-200">
-                <div className="text-sm text-gray-600">
-                  Showing {paginatedData.length} of {filteredAndSortedData.length} regulatory effects
-                </div>
-                <div className="flex items-center space-x-2">
-                  <button
-                    onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                    disabled={currentPage === 1}
-                    className="px-3 py-1 border border-gray-300 rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
-                  >
-                    Previous
-                  </button>
-                  <span className="text-sm text-gray-600">
-                    Page {currentPage} of {totalPages}
-                  </span>
-                  <button
-                    onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                    disabled={currentPage === totalPages}
-                    className="px-3 py-1 border border-gray-300 rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
-                  >
-                    Next
-                  </button>
-                </div>
-              </div>
-            )}
+                    ))}
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
           </div>
+          {totalPages>1 && (
+            <div className="flex items-center justify-between py-4">
+              <span className="text-sm text-gray-600">
+                Page {currentPage} of {totalPages}
+              </span>
+              <div className="space-x-2">
+                <button
+                  disabled={currentPage===1}
+                  onClick={()=>setCurrentPage(p=>Math.max(p-1,1))}
+                  className="px-3 py-1 border rounded disabled:opacity-50"
+                >Prev</button>
+                <button
+                  disabled={currentPage===totalPages}
+                  onClick={()=>setCurrentPage(p=>Math.min(p+1,totalPages))}
+                  className="px-3 py-1 border rounded disabled:opacity-50"
+                >Next</button>
+              </div>
+            </div>
+          )}
         </TabsContent>
       </Tabs>
 
-      {/* Detail Panel */}
+      {/* ── Detail Modal */}
       {selectedEffect && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg p-6 max-w-2xl w-full max-h-96 overflow-y-auto">
-            <div className="flex justify-between items-start mb-4">
-              <h3 className="text-lg font-semibold text-gray-900">Regulatory Effect Details</h3>
-              <button
-                onClick={() => setSelectedEffect(null)}
-                className="text-gray-400 hover:text-gray-600"
-              >
-                ×
-              </button>
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg p-6 max-w-3xl w-full max-h-[90vh] overflow-auto">
+            <div className="flex justify-between mb-4">
+              <h3 className="text-2xl font-semibold">Regulatory Effect Details</h3>
+              <button onClick={()=>setSelectedEffect(null)} className="text-gray-400 hover:text-gray-600">×</button>
             </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <h4 className="font-semibold text-gray-700 mb-2">Basic Information</h4>
-                <div className="space-y-2 text-sm">
-                  <div><strong>Metabolic Trait:</strong> {selectedEffect.biomarker?.replace(/_/g, ' ')}</div>
-                  <div><strong>Variant:</strong> {selectedEffect.variant}</div>
-                  <div><strong>Gene:</strong> {selectedEffect.gene_symbol}</div>
-                  <div><strong>Cytoband:</strong> {selectedEffect.cytoband}</div>
-                  <div><strong>Harmony Grade:</strong> {selectedEffect.harmony_grade} - {getGradeLabel(selectedEffect.harmony_grade)}</div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div className="space-y-2 text-sm">
+                <div><strong>Metabolic Trait:</strong> {selectedEffect.biomarker}</div>
+                <div><strong>Tag variant:</strong> {selectedEffect.variant}</div>
+                <div><strong>Outcome:</strong> {selectedEffect.gene_symbol}</div>
+                <div><strong>Cytoband:</strong> {selectedEffect.cytoband}</div>
+                <div><strong>Chromosome:</strong> {selectedEffect.chromosome}</div>
+                <div><strong>Reference allele:</strong> {selectedEffect.ref_allele}</div>
+                <div><strong>Alternate allele:</strong> {selectedEffect.alt_allele}</div>
+                <div>
+                  <strong>Documented region:</strong>
+                  {selectedEffect.region_start}–{selectedEffect.region_end}
                 </div>
+                <div><strong>Consistent Grade:</strong> {selectedEffect.harmony_grade}</div>
               </div>
-              
-              <div>
-                <h4 className="font-semibold text-gray-700 mb-2">Ancestry-Specific Effects</h4>
-                <div className="space-y-2 text-sm">
-                  {ancestryGroups.map(ancestry => (
-                    <div key={ancestry.key} className="flex justify-between">
-                      <span>{ancestry.label}:</span>
-                      <Badge className={`${getEffectColor(selectedEffect[ancestry.key as keyof RegulatoryEffectData] as number)} text-xs font-mono`}>
-                        {formatEffect(selectedEffect[ancestry.key as keyof RegulatoryEffectData] as number)}
-                      </Badge>
-                    </div>
-                  ))}
-                </div>
+              <div className="h-80">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart
+                    data={ancestryGroups.map(a=>({
+                      label: a.label,
+                      value: Number(selectedEffect[a.key] as any) || 0
+                    }))}
+                    layout="vertical"
+                    margin={{ left:50, right:20, top:20, bottom:20 }}
+                  >
+                    <XAxis
+                      type="number"
+                      tick={{ fontSize:12 }}
+                      label={{ value:'Effect size', position:'insideBottom', offset:-10 }}
+                    />
+                    <YAxis
+                      dataKey="label"
+                      type="category"
+                      width={120}
+                      tick={{ fontSize:12 }}
+                      label={{ value:'Ancestry', angle:-90, position:'insideLeft', dx:-20 }}
+                    />
+                    <RechartsTooltip formatter={(v:number)=>v.toFixed(3)}/>
+                    <Bar dataKey="value" barSize={20}>
+                      {ancestryGroups.map((a,i)=>(
+                        <Cell key={a.key} fill={ANCESTRY_COLORS[a.key]}/>
+                      ))}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
               </div>
             </div>
           </div>
         </div>
       )}
     </div>
-  );
-};
-
-export default RegulatoryEffectsPageEnhanced;
+  )
+}

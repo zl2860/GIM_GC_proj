@@ -1,6 +1,6 @@
 {
   "title": "Metabolic Traits Risk Associations Comparison",
-  "description": "Comparison of log(RR) estimates across different cohorts for clear visualization",
+  "description": "Check directional consistency of the log(RR) estimates for GC across different cohorts",
   "data": [
     {
       "metabolic_trait": "Total_C",
