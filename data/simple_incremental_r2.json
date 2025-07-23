@@ -1,6 +1,6 @@
 {
-  "title": "GIM R² vs Other Determinants Comparison",
-  "description": "Simple comparison of GIM incremental R² versus other determinants for each metabolic trait",
+  "title": "Incremental R² of GIMs vs Other Determinants Comparison",
+  "description": "The bar chart displays detailed incremental R² between potential determinants for each metabolic trait",
   "data": [
     {
       "metabolic_trait": "Gly",
