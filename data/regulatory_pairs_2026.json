@@ -1,0 +1,2758 @@
+{
+  "title": "Multi-ancestry gene loci regulatory effects",
+  "description": "Click to see the multi-ancestry regulatory effects from the GIMs",
+  "ancestries": {
+    "effect_europeans": "Europeans",
+    "effect_africans": "Africans",
+    "effect_finns": "Finns",
+    "effect_south_asians": "South Asians",
+    "effect_east_asians": "East Asians",
+    "effect_nonfinnish_europeans": "Non-Finnish Europeans"
+  },
+  "rows": [
+    {
+      "regionTrait": "10q25.2->M_HDL_P",
+      "regionLabel": "10q25.2",
+      "trait": "M_HDL_P",
+      "gim": "Gastric cancer",
+      "regionId": "10_14",
+      "regionStart": 113901194,
+      "regionEnd": 114050642,
+      "chromosome": 10,
+      "leadVariants": [
+        "rs4918734 (10:114040846:C->A)"
+      ],
+      "effects": {
+        "effect_europeans": 0.03252889,
+        "effect_africans": -0.0573118,
+        "effect_finns": 0.027697571,
+        "effect_south_asians": 0.033658838,
+        "effect_east_asians": 0.0291753,
+        "effect_nonfinnish_europeans": 0.034250259
+      },
+      "positiveCount": 5,
+      "negativeCount": 1,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "11q23.3->ApoA1",
+      "regionLabel": "11q23.3",
+      "trait": "ApoA1",
+      "gim": "Gastric cancer",
+      "regionId": "11_15",
+      "regionStart": 116352622,
+      "regionEnd": 117178225,
+      "chromosome": 11,
+      "leadVariants": [
+        "rs45515495 (11:116665025:T->A)",
+        "rs77322057 (11:116873956:T->C)",
+        "rs186643531 (11:116975703:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.061693101,
+        "effect_africans": 0.00241159,
+        "effect_finns": -0.07182387,
+        "effect_south_asians": -0.032554279,
+        "effect_east_asians": -0.0459369,
+        "effect_nonfinnish_europeans": -0.058528614
+      },
+      "positiveCount": 1,
+      "negativeCount": 5,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "11q23.3->L_HDL_TG_pct",
+      "regionLabel": "11q23.3",
+      "trait": "L_HDL_TG_pct",
+      "gim": "Gastric cancer",
+      "regionId": "11_15",
+      "regionStart": 116352622,
+      "regionEnd": 117178225,
+      "chromosome": 11,
+      "leadVariants": [
+        "rs4938301 (11:116575473:G->A)",
+        "rs1354974 (11:116372934:C->T)"
+      ],
+      "effects": {
+        "effect_europeans": -0.15832117,
+        "effect_africans": -0.0390913,
+        "effect_finns": -0.17293588,
+        "effect_south_asians": -0.11643514,
+        "effect_east_asians": -0.147513,
+        "effect_nonfinnish_europeans": -0.15346465
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "11q23.3->S_HDL_TG_pct",
+      "regionLabel": "11q23.3",
+      "trait": "S_HDL_TG_pct",
+      "gim": "Gastric cancer",
+      "regionId": "11_15",
+      "regionStart": 116352622,
+      "regionEnd": 117178225,
+      "chromosome": 11,
+      "leadVariants": [
+        "rs180360 (11:116598988:A->G)",
+        "rs75919952 (11:116667545:C->T)",
+        "rs486915 (11:116534288:T->A)",
+        "rs76124005 (11:116575614:T->G)",
+        "rs78296522 (11:116648776:C->A)",
+        "rs11216020 (11:116452961:G->C)",
+        "rs116585768 (11:116485830:G->A)",
+        "rs10892007 (11:116527609:C->T)",
+        "rs10892000 (11:116498862:T->G)",
+        "rs4936358 (11:116512477:G->A)",
+        "rs530849 (11:116530298:T->C)"
+      ],
+      "effects": {
+        "effect_europeans": -0.18780913,
+        "effect_africans": -0.0286403,
+        "effect_finns": -0.20668703,
+        "effect_south_asians": -0.23306575,
+        "effect_east_asians": -0.186436,
+        "effect_nonfinnish_europeans": -0.18135381
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "11q23.3->XS_VLDL_CE_pct",
+      "regionLabel": "11q23.3",
+      "trait": "XS_VLDL_CE_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "11_15",
+      "regionStart": 116352622,
+      "regionEnd": 117178225,
+      "chromosome": 11,
+      "leadVariants": [
+        "rs11216257 (11:116932561:T->C)"
+      ],
+      "effects": {
+        "effect_europeans": 0.12741656,
+        "effect_africans": 0.021452,
+        "effect_finns": 0.15683791,
+        "effect_south_asians": 0.21195443,
+        "effect_east_asians": 0.0820207,
+        "effect_nonfinnish_europeans": 0.11842448
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "11q23.3->XS_VLDL_TG_pct",
+      "regionLabel": "11q23.3",
+      "trait": "XS_VLDL_TG_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "11_15",
+      "regionStart": 116352622,
+      "regionEnd": 117178225,
+      "chromosome": 11,
+      "leadVariants": [
+        "rs7123583 (11:116600021:C->T)",
+        "rs595049 (11:116699445:A->C)",
+        "rs1240658 (11:116496360:T->C)"
+      ],
+      "effects": {
+        "effect_europeans": -0.18688137,
+        "effect_africans": -0.0330433,
+        "effect_finns": -0.20160743,
+        "effect_south_asians": -0.24614506,
+        "effect_east_asians": -0.1751,
+        "effect_nonfinnish_europeans": -0.18182424
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "11q24.2->M_LDL_FC",
+      "regionLabel": "11q24.2",
+      "trait": "M_LDL_FC",
+      "gim": "Gastric cancer",
+      "regionId": "11_17",
+      "regionStart": 126110318,
+      "regionEnd": 126264155,
+      "chromosome": 11,
+      "leadVariants": [
+        "rs78230040 (11:126214691:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": 0.046199171,
+        "effect_africans": -0.204299,
+        "effect_finns": 0.049548384,
+        "effect_south_asians": 0.022082986,
+        "effect_east_asians": -0.0103903,
+        "effect_nonfinnish_europeans": 0.045122823
+      },
+      "positiveCount": 4,
+      "negativeCount": 2,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "11q24.2->M_LDL_PL",
+      "regionLabel": "11q24.2",
+      "trait": "M_LDL_PL",
+      "gim": "Gastric cancer",
+      "regionId": "11_17",
+      "regionStart": 126110318,
+      "regionEnd": 126264155,
+      "chromosome": 11,
+      "leadVariants": [
+        "rs77603146 (11:126200090:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": 0.048465757,
+        "effect_africans": -0.214333,
+        "effect_finns": 0.051737443,
+        "effect_south_asians": 0.022813744,
+        "effect_east_asians": -0.000629101,
+        "effect_nonfinnish_europeans": 0.047405745
+      },
+      "positiveCount": 4,
+      "negativeCount": 2,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "11q24.2->S_LDL_FC",
+      "regionLabel": "11q24.2",
+      "trait": "S_LDL_FC",
+      "gim": "Gastric cancer",
+      "regionId": "11_17",
+      "regionStart": 126110318,
+      "regionEnd": 126264155,
+      "chromosome": 11,
+      "leadVariants": [
+        "rs6590199 (11:126235667:G->A)",
+        "rs60648773 (11:126237281:G->A)",
+        "rs11220465 (11:126257779:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": 0.043866618,
+        "effect_africans": -0.179125,
+        "effect_finns": 0.048866682,
+        "effect_south_asians": 0.020854361,
+        "effect_east_asians": -0.00791193,
+        "effect_nonfinnish_europeans": 0.042269722
+      },
+      "positiveCount": 4,
+      "negativeCount": 2,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "12q24.11->XL_HDL_P",
+      "regionLabel": "12q24.11",
+      "trait": "XL_HDL_P",
+      "gim": "Gastric cancer",
+      "regionId": "12_11",
+      "regionStart": 109790342,
+      "regionEnd": 110069601,
+      "chromosome": 12,
+      "leadVariants": [
+        "rs4766601 (12:109890080:G->C)",
+        "rs4766602 (12:109890510:T->C)"
+      ],
+      "effects": {
+        "effect_europeans": -0.025195492,
+        "effect_africans": 0.00367369,
+        "effect_finns": -0.020738449,
+        "effect_south_asians": -0.046857427,
+        "effect_east_asians": -0.0318628,
+        "effect_nonfinnish_europeans": -0.026576351
+      },
+      "positiveCount": 1,
+      "negativeCount": 5,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "12q24.31->ApoA1",
+      "regionLabel": "12q24.31",
+      "trait": "ApoA1",
+      "gim": "Gastric cancer",
+      "regionId": "12_13",
+      "regionStart": 121099400,
+      "regionEnd": 125382252,
+      "chromosome": 12,
+      "leadVariants": [
+        "rs4759359 (12:123398454:G->C)",
+        "rs596940 (12:123560731:T->C)",
+        "rs73231952 (12:123785538:C->A)"
+      ],
+      "effects": {
+        "effect_europeans": 0.041560579,
+        "effect_africans": 0.0608457,
+        "effect_finns": 0.053133129,
+        "effect_south_asians": 0.02538323,
+        "effect_east_asians": 0.0399319,
+        "effect_nonfinnish_europeans": 0.03835912
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "12q24.31->M_LDL_PL",
+      "regionLabel": "12q24.31",
+      "trait": "M_LDL_PL",
+      "gim": "Gastric cancer",
+      "regionId": "12_13",
+      "regionStart": 121099400,
+      "regionEnd": 125382252,
+      "chromosome": 12,
+      "leadVariants": [
+        "rs11057830 (12:125307053:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.029259436,
+        "effect_africans": -0.0401649,
+        "effect_finns": -0.025453944,
+        "effect_south_asians": -0.021631032,
+        "effect_east_asians": -0.0215601,
+        "effect_nonfinnish_europeans": -0.030575942
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "12q24.31->S_HDL_TG_pct",
+      "regionLabel": "12q24.31",
+      "trait": "S_HDL_TG_pct",
+      "gim": "Gastric cancer",
+      "regionId": "12_13",
+      "regionStart": 121099400,
+      "regionEnd": 125382252,
+      "chromosome": 12,
+      "leadVariants": [
+        "rs4765568 (12:124479161:T->C)"
+      ],
+      "effects": {
+        "effect_europeans": 0.027937451,
+        "effect_africans": -0.0664517,
+        "effect_finns": 0.015455212,
+        "effect_south_asians": 0.023463205,
+        "effect_east_asians": 0.0447874,
+        "effect_nonfinnish_europeans": 0.031564411
+      },
+      "positiveCount": 5,
+      "negativeCount": 1,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "12q24.31->XL_HDL_CE",
+      "regionLabel": "12q24.31",
+      "trait": "XL_HDL_CE",
+      "gim": "Gastric cancer",
+      "regionId": "12_13",
+      "regionStart": 121099400,
+      "regionEnd": 125382252,
+      "chromosome": 12,
+      "leadVariants": [
+        "rs940904 (12:123491572:A->G)",
+        "rs12227778 (12:123053488:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": -0.035432226,
+        "effect_africans": 0.032528,
+        "effect_finns": -0.033719692,
+        "effect_south_asians": -0.020435028,
+        "effect_east_asians": -0.0230712,
+        "effect_nonfinnish_europeans": -0.03607377
+      },
+      "positiveCount": 1,
+      "negativeCount": 5,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "12q24.31->XL_HDL_P",
+      "regionLabel": "12q24.31",
+      "trait": "XL_HDL_P",
+      "gim": "Gastric cancer",
+      "regionId": "12_13",
+      "regionStart": 121099400,
+      "regionEnd": 125382252,
+      "chromosome": 12,
+      "leadVariants": [
+        "rs10773110 (12:125329806:G->C)"
+      ],
+      "effects": {
+        "effect_europeans": -0.043174527,
+        "effect_africans": 0.0065424,
+        "effect_finns": -0.044601796,
+        "effect_south_asians": -0.032375836,
+        "effect_east_asians": -0.0190382,
+        "effect_nonfinnish_europeans": -0.042638304
+      },
+      "positiveCount": 1,
+      "negativeCount": 5,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "12q24.31->XS_VLDL_C",
+      "regionLabel": "12q24.31",
+      "trait": "XS_VLDL_C",
+      "gim": "Gastric cancer",
+      "regionId": "12_13",
+      "regionStart": 121099400,
+      "regionEnd": 125382252,
+      "chromosome": 12,
+      "leadVariants": [
+        "rs10774580 (12:121476423:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.03458788,
+        "effect_africans": -0.115258,
+        "effect_finns": -0.041080053,
+        "effect_south_asians": -0.025580917,
+        "effect_east_asians": -0.0342705,
+        "effect_nonfinnish_europeans": -0.032419533
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "15q22.2->S_HDL_FC_pct",
+      "regionLabel": "15q22.2",
+      "trait": "S_HDL_FC_pct",
+      "gim": "Gastric cancer",
+      "regionId": "15_2",
+      "regionStart": 58214313,
+      "regionEnd": 59364035,
+      "chromosome": 15,
+      "leadVariants": [
+        "rs16940233 (15:58702941:T->C)",
+        "rs12324517 (15:58800766:T->C)",
+        "rs16939821 (15:58449861:C->T)",
+        "rs2453280 (15:58368379:A->G)",
+        "rs13329676 (15:58700132:A->G)",
+        "rs1869143 (15:58792483:T->G)"
+      ],
+      "effects": {
+        "effect_europeans": 0.097609934,
+        "effect_africans": 0.172115,
+        "effect_finns": 0.11880696,
+        "effect_south_asians": 0.085301967,
+        "effect_east_asians": 0.187629,
+        "effect_nonfinnish_europeans": 0.090695186
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "15q22.2->XL_HDL_P",
+      "regionLabel": "15q22.2",
+      "trait": "XL_HDL_P",
+      "gim": "Gastric cancer",
+      "regionId": "15_2",
+      "regionStart": 58214313,
+      "regionEnd": 59364035,
+      "chromosome": 15,
+      "leadVariants": [
+        "rs16940379 (15:58796245:C->G)"
+      ],
+      "effects": {
+        "effect_europeans": 0.18153555,
+        "effect_africans": 0.128549,
+        "effect_finns": 0.18170554,
+        "effect_south_asians": 0.1369137,
+        "effect_east_asians": 0.274211,
+        "effect_nonfinnish_europeans": 0.18147631
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "16q13->M_HDL_FC_pct",
+      "regionLabel": "16q13",
+      "trait": "M_HDL_FC_pct",
+      "gim": "Gastric cancer",
+      "regionId": "16_5",
+      "regionStart": 56305652,
+      "regionEnd": 57319587,
+      "chromosome": 16,
+      "leadVariants": [
+        "rs34136389 (16:56909322:A->G)",
+        "rs7187275 (16:57031730:C->A)",
+        "rs45533741 (16:57088886:G->T)",
+        "rs138688764 (16:56987591:C->T)",
+        "rs12444396 (16:57057194:G->A)",
+        "rs12598913 (16:57066176:G->A)",
+        "rs4783972 (16:57141666:A->C)",
+        "rs1545614 (16:57154547:C->A)",
+        "rs75152587 (16:56579961:G->T)",
+        "rs17239354 (16:57012887:G->A)",
+        "rs2399596 (16:57077523:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": 0.11444469,
+        "effect_africans": 0.18636,
+        "effect_finns": 0.12615533,
+        "effect_south_asians": 0.16559459,
+        "effect_east_asians": 0.12163,
+        "effect_nonfinnish_europeans": 0.1114824
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "16q13->S_VLDL_CE_pct",
+      "regionLabel": "16q13",
+      "trait": "S_VLDL_CE_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "16_5",
+      "regionStart": 56305652,
+      "regionEnd": 57319587,
+      "chromosome": 16,
+      "leadVariants": [
+        "rs12923787 (16:56740233:C->T)",
+        "rs9940638 (16:56578562:G->A)",
+        "rs55779455 (16:56915357:G->C)"
+      ],
+      "effects": {
+        "effect_europeans": 0.048399112,
+        "effect_africans": 0.150755,
+        "effect_finns": 0.036002671,
+        "effect_south_asians": 0.013472967,
+        "effect_east_asians": 0.000103921,
+        "effect_nonfinnish_europeans": 0.051551191
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "17q24.3->S_HDL_FC_pct",
+      "regionLabel": "17q24.3",
+      "trait": "S_HDL_FC_pct",
+      "gim": "Gastric cancer",
+      "regionId": "17_13",
+      "regionStart": 66385201,
+      "regionEnd": 67392777,
+      "chromosome": 17,
+      "leadVariants": [
+        "rs71378928 (17:66453305:G->C)",
+        "rs2952285 (17:66471700:A->G)",
+        "rs8077535 (17:66398810:C->T)",
+        "rs1030098 (17:66440514:T->C)",
+        "rs1808333 (17:66443929:C->T)",
+        "rs67556103 (17:66453320:A->C)",
+        "rs7503385 (17:66486027:G->T)"
+      ],
+      "effects": {
+        "effect_europeans": 0.14349011,
+        "effect_africans": -1.25235,
+        "effect_finns": 0.16399316,
+        "effect_south_asians": -0.043309219,
+        "effect_east_asians": null,
+        "effect_nonfinnish_europeans": 0.14163546
+      },
+      "positiveCount": 3,
+      "negativeCount": 2,
+      "availableCount": 5
+    },
+    {
+      "regionTrait": "18q21.1->ApoA1",
+      "regionLabel": "18q21.1",
+      "trait": "ApoA1",
+      "gim": "Gastric cancer",
+      "regionId": "18_2",
+      "regionStart": 46557883,
+      "regionEnd": 47814821,
+      "chromosome": 18,
+      "leadVariants": [
+        "rs4939875 (18:47082314:C->G)",
+        "rs6507930 (18:47112681:C->T)",
+        "rs28873777 (18:47134166:A->T)"
+      ],
+      "effects": {
+        "effect_europeans": -0.3819934,
+        "effect_africans": null,
+        "effect_finns": -0.27450456,
+        "effect_south_asians": -0.26566929,
+        "effect_east_asians": null,
+        "effect_nonfinnish_europeans": -0.39830411
+      },
+      "positiveCount": 0,
+      "negativeCount": 4,
+      "availableCount": 4
+    },
+    {
+      "regionTrait": "18q21.1->M_HDL_P",
+      "regionLabel": "18q21.1",
+      "trait": "M_HDL_P",
+      "gim": "Gastric cancer",
+      "regionId": "18_2",
+      "regionStart": 46557883,
+      "regionEnd": 47814821,
+      "chromosome": 18,
+      "leadVariants": [
+        "rs11663904 (18:46944982:C->T)",
+        "rs2097055 (18:47095487:C->T)",
+        "rs9958768 (18:47141313:T->A)",
+        "rs7234915 (18:47251527:A->G)",
+        "rs8082925 (18:47269486:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": -0.098681894,
+        "effect_africans": -0.0740132,
+        "effect_finns": -0.099472962,
+        "effect_south_asians": -0.11661458,
+        "effect_east_asians": -0.124286,
+        "effect_nonfinnish_europeans": -0.098439326
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "19p13.2->IDL_PL",
+      "regionLabel": "19p13.2",
+      "trait": "IDL_PL",
+      "gim": "Gastric cancer",
+      "regionId": "19_5",
+      "regionStart": 10633908,
+      "regionEnd": 11419292,
+      "chromosome": 19,
+      "leadVariants": [
+        "rs3745247 (19:10675564:C->T)",
+        "rs143746218 (19:10884250:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.20456451,
+        "effect_africans": -0.361632,
+        "effect_finns": -0.23656262,
+        "effect_south_asians": -0.093566807,
+        "effect_east_asians": -0.315507,
+        "effect_nonfinnish_europeans": -0.19427881
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "19p13.2->M_VLDL_C",
+      "regionLabel": "19p13.2",
+      "trait": "M_VLDL_C",
+      "gim": "Gastric cancer",
+      "regionId": "19_5",
+      "regionStart": 10633908,
+      "regionEnd": 11419292,
+      "chromosome": 19,
+      "leadVariants": [
+        "rs1529711 (19:11023434:C->T)"
+      ],
+      "effects": {
+        "effect_europeans": -0.089220071,
+        "effect_africans": -0.337715,
+        "effect_finns": -0.11234513,
+        "effect_south_asians": -0.044652122,
+        "effect_east_asians": -0.0204074,
+        "effect_nonfinnish_europeans": -0.081702967
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "19p13.2->S_LDL_PL",
+      "regionLabel": "19p13.2",
+      "trait": "S_LDL_PL",
+      "gim": "Gastric cancer",
+      "regionId": "19_5",
+      "regionStart": 10633908,
+      "regionEnd": 11419292,
+      "chromosome": 19,
+      "leadVariants": [
+        "rs7250421 (19:10729845:C->T)",
+        "rs1109376 (19:10914829:G->A)",
+        "rs12986222 (19:10962440:T->C)",
+        "rs11879571 (19:11002265:C->A)",
+        "rs12232780 (19:11132080:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.17241783,
+        "effect_africans": -0.333487,
+        "effect_finns": -0.20326413,
+        "effect_south_asians": -0.058581669,
+        "effect_east_asians": -0.294726,
+        "effect_nonfinnish_europeans": -0.16246116
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "19p13.2->XS_VLDL_CE_pct",
+      "regionLabel": "19p13.2",
+      "trait": "XS_VLDL_CE_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "19_4",
+      "regionStart": 8386998,
+      "regionEnd": 8621380,
+      "chromosome": 19,
+      "leadVariants": [
+        "rs10404380 (19:8466254:A->C)",
+        "rs59034702 (19:8544695:A->G)",
+        "rs2241588 (19:8468485:C->T)",
+        "rs113898159 (19:8589030:C->T)",
+        "rs4239540 (19:8564466:C->A)"
+      ],
+      "effects": {
+        "effect_europeans": 0.13167557,
+        "effect_africans": 0.188553,
+        "effect_finns": 0.156032,
+        "effect_south_asians": null,
+        "effect_east_asians": null,
+        "effect_nonfinnish_europeans": 0.12121133
+      },
+      "positiveCount": 4,
+      "negativeCount": 0,
+      "availableCount": 4
+    },
+    {
+      "regionTrait": "19q13.32->IDL_CE",
+      "regionLabel": "19q13.32",
+      "trait": "IDL_CE",
+      "gim": "Gastric cancer",
+      "regionId": "19_10",
+      "regionStart": 44675801,
+      "regionEnd": 46383885,
+      "chromosome": 19,
+      "leadVariants": [
+        "rs2376518 (19:45345773:C->T)",
+        "rs2075649 (19:45395330:A->G)",
+        "rs59325138 (19:45416291:C->T)",
+        "rs527221 (19:46275976:G->C)",
+        "rs2352985 (19:46018826:G->A)",
+        "rs4803830 (19:46037195:A->T)"
+      ],
+      "effects": {
+        "effect_europeans": -0.55802127,
+        "effect_africans": -0.679036,
+        "effect_finns": -0.60006463,
+        "effect_south_asians": -0.33451279,
+        "effect_east_asians": -0.617073,
+        "effect_nonfinnish_europeans": -0.54985693
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "19q13.32->L_HDL_FC_pct",
+      "regionLabel": "19q13.32",
+      "trait": "L_HDL_FC_pct",
+      "gim": "Gastric cancer & Gastric lesion progression",
+      "regionId": "19_10",
+      "regionStart": 44675801,
+      "regionEnd": 46383885,
+      "chromosome": 19,
+      "leadVariants": [
+        "rs12609845 (19:46011825:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": 0.044453787,
+        "effect_africans": -0.0240149,
+        "effect_finns": 0.046467963,
+        "effect_south_asians": 0.01402153,
+        "effect_east_asians": 0.0110118,
+        "effect_nonfinnish_europeans": 0.043870432
+      },
+      "positiveCount": 5,
+      "negativeCount": 1,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "19q13.32->L_LDL_FC",
+      "regionLabel": "19q13.32",
+      "trait": "L_LDL_FC",
+      "gim": "Gastric cancer",
+      "regionId": "19_10",
+      "regionStart": 44675801,
+      "regionEnd": 46383885,
+      "chromosome": 19,
+      "leadVariants": [
+        "rs112198959 (19:45994770:T->C)"
+      ],
+      "effects": {
+        "effect_europeans": -0.6204943,
+        "effect_africans": -0.666282,
+        "effect_finns": -0.65250875,
+        "effect_south_asians": -0.36750892,
+        "effect_east_asians": -0.616971,
+        "effect_nonfinnish_europeans": -0.61424608
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "19q13.32->M_VLDL_PL_pct",
+      "regionLabel": "19q13.32",
+      "trait": "M_VLDL_PL_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "19_10",
+      "regionStart": 44675801,
+      "regionEnd": 46383885,
+      "chromosome": 19,
+      "leadVariants": [
+        "rs2304195 (19:45562871:T->C)"
+      ],
+      "effects": {
+        "effect_europeans": -0.19032813,
+        "effect_africans": -0.491842,
+        "effect_finns": -0.096009047,
+        "effect_south_asians": -0.042863959,
+        "effect_east_asians": -0.321311,
+        "effect_nonfinnish_europeans": -0.2082453
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "19q13.32->S_LDL_FC",
+      "regionLabel": "19q13.32",
+      "trait": "S_LDL_FC",
+      "gim": "Gastric cancer",
+      "regionId": "19_10",
+      "regionStart": 44675801,
+      "regionEnd": 46383885,
+      "chromosome": 19,
+      "leadVariants": [
+        "rs762016934 (19:45253611:ATTGGC->A)",
+        "rs62117206 (19:45255679:G->C)",
+        "rs4802238 (19:45331725:C->T)",
+        "rs111371860 (19:45345787:A->T)",
+        "rs61679753 (19:45400747:T->A)",
+        "rs405509 (19:45408836:G->T)",
+        "rs7412 (19:45412079:C->T)",
+        "rs445925 (19:45415640:G->A)",
+        "rs190712692 (19:45425178:G->A)",
+        "rs4803791 (19:45523583:G->A)",
+        "rs775135173 (19:44781313:GATCA->G)",
+        "rs2571087 (19:44880657:A->G)",
+        "rs17347726 (19:44934842:G->C)",
+        "rs2722698 (19:44950550:A->G)",
+        "rs62116303 (19:44957310:A->G)",
+        "rs11666995 (19:44961974:T->C)",
+        "rs3745148 (19:44988716:G->A)",
+        "rs17800819 (19:45017064:C->T)",
+        "rs62116893 (19:45030367:C->T)",
+        "rs62116948 (19:45041638:T->C)",
+        "rs1661174 (19:45048658:T->C)",
+        "rs846848 (19:45074177:T->G)",
+        "rs62119270 (19:45135841:C->T)",
+        "rs59669162 (19:45136375:A->G)",
+        "rs62120565 (19:45197027:A->C)",
+        "rs62120575 (19:45215050:C->G)",
+        "rs8108110 (19:45234124:G->A)",
+        "rs2927438 (19:45242107:G->A)",
+        "rs113914212 (19:45301011:CA->C)",
+        "rs139576276 (19:45301426:C->CCTG)",
+        "rs111794050 (19:45302778:A->G)",
+        "rs2927477 (19:45313715:T->C)",
+        "rs7343130 (19:45331103:G->A)",
+        "rs4803760 (19:45333834:C->T)",
+        "rs2972555 (19:45334013:C->G)",
+        "rs56394238 (19:45335676:A->G)",
+        "rs2927482 (19:45340138:A->G)",
+        "rs4803766 (19:45371168:G->A)",
+        "rs4803767 (19:45372959:C->T)",
+        "rs395908 (19:45373565:G->A)",
+        "rs6859 (19:45382034:G->A)",
+        "rs9304645 (19:45450328:G->A)",
+        "rs204480 (19:45477111:C->T)",
+        "rs3859419 (19:45493133:G->T)",
+        "rs4803790 (19:45523459:A->G)",
+        "rs6509188 (19:45590184:A->C)",
+        "rs6509191 (19:45590424:C->T)",
+        "rs3178166 (19:45594170:A->G)",
+        "rs35836101 (19:45616982:G->A)",
+        "rs10415850 (19:45689892:C->T)",
+        "rs12974200 (19:45690460:A->G)",
+        "rs117602337 (19:45693752:C->T)",
+        "rs7247937 (19:45827863:G->C)",
+        "rs2854300 (19:46274392:G->C)",
+        "rs776403488 (19:44872840:GAAGA->G)",
+        "rs204524 (19:44958963:G->C)",
+        "rs939902 (19:45023839:G->A)",
+        "rs62119263 (19:45125197:T->C)",
+        "rs12462040 (19:45612226:C->T)",
+        "rs58593625 (19:46370642:G->A)",
+        "rs8113128 (19:45700657:A->C)"
+      ],
+      "effects": {
+        "effect_europeans": -0.55546795,
+        "effect_africans": -0.71351,
+        "effect_finns": -0.571495,
+        "effect_south_asians": -0.30023467,
+        "effect_east_asians": -0.614254,
+        "effect_nonfinnish_europeans": -0.55235373
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "19q13.32->S_LDL_PL",
+      "regionLabel": "19q13.32",
+      "trait": "S_LDL_PL",
+      "gim": "Gastric cancer",
+      "regionId": "19_10",
+      "regionStart": 44675801,
+      "regionEnd": 46383885,
+      "chromosome": 19,
+      "leadVariants": [
+        "rs6857 (19:45392254:C->T)",
+        "rs449647 (19:45408564:A->T)",
+        "rs429358 (19:45411941:T->C)",
+        "rs157592 (19:45424514:NA->NA)",
+        "rs2965156 (19:45188429:C->G)",
+        "rs2860314 (19:45208026:A->C)",
+        "rs55710026 (19:45221173:G->T)",
+        "rs7254776 (19:45227742:T->C)",
+        "rs11667610 (19:45355595:C->T)",
+        "rs3852856 (19:45361574:G->A)",
+        "rs519113 (19:45376284:C->G)",
+        "rs393584 (19:45377334:G->A)",
+        "rs3729640 (19:45381917:C->T)",
+        "rs406456 (19:45382717:A->G)",
+        "rs4564699 (19:45694213:G->A)",
+        "rs9676738 (19:45704771:G->A)",
+        "rs140511806 (19:45717714:G->GTGTT)",
+        "rs1004605 (19:45015596:T->G)",
+        "rs35899189 (19:45025134:AT->A)",
+        "rs9676262 (19:44841461:T->C)",
+        "rs3212924 (19:45928703:A->G)",
+        "rs72626214 (19:45201624:C->T)",
+        "rs78620885 (19:45591084:C->T)"
+      ],
+      "effects": {
+        "effect_europeans": -0.49651914,
+        "effect_africans": -0.7129,
+        "effect_finns": -0.5183049,
+        "effect_south_asians": -0.2373326,
+        "effect_east_asians": -0.544219,
+        "effect_nonfinnish_europeans": -0.49222504
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "1p13.3->L_LDL_C",
+      "regionLabel": "1p13.3",
+      "trait": "L_LDL_C",
+      "gim": "Gastric cancer",
+      "regionId": "1_14",
+      "regionStart": 109601316,
+      "regionEnd": 110269188,
+      "chromosome": 1,
+      "leadVariants": [
+        "rs7538453 (1:110056537:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": 0.14173534,
+        "effect_africans": 0.0963504,
+        "effect_finns": 0.13805695,
+        "effect_south_asians": 0.16358322,
+        "effect_east_asians": 0.265098,
+        "effect_nonfinnish_europeans": 0.14285057
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "1p13.3->L_LDL_L",
+      "regionLabel": "1p13.3",
+      "trait": "L_LDL_L",
+      "gim": "Gastric cancer",
+      "regionId": "1_14",
+      "regionStart": 109601316,
+      "regionEnd": 110269188,
+      "chromosome": 1,
+      "leadVariants": [
+        "rs1277928 (1:109763924:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": 0.13938255,
+        "effect_africans": 0.094107,
+        "effect_finns": 0.13448011,
+        "effect_south_asians": 0.16288617,
+        "effect_east_asians": 0.26522,
+        "effect_nonfinnish_europeans": 0.14086692
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "1p13.3->M_LDL_FC",
+      "regionLabel": "1p13.3",
+      "trait": "M_LDL_FC",
+      "gim": "Gastric cancer",
+      "regionId": "1_14",
+      "regionStart": 109601316,
+      "regionEnd": 110269188,
+      "chromosome": 1,
+      "leadVariants": [
+        "rs375585739 (1:110196702:G->GA)"
+      ],
+      "effects": {
+        "effect_europeans": 0.1386724,
+        "effect_africans": 0.0996488,
+        "effect_finns": 0.13380356,
+        "effect_south_asians": 0.15965876,
+        "effect_east_asians": 0.261318,
+        "effect_nonfinnish_europeans": 0.14013912
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "1p13.3->S_LDL_FC",
+      "regionLabel": "1p13.3",
+      "trait": "S_LDL_FC",
+      "gim": "Gastric cancer",
+      "regionId": "1_14",
+      "regionStart": 109601316,
+      "regionEnd": 110269188,
+      "chromosome": 1,
+      "leadVariants": [
+        "rs685653 (1:109759776:A->G)",
+        "rs4970830 (1:109766201:T->A)",
+        "rs593651 (1:109809110:A->G)",
+        "rs6695879 (1:110014333:G->A)",
+        "rs112847776 (1:109882568:C->G)"
+      ],
+      "effects": {
+        "effect_europeans": 0.13131486,
+        "effect_africans": 0.104226,
+        "effect_finns": 0.12736149,
+        "effect_south_asians": 0.14393364,
+        "effect_east_asians": 0.235694,
+        "effect_nonfinnish_europeans": 0.13249918
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "1p13.3->S_LDL_PL",
+      "regionLabel": "1p13.3",
+      "trait": "S_LDL_PL",
+      "gim": "Gastric cancer",
+      "regionId": "1_14",
+      "regionStart": 109601316,
+      "regionEnd": 110269188,
+      "chromosome": 1,
+      "leadVariants": [
+        "rs6678697 (1:109645307:T->C)",
+        "rs67429814 (1:109713271:G->A)",
+        "rs61799391 (1:109750671:C->T)",
+        "rs611060 (1:109782190:C->T)",
+        "rs61799429 (1:109783513:G->C)",
+        "rs10776804 (1:109788453:A->T)",
+        "rs585362 (1:109789795:T->C)",
+        "rs10858082 (1:109798721:A->G)",
+        "rs17035630 (1:109810981:G->A)",
+        "rs3895559 (1:109813020:G->A)",
+        "rs17035665 (1:109813719:C->T)",
+        "rs4970834 (1:109814880:C->T)",
+        "rs611917 (1:109815252:A->G)",
+        "rs6670347 (1:109815368:T->C)",
+        "rs12740374 (1:109817590:G->T)",
+        "rs35358959 (1:109824250:G->A)",
+        "rs68104325 (1:109826760:T->TTCCTAACC)",
+        "rs651649 (1:109832027:A->G)",
+        "rs7515901 (1:109839896:C->T)",
+        "rs600806 (1:109840629:A->G)",
+        "rs17646665 (1:109912051:A->G)",
+        "rs528199 (1:110046195:C->A)",
+        "rs17575427 (1:110049127:G->C)",
+        "rs34592756 (1:110172658:A->G)",
+        "rs11101993 (1:110269188:C->T)",
+        "rs4970758 (1:109979617:G->A)",
+        "rs143101532 (1:109683035:C->T)",
+        "rs7523615 (1:109685630:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": 0.11896115,
+        "effect_africans": 0.0992139,
+        "effect_finns": 0.11349494,
+        "effect_south_asians": 0.12894356,
+        "effect_east_asians": 0.20154,
+        "effect_nonfinnish_europeans": 0.12062076
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "1p32.3->IDL_C",
+      "regionLabel": "1p32.3",
+      "trait": "IDL_C",
+      "gim": "Gastric cancer",
+      "regionId": "1_9",
+      "regionStart": 55485796,
+      "regionEnd": 55792722,
+      "chromosome": 1,
+      "leadVariants": [
+        "rs2902875 (1:55695535:C->T)",
+        "rs10489488 (1:55792722:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.46461591,
+        "effect_africans": -0.595211,
+        "effect_finns": -0.49591129,
+        "effect_south_asians": -0.043431734,
+        "effect_east_asians": null,
+        "effect_nonfinnish_europeans": -0.43605642
+      },
+      "positiveCount": 0,
+      "negativeCount": 5,
+      "availableCount": 5
+    },
+    {
+      "regionTrait": "1p32.3->IDL_PL",
+      "regionLabel": "1p32.3",
+      "trait": "IDL_PL",
+      "gim": "Gastric cancer",
+      "regionId": "1_9",
+      "regionStart": 55485796,
+      "regionEnd": 55792722,
+      "chromosome": 1,
+      "leadVariants": [
+        "rs2479409 (1:55504650:A->G)",
+        "rs12136600 (1:55521195:C->T)"
+      ],
+      "effects": {
+        "effect_europeans": -0.46211033,
+        "effect_africans": -0.626589,
+        "effect_finns": -0.49341547,
+        "effect_south_asians": -0.12301323,
+        "effect_east_asians": null,
+        "effect_nonfinnish_europeans": -0.43353895
+      },
+      "positiveCount": 0,
+      "negativeCount": 5,
+      "availableCount": 5
+    },
+    {
+      "regionTrait": "1p32.3->L_LDL_FC",
+      "regionLabel": "1p32.3",
+      "trait": "L_LDL_FC",
+      "gim": "Gastric cancer",
+      "regionId": "1_9",
+      "regionStart": 55485796,
+      "regionEnd": 55792722,
+      "chromosome": 1,
+      "leadVariants": [
+        "rs10493176 (1:55538552:T->G)",
+        "rs72911441 (1:55552273:A->G)",
+        "rs4926670 (1:55662680:C->T)"
+      ],
+      "effects": {
+        "effect_europeans": -0.46461115,
+        "effect_africans": -0.522726,
+        "effect_finns": -0.49233848,
+        "effect_south_asians": -0.043743865,
+        "effect_east_asians": null,
+        "effect_nonfinnish_europeans": -0.43923298
+      },
+      "positiveCount": 0,
+      "negativeCount": 5,
+      "availableCount": 5
+    },
+    {
+      "regionTrait": "1p32.3->S_LDL_FC",
+      "regionLabel": "1p32.3",
+      "trait": "S_LDL_FC",
+      "gim": "Gastric cancer",
+      "regionId": "1_9",
+      "regionStart": 55485796,
+      "regionEnd": 55792722,
+      "chromosome": 1,
+      "leadVariants": [
+        "rs56833376 (1:55653828:G->T)",
+        "rs4927212 (1:55722404:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.39637774,
+        "effect_africans": -0.406073,
+        "effect_finns": -0.41023723,
+        "effect_south_asians": -0.065195406,
+        "effect_east_asians": null,
+        "effect_nonfinnish_europeans": -0.38372516
+      },
+      "positiveCount": 0,
+      "negativeCount": 5,
+      "availableCount": 5
+    },
+    {
+      "regionTrait": "1q41->XS_VLDL_C_pct",
+      "regionLabel": "1q41",
+      "trait": "XS_VLDL_C_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "1_26",
+      "regionStart": 220970028,
+      "regionEnd": 221112332,
+      "chromosome": 1,
+      "leadVariants": [
+        "rs2642420 (1:220977650:C->A)",
+        "rs6668666 (1:220999411:C->G)"
+      ],
+      "effects": {
+        "effect_europeans": 0.026010531,
+        "effect_africans": -0.000927653,
+        "effect_finns": 0.019701269,
+        "effect_south_asians": 0.039928627,
+        "effect_east_asians": 0.0539386,
+        "effect_nonfinnish_europeans": 0.027796571
+      },
+      "positiveCount": 5,
+      "negativeCount": 1,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "1q41->XS_VLDL_TG_pct",
+      "regionLabel": "1q41",
+      "trait": "XS_VLDL_TG_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "1_26",
+      "regionStart": 220970028,
+      "regionEnd": 221112332,
+      "chromosome": 1,
+      "leadVariants": [
+        "rs1889795 (1:221063101:G->A)",
+        "rs17649913 (1:220983402:T->C)",
+        "rs3806325 (1:221051792:C->T)",
+        "rs2247213 (1:221055463:G->A)",
+        "rs6680690 (1:221063684:T->A)",
+        "rs2807869 (1:221094068:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.03692185,
+        "effect_africans": 0.0233061,
+        "effect_finns": -0.031741475,
+        "effect_south_asians": -0.049751932,
+        "effect_east_asians": -0.0450913,
+        "effect_nonfinnish_europeans": -0.038595053
+      },
+      "positiveCount": 1,
+      "negativeCount": 5,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "1q42.3->L_LDL_C",
+      "regionLabel": "1q42.3",
+      "trait": "L_LDL_C",
+      "gim": "Gastric cancer",
+      "regionId": "1_28",
+      "regionStart": 234739101,
+      "regionEnd": 234875545,
+      "chromosome": 1,
+      "leadVariants": [
+        "rs558971 (1:234853406:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.039887196,
+        "effect_africans": -0.0228131,
+        "effect_finns": -0.03691451,
+        "effect_south_asians": -0.029303064,
+        "effect_east_asians": -0.0584474,
+        "effect_nonfinnish_europeans": -0.040798078
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "1q42.3->S_LDL_P",
+      "regionLabel": "1q42.3",
+      "trait": "S_LDL_P",
+      "gim": "Gastric cancer",
+      "regionId": "1_28",
+      "regionStart": 234739101,
+      "regionEnd": 234875545,
+      "chromosome": 1,
+      "leadVariants": [
+        "rs6586405 (1:234739101:C->A)",
+        "rs655506 (1:234829747:T->G)",
+        "rs600511 (1:234789114:G->A)",
+        "rs673283 (1:234792524:G->A)",
+        "rs542872 (1:234828034:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.041098847,
+        "effect_africans": -0.0512604,
+        "effect_finns": -0.039501773,
+        "effect_south_asians": -0.025372456,
+        "effect_east_asians": -0.0598285,
+        "effect_nonfinnish_europeans": -0.041588542
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "20q13.12->XL_HDL_C",
+      "regionLabel": "20q13.12",
+      "trait": "XL_HDL_C",
+      "gim": "Gastric cancer",
+      "regionId": "20_6",
+      "regionStart": 43980726,
+      "regionEnd": 44814996,
+      "chromosome": 20,
+      "leadVariants": [
+        "rs2272955 (20:44184498:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": 0.16940122,
+        "effect_africans": 0.217603,
+        "effect_finns": 0.18006285,
+        "effect_south_asians": 0.10494511,
+        "effect_east_asians": 0.144926,
+        "effect_nonfinnish_europeans": 0.16616995
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "20q13.12->XL_HDL_FC",
+      "regionLabel": "20q13.12",
+      "trait": "XL_HDL_FC",
+      "gim": "Gastric cancer & Gastric lesion progression",
+      "regionId": "20_6",
+      "regionStart": 43980726,
+      "regionEnd": 44814996,
+      "chromosome": 20,
+      "leadVariants": [
+        "rs4812972 (20:44503099:C->T)",
+        "rs13040315 (20:44585793:A->G)",
+        "rs3092073 (20:44595649:G->A)",
+        "rs8113877 (20:44635045:T->G)",
+        "rs3918241 (20:44635735:T->A)",
+        "rs6074009 (20:44698616:C->T)",
+        "rs6074013 (20:44709539:G->C)",
+        "rs41304411 (20:44163825:G->T)",
+        "rs988462 (20:44179299:A->G)",
+        "rs2206449 (20:44230292:C->A)",
+        "rs79475204 (20:44302649:T->C)",
+        "rs980984 (20:44333052:A->G)",
+        "rs1586437 (20:44340031:C->A)",
+        "rs379059 (20:44447922:G->A)",
+        "rs6073990 (20:44654508:C->T)",
+        "rs1883838 (20:44761896:C->T)",
+        "rs11696696 (20:44771565:G->T)",
+        "rs6032681 (20:44784622:T->C)",
+        "rs6032201 (20:44081810:T->A)",
+        "rs3761197 (20:44095490:C->G)",
+        "rs6017583 (20:44113979:T->G)",
+        "rs35138739 (20:44132701:G->A)",
+        "rs6104190 (20:44145600:T->G)",
+        "rs6094159 (20:44164091:T->C)",
+        "rs3091533 (20:44216689:C->T)",
+        "rs11086973 (20:44275283:G->A)",
+        "rs6032435 (20:44317021:A->G)",
+        "rs590391 (20:44390333:C->T)",
+        "rs3848711 (20:44446100:A->G)",
+        "rs6131012 (20:44728661:A->G)",
+        "rs76926652 (20:44730817:C->T)",
+        "rs55658673 (20:44734146:G->C)",
+        "rs6074021 (20:44736796:C->G)",
+        "rs745307 (20:44747086:G->A)",
+        "rs11569323 (20:44752304:T->C)",
+        "rs6074032 (20:44763320:G->T)",
+        "rs146652011 (20:44780338:T->TA)",
+        "rs6104490 (20:44792560:T->C)",
+        "rs6074051 (20:44792583:T->C)",
+        "rs11087000 (20:44809374:A->C)",
+        "rs201824435 (20:44375931:C->CA)",
+        "rs74174979 (20:44480103:T->A)",
+        "rs11696857 (20:44109437:G->A)",
+        "rs1537028 (20:44691350:T->G)",
+        "rs6073930 (20:44484118:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": 0.16963417,
+        "effect_africans": 0.215491,
+        "effect_finns": 0.1782876,
+        "effect_south_asians": 0.10919975,
+        "effect_east_asians": 0.153527,
+        "effect_nonfinnish_europeans": 0.16698833
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "2p21->IDL_PL",
+      "regionLabel": "2p21",
+      "trait": "IDL_PL",
+      "gim": "Gastric cancer",
+      "regionId": "2_3",
+      "regionStart": 43950137,
+      "regionEnd": 44100357,
+      "chromosome": 2,
+      "leadVariants": [
+        "rs58762754 (2:44088041:C->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.063973729,
+        "effect_africans": -0.0365329,
+        "effect_finns": -0.061577873,
+        "effect_south_asians": -0.021946018,
+        "effect_east_asians": 0.0560702999999999,
+        "effect_nonfinnish_europeans": -0.064585261
+      },
+      "positiveCount": 1,
+      "negativeCount": 5,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "2p24.1->IDL_C",
+      "regionLabel": "2p24.1",
+      "trait": "IDL_C",
+      "gim": "Gastric cancer",
+      "regionId": "2_1",
+      "regionStart": 20347893,
+      "regionEnd": 21538826,
+      "chromosome": 2,
+      "leadVariants": [
+        "rs143590503 (2:21107494:T->G)",
+        "rs372781841 (2:21111025:T->G)"
+      ],
+      "effects": {
+        "effect_europeans": 0.12565082,
+        "effect_africans": 0.099392,
+        "effect_finns": 0.11984343,
+        "effect_south_asians": 0.12234876,
+        "effect_east_asians": 0.14576,
+        "effect_nonfinnish_europeans": 0.12746333
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "2p24.1->IDL_PL",
+      "regionLabel": "2p24.1",
+      "trait": "IDL_PL",
+      "gim": "Gastric cancer",
+      "regionId": "2_1",
+      "regionStart": 20347893,
+      "regionEnd": 21538826,
+      "chromosome": 2,
+      "leadVariants": [
+        "rs11096688 (2:21085410:C->T)",
+        "rs72780134 (2:21214832:G->A)",
+        "rs550619 (2:21260601:A->G)",
+        "rs97458 (2:21327635:A->G)",
+        "rs312033 (2:21470596:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.13317806,
+        "effect_africans": -0.126836,
+        "effect_finns": -0.12799699,
+        "effect_south_asians": -0.12935206,
+        "effect_east_asians": -0.13976,
+        "effect_nonfinnish_europeans": -0.13479428
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "2p24.1->L_HDL_FC_pct",
+      "regionLabel": "2p24.1",
+      "trait": "L_HDL_FC_pct",
+      "gim": "Gastric cancer & Gastric lesion progression",
+      "regionId": "2_1",
+      "regionStart": 20347893,
+      "regionEnd": 21538826,
+      "chromosome": 2,
+      "leadVariants": [
+        "rs491752 (2:21400765:A->G)",
+        "rs12615034 (2:21462096:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": 0.05054107,
+        "effect_africans": -0.0156682,
+        "effect_finns": 0.053641359,
+        "effect_south_asians": 0.056542273,
+        "effect_east_asians": -0.0384386,
+        "effect_nonfinnish_europeans": 0.049469212
+      },
+      "positiveCount": 4,
+      "negativeCount": 2,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "2p24.1->L_LDL_FC",
+      "regionLabel": "2p24.1",
+      "trait": "L_LDL_FC",
+      "gim": "Gastric cancer",
+      "regionId": "2_1",
+      "regionStart": 20347893,
+      "regionEnd": 21538826,
+      "chromosome": 2,
+      "leadVariants": [
+        "rs952274 (2:21221357:G->T)",
+        "rs340623 (2:20932278:T->C)"
+      ],
+      "effects": {
+        "effect_europeans": 0.13267066,
+        "effect_africans": 0.0906678,
+        "effect_finns": 0.12824352,
+        "effect_south_asians": 0.11814028,
+        "effect_east_asians": 0.159168,
+        "effect_nonfinnish_europeans": 0.13406137
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "2p24.1->M_HDL_FC_pct",
+      "regionLabel": "2p24.1",
+      "trait": "M_HDL_FC_pct",
+      "gim": "Gastric cancer",
+      "regionId": "2_1",
+      "regionStart": 20347893,
+      "regionEnd": 21538826,
+      "chromosome": 2,
+      "leadVariants": [
+        "rs340620 (2:20924110:C->T)"
+      ],
+      "effects": {
+        "effect_europeans": 0.036106732,
+        "effect_africans": 0.0742076,
+        "effect_finns": 0.0270348,
+        "effect_south_asians": 0.047419137,
+        "effect_east_asians": 0.0139051,
+        "effect_nonfinnish_europeans": 0.039210012
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "2p24.1->M_VLDL_FC",
+      "regionLabel": "2p24.1",
+      "trait": "M_VLDL_FC",
+      "gim": "Gastric cancer",
+      "regionId": "2_1",
+      "regionStart": 20347893,
+      "regionEnd": 21538826,
+      "chromosome": 2,
+      "leadVariants": [
+        "rs719148 (2:20521647:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": -0.10062125,
+        "effect_africans": -0.0462287,
+        "effect_finns": -0.11075268,
+        "effect_south_asians": -0.081877731,
+        "effect_east_asians": 0.0433619,
+        "effect_nonfinnish_europeans": -0.096836071
+      },
+      "positiveCount": 1,
+      "negativeCount": 5,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "2p24.1->M_VLDL_TG_pct",
+      "regionLabel": "2p24.1",
+      "trait": "M_VLDL_TG_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "2_1",
+      "regionStart": 20347893,
+      "regionEnd": 21538826,
+      "chromosome": 2,
+      "leadVariants": [
+        "rs1437405 (2:20929067:T->C)",
+        "rs1872059 (2:20905045:C->T)"
+      ],
+      "effects": {
+        "effect_europeans": 0.078149944,
+        "effect_africans": 0.058398,
+        "effect_finns": 0.07210419,
+        "effect_south_asians": 0.031082832,
+        "effect_east_asians": 0.050627,
+        "effect_nonfinnish_europeans": 0.080114172
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "2p24.1->Remnant_C",
+      "regionLabel": "2p24.1",
+      "trait": "Remnant_C",
+      "gim": "Gastric cancer",
+      "regionId": "2_1",
+      "regionStart": 20347893,
+      "regionEnd": 21538826,
+      "chromosome": 2,
+      "leadVariants": [
+        "rs2160071 (2:20573635:C->T)"
+      ],
+      "effects": {
+        "effect_europeans": 0.095862513,
+        "effect_africans": null,
+        "effect_finns": 0.101466,
+        "effect_south_asians": 0.10661629,
+        "effect_east_asians": 0.125238,
+        "effect_nonfinnish_europeans": 0.094304492
+      },
+      "positiveCount": 5,
+      "negativeCount": 0,
+      "availableCount": 5
+    },
+    {
+      "regionTrait": "2p24.1->S_HDL_FC_pct",
+      "regionLabel": "2p24.1",
+      "trait": "S_HDL_FC_pct",
+      "gim": "Gastric cancer",
+      "regionId": "2_1",
+      "regionStart": 20347893,
+      "regionEnd": 21538826,
+      "chromosome": 2,
+      "leadVariants": [
+        "rs2289081 (2:20881840:G->C)"
+      ],
+      "effects": {
+        "effect_europeans": -0.060821575,
+        "effect_africans": 0.086039,
+        "effect_finns": -0.072150187,
+        "effect_south_asians": -0.01421858,
+        "effect_east_asians": -0.100551,
+        "effect_nonfinnish_europeans": -0.057603786
+      },
+      "positiveCount": 1,
+      "negativeCount": 5,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "2p24.1->S_LDL_PL",
+      "regionLabel": "2p24.1",
+      "trait": "S_LDL_PL",
+      "gim": "Gastric cancer",
+      "regionId": "2_1",
+      "regionStart": 20347893,
+      "regionEnd": 21538826,
+      "chromosome": 2,
+      "leadVariants": [
+        "rs11679383 (2:21088912:A->G)",
+        "rs77928629 (2:21091409:C->A)",
+        "rs13008369 (2:21100438:G->T)",
+        "rs113911767 (2:21402927:GATGC->G)",
+        "rs7419374 (2:21411631:A->G)",
+        "rs10166144 (2:21453733:A->G)",
+        "rs1848922 (2:21471603:C->T)",
+        "rs72654432 (2:21223250:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": 0.1099551,
+        "effect_africans": 0.117059,
+        "effect_finns": 0.10548543,
+        "effect_south_asians": 0.096125001,
+        "effect_east_asians": 0.093846,
+        "effect_nonfinnish_europeans": 0.11136717
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "2p24.1->S_VLDL_FC",
+      "regionLabel": "2p24.1",
+      "trait": "S_VLDL_FC",
+      "gim": "Gastric cancer",
+      "regionId": "2_1",
+      "regionStart": 20347893,
+      "regionEnd": 21538826,
+      "chromosome": 2,
+      "leadVariants": [
+        "rs10198175 (2:21133883:G->A)",
+        "rs219549 (2:21538826:C->T)"
+      ],
+      "effects": {
+        "effect_europeans": -0.10472112,
+        "effect_africans": -0.0506487,
+        "effect_finns": -0.11828511,
+        "effect_south_asians": -0.096984199,
+        "effect_east_asians": 0.0469721,
+        "effect_nonfinnish_europeans": -0.09982069
+      },
+      "positiveCount": 1,
+      "negativeCount": 5,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "2p24.1->S_VLDL_TG_pct",
+      "regionLabel": "2p24.1",
+      "trait": "S_VLDL_TG_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "2_1",
+      "regionStart": 20347893,
+      "regionEnd": 21538826,
+      "chromosome": 2,
+      "leadVariants": [
+        "rs34509736 (2:21135187:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.072514468,
+        "effect_africans": -0.0356082,
+        "effect_finns": -0.078802052,
+        "effect_south_asians": -0.062060501,
+        "effect_east_asians": -0.00864373,
+        "effect_nonfinnish_europeans": -0.070056029
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "3p25.2->S_LDL_P",
+      "regionLabel": "3p25.2",
+      "trait": "S_LDL_P",
+      "gim": "Gastric cancer",
+      "regionId": "3_1",
+      "regionStart": 12239931,
+      "regionEnd": 12413339,
+      "chromosome": 3,
+      "leadVariants": [
+        "rs4135247 (3:12396588:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": -0.028651315,
+        "effect_africans": -0.0258567,
+        "effect_finns": -0.042044959,
+        "effect_south_asians": -0.0056506652,
+        "effect_east_asians": -0.0135052,
+        "effect_nonfinnish_europeans": -0.024451044
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "5q11.2->S_HDL_TG_pct",
+      "regionLabel": "5q11.2",
+      "trait": "S_HDL_TG_pct",
+      "gim": "Gastric cancer",
+      "regionId": "5_5",
+      "regionStart": 55793789,
+      "regionEnd": 55876283,
+      "chromosome": 5,
+      "leadVariants": [
+        "rs58285006 (5:55808686:A->G)",
+        "rs66485956 (5:55865045:C->T)"
+      ],
+      "effects": {
+        "effect_europeans": 0.037629685,
+        "effect_africans": -0.0836357,
+        "effect_finns": 0.026013543,
+        "effect_south_asians": 0.030490366,
+        "effect_east_asians": 0.0903403,
+        "effect_nonfinnish_europeans": 0.040397616
+      },
+      "positiveCount": 5,
+      "negativeCount": 1,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "5q13.3->IDL_CE",
+      "regionLabel": "5q13.3",
+      "trait": "IDL_CE",
+      "gim": "Gastric cancer",
+      "regionId": "5_8",
+      "regionStart": 74242852,
+      "regionEnd": 75224867,
+      "chromosome": 5,
+      "leadVariants": [
+        "rs4704204 (5:74582408:C->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.079513039,
+        "effect_africans": -0.0470798,
+        "effect_finns": -0.08847885,
+        "effect_south_asians": -0.051025325,
+        "effect_east_asians": -0.0886007,
+        "effect_nonfinnish_europeans": -0.076690172
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "5q13.3->IDL_L",
+      "regionLabel": "5q13.3",
+      "trait": "IDL_L",
+      "gim": "Gastric cancer",
+      "regionId": "5_8",
+      "regionStart": 74242852,
+      "regionEnd": 75224867,
+      "chromosome": 5,
+      "leadVariants": [
+        "rs111353455 (5:74623949:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.077069008,
+        "effect_africans": -0.0555287,
+        "effect_finns": -0.085022572,
+        "effect_south_asians": -0.048799312,
+        "effect_east_asians": -0.0865532,
+        "effect_nonfinnish_europeans": -0.074557971
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "5q13.3->IDL_PL",
+      "regionLabel": "5q13.3",
+      "trait": "IDL_PL",
+      "gim": "Gastric cancer",
+      "regionId": "5_8",
+      "regionStart": 74242852,
+      "regionEnd": 75224867,
+      "chromosome": 5,
+      "leadVariants": [
+        "rs253392 (5:74928883:T->G)",
+        "rs66787104 (5:75015698:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.077518377,
+        "effect_africans": -0.0703319,
+        "effect_finns": -0.085107225,
+        "effect_south_asians": -0.049533493,
+        "effect_east_asians": -0.0879894,
+        "effect_nonfinnish_europeans": -0.075105406
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "5q13.3->M_VLDL_C",
+      "regionLabel": "5q13.3",
+      "trait": "M_VLDL_C",
+      "gim": "Gastric cancer",
+      "regionId": "5_8",
+      "regionStart": 74242852,
+      "regionEnd": 75224867,
+      "chromosome": 5,
+      "leadVariants": [
+        "rs7730062 (5:74336943:T->C)",
+        "rs4597948 (5:74345778:T->C)",
+        "rs55727654 (5:74651864:G->A)",
+        "rs12659791 (5:74757758:T->C)",
+        "rs5744625 (5:74862342:G->A)",
+        "rs4704262 (5:75191450:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": -0.043194487,
+        "effect_africans": -0.0758316,
+        "effect_finns": -0.054848812,
+        "effect_south_asians": -0.0071973396,
+        "effect_east_asians": -0.0380906,
+        "effect_nonfinnish_europeans": -0.039328686
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "5q13.3->S_LDL_P",
+      "regionLabel": "5q13.3",
+      "trait": "S_LDL_P",
+      "gim": "Gastric cancer",
+      "regionId": "5_8",
+      "regionStart": 74242852,
+      "regionEnd": 75224867,
+      "chromosome": 5,
+      "leadVariants": [
+        "rs6453099 (5:74259550:G->A)",
+        "rs61185420 (5:74427976:T->C)",
+        "rs34356 (5:74961796:G->T)"
+      ],
+      "effects": {
+        "effect_europeans": -0.0753,
+        "effect_africans": -0.0481338,
+        "effect_finns": -0.079368179,
+        "effect_south_asians": -0.033738267,
+        "effect_east_asians": -0.0849943,
+        "effect_nonfinnish_europeans": -0.074002395
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "5q13.3->S_LDL_PL",
+      "regionLabel": "5q13.3",
+      "trait": "S_LDL_PL",
+      "gim": "Gastric cancer",
+      "regionId": "5_8",
+      "regionStart": 74242852,
+      "regionEnd": 75224867,
+      "chromosome": 5,
+      "leadVariants": [
+        "rs10056626 (5:75139999:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.070610157,
+        "effect_africans": -0.0674721,
+        "effect_finns": -0.075942137,
+        "effect_south_asians": -0.02475036,
+        "effect_east_asians": -0.0823565,
+        "effect_nonfinnish_europeans": -0.068908844
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "5q13.3->Total_C",
+      "regionLabel": "5q13.3",
+      "trait": "Total_C",
+      "gim": "Gastric cancer",
+      "regionId": "5_8",
+      "regionStart": 74242852,
+      "regionEnd": 75224867,
+      "chromosome": 5,
+      "leadVariants": [
+        "rs1689639 (5:75084795:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": -0.072941681,
+        "effect_africans": -0.0533731,
+        "effect_finns": -0.078533634,
+        "effect_south_asians": -0.041922795,
+        "effect_east_asians": -0.0834601,
+        "effect_nonfinnish_europeans": -0.071180013
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "5q33.3->S_LDL_P",
+      "regionLabel": "5q33.3",
+      "trait": "S_LDL_P",
+      "gim": "Gastric cancer",
+      "regionId": "5_13",
+      "regionStart": 155867109,
+      "regionEnd": 156568510,
+      "chromosome": 5,
+      "leadVariants": [
+        "rs72798999 (5:155867109:G->A)",
+        "rs17053667 (5:156045086:T->C)"
+      ],
+      "effects": {
+        "effect_europeans": 0.037859944,
+        "effect_africans": 0.00777163,
+        "effect_finns": 0.033045739,
+        "effect_south_asians": 0.030596628,
+        "effect_east_asians": 0.0333572,
+        "effect_nonfinnish_europeans": 0.039268896
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "6q26->L_HDL_TG_pct",
+      "regionLabel": "6q26",
+      "trait": "L_HDL_TG_pct",
+      "gim": "Gastric cancer",
+      "regionId": "6_18",
+      "regionStart": 160242487,
+      "regionEnd": 161682569,
+      "chromosome": 6,
+      "leadVariants": [
+        "rs316032 (6:160689599:T->C)"
+      ],
+      "effects": {
+        "effect_europeans": -0.064056017,
+        "effect_africans": 0.401964,
+        "effect_finns": -0.026152437,
+        "effect_south_asians": null,
+        "effect_east_asians": null,
+        "effect_nonfinnish_europeans": -0.068949488
+      },
+      "positiveCount": 1,
+      "negativeCount": 3,
+      "availableCount": 4
+    },
+    {
+      "regionTrait": "6q26->L_VLDL_CE_pct",
+      "regionLabel": "6q26",
+      "trait": "L_VLDL_CE_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "6_18",
+      "regionStart": 160242487,
+      "regionEnd": 161682569,
+      "chromosome": 6,
+      "leadVariants": [
+        "rs2297374 (6:160575985:C->T)",
+        "rs1321195 (6:161084156:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.094035358,
+        "effect_africans": -0.217913,
+        "effect_finns": -0.079980671,
+        "effect_south_asians": -0.075127378,
+        "effect_east_asians": -0.436229,
+        "effect_nonfinnish_europeans": -0.096138184
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "6q26->M_HDL_FC_pct",
+      "regionLabel": "6q26",
+      "trait": "M_HDL_FC_pct",
+      "gim": "Gastric cancer",
+      "regionId": "6_18",
+      "regionStart": 160242487,
+      "regionEnd": 161682569,
+      "chromosome": 6,
+      "leadVariants": [
+        "rs2297212 (6:160697325:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": -0.089587672,
+        "effect_africans": -0.611431,
+        "effect_finns": -0.074101387,
+        "effect_south_asians": 0.019667612,
+        "effect_east_asians": -0.388873,
+        "effect_nonfinnish_europeans": -0.091841538
+      },
+      "positiveCount": 1,
+      "negativeCount": 5,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "6q26->XL_VLDL_CE_pct",
+      "regionLabel": "6q26",
+      "trait": "XL_VLDL_CE_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "6_18",
+      "regionStart": 160242487,
+      "regionEnd": 161682569,
+      "chromosome": 6,
+      "leadVariants": [
+        "rs9457927 (6:160910282:A->G)",
+        "rs9295127 (6:160751123:C->A)",
+        "rs1963529 (6:160521876:G->A)",
+        "rs9365173 (6:160985673:C->T)",
+        "rs145870243 (6:160386941:T->C)",
+        "rs8191728 (6:160429737:A->G)",
+        "rs9456644 (6:161655011:C->T)"
+      ],
+      "effects": {
+        "effect_europeans": -0.089054111,
+        "effect_africans": -0.372023,
+        "effect_finns": -0.048668166,
+        "effect_south_asians": -0.040626008,
+        "effect_east_asians": -0.441206,
+        "effect_nonfinnish_europeans": -0.096379137
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "6q26->XL_VLDL_C_pct",
+      "regionLabel": "6q26",
+      "trait": "XL_VLDL_C_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "6_18",
+      "regionStart": 160242487,
+      "regionEnd": 161682569,
+      "chromosome": 6,
+      "leadVariants": [
+        "rs9456486 (6:160396355:T->C)"
+      ],
+      "effects": {
+        "effect_europeans": -0.088334387,
+        "effect_africans": -0.440611,
+        "effect_finns": -0.10243985,
+        "effect_south_asians": -0.057098283,
+        "effect_east_asians": -0.0652091,
+        "effect_nonfinnish_europeans": -0.085744479
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "6q26->XS_VLDL_TG_pct",
+      "regionLabel": "6q26",
+      "trait": "XS_VLDL_TG_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "6_18",
+      "regionStart": 160242487,
+      "regionEnd": 161682569,
+      "chromosome": 6,
+      "leadVariants": [
+        "rs9458001 (6:161115999:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": 0.090283843,
+        "effect_africans": 0.393837,
+        "effect_finns": 0.087100931,
+        "effect_south_asians": 0.12828477,
+        "effect_east_asians": 0.396071,
+        "effect_nonfinnish_europeans": 0.090828262
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "7p15.2->S_VLDL_CE_pct",
+      "regionLabel": "7p15.2",
+      "trait": "S_VLDL_CE_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "7_6",
+      "regionStart": 25109675,
+      "regionEnd": 26162074,
+      "chromosome": 7,
+      "leadVariants": [
+        "rs770669638 (7:26153517:CT->C)"
+      ],
+      "effects": {
+        "effect_europeans": -0.043940434,
+        "effect_africans": 0.0504382,
+        "effect_finns": -0.03575475,
+        "effect_south_asians": -0.015067004,
+        "effect_east_asians": -0.102894,
+        "effect_nonfinnish_europeans": -0.047464626
+      },
+      "positiveCount": 1,
+      "negativeCount": 5,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "7p15.2->S_VLDL_TG_pct",
+      "regionLabel": "7p15.2",
+      "trait": "S_VLDL_TG_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "7_6",
+      "regionStart": 25109675,
+      "regionEnd": 26162074,
+      "chromosome": 7,
+      "leadVariants": [
+        "rs4722551 (7:25991826:T->C)",
+        "rs78741986 (7:25991232:T->C)",
+        "rs4722552 (7:25998530:G->T)",
+        "rs896311 (7:25934357:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": 0.038999503,
+        "effect_africans": -0.0902005,
+        "effect_finns": 0.030014693,
+        "effect_south_asians": 0.0088193001,
+        "effect_east_asians": 0.12065,
+        "effect_nonfinnish_europeans": 0.042745169
+      },
+      "positiveCount": 5,
+      "negativeCount": 1,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "7q11.23->XS_VLDL_TG_pct",
+      "regionLabel": "7q11.23",
+      "trait": "XS_VLDL_TG_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "7_12",
+      "regionStart": 72662887,
+      "regionEnd": 73125263,
+      "chromosome": 7,
+      "leadVariants": [
+        "rs34121855 (7:73040814:T->G)",
+        "rs1178977 (7:72857049:A->G)",
+        "rs71071936 (7:72869866:C->CT)",
+        "rs61010704 (7:73019975:A->G)",
+        "rs3812316 (7:73020337:C->G)",
+        "rs6460047 (7:73042443:T->C)",
+        "rs35855035 (7:73047551:C->T)",
+        "rs62466323 (7:73048678:G->A)",
+        "rs42122 (7:72841823:G->A)",
+        "rs113452856 (7:72859135:G->A)",
+        "rs3763432 (7:72974869:C->T)",
+        "rs145099458 (7:73004315:C->T)",
+        "rs799161 (7:73059990:T->C)",
+        "rs6975732 (7:73056993:A->T)",
+        "rs13239670 (7:73059019:C->T)",
+        "rs200777041 (7:72668604:T->A)",
+        "rs7778762 (7:73110832:C->T)",
+        "rs2695388 (7:72792191:G->T)",
+        "rs6950314 (7:73081831:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": -0.1084975,
+        "effect_africans": -0.0811731,
+        "effect_finns": -0.10966755,
+        "effect_south_asians": -0.16764555,
+        "effect_east_asians": -0.128252,
+        "effect_nonfinnish_europeans": -0.10810053
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "8p21.3->L_HDL_TG_pct",
+      "regionLabel": "8p21.3",
+      "trait": "L_HDL_TG_pct",
+      "gim": "Gastric cancer",
+      "regionId": "8_2",
+      "regionStart": 19520760,
+      "regionEnd": 20039337,
+      "chromosome": 8,
+      "leadVariants": [
+        "rs7005265 (8:19628632:A->T)",
+        "rs10749625 (8:19635117:T->C)",
+        "rs7009647 (8:19635214:T->A)",
+        "rs11204078 (8:19691377:T->G)",
+        "rs1492637 (8:19625510:A->T)",
+        "rs10101749 (8:19643985:C->T)",
+        "rs6991468 (8:19975147:A->C)"
+      ],
+      "effects": {
+        "effect_europeans": -0.16014675,
+        "effect_africans": -0.119575,
+        "effect_finns": -0.17889231,
+        "effect_south_asians": -0.16490966,
+        "effect_east_asians": -0.15393,
+        "effect_nonfinnish_europeans": -0.15432502
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "8p21.3->M_HDL_C_pct",
+      "regionLabel": "8p21.3",
+      "trait": "M_HDL_C_pct",
+      "gim": "Gastric cancer",
+      "regionId": "8_2",
+      "regionStart": 19520760,
+      "regionEnd": 20039337,
+      "chromosome": 8,
+      "leadVariants": [
+        "rs17092008 (8:19961274:C->T)"
+      ],
+      "effects": {
+        "effect_europeans": 0.14545521,
+        "effect_africans": 0.141147,
+        "effect_finns": 0.15389691,
+        "effect_south_asians": 0.18616142,
+        "effect_east_asians": 0.176308,
+        "effect_nonfinnish_europeans": 0.14307065
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "8p21.3->M_HDL_TG_pct",
+      "regionLabel": "8p21.3",
+      "trait": "M_HDL_TG_pct",
+      "gim": "Gastric cancer",
+      "regionId": "8_2",
+      "regionStart": 19520760,
+      "regionEnd": 20039337,
+      "chromosome": 8,
+      "leadVariants": [
+        "rs35330363 (8:19918984:A->C)"
+      ],
+      "effects": {
+        "effect_europeans": -0.17156311,
+        "effect_africans": -0.124706,
+        "effect_finns": -0.19041648,
+        "effect_south_asians": -0.19701696,
+        "effect_east_asians": -0.181725,
+        "effect_nonfinnish_europeans": -0.1656047
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "8p21.3->S_HDL_TG_pct",
+      "regionLabel": "8p21.3",
+      "trait": "S_HDL_TG_pct",
+      "gim": "Gastric cancer",
+      "regionId": "8_2",
+      "regionStart": 19520760,
+      "regionEnd": 20039337,
+      "chromosome": 8,
+      "leadVariants": [
+        "rs10503660 (8:19576471:T->G)",
+        "rs142588427 (8:19614541:G->A)",
+        "rs117324351 (8:19614962:T->A)",
+        "rs4921675 (8:19616581:G->C)",
+        "rs11781244 (8:19622636:C->T)",
+        "rs3758060 (8:19673973:T->C)",
+        "rs4244456 (8:19710468:C->T)",
+        "rs6998248 (8:19712564:T->C)",
+        "rs2119693 (8:19720395:T->G)",
+        "rs10096561 (8:19720833:C->T)",
+        "rs958615 (8:19730400:G->A)",
+        "rs6586876 (8:19738260:A->G)",
+        "rs1919482 (8:19754718:A->T)",
+        "rs73597688 (8:19755175:C->A)",
+        "rs258 (8:19812252:G->C)",
+        "rs263 (8:19812812:C->T)",
+        "rs285 (8:19815189:C->T)",
+        "rs289 (8:19815619:T->C)",
+        "rs328 (8:19819724:C->G)",
+        "rs15285 (8:19824667:C->T)",
+        "rs2165557 (8:19835050:A->T)",
+        "rs59147390 (8:19843879:T->C)",
+        "rs894210 (8:19865843:A->G)",
+        "rs139547332 (8:19867176:C->CT)",
+        "rs7005359 (8:19870693:A->G)",
+        "rs1569213 (8:19870735:A->G)",
+        "rs78358410 (8:19889399:T->G)",
+        "rs78299715 (8:19905904:C->G)",
+        "rs4128744 (8:19919655:C->T)",
+        "rs6999158 (8:19928013:T->A)",
+        "rs28550053 (8:19934305:A->G)",
+        "rs28597716 (8:19936687:A->G)",
+        "rs6989064 (8:19941448:T->C)",
+        "rs28546518 (8:19934043:A->G)",
+        "rs17090735 (8:19550298:T->C)",
+        "rs28623088 (8:19583182:A->C)",
+        "rs17091237 (8:19593584:T->C)",
+        "rs6996589 (8:19624402:G->A)",
+        "rs10112650 (8:19646997:G->A)",
+        "rs2044061 (8:19723503:T->C)",
+        "rs717834 (8:19740868:T->C)",
+        "rs1866956 (8:19748921:T->C)",
+        "rs3898938 (8:19749390:C->T)",
+        "rs34894682 (8:19951045:T->C)",
+        "rs16842 (8:19968929:T->C)",
+        "rs3779672 (8:20032103:T->C)",
+        "rs111609466 (8:19939957:G->C)",
+        "rs2013213 (8:19578969:T->C)",
+        "rs74345411 (8:19748989:C->A)",
+        "rs10106796 (8:19735624:T->C)",
+        "rs35091123 (8:19993288:A->G)",
+        "rs35590614 (8:20012605:A->C)"
+      ],
+      "effects": {
+        "effect_europeans": -0.17385995,
+        "effect_africans": -0.141202,
+        "effect_finns": -0.192638,
+        "effect_south_asians": -0.21120684,
+        "effect_east_asians": -0.199611,
+        "effect_nonfinnish_europeans": -0.16794184
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "8p22->L_HDL_TG_pct",
+      "regionLabel": "8p22",
+      "trait": "L_HDL_TG_pct",
+      "gim": "Gastric cancer",
+      "regionId": "8_2",
+      "regionStart": 18205455,
+      "regionEnd": 18288772,
+      "chromosome": 8,
+      "leadVariants": [
+        "rs34370554 (8:18288772:T->G)"
+      ],
+      "effects": {
+        "effect_europeans": -0.16014675,
+        "effect_africans": -0.119575,
+        "effect_finns": -0.17889231,
+        "effect_south_asians": -0.16490966,
+        "effect_east_asians": -0.15393,
+        "effect_nonfinnish_europeans": -0.15432502
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "8p23.1->LDL_size",
+      "regionLabel": "8p23.1",
+      "trait": "LDL_size",
+      "gim": "Gastric cancer",
+      "regionId": "8_1",
+      "regionStart": 8088933,
+      "regionEnd": 11895484,
+      "chromosome": 8,
+      "leadVariants": [
+        "rs10100074 (8:9887171:G->C)"
+      ],
+      "effects": {
+        "effect_europeans": -0.033912557,
+        "effect_africans": 0.0398592,
+        "effect_finns": -0.012932846,
+        "effect_south_asians": -0.076274699,
+        "effect_east_asians": -0.114444,
+        "effect_nonfinnish_europeans": -0.042110032
+      },
+      "positiveCount": 1,
+      "negativeCount": 5,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "8p23.1->L_HDL_TG_pct",
+      "regionLabel": "8p23.1",
+      "trait": "L_HDL_TG_pct",
+      "gim": "Gastric cancer",
+      "regionId": "8_1",
+      "regionStart": 8088933,
+      "regionEnd": 11895484,
+      "chromosome": 8,
+      "leadVariants": [
+        "rs4416825 (8:9453422:G->A)",
+        "rs7822904 (8:9534995:T->C)",
+        "rs62489364 (8:9599426:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": -0.054849079,
+        "effect_africans": -0.0595768,
+        "effect_finns": -0.073811448,
+        "effect_south_asians": -0.098720686,
+        "effect_east_asians": 0.0702198,
+        "effect_nonfinnish_europeans": -0.044947312
+      },
+      "positiveCount": 1,
+      "negativeCount": 5,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "8p23.1->XL_HDL_FC",
+      "regionLabel": "8p23.1",
+      "trait": "XL_HDL_FC",
+      "gim": "Gastric cancer",
+      "regionId": "8_1",
+      "regionStart": 8088933,
+      "regionEnd": 11895484,
+      "chromosome": 8,
+      "leadVariants": [
+        "rs17154995 (8:8805969:C->T)",
+        "rs13257383 (8:10045451:T->G)",
+        "rs804282 (8:11611743:T->G)",
+        "rs17153755 (8:11611500:C->G)",
+        "rs1692806 (8:11681246:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": -0.055144347,
+        "effect_africans": 0.0581348,
+        "effect_finns": -0.06829761,
+        "effect_south_asians": -0.062775748,
+        "effect_east_asians": -0.0743119,
+        "effect_nonfinnish_europeans": -0.048163974
+      },
+      "positiveCount": 1,
+      "negativeCount": 5,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "8q24.13->S_HDL_TG_pct",
+      "regionLabel": "8q24.13",
+      "trait": "S_HDL_TG_pct",
+      "gim": "Gastric cancer",
+      "regionId": "8_9",
+      "regionStart": 126433589,
+      "regionEnd": 126648243,
+      "chromosome": 8,
+      "leadVariants": [
+        "rs4871624 (8:126629328:T->G)",
+        "rs1031498 (8:126591354:C->G)",
+        "rs12543922 (8:126608403:C->T)"
+      ],
+      "effects": {
+        "effect_europeans": 0.07049758,
+        "effect_africans": 0.00626828,
+        "effect_finns": 0.071359857,
+        "effect_south_asians": 0.043396298,
+        "effect_east_asians": 0.103152,
+        "effect_nonfinnish_europeans": 0.0701993
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "9q31.1->ApoA1",
+      "regionLabel": "9q31.1",
+      "trait": "ApoA1",
+      "gim": "Gastric cancer",
+      "regionId": "9_7",
+      "regionStart": 107554534,
+      "regionEnd": 107717211,
+      "chromosome": 9,
+      "leadVariants": [
+        "rs2297409 (9:107576246:G->A)",
+        "rs4149297 (9:107604104:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": -0.063651585,
+        "effect_africans": -0.104304,
+        "effect_finns": -0.067981708,
+        "effect_south_asians": -0.05996836,
+        "effect_east_asians": -0.0343153,
+        "effect_nonfinnish_europeans": -0.062491697
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "9q31.1->S_HDL_FC_pct",
+      "regionLabel": "9q31.1",
+      "trait": "S_HDL_FC_pct",
+      "gim": "Gastric cancer",
+      "regionId": "9_7",
+      "regionStart": 107554534,
+      "regionEnd": 107717211,
+      "chromosome": 9,
+      "leadVariants": [
+        "rs10991386 (9:107630433:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": -0.030284158,
+        "effect_africans": 0.0403864,
+        "effect_finns": -0.042307089,
+        "effect_south_asians": -0.010364611,
+        "effect_east_asians": -0.0352416,
+        "effect_nonfinnish_europeans": -0.027652011
+      },
+      "positiveCount": 1,
+      "negativeCount": 5,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "9q31.1->XL_HDL_CE",
+      "regionLabel": "9q31.1",
+      "trait": "XL_HDL_CE",
+      "gim": "Gastric cancer",
+      "regionId": "9_7",
+      "regionStart": 107554534,
+      "regionEnd": 107717211,
+      "chromosome": 9,
+      "leadVariants": [
+        "rs1811408 (9:107713860:A->G)"
+      ],
+      "effects": {
+        "effect_europeans": -0.076804331,
+        "effect_africans": 0.0119286,
+        "effect_finns": -0.084977759,
+        "effect_south_asians": -0.054452238,
+        "effect_east_asians": -0.0569629,
+        "effect_nonfinnish_europeans": -0.074595259
+      },
+      "positiveCount": 1,
+      "negativeCount": 5,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "9q31.1->XL_HDL_P",
+      "regionLabel": "9q31.1",
+      "trait": "XL_HDL_P",
+      "gim": "Gastric cancer",
+      "regionId": "9_7",
+      "regionStart": 107554534,
+      "regionEnd": 107717211,
+      "chromosome": 9,
+      "leadVariants": [
+        "rs2575879 (9:107668825:C->G)"
+      ],
+      "effects": {
+        "effect_europeans": -0.063803972,
+        "effect_africans": 0.0222986,
+        "effect_finns": -0.081956472,
+        "effect_south_asians": -0.046408524,
+        "effect_east_asians": -0.055719,
+        "effect_nonfinnish_europeans": -0.058889202
+      },
+      "positiveCount": 1,
+      "negativeCount": 5,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "9q34.2->L_LDL_FC",
+      "regionLabel": "9q34.2",
+      "trait": "L_LDL_FC",
+      "gim": "Gastric cancer",
+      "regionId": "9_10",
+      "regionStart": 135861998,
+      "regionEnd": 136330428,
+      "chromosome": 9,
+      "leadVariants": [
+        "rs10901256 (9:136163447:T->C)",
+        "rs8176635 (9:136152009:G->A)"
+      ],
+      "effects": {
+        "effect_europeans": 0.074171263,
+        "effect_africans": 0.0755452,
+        "effect_finns": 0.078737902,
+        "effect_south_asians": 0.047506102,
+        "effect_east_asians": 0.0781835,
+        "effect_nonfinnish_europeans": 0.072645729
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "9q34.2->L_LDL_PL",
+      "regionLabel": "9q34.2",
+      "trait": "L_LDL_PL",
+      "gim": "Gastric cancer",
+      "regionId": "9_10",
+      "regionStart": 135861998,
+      "regionEnd": 136330428,
+      "chromosome": 9,
+      "leadVariants": [
+        "rs17150482 (9:136194595:T->C)"
+      ],
+      "effects": {
+        "effect_europeans": 0.075099453,
+        "effect_africans": 0.069666,
+        "effect_finns": 0.080495501,
+        "effect_south_asians": 0.043497936,
+        "effect_east_asians": 0.0776727,
+        "effect_nonfinnish_europeans": 0.073289996
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "9q34.2->L_VLDL_CE_pct",
+      "regionLabel": "9q34.2",
+      "trait": "L_VLDL_CE_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "9_10",
+      "regionStart": 135861998,
+      "regionEnd": 136330428,
+      "chromosome": 9,
+      "leadVariants": [
+        "rs8176690 (9:136138317:A->G)",
+        "rs558240 (9:136157133:G->A)",
+        "rs12554449 (9:136085200:G->T)"
+      ],
+      "effects": {
+        "effect_europeans": 0.056278668,
+        "effect_africans": 0.0650334,
+        "effect_finns": 0.045116908,
+        "effect_south_asians": 0.015992572,
+        "effect_east_asians": 0.0149857,
+        "effect_nonfinnish_europeans": 0.059696749
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "9q34.2->L_VLDL_C_pct",
+      "regionLabel": "9q34.2",
+      "trait": "L_VLDL_C_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "9_10",
+      "regionStart": 135861998,
+      "regionEnd": 136330428,
+      "chromosome": 9,
+      "leadVariants": [
+        "rs687289 (9:136137106:G->A)",
+        "rs782134971 (9:136139907:GAAACTGCC->G)",
+        "rs507666 (9:136149399:G->A)",
+        "rs17474001 (9:136267149:C->T)",
+        "rs630014 (9:136149722:G->A)",
+        "rs7030248 (9:136155359:G->A)",
+        "rs9650778 (9:136184798:C->T)",
+        "rs28602591 (9:136246666:C->T)",
+        "rs4348570 (9:136062071:A->C)"
+      ],
+      "effects": {
+        "effect_europeans": 0.067571662,
+        "effect_africans": 0.0402,
+        "effect_finns": 0.063635232,
+        "effect_south_asians": 0.020417446,
+        "effect_east_asians": -0.0104896,
+        "effect_nonfinnish_europeans": 0.068776027
+      },
+      "positiveCount": 5,
+      "negativeCount": 1,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "9q34.2->S_VLDL_CE_pct",
+      "regionLabel": "9q34.2",
+      "trait": "S_VLDL_CE_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "9_10",
+      "regionStart": 135861998,
+      "regionEnd": 136330428,
+      "chromosome": 9,
+      "leadVariants": [
+        "rs8176731 (9:136132350:T->C)"
+      ],
+      "effects": {
+        "effect_europeans": 0.06591314,
+        "effect_africans": 0.0605314,
+        "effect_finns": 0.054952975,
+        "effect_south_asians": 0.056163507,
+        "effect_east_asians": 0.0652837,
+        "effect_nonfinnish_europeans": 0.069525228
+      },
+      "positiveCount": 6,
+      "negativeCount": 0,
+      "availableCount": 6
+    },
+    {
+      "regionTrait": "9q34.2->S_VLDL_TG_pct",
+      "regionLabel": "9q34.2",
+      "trait": "S_VLDL_TG_pct",
+      "gim": "Gastric lesion progression",
+      "regionId": "9_10",
+      "regionStart": 135861998,
+      "regionEnd": 136330428,
+      "chromosome": 9,
+      "leadVariants": [
+        "rs4962126 (9:136176998:C->T)",
+        "rs28479961 (9:136312074:G->T)"
+      ],
+      "effects": {
+        "effect_europeans": -0.069357778,
+        "effect_africans": -0.0806071,
+        "effect_finns": -0.058073569,
+        "effect_south_asians": -0.060427419,
+        "effect_east_asians": -0.0705519,
+        "effect_nonfinnish_europeans": -0.07335917
+      },
+      "positiveCount": 0,
+      "negativeCount": 6,
+      "availableCount": 6
+    }
+  ]
+}
