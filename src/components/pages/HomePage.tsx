@@ -9,12 +9,15 @@ const HomePage: React.FC = () => {
   return (
     <div className="w-full bg-[#000435] min-h-screen">
       {/* Hero Section with cover image - Full width */}
-      <div className="relative overflow-hidden shadow-lg w-full flex items-center justify-center" style={{minHeight: '400px', maxHeight: '650px'}}>
+      <div
+        className="relative overflow-hidden shadow-lg w-full flex items-center justify-center"
+        style={{ minHeight: '520px', paddingTop: '24px', paddingBottom: '24px' }}
+      >
         {/* Background image */}
         <img
           src={cover4}
           alt="Cover background"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-contain bg-[#000435]"
         />
         
         {/* Overlay */}
