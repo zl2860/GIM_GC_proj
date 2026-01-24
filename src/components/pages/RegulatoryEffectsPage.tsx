@@ -1038,14 +1038,14 @@ const RegulatoryEffectsPage: React.FC = () => {
           open={detailsOpen && !!selectedRecord}
           onOpenChange={open => setDetailsOpen(open)}
         >
-          <DialogContent className="max-w-3xl">
-            <DialogHeader>
+          <DialogContent className="max-w-3xl max-h-[90vh] flex flex-col overflow-hidden">
+            <DialogHeader className="flex-shrink-0">
               <DialogTitle>
                 {selectedRecord ? `Regulation details · ${selectedRecord.regionLabel}` : 'Regulation details'}
               </DialogTitle>
             </DialogHeader>
             {selectedRecord && (
-              <div className="space-y-5 text-sm text-slate-700">
+              <div className="flex-1 overflow-y-auto space-y-5 text-sm text-slate-700 pr-4">
                 <div className="grid grid-cols-1 gap-2">
                   <div>
                     <span className="font-semibold text-slate-800">Region:</span>{' '}
