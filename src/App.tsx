@@ -13,6 +13,7 @@ import ModelAssessmentPage from './components/pages/ModelAssessmentPage';
 import GeneMetaboliteNetworkPage from './components/pages/GeneMetaboliteNetworkPage';
 import CorrelationPairs from './components/pages/CorrelationPairs';
 import FullyMatchedVariantsPage from './components/pages/FullyMatchedVariantsPage';
+import SearchResultsPage from './components/pages/SearchResultsPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import RightsNoticePage from './components/pages/RightsNoticePage';
 import CSLIdentifiedLociPage from './components/pages/CSLIdentifiedLociPage';
@@ -26,6 +27,7 @@ function App() {
           <Layout>
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/search-results" element={<SearchResultsPage />} />
               <Route path="/metabolic-traits" element={<MetabolicTraitsPage />} />
               <Route path="/correlations" element={<CorrelationPairs />} />
               <Route path="/risk-associations" element={<RiskAssociationsPage />} />
