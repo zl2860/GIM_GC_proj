@@ -607,7 +607,7 @@ const SearchResultsPage: React.FC = () => {
               <div className="grid gap-3 md:grid-cols-3">
                 {hasGcGimMatch && (
                   <button
-                    onClick={() => navigate(`/gc-gims?q=${encodeURIComponent(initialQuery)}`)}
+                    onClick={() => navigate(`/gc-gims`)}
                     className="flex items-center justify-between p-4 bg-green-100 hover:bg-green-200 rounded-lg transition border border-green-300"
                   >
                     <span className="font-semibold text-green-900">
@@ -618,7 +618,7 @@ const SearchResultsPage: React.FC = () => {
                 )}
                 {hasLesionMatch && (
                   <button
-                    onClick={() => navigate(`/lesion-progression?q=${encodeURIComponent(initialQuery)}`)}
+                    onClick={() => navigate(`/lesion-progression`)}
                     className="flex items-center justify-between p-4 bg-blue-100 hover:bg-blue-200 rounded-lg transition border border-blue-300"
                   >
                     <span className="font-semibold text-blue-900">
@@ -631,7 +631,7 @@ const SearchResultsPage: React.FC = () => {
                   <button
                     onClick={() =>
                       navigate(
-                        `/gene-metabolite?q=${encodeURIComponent(initialQuery)}&network=coloc`
+                        `/gene-metabolite?network=coloc`
                       )
                     }
                     className="flex items-center justify-between p-4 bg-purple-100 hover:bg-purple-200 rounded-lg transition border border-purple-300"
