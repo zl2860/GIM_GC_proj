@@ -394,7 +394,7 @@ const SearchResultsPage: React.FC = () => {
                   className="flex items-center justify-between p-4 bg-purple-100 hover:bg-purple-200 rounded-lg transition border border-purple-300"
                 >
                   <span className="font-semibold text-purple-900">
-                    Gene–Metabolite Network
+                    Regulatory Network
                   </span>
                   <ChevronRight className="w-5 h-5 text-purple-600" />
                 </button>

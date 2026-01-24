@@ -1,5 +1,6 @@
 // src/components/pages/GeneMetaboliteNetworkPage.tsx
 import React, { useRef, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import * as d3 from 'd3';
 import toast from 'react-hot-toast';
 import { Input } from '../ui/input';
@@ -79,6 +80,7 @@ const colorPalette = [
 ];
 
 const GeneMetaboliteNetworkPage: React.FC = () => {
+  const [searchParams] = useSearchParams();
   const ggmSvgRef = useRef<SVGSVGElement>(null);
   const [nodes, setNodes] = useState<NodeDatum[]>([]);
   const [links, setLinks] = useState<LinkDatum[]>([]);
@@ -96,6 +98,18 @@ const GeneMetaboliteNetworkPage: React.FC = () => {
   const [colocError, setColocError] = useState<string|null>(null);
   const [selectedColocNode, setSelectedColocNode] = useState<ColocNodeData|null>(null);
   const [colocSearchTerm, setColocSearchTerm] = useState('');
+
+  // Autofill from query param ?q=
+  useEffect(() => {
+    const q = searchParams.get('q');
+    if (q) {
+      setSearchTerm(q);
+      setColocSearchTerm(q);
+      const lower = q.toLowerCase();
+      const looksVariantOrRegion = lower.startsWith('rs') || /^\d/.test(lower) || lower.includes('q');
+      setNetworkType(looksVariantOrRegion ? 'coloc' : 'ggm');
+    }
+  }, [searchParams]);
 
   // load data
   useEffect(() => {
