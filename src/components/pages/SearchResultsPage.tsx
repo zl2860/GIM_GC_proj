@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { ExternalLink, Filter, ChevronRight } from 'lucide-react';
+import { ExternalLink, Filter, ChevronRight, Search, X } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 interface SearchResult {
@@ -11,19 +11,21 @@ interface SearchResult {
   details?: string;
   link?: string;
   matchFields?: string[];
+  isGIMRelevant?: boolean;
 }
 
 const SearchResultsPage: React.FC = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const query = searchParams.get('q') || '';
+  const initialQuery = searchParams.get('q') || '';
 
   const [results, setResults] = useState<SearchResult[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedType, setSelectedType] = useState<string>('all');
+  const [filterQuery, setFilterQuery] = useState('');
 
   useEffect(() => {
-    if (!query) {
+    if (!initialQuery) {
       navigate('/');
       return;
     }
@@ -37,7 +39,7 @@ const SearchResultsPage: React.FC = () => {
         );
         const traitsData = await traitsResponse.json();
 
-        // Search in CSL loci (genes)
+        // Search in CSL loci (genes and regions)
         const lociResponse = await fetch(
           `${import.meta.env.BASE_URL}data/csl_loci_2026.json`
         );
@@ -50,7 +52,8 @@ const SearchResultsPage: React.FC = () => {
         const variantsData = await variantsResponse.json();
 
         const foundResults: SearchResult[] = [];
-        const searchLower = query.toLowerCase();
+        const searchLower = initialQuery.toLowerCase();
+        const foundRegions = new Set<string>();
 
         // Search traits
         if (traitsData.data) {
@@ -77,7 +80,7 @@ const SearchResultsPage: React.FC = () => {
           });
         }
 
-        // Search genes
+        // Search genes and regions from CSL loci
         if (lociData.data) {
           lociData.data.forEach((geneData: any) => {
             if (geneData.gene?.toLowerCase().includes(searchLower)) {
@@ -91,7 +94,38 @@ const SearchResultsPage: React.FC = () => {
                 description: `Gene locus with ${geneData.trait_groups?.length || 0} trait associations`,
                 details: `Trait groups: ${traitGroups}`,
                 link: '/csl-loci',
+                isGIMRelevant: true,
                 matchFields: [geneData.gene]
+              });
+            }
+
+            // Search genomic regions (e.g., 9q31.2)
+            if (geneData.trait_groups) {
+              geneData.trait_groups.forEach((tg: any) => {
+                if (tg.traits) {
+                  tg.traits.forEach((trait: any) => {
+                    if (trait.regions) {
+                      trait.regions.forEach((region: string) => {
+                        if (
+                          region.toLowerCase().includes(searchLower) &&
+                          !foundRegions.has(region)
+                        ) {
+                          foundRegions.add(region);
+                          foundResults.push({
+                            id: `region-${region}`,
+                            type: 'region',
+                            name: region,
+                            description: `Genomic region associated with metabolomic traits`,
+                            details: `Gene: ${geneData.gene} | Trait group: ${tg.trait_group}`,
+                            link: '/csl-loci',
+                            isGIMRelevant: true,
+                            matchFields: [region]
+                          });
+                        }
+                      });
+                    }
+                  });
+                }
               });
             }
           });
@@ -120,28 +154,6 @@ const SearchResultsPage: React.FC = () => {
           });
         }
 
-        // Search genomic regions (from variants)
-        if (variantsData.data) {
-          const regionMatches = new Set<string>();
-          variantsData.data.forEach((variant: any) => {
-            const chrPattern = `chr${variant.chromosome}`;
-            if (chrPattern.toLowerCase().includes(searchLower)) {
-              regionMatches.add(chrPattern);
-            }
-          });
-
-          regionMatches.forEach((region) => {
-            foundResults.push({
-              id: `region-${region}`,
-              type: 'region',
-              name: region,
-              description: 'Genomic region with associated variants',
-              details: `Related to gastric cancer susceptibility`,
-              link: '/variants'
-            });
-          });
-        }
-
         setResults(foundResults);
         if (foundResults.length === 0) {
           toast.error('No results found for your search');
@@ -156,7 +168,7 @@ const SearchResultsPage: React.FC = () => {
     };
 
     performSearch();
-  }, [query, navigate]);
+  }, [initialQuery, navigate]);
 
   const getTypeColor = (type: string) => {
     switch (type) {
@@ -218,8 +230,22 @@ const SearchResultsPage: React.FC = () => {
     }
   };
 
+  // Filter results based on search query
+  const filteredResults = results.filter((result) => {
+    const matchesFilter =
+      filterQuery === '' ||
+      result.name.toLowerCase().includes(filterQuery.toLowerCase()) ||
+      result.description?.toLowerCase().includes(filterQuery.toLowerCase()) ||
+      result.details?.toLowerCase().includes(filterQuery.toLowerCase());
+
+    const matchesType =
+      selectedType === 'all' || result.type === selectedType;
+
+    return matchesFilter && matchesType;
+  });
+
   // Group results by type
-  const groupedResults = results.reduce(
+  const groupedResults = filteredResults.reduce(
     (acc, result) => {
       if (!acc[result.type]) {
         acc[result.type] = [];
@@ -230,18 +256,13 @@ const SearchResultsPage: React.FC = () => {
     {} as Record<string, SearchResult[]>
   );
 
-  const filteredGroups =
-    selectedType === 'all'
-      ? groupedResults
-      : { [selectedType]: groupedResults[selectedType] || [] };
-
   const typeOrder: Array<'gene' | 'trait' | 'variant' | 'region'> = [
     'gene',
     'trait',
     'variant',
     'region'
   ];
-  const sortedTypes = typeOrder.filter((t) => t in filteredGroups);
+  const sortedTypes = typeOrder.filter((t) => t in groupedResults);
 
   const handleResultClick = (result: SearchResult) => {
     if (result.link) {
@@ -255,11 +276,12 @@ const SearchResultsPage: React.FC = () => {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Search Results</h1>
         <p className="text-lg text-gray-600">
-          Search for: <span className="font-semibold text-gray-900">"{query}"</span>
+          Search for: <span className="font-semibold text-gray-900">"{initialQuery}"</span>
         </p>
         <p className="text-sm text-gray-500 mt-1">
           Found {results.length} result{results.length !== 1 ? 's' : ''} across{' '}
-          {sortedTypes.length} categor{sortedTypes.length === 1 ? 'y' : 'ies'}
+          {typeOrder.filter((t) => results.some((r) => r.type === t)).length} categor
+          {typeOrder.filter((t) => results.some((r) => r.type === t)).length === 1 ? 'y' : 'ies'}
         </p>
       </div>
 
@@ -272,7 +294,7 @@ const SearchResultsPage: React.FC = () => {
         </div>
       ) : results.length === 0 ? (
         <div className="bg-gray-50 rounded-lg p-12 text-center">
-          <p className="text-gray-600 text-lg mb-4">No results found for "{query}"</p>
+          <p className="text-gray-600 text-lg mb-4">No results found for "{initialQuery}"</p>
           <button
             onClick={() => navigate('/')}
             className="text-blue-600 hover:text-blue-700 font-medium"
@@ -282,92 +304,165 @@ const SearchResultsPage: React.FC = () => {
         </div>
       ) : (
         <>
-          {/* Filter */}
-          <div className="mb-6 flex flex-wrap gap-2 items-center">
-            <Filter className="w-4 h-4 text-gray-500" />
-            <button
-              onClick={() => setSelectedType('all')}
-              className={`px-4 py-2 rounded-lg font-medium transition ${
-                selectedType === 'all'
-                  ? 'bg-gray-900 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              All ({results.length})
-            </button>
-            {typeOrder.map((type) => {
-              const count = groupedResults[type]?.length || 0;
-              if (count === 0) return null;
-              const colors = getTypeColor(type);
-              return (
+          {/* Filter Bar */}
+          <div className="mb-6 space-y-4">
+            {/* Keyword Filter */}
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Filter results within this page..."
+                value={filterQuery}
+                onChange={(e) => setFilterQuery(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+              {filterQuery && (
                 <button
-                  key={type}
-                  onClick={() => setSelectedType(type)}
-                  className={`px-4 py-2 rounded-lg font-medium transition ${
-                    selectedType === type
-                      ? `${colors.header}`
-                      : `bg-gray-100 text-gray-700 hover:bg-gray-200`
-                  }`}
+                  onClick={() => setFilterQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
-                  {getTypeLabel(type)} ({count})
+                  <X className="w-5 h-5" />
                 </button>
-              );
-            })}
+              )}
+            </div>
+
+            {/* Type Filter */}
+            <div className="flex flex-wrap gap-2 items-center">
+              <Filter className="w-4 h-4 text-gray-500" />
+              <button
+                onClick={() => setSelectedType('all')}
+                className={`px-4 py-2 rounded-lg font-medium transition ${
+                  selectedType === 'all'
+                    ? 'bg-gray-900 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                All ({filteredResults.length})
+              </button>
+              {typeOrder.map((type) => {
+                const count = results.filter((r) => r.type === type).length;
+                if (count === 0) return null;
+                const colors = getTypeColor(type);
+                return (
+                  <button
+                    key={type}
+                    onClick={() => setSelectedType(type)}
+                    className={`px-4 py-2 rounded-lg font-medium transition ${
+                      selectedType === type
+                        ? `${colors.header}`
+                        : `bg-gray-100 text-gray-700 hover:bg-gray-200`
+                    }`}
+                  >
+                    {getTypeLabel(type)} ({count})
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Results by Category */}
-          <div className="space-y-8">
-            {sortedTypes.map((type) => {
-              const typeResults = filteredGroups[type] || [];
-              if (typeResults.length === 0) return null;
+          {filteredResults.length === 0 ? (
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <p className="text-gray-600">No results match your filter</p>
+            </div>
+          ) : (
+            <div className="space-y-8">
+              {sortedTypes.map((type) => {
+                const typeResults = groupedResults[type] || [];
+                if (typeResults.length === 0) return null;
 
-              const colors = getTypeColor(type);
-              return (
-                <div key={type} className={`rounded-lg border-2 ${colors.border} overflow-hidden`}>
-                  {/* Category Header */}
-                  <div className={`${colors.header} px-6 py-4`}>
-                    <h2 className="text-xl font-bold">
-                      {getTypeLabel(type)}s ({typeResults.length})
-                    </h2>
-                  </div>
+                const colors = getTypeColor(type);
+                return (
+                  <div
+                    key={type}
+                    className={`rounded-lg border-2 ${colors.border} overflow-hidden`}
+                  >
+                    {/* Category Header */}
+                    <div className={`${colors.header} px-6 py-4`}>
+                      <h2 className="text-xl font-bold">
+                        {getTypeLabel(type)}s ({typeResults.length})
+                      </h2>
+                    </div>
 
-                  {/* Results List */}
-                  <div className="divide-y divide-gray-200">
-                    {typeResults.map((result) => (
-                      <button
-                        key={result.id}
-                        onClick={() => handleResultClick(result)}
-                        className={`w-full px-6 py-4 text-left hover:${colors.bg} transition flex items-start justify-between gap-4 group`}
-                      >
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-3 mb-2">
-                            <span
-                              className={`inline-flex px-3 py-1 rounded-full text-xs font-bold border ${colors.badge}`}
-                            >
-                              {getTypeLabel(result.type)}
-                            </span>
-                            <h3 className="text-lg font-bold text-gray-900 truncate group-hover:text-blue-600 transition">
-                              {result.name}
-                            </h3>
+                    {/* Results List */}
+                    <div className="divide-y divide-gray-200">
+                      {typeResults.map((result) => (
+                        <button
+                          key={result.id}
+                          onClick={() => handleResultClick(result)}
+                          className={`w-full px-6 py-4 text-left hover:${colors.bg} transition flex items-start justify-between gap-4 group`}
+                        >
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-3 mb-2 flex-wrap">
+                              <span
+                                className={`inline-flex px-3 py-1 rounded-full text-xs font-bold border ${colors.badge}`}
+                              >
+                                {getTypeLabel(result.type)}
+                              </span>
+                              <h3 className="text-lg font-bold text-gray-900 truncate group-hover:text-blue-600 transition">
+                                {result.name}
+                              </h3>
+                              {result.isGIMRelevant && (
+                                <span className="inline-flex px-2 py-1 rounded text-xs font-semibold bg-orange-100 text-orange-800 border border-orange-300">
+                                  GIM-Related
+                                </span>
+                              )}
+                            </div>
+                            {result.description && (
+                              <p className="text-gray-600 text-sm mb-1">
+                                {result.description}
+                              </p>
+                            )}
+                            {result.details && (
+                              <p className="text-gray-500 text-xs">{result.details}</p>
+                            )}
                           </div>
-                          {result.description && (
-                            <p className="text-gray-600 text-sm mb-1">{result.description}</p>
-                          )}
-                          {result.details && (
-                            <p className="text-gray-500 text-xs">{result.details}</p>
-                          )}
-                        </div>
-                        <div className="flex-shrink-0 flex items-center gap-2">
-                          <ExternalLink className={`w-5 h-5 ${colors.icon} opacity-0 group-hover:opacity-100 transition`} />
-                          <ChevronRight className="w-5 h-5 text-gray-300 group-hover:text-gray-600 transition" />
-                        </div>
-                      </button>
-                    ))}
+                          <div className="flex-shrink-0 flex items-center gap-2">
+                            <ExternalLink
+                              className={`w-5 h-5 ${colors.icon} opacity-0 group-hover:opacity-100 transition`}
+                            />
+                            <ChevronRight className="w-5 h-5 text-gray-300 group-hover:text-gray-600 transition" />
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+
+              {/* GIMs Resources Links */}
+              {results.some((r) => r.isGIMRelevant) && (
+                <div className="mt-8 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border-2 border-green-200 p-6">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">
+                    Related GIM Resources
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-4">
+                    Your search results are related to genetically influenced metabotypes. Explore the following pages:
+                  </p>
+                  <div className="grid gap-3 md:grid-cols-2">
+                    <button
+                      onClick={() => navigate('/gc-gims')}
+                      className="flex items-center justify-between p-4 bg-green-100 hover:bg-green-200 rounded-lg transition border border-green-300"
+                    >
+                      <span className="font-semibold text-green-900">
+                        GIMs - Gastric Cancer
+                      </span>
+                      <ChevronRight className="w-5 h-5 text-green-600" />
+                    </button>
+                    <button
+                      onClick={() => navigate('/lesion-progression')}
+                      className="flex items-center justify-between p-4 bg-blue-100 hover:bg-blue-200 rounded-lg transition border border-blue-300"
+                    >
+                      <span className="font-semibold text-blue-900">
+                        GIMs - Gastric Lesion Progression
+                      </span>
+                      <ChevronRight className="w-5 h-5 text-blue-600" />
+                    </button>
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              )}
+            </div>
+          )}
         </>
       )}
     </div>
@@ -375,3 +470,4 @@ const SearchResultsPage: React.FC = () => {
 };
 
 export default SearchResultsPage;
+

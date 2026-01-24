@@ -22,7 +22,7 @@ const GlobalSearch: React.FC = () => {
     { type: 'Gene', example: 'ABCA1' },
     { type: 'Metabolite', example: 'LDL_C' },
     { type: 'Variant', example: 'rs1800978' },
-    { type: 'Region', example: 'chr9' }
+    { type: 'Region', example: '9q31.2' }
   ];
 
   const handleSearch = async (e: React.FormEvent) => {
