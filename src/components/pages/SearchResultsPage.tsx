@@ -268,7 +268,7 @@ const SearchResultsPage: React.FC = () => {
 
   const handleResultClick = (result: SearchResult) => {
     if (result.link) {
-      navigate(result.link);
+      navigate(`${result.link}?q=${encodeURIComponent(initialQuery)}`);
     }
   };
 
@@ -372,7 +372,7 @@ const SearchResultsPage: React.FC = () => {
               </p>
               <div className="grid gap-3 md:grid-cols-3">
                 <button
-                  onClick={() => navigate('/gc-gims')}
+                  onClick={() => navigate(`/gc-gims?q=${encodeURIComponent(initialQuery)}`)}
                   className="flex items-center justify-between p-4 bg-green-100 hover:bg-green-200 rounded-lg transition border border-green-300"
                 >
                   <span className="font-semibold text-green-900">
@@ -381,7 +381,7 @@ const SearchResultsPage: React.FC = () => {
                   <ChevronRight className="w-5 h-5 text-green-600" />
                 </button>
                 <button
-                  onClick={() => navigate('/lesion-progression')}
+                  onClick={() => navigate(`/lesion-progression?q=${encodeURIComponent(initialQuery)}`)}
                   className="flex items-center justify-between p-4 bg-blue-100 hover:bg-blue-200 rounded-lg transition border border-blue-300"
                 >
                   <span className="font-semibold text-blue-900">
@@ -390,7 +390,7 @@ const SearchResultsPage: React.FC = () => {
                   <ChevronRight className="w-5 h-5 text-blue-600" />
                 </button>
                 <button
-                  onClick={() => navigate('/gene-metabolite')}
+                  onClick={() => navigate(`/gene-metabolite?q=${encodeURIComponent(initialQuery)}`)}
                   className="flex items-center justify-between p-4 bg-purple-100 hover:bg-purple-200 rounded-lg transition border border-purple-300"
                 >
                   <span className="font-semibold text-purple-900">
