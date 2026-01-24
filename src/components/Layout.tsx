@@ -156,37 +156,37 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       {/* Main Content */}
       <div className={`flex-1 flex flex-col w-full min-h-0 transition-all duration-300 lg:overflow-hidden ${isSidebarOpen ? 'lg:ml-64 xl:ml-72' : 'lg:ml-0'}`}>
         {/* Header */}
-        <header className="bg-white shadow-sm border-b border-gray-200 px-4 sm:px-6 py-4">
+        <header className="bg-[#000435] shadow-sm border-b border-gray-700 px-4 sm:px-6 py-4">
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">
             <div className="flex items-center gap-3 flex-1 min-w-0">
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
+                className="lg:hidden p-2 rounded-lg hover:bg-gray-700"
               >
-                <Menu className="w-6 h-6" />
+                <Menu className="w-6 h-6 text-white" />
               </button>
 
               {/* Desktop Sidebar Toggle Button */}
               <button
                 onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                className="hidden lg:block p-2 rounded-lg hover:bg-gray-100"
+                className="hidden lg:block p-2 rounded-lg hover:bg-gray-700"
                 title={isSidebarOpen ? "Hide sidebar" : "Show sidebar"}
               >
-                <Menu className="w-6 h-6" />
+                <Menu className="w-6 h-6 text-white" />
               </button>
 
               <div className="flex-1 min-w-0">
-                <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 truncate">
+                <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white truncate">
                   Genetically Influenced Metabotypes for Gastric Cancer and Gastric Lesion Progression
                 </h2>
-                <p className="text-xs sm:text-sm text-gray-600 hidden sm:block">
+                <p className="text-xs sm:text-sm text-gray-300 hidden sm:block">
                   Interactive exploration of research findings on genetically influenced metabotypes for gastric cancer risk
                 </p>
               </div>
             </div>
             
-            <div className="w-full sm:w-auto sm:ml-auto sm:text-right mt-1 sm:mt-0 text-xs sm:text-sm text-gray-500">
+            <div className="w-full sm:w-auto sm:ml-auto sm:text-right mt-1 sm:mt-0 text-xs sm:text-sm text-gray-400">
               For academic research use only
             </div>
           </div>
