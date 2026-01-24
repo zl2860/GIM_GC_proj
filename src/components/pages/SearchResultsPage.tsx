@@ -12,6 +12,7 @@ interface SearchResult {
   link?: string;
   matchFields?: string[];
   isGIMRelevant?: boolean;
+  colocGene?: string; // Gene associated with variant/region from coloc_supplement.json
 }
 
 const SearchResultsPage: React.FC = () => {
@@ -23,6 +24,13 @@ const SearchResultsPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedType, setSelectedType] = useState<string>('all');
   const [filterQuery, setFilterQuery] = useState('');
+  const [hasGcGimMatch, setHasGcGimMatch] = useState(false);
+  const [hasLesionMatch, setHasLesionMatch] = useState(false);
+  const [hasNetworkMatch, setHasNetworkMatch] = useState(false);
+  const [networkTraits, setNetworkTraits] = useState<Set<string>>(new Set());
+  const [preferColocNetwork, setPreferColocNetwork] = useState(false);
+  const [networkGenes, setNetworkGenes] = useState<Set<string>>(new Set());
+  const [preferredColocGene, setPreferredColocGene] = useState<string>('');
 
   useEffect(() => {
     if (!initialQuery) {
@@ -32,6 +40,9 @@ const SearchResultsPage: React.FC = () => {
 
     const performSearch = async () => {
       setIsLoading(true);
+      setHasGcGimMatch(false);
+      setHasLesionMatch(false);
+      setHasNetworkMatch(false);
       try {
         // Search in traits/biomarkers
         const traitsResponse = await fetch(
@@ -52,7 +63,10 @@ const SearchResultsPage: React.FC = () => {
         const variantsData = await variantsResponse.json();
 
         const foundResults: SearchResult[] = [];
+        const matchedGenes = new Set<string>();
         const searchLower = initialQuery.toLowerCase();
+        const matchesSearchTerm = (value?: string) =>
+          typeof value === 'string' && value.toLowerCase().includes(searchLower);
         const foundRegions = new Set<string>();
 
         // Search traits
@@ -98,6 +112,7 @@ const SearchResultsPage: React.FC = () => {
                 isGIMRelevant: true,
                 matchFields: [geneData.gene]
               });
+              matchedGenes.add(geneData.gene.toLowerCase());
             }
 
             // Search genomic regions (e.g., 9q31.2)
@@ -122,6 +137,7 @@ const SearchResultsPage: React.FC = () => {
                             isGIMRelevant: true,
                             matchFields: [region]
                           });
+                          matchedGenes.add(geneData.gene.toLowerCase());
                         }
                       });
                     }
@@ -152,11 +168,197 @@ const SearchResultsPage: React.FC = () => {
                   variant.nearestGene
                 ].filter((f) => f?.toLowerCase().includes(searchLower))
               });
+              if (variant.nearestGene) {
+                matchedGenes.add(variant.nearestGene.toLowerCase());
+              }
             }
           });
         }
 
+        // Build network gene set from colocal nodes + supplemental data
+        const networkGenesLocal = new Set<string>();
+        const networkTraitsLocal = new Set<string>();
+        const addGene = (g?: string) => {
+          if (g) networkGenesLocal.add(g.toLowerCase());
+        };
+        const addTrait = (t?: string) => {
+          if (t) networkTraitsLocal.add(t.toLowerCase());
+        };
+
+        try {
+          const nodesResp = await fetch(
+            `${import.meta.env.BASE_URL}data/coloc_network_webpage_nodes_df.csv`
+          );
+          const text = await nodesResp.text();
+          const lines = text.trim().split(/\r?\n/);
+          if (lines.length > 1) {
+            const header = lines[0].split(',');
+            const nodeIdx = header.findIndex((h) => h.trim().toLowerCase() === 'node');
+            const typeIdx = header.findIndex((h) => h.trim().toLowerCase() === 'node_type');
+            lines.slice(1).forEach((line) => {
+              const parts = line.split(',');
+              const node = parts[nodeIdx];
+              const nodeType = parts[typeIdx];
+              if (node && nodeType && nodeType.toLowerCase() === 'gene') {
+                addGene(node);
+              } else if (node && nodeType && nodeType.toLowerCase().includes('biomarker')) {
+                addTrait(node);
+              }
+            });
+          }
+        } catch (err) {
+          console.error('Failed to load colocal nodes', err);
+        }
+
+        // Track variant/region matches from coloc_supplement
+        // Map: key is variant/region string, value is set of matching genes
+        const variantMatches = new Map<string, Set<string>>(); // for hit1/hit2 (variants)
+        const regionMatches = new Map<string, Set<string>>(); // for region
+
+        try {
+          const suppResp = await fetch(
+            `${import.meta.env.BASE_URL}data/coloc_supplement.json`
+          );
+          const supp = await suppResp.json();
+          if (Array.isArray(supp)) {
+            supp.forEach((row: any) => {
+              addGene(row.gene);
+              addTrait(row.trait);
+              const hit1 = row.hit1?.toLowerCase();
+              const hit2 = row.hit2?.toLowerCase();
+              const region = row.region?.toLowerCase();
+
+              // Check for variant matches (hit1)
+              if (hit1 && hit1.includes(searchLower)) {
+                if (!variantMatches.has(row.hit1)) {
+                  variantMatches.set(row.hit1, new Set<string>());
+                }
+                if (row.gene) {
+                  variantMatches.get(row.hit1)!.add(row.gene);
+                  matchedGenes.add(row.gene.toLowerCase());
+                }
+              }
+              // Check for variant matches (hit2)
+              if (hit2 && hit2.includes(searchLower)) {
+                if (!variantMatches.has(row.hit2)) {
+                  variantMatches.set(row.hit2, new Set<string>());
+                }
+                if (row.gene) {
+                  variantMatches.get(row.hit2)!.add(row.gene);
+                  matchedGenes.add(row.gene.toLowerCase());
+                }
+              }
+              // Check for region matches
+              if (region && region.includes(searchLower)) {
+                if (!regionMatches.has(row.region)) {
+                  regionMatches.set(row.region, new Set<string>());
+                }
+                if (row.gene) {
+                  regionMatches.get(row.region)!.add(row.gene);
+                  matchedGenes.add(row.gene.toLowerCase());
+                }
+              }
+            });
+          }
+        } catch (err) {
+          console.error('Failed to load supplemental colocal data', err);
+        }
+
+        // Add variant results from coloc_supplement with their associated genes
+        let colocResultCounter = 0;
+        variantMatches.forEach((genes, variant) => {
+          genes.forEach((gene) => {
+            colocResultCounter++;
+            foundResults.push({
+              id: `variant-coloc-${colocResultCounter}`,
+              type: 'variant',
+              name: variant,
+              description: `Colocalized with gene: ${gene}`,
+              details: `Coloc Gene: ${gene}`,
+              link: '/gene-metabolite',
+              isGIMRelevant: true,
+              matchFields: [variant],
+              colocGene: gene
+            });
+          });
+        });
+
+        // Add region results from coloc_supplement with their associated genes
+        regionMatches.forEach((genes, region) => {
+          genes.forEach((gene) => {
+            colocResultCounter++;
+            foundResults.push({
+              id: `region-coloc-${colocResultCounter}`,
+              type: 'region',
+              name: region,
+              description: `Colocalized with gene: ${gene}`,
+              details: `Coloc Gene: ${gene}`,
+              link: '/csl-loci',
+              isGIMRelevant: true,
+              matchFields: [region],
+              colocGene: gene
+            });
+          });
+        });
+
         setResults(foundResults);
+        const matchedGeneList = Array.from(matchedGenes);
+        const hasNetworkGeneHit = matchedGeneList.some((g) =>
+          networkGenesLocal.has(g)
+        );
+        const hasSupplementVariantRegionHit = (variantMatches.size > 0) || (regionMatches.size > 0);
+        const hasNetworkAny = hasNetworkGeneHit || hasSupplementVariantRegionHit;
+        setHasNetworkMatch(hasNetworkAny);
+        const hasGeneVariantRegion = foundResults.some(
+          (r) => r.type === 'gene' || r.type === 'variant' || r.type === 'region'
+        );
+        setPreferColocNetwork(hasGeneVariantRegion || hasSupplementVariantRegionHit);
+        setNetworkTraits(networkTraitsLocal);
+        setNetworkGenes(networkGenesLocal);
+        
+        // Determine preferred coloc gene: prioritize genes from variant/region matches
+        let preferredGene = '';
+        if (hasSupplementVariantRegionHit) {
+          // Get the first gene from the first variant/region match
+          for (const genes of variantMatches.values()) {
+            if (genes.size > 0) {
+              preferredGene = Array.from(genes)[0];
+              break;
+            }
+          }
+          if (!preferredGene) {
+            for (const genes of regionMatches.values()) {
+              if (genes.size > 0) {
+                preferredGene = Array.from(genes)[0];
+                break;
+              }
+            }
+          }
+        } else if (hasNetworkGeneHit) {
+          const firstHit = matchedGeneList.find((g) => networkGenesLocal.has(g));
+          if (firstHit) preferredGene = firstHit;
+        }
+        setPreferredColocGene(preferredGene);
+        const [gcGimResponse, lesionResponse] = await Promise.all([
+          fetch(`${import.meta.env.BASE_URL}data/gc_gim_heatmap.json`),
+          fetch(`${import.meta.env.BASE_URL}data/lesion_progression_heatmap.json`)
+        ]);
+        const gcGimData = await gcGimResponse.json();
+        const lesionData = await lesionResponse.json();
+        const gcGimMatch =
+          gcGimData?.data?.some((row: any) =>
+            ['gene', 'Metabolite', 'Biomarker', 'Exposure', 'ID'].some((field) =>
+              matchesSearchTerm(row[field])
+            )
+          ) ?? false;
+        const lesionMatch =
+          lesionData?.data?.some(
+            (row: any) =>
+              matchesSearchTerm(row.gene) ||
+              matchesSearchTerm(row.metabolic_trait)
+          ) ?? false;
+        setHasGcGimMatch(gcGimMatch);
+        setHasLesionMatch(lesionMatch);
         if (foundResults.length === 0) {
           toast.error('No results found for your search');
         }
@@ -267,16 +469,48 @@ const SearchResultsPage: React.FC = () => {
   const sortedTypes = typeOrder.filter((t) => t in groupedResults);
 
   const handleResultClick = (result: SearchResult) => {
-    if (result.link) {
-      navigate(`${result.link}?q=${encodeURIComponent(initialQuery)}`);
+    if (!result.link) return;
+    
+    // If result has a specific coloc gene (from variant/region coloc_supplement match)
+    if (result.colocGene) {
+      if (result.type === 'region' || result.type === 'variant') {
+        // For region/variant from coloc_supplement, navigate to coloc network
+        navigate(`/gene-metabolite?q=${encodeURIComponent(result.colocGene)}&network=coloc`);
+        return;
+      }
     }
+    
+    if (result.link === '/gene-metabolite') {
+      const traitLower = result.name.toLowerCase();
+      const preferColoc = preferColocNetwork || networkTraits.has(traitLower);
+      const targetNetwork = preferColoc ? 'coloc' : 'ggm';
+      navigate(`${result.link}?q=${encodeURIComponent(initialQuery)}&network=${targetNetwork}`);
+      return;
+    }
+    if (
+      hasNetworkMatch &&
+      (result.type === 'gene' || result.type === 'variant' || result.type === 'region')
+    ) {
+      const geneTarget = preferredColocGene || initialQuery;
+      navigate(`/gene-metabolite?q=${encodeURIComponent(geneTarget)}&network=coloc`);
+      return;
+    }
+    navigate(`${result.link}?q=${encodeURIComponent(initialQuery)}`);
   };
 
   return (
     <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 py-6">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Search Results</h1>
+        <div className="flex items-center justify-between mb-4">
+          <h1 className="text-3xl font-bold text-gray-900">Search Results</h1>
+          <button
+            onClick={() => navigate('/')}
+            className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium rounded-lg transition flex items-center gap-2"
+          >
+            ← Back to Search
+          </button>
+        </div>
         <p className="text-lg text-gray-600">
           Search for: <span className="font-semibold text-gray-900">"{initialQuery}"</span>
         </p>
@@ -362,42 +596,52 @@ const SearchResultsPage: React.FC = () => {
             </div>
 
           {/* Related resources (GIM & Network) */}
-          {results.some((r) => r.isGIMRelevant) && (
+          {(hasGcGimMatch || hasLesionMatch || hasNetworkMatch) && (
             <div className="mb-8 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border-2 border-green-200 p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-4">
                 Related GIM & Regulatory Network Resources
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                Your search results are related to genetically influenced metabotypes. Explore the following pages:
+                Your search results are tied to genetically influenced metabotypes. Explore the following pages:
               </p>
               <div className="grid gap-3 md:grid-cols-3">
-                <button
-                  onClick={() => navigate(`/gc-gims?q=${encodeURIComponent(initialQuery)}`)}
-                  className="flex items-center justify-between p-4 bg-green-100 hover:bg-green-200 rounded-lg transition border border-green-300"
-                >
-                  <span className="font-semibold text-green-900">
-                    GIMs - Gastric Cancer
-                  </span>
-                  <ChevronRight className="w-5 h-5 text-green-600" />
-                </button>
-                <button
-                  onClick={() => navigate(`/lesion-progression?q=${encodeURIComponent(initialQuery)}`)}
-                  className="flex items-center justify-between p-4 bg-blue-100 hover:bg-blue-200 rounded-lg transition border border-blue-300"
-                >
-                  <span className="font-semibold text-blue-900">
-                    GIMs - Gastric Lesion Progression
-                  </span>
-                  <ChevronRight className="w-5 h-5 text-blue-600" />
-                </button>
-                <button
-                  onClick={() => navigate(`/gene-metabolite?q=${encodeURIComponent(initialQuery)}`)}
-                  className="flex items-center justify-between p-4 bg-purple-100 hover:bg-purple-200 rounded-lg transition border border-purple-300"
-                >
-                  <span className="font-semibold text-purple-900">
-                    Regulatory Network
-                  </span>
-                  <ChevronRight className="w-5 h-5 text-purple-600" />
-                </button>
+                {hasGcGimMatch && (
+                  <button
+                    onClick={() => navigate(`/gc-gims?q=${encodeURIComponent(initialQuery)}`)}
+                    className="flex items-center justify-between p-4 bg-green-100 hover:bg-green-200 rounded-lg transition border border-green-300"
+                  >
+                    <span className="font-semibold text-green-900">
+                      GIMs - Gastric Cancer
+                    </span>
+                    <ChevronRight className="w-5 h-5 text-green-600" />
+                  </button>
+                )}
+                {hasLesionMatch && (
+                  <button
+                    onClick={() => navigate(`/lesion-progression?q=${encodeURIComponent(initialQuery)}`)}
+                    className="flex items-center justify-between p-4 bg-blue-100 hover:bg-blue-200 rounded-lg transition border border-blue-300"
+                  >
+                    <span className="font-semibold text-blue-900">
+                      GIMs - Gastric Lesion Progression
+                    </span>
+                    <ChevronRight className="w-5 h-5 text-blue-600" />
+                  </button>
+                )}
+                {hasNetworkMatch && (
+                  <button
+                    onClick={() =>
+                      navigate(
+                        `/gene-metabolite?q=${encodeURIComponent(initialQuery)}&network=coloc`
+                      )
+                    }
+                    className="flex items-center justify-between p-4 bg-purple-100 hover:bg-purple-200 rounded-lg transition border border-purple-300"
+                  >
+                    <span className="font-semibold text-purple-900">
+                      Regulatory Network
+                    </span>
+                    <ChevronRight className="w-5 h-5 text-purple-600" />
+                  </button>
+                )}
               </div>
             </div>
           )}
