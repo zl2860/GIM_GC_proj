@@ -11,6 +11,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.4",
     "@hookform/resolvers": "^3.10.0",
     "@nivo/bar": "^0.99.0",
     "@nivo/chord": "^0.99.0",

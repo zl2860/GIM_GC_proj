@@ -1,6 +1,6 @@
 {
-  "title": "GIM R² vs Other Determinants Comparison",
-  "description": "Simple comparison of GIM incremental R² versus other determinants for each metabolic trait",
+  "title": "Incremental R² of GIMs-related traits vs Other Determinants Comparison",
+  "description": "The bar chart displays detailed incremental R² for metabolic variations by each metabolomic trait and other potnetial determinants",
   "data": [
     {
       "metabolic_trait": "Gly",
@@ -2959,7 +2959,7 @@
       "gim_r2": 0.0647379449993139,
       "other_r2": 0.09368937751663818,
       "total_r2": 0.1584273225159521,
-      "is_gim_trait": true,
+      "is_gim_trait": false,
       "determinant_breakdown": {
         "GIM": 0.0647379449993139,
         "age": 0.0200018165854816,
@@ -2977,7 +2977,7 @@
       "gim_r2": 0.0644277678405021,
       "other_r2": 0.28577185742686,
       "total_r2": 0.3501996252673621,
-      "is_gim_trait": true,
+      "is_gim_trait": false,
       "determinant_breakdown": {
         "GIM": 0.0644277678405021,
         "age": 0.0139957633273629,

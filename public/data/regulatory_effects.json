@@ -1,6 +1,6 @@
 {
   "title": "Multi-ancestry Gene Loci Regulatory Effects",
-  "description": "Gene loci regulatory effects on traits in the GIMs of GC and gastric lesion progression",
+  "description": "Gene loci regulatory effects on traits in the GIMs for Gastric Cancer and Gastric Lesion Progression",
   "columns": [
     "Metabolic Trait",
     "Tag variant",

@@ -27,27 +27,32 @@ interface GCGimHeatmapProps {
   genes: string[];
   metabolites: string[];
   onAssociationClick: (association: GCGimData) => void;
+  activeGene?: string | null;
 }
 
-const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({ 
-  data, 
-  genes, 
-  metabolites, 
-  onAssociationClick 
+const SIGNIFICANCE_THRESHOLD = 5e-8;
+
+const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
+  data,
+  genes,
+  metabolites,
+  onAssociationClick,
+  activeGene
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
 
+  // More vibrant and distinct colors for each functional type
   const functionalTypeColors: { [key: string]: string } = {
-    'intronic': '#3B82F6', // Blue
-    'UTR5': '#10B981', // Green
-    'intergenic': '#8B5CF6', // Purple
-    'downstream': '#F59E0B', // Orange
-    'ncRNA_intronic': '#EF4444', // Red
-    'exonic': '#6366F1', // Indigo
-    'UTR3': '#EAB308', // Yellow
-    'upstream': '#EC4899', // Pink
-    'ncRNA_exonic': '#14B8A6' // Teal
+    'intronic': '#FF4757', // Bright Red
+    'UTR5': '#2ED573', // Bright Green
+    'intergenic': '#3742FA', // Bright Blue
+    'downstream': '#FFA502', // Bright Orange
+    'ncRNA_intronic': '#FF6348', // Bright Coral
+    'exonic': '#8B5CF6', // Bright Purple
+    'UTR3': '#FF6B35', // Bright Orange-Red
+    'upstream': '#FF1493', // Deep Pink
+    'ncRNA_exonic': '#00D2D3' // Bright Cyan
   };
 
   useEffect(() => {
@@ -65,14 +70,22 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
     const innerWidth = width;
     const innerHeight = height;
 
+    // Filter genes and metabolites based on data availability
+    const availableGenes = genes.filter(gene => 
+      data.some(d => d.gene === gene)
+    );
+    const availableMetabolites = metabolites.filter(metabolite => 
+      data.some(d => d.Metabolite === metabolite)
+    );
+
     // Create scales
     const xScale = d3.scaleBand()
-      .domain(genes)
+      .domain(availableGenes)
       .range([0, innerWidth])
       .padding(0.1);
 
     const yScale = d3.scaleBand()
-      .domain(metabolites)
+      .domain(availableMetabolites)
       .range([0, innerHeight])
       .padding(0.1);
 
@@ -100,10 +113,50 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
       .style('z-index', '1000')
       .style('max-width', '300px');
 
+    // Create color scale
+    const pValues = data.map(d => d.P_value).filter(p => p > 0);
+    const logPValues = pValues.map(p => -Math.log10(p));
+    const minPValue = pValues.length ? Math.min(...pValues) : 1e-12;
+    const [rawMinLog, rawMaxLog] = logPValues.length
+      ? (d3.extent(logPValues) as [number, number])
+      : [0, 1];
+
+    const sortedLog = logPValues.slice().sort(d3.ascending);
+    const q1 = sortedLog.length
+      ? d3.quantile(sortedLog, 0.1) ?? rawMinLog
+      : rawMinLog;
+    const q3 = sortedLog.length
+      ? d3.quantile(sortedLog, 0.9) ?? rawMaxLog
+      : rawMaxLog;
+
+    const minLogExtent = Math.min(rawMinLog, q1);
+    const maxLogExtent = Math.max(rawMaxLog, q3);
+
+    const extentRange: [number, number] =
+      minLogExtent === maxLogExtent
+        ? [minLogExtent - 1, maxLogExtent + 1]
+        : [minLogExtent, maxLogExtent];
+
+    const opacityScale = d3
+      .scaleLinear<number, number>()
+      .domain(extentRange)
+      .range([0.25, 1])
+      .clamp(true);
+
+    const logThreshold = -Math.log10(SIGNIFICANCE_THRESHOLD);
+
+    const significantMax = Math.max(maxLogExtent, logThreshold + 0.5);
+
+    const intensityScale = d3
+      .scaleLinear<number, number>()
+      .domain([logThreshold, significantMax])
+      .range([0.6, 1])
+      .clamp(true);
+
     // Create cells
     const cells = g.selectAll('.cell')
-      .data(genes.flatMap(gene => 
-        metabolites.map(metabolite => ({
+      .data(availableGenes.flatMap(gene => 
+        availableMetabolites.map(metabolite => ({
           gene,
           metabolite,
           data: dataMap.get(`${gene}-${metabolite}`)
@@ -114,27 +167,69 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
       .attr('class', 'cell')
       .attr('transform', d => `translate(${xScale(d.gene)},${yScale(d.metabolite)})`);
 
-    // Add rectangles
+    const isActiveGene = (gene: string) => {
+      if (!activeGene) return false;
+      return gene === activeGene;
+    };
+
     cells.append('rect')
       .attr('width', xScale.bandwidth())
       .attr('height', yScale.bandwidth())
       .attr('fill', d => {
-        if (!d.data || !d.data['value.update']) return '#f8f9fa';
-        return functionalTypeColors[d.data['value.update']] || '#6b7280';
+        if (!d.data) return '#ffffff';
+
+        const functionalType = d.data['value.update'];
+        const baseColor = functionalTypeColors[functionalType] || '#2563eb';
+        const logP =
+          d.data.P_value === 0
+            ? significantMax
+            : -Math.log10(d.data.P_value);
+
+        if (d.data.P_value > SIGNIFICANCE_THRESHOLD) {
+          return '#ffffff';
+        }
+
+        const t = intensityScale(logP);
+        return d3.interpolateRgb('#172554', baseColor)(t);
       })
-      .attr('stroke', '#e5e7eb')
-      .attr('stroke-width', 0.5)
+      .attr('stroke', d => {
+        if (!d.data) return '#e5e7eb';
+        const functionalType = d.data['value.update'];
+        const baseColor = functionalTypeColors[functionalType] || '#2563eb';
+        return d3.interpolateRgb('#0f172a', baseColor)(0.6);
+      })
+      .attr('stroke-width', d => (isActiveGene(d.gene) ? 2.5 : 0.8))
       .style('cursor', d => d.data ? 'pointer' : 'default')
-      .style('opacity', d => d.data ? 0.8 : 0.1)
+      .style('opacity', d => {
+        if (!d.data) return 0.1;
+
+        if (d.data.P_value > SIGNIFICANCE_THRESHOLD) {
+          return isActiveGene(d.gene) ? 0.6 : 0.35;
+        }
+
+        const logP =
+          d.data.P_value === 0
+            ? significantMax
+            : -Math.log10(d.data.P_value);
+        const baseOpacity = opacityScale(logP);
+        return isActiveGene(d.gene) ? Math.min(baseOpacity + 0.2, 1) : baseOpacity;
+      })
       .on('mouseover', function(event, d) {
         if (!d.data) return;
         
-        d3.select(this).style('opacity', 1);
-        
+        d3.select(this)
+          .interrupt()
+          .transition()
+          .duration(150)
+          .style('opacity', 1)
+          .attr('stroke-width', 3);
+
+        const logP = d.data.P_value === 0 ? significantMax : -Math.log10(d.data.P_value);
         const tooltipContent = `
           <strong>${d.data.gene} ↔ ${d.data.Metabolite}</strong><br/>
           <strong>Functional Type:</strong> ${d.data['value.update'] || 'Unknown'}<br/>
           <strong>P-value:</strong> ${d.data.P_value.toExponential(2)}<br/>
+          <strong>-log10(P):</strong> ${logP.toFixed(2)}<br/>
           <strong>Causal:</strong> ${d.data.is_causal}<br/>
           <strong>Beta (Pred):</strong> ${d.data['Beta.pred'].toFixed(3)}<br/>
           <strong>Beta (True):</strong> ${d.data['Beta.true'].toFixed(3)}<br/>
@@ -153,7 +248,18 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
       })
       .on('mouseout', function(event, d) {
         if (!d.data) return;
-        d3.select(this).style('opacity', 0.8);
+        d3.select(this)
+          .interrupt()
+          .transition()
+          .duration(200)
+          .style('opacity', () => {
+            const base =
+              d.data.P_value === 0
+                ? opacityScale(extentRange[1])
+                : opacityScale(-Math.log10(d.data.P_value));
+            return isActiveGene(d.gene) ? Math.min(base + 0.2, 1) : base;
+          })
+          .attr('stroke-width', isActiveGene(d.gene) ? 2.5 : 0.8);
         tooltip.style('visibility', 'hidden');
       })
       .on('click', function(event, d) {
@@ -194,6 +300,71 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
       .selectAll('text')
       .style('font-size', '10px')
       .text(d => String(d).replace(/_/g, ' '));
+
+    // Add color legend for -log10(P) values
+    const legendWidth = 200;
+    const legendHeight = 20;
+    const legendX = innerWidth - legendWidth - 20;
+    const legendY = -60;
+
+    // Create legend gradient
+    const legendGradient = g.append('defs')
+      .append('linearGradient')
+      .attr('id', 'colorGradient')
+      .attr('x1', '0%')
+      .attr('y1', '0%')
+      .attr('x2', '100%')
+      .attr('y2', '0%');
+
+    legendGradient.append('stop')
+      .attr('offset', '0%')
+      .attr('stop-color', '#FFE5E5');
+
+    legendGradient.append('stop')
+      .attr('offset', '100%')
+      .attr('stop-color', '#FF0000');
+
+    // Add legend rectangle
+    g.append('rect')
+      .attr('x', legendX)
+      .attr('y', legendY)
+      .attr('width', legendWidth)
+      .attr('height', legendHeight)
+      .attr('fill', 'url(#colorGradient)')
+      .attr('stroke', '#ccc');
+
+    // Add legend labels
+    const sortedPValues = pValues.sort((a, b) => a - b);
+    const p25 = sortedPValues[Math.floor(sortedPValues.length * 0.25)];
+    const p75 = sortedPValues[Math.floor(sortedPValues.length * 0.75)];
+    const minLogP = -Math.log10(p75);
+    const maxLogP = -Math.log10(p25);
+    
+    g.append('text')
+      .attr('x', legendX)
+      .attr('y', legendY - 5)
+      .attr('text-anchor', 'start')
+      .style('font-size', '12px')
+      .style('fill', '#666')
+      .text(`-log10(P): ${minLogP.toFixed(1)}`);
+
+    g.append('text')
+      .attr('x', legendX + legendWidth)
+      .attr('y', legendY - 5)
+      .attr('text-anchor', 'end')
+      .style('font-size', '12px')
+      .style('fill', '#666')
+      .text(`${maxLogP.toFixed(1)}`);
+
+    // Add legend title
+    g.append('text')
+      .attr('x', legendX + legendWidth / 2)
+      .attr('y', legendY - 25)
+      .attr('text-anchor', 'middle')
+      .style('font-size', '14px')
+      .style('font-weight', 'bold')
+      .style('fill', '#333')
+      .text('Opacity Intensity (-log10 P-value)');
 
     // Add axis labels
     g.append('text')
@@ -274,7 +445,7 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
       d3.select('.gc-gim-tooltip').remove();
     };
 
-  }, [data, genes, metabolites, onAssociationClick]);
+  }, [data, genes, metabolites, onAssociationClick, activeGene]);
 
   return (
     <div className="w-full overflow-auto">

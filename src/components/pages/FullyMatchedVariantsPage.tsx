@@ -1,14 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import Papa from 'papaparse'
-import {
-  Download,
-  Search,
-  Filter,
-  ArrowUpDown,
-  ArrowUp,
-  ArrowDown,
-  Table as TableIcon
-} from 'lucide-react'
+import { Search, Filter, ArrowUpDown, ArrowUp, ArrowDown, Table as TableIcon } from 'lucide-react'
 import { Input } from '../ui/input'
 import {
   Select,
@@ -72,15 +63,26 @@ const STUDY_COLORS = [
 
 interface VariantRecord {
   reportedVariant: string
-  chromosome: number
-  position: number
+  chromosome: number | null
+  position: number | null
   refAllele: string
   altAllele: string
   nearestGene: string
   functionalRole: string
-  caddScore: number
+  caddScore: number | null
   regulomeDB: string
   matchedStudies: string
+  studyDetail1: string
+  studyDetail2: string
+  studyDetail3: string
+  studyDetail4: string
+}
+
+interface VariantDataset {
+  title: string
+  description: string
+  note?: string
+  data: VariantRecord[]
 }
 
 type SortField = keyof VariantRecord
@@ -100,64 +102,83 @@ export default function FullyMatchedVariantsPage() {
   const [selected, setSelected] = useState<VariantRecord|null>(null)
   const perPage = 20
 
-  // Load CSV data
+  // Load JSON dataset
   useEffect(() => {
-    Papa.parse<Partial<VariantRecord>>(
-      `${import.meta.env.BASE_URL}data/variants.overlap.GC_6938.FUMA.df.fully_matched.csv`,
-      {
-        download: true,
-        header: true,
-        dynamicTyping: true,
-        skipEmptyLines: true,
-        complete: res => {
-          if (res.errors.length) {
-            console.error(res.errors);
-            toast.error('Failed to parse variants CSV');
-          } else {
-            const rows = res.data.map(row => ({
-              reportedVariant: String(row['Reported variant'] || ''),
-              chromosome: Number(row['chromosome'] || 0),
-              position: Number(row['position'] || 0),
-              refAllele: String(row['Ref allele'] || ''),
-              altAllele: String(row['Alt allel'] || ''),
-              nearestGene: String(row['Nearest gene'] || ''),
-              functionalRole: String(row['Functional role'] || ''),
-              caddScore: Number(row['CADD score'] || 0),
-              regulomeDB: String(row['Regulome DB score'] || ''),
-              matchedStudies: String(row['MatchedStudies'] || '')
-            })) as VariantRecord[];
-            setData(rows);
-          }
-          setLoading(false);
+    const load = async () => {
+      try {
+        setLoading(true)
+        const response = await fetch(`${import.meta.env.BASE_URL}data/matched_variants_2026.json`)
+        if (!response.ok) {
+          throw new Error(`Request failed with status ${response.status}`)
         }
+        const json: VariantDataset = await response.json()
+        setData(Array.isArray(json.data) ? json.data : [])
+      } catch (error) {
+        console.error(error)
+        toast.error('Failed to load matched variants data')
+      } finally {
+        setLoading(false)
       }
-    );
+    }
+    load()
   }, []);
 
   // Derive filter options
-  const genes = useMemo(() => Array.from(new Set(data.map(d => d.nearestGene))).sort(), [data]);
-  const roles = useMemo(() => Array.from(new Set(data.map(d => d.functionalRole))).sort(), [data]);
-  const studies = useMemo(() => Array.from(new Set(data.flatMap(d => d.matchedStudies.split(';').map(s => s.trim())))).sort(), [data]);
+  const genes = useMemo(
+    () => Array.from(new Set(data.map(d => d.nearestGene).filter(Boolean))).sort(),
+    [data]
+  );
+  const roles = useMemo(
+    () => Array.from(new Set(data.map(d => d.functionalRole).filter(Boolean))).sort(),
+    [data]
+  );
+  const studies = useMemo(() => {
+    const bucket = new Set<string>();
+    data.forEach(item => {
+      item.matchedStudies
+        .split(';')
+        .map(s => s.trim())
+        .filter(Boolean)
+        .forEach(s => bucket.add(s));
+    });
+    return Array.from(bucket).sort();
+  }, [data]);
 
   // Filter and sort
   const filtered = useMemo(() => {
+    const lowerSearch = search.trim().toLowerCase();
     return data
-      .filter(d => {
-        const sLower = search.toLowerCase();
-        const matchText = [d.reportedVariant, d.nearestGene, d.functionalRole, d.matchedStudies]
-          .some(f => f.toLowerCase().includes(sLower));
-        const matchGene = filterGene === 'all' || d.nearestGene === filterGene;
-        const matchRole = filterRole === 'all' || d.functionalRole === filterRole;
-        const studiesArr = d.matchedStudies.split(';').map(x => x.trim());
-        const matchStudy = filterStudy === 'all' || studiesArr.includes(filterStudy);
+      .filter(record => {
+        const matchText =
+          !lowerSearch ||
+          [
+            record.reportedVariant,
+            record.nearestGene,
+            record.functionalRole,
+            record.matchedStudies
+          ]
+            .filter(Boolean)
+            .some(value => value.toLowerCase().includes(lowerSearch));
+
+        const matchGene = filterGene === 'all' || record.nearestGene === filterGene;
+        const matchRole = filterRole === 'all' || record.functionalRole === filterRole;
+        const studyTokens = record.matchedStudies
+          .split(';')
+          .map(token => token.trim())
+          .filter(Boolean);
+        const matchStudy = filterStudy === 'all' || studyTokens.includes(filterStudy);
+
         return matchText && matchGene && matchRole && matchStudy;
       })
       .sort((a, b) => {
-        let va = a[sortField], vb = b[sortField];
-        let cmp = typeof va === 'number' && typeof vb === 'number'
-          ? va - vb
-          : String(va).localeCompare(String(vb));
-        return sortDir === 'asc' ? cmp : -cmp;
+        const valueA = a[sortField];
+        const valueB = b[sortField];
+        if (typeof valueA === 'number' && typeof valueB === 'number') {
+          return sortDir === 'asc' ? valueA - valueB : valueB - valueA;
+        }
+        return sortDir === 'asc'
+          ? String(valueA ?? '').localeCompare(String(valueB ?? ''))
+          : String(valueB ?? '').localeCompare(String(valueA ?? ''));
       });
   }, [data, search, filterGene, filterRole, filterStudy, sortField, sortDir]);
 
@@ -183,31 +204,42 @@ export default function FullyMatchedVariantsPage() {
     const total = data.length;
     const uniqueRpt = new Set(data.map(d => d.reportedVariant)).size;
     const uniqueGenes = new Set(data.map(d => d.nearestGene)).size;
-    const avgCADD = total ? data.reduce((sum, d) => sum + d.caddScore, 0) / total : 0;
-    const roleCounts = roles.map(r => ({ role: r, count: data.filter(d => d.functionalRole === r).length }));
+    const caddValues = data
+      .map(d => d.caddScore)
+      .filter((value): value is number => typeof value === 'number' && !Number.isNaN(value));
+    const avgCADD = caddValues.length
+      ? caddValues.reduce((sum, value) => sum + value, 0) / caddValues.length
+      : 0;
+    const roleCounts = roles.map(role => ({
+      role,
+      count: data.filter(d => d.functionalRole === role).length
+    }));
     return { total, uniqueRpt, uniqueGenes, avgCADD, roleCounts };
   }, [data, roles]);
+
+  const uniqueStudyCount = studies.length;
+
+  const infoBlurb = useMemo(() => {
+    if (!data.length) return [];
+    return [
+      `This folloing table cross-references ${stats.total.toLocaleString()} lead variants from mGWAS that were reported as associated with published GWAS for gastric cancer or lesion progression.`,
+      'Columns summarise predicted functional impact (CADD, RegulomeDB) alongside information about the matched source publications.',
+      'Use the filters to focus on particular genes, functional roles, or studies and spot variants that recur across cohorts or carry stronger regulatory signals.'
+    ];
+  }, [data.length, stats.total, uniqueStudyCount]);
 
   if (loading) return <div className="p-6 text-center">Loading…</div>;
 
   return (
     <div className="p-6 max-w-full mx-auto space-y-6">
       {/* Header */}
-      <div className="flex justify-between items-start">
+        <div className="flex justify-between items-start flex-col lg:flex-row gap-4">
         <div>
           <h1 className="text-3xl font-bold flex items-center space-x-2">
             <TableIcon className="w-8 h-8 text-green-600" />
-            <span>Tag variants reported previously</span>
+            <span>Lead Variants in the mGWAS Reported as Associated with Gastric Cancer & Gastric Lesion Progression</span>
           </h1>
           <p className="text-gray-600">Showing {filtered.length} of {data.length} variants.</p>
-        </div>
-        <div className="space-x-2">
-          <button className="bg-green-600 text-white px-4 py-2 rounded flex items-center">
-            <Download className="w-4 h-4 mr-1" /> CSV
-          </button>
-          <button className="bg-green-600 text-white px-4 py-2 rounded flex items-center">
-            <Download className="w-4 h-4 mr-1" /> JSON
-          </button>
         </div>
       </div>
 
@@ -238,7 +270,7 @@ export default function FullyMatchedVariantsPage() {
             <Select value={filterRole} onValueChange={v => { setFilterRole(v); setPage(1); }}>
               <SelectTrigger><SelectValue placeholder="All Functions" /></SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">Functional consequence of variants</SelectItem>
+                <SelectItem value="all">Functional role of variants</SelectItem>
                 {roles.map(r => <SelectItem key={r} value={r}>{r}</SelectItem>)}
               </SelectContent>
             </Select>
@@ -254,13 +286,15 @@ export default function FullyMatchedVariantsPage() {
       </Card>
 
       {/* Notice */}
-      <p className="text-sm text-gray-500 italic">
-        <strong>Note:</strong><br />
-        1. This panel displays the independent tag variants at GIM genomic loci previously reported to associate with gastric cancer or with the progression of gastric lesions.<br />
-        2. Functional consequence of variants on the genes were obtained from ANNOVAR.<br />
-        3. The column of Matched Studies lists each study (with its p-threshold).<br />
-        4. CADD and RegulomeDB scores were annotated by FUMA.
-      </p>
+      {infoBlurb.length > 0 && (
+        <div className="text-sm text-gray-700 bg-emerald-50 border border-emerald-200 rounded-lg p-4 space-y-2">
+          {infoBlurb.map((paragraph, idx) => (
+            <p key={idx} className="leading-6">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      )}
 
       {/* Tabs */}
       <Tabs value={tab} onValueChange={v => setTab(v as 'table' | 'summary')}>
@@ -318,15 +352,30 @@ export default function FullyMatchedVariantsPage() {
                         {d.functionalRole}
                       </Badge>
                     </TableCell>
-                    <TableCell className="px-3 py-1">{d.caddScore.toFixed(2)}</TableCell>
+                    <TableCell className="px-3 py-1">
+                      {typeof d.caddScore === 'number' && !Number.isNaN(d.caddScore)
+                        ? d.caddScore.toFixed(2)
+                        : '—'}
+                    </TableCell>
                     <TableCell className="px-3 py-1">{d.regulomeDB}</TableCell>
                     <TableCell className="px-3 py-1 whitespace-normal">
-                      {d.matchedStudies.split(';').map((study, idx) => {
-                        const colorClass = STUDY_COLORS[studies.indexOf(study.trim()) % STUDY_COLORS.length];
-                        return (
-                          <Badge key={idx} className={`${colorClass} mr-2 mb-1`}> {study.trim()} </Badge>
-                        );
-                      })}
+                      {d.matchedStudies
+                        .split(';')
+                        .map(study => study.trim())
+                        .filter(Boolean)
+                        .map((study, idx) => {
+                          const paletteIndex = studies.indexOf(study);
+                          const colorClass =
+                            STUDY_COLORS[
+                              (paletteIndex >= 0 ? paletteIndex : idx) % STUDY_COLORS.length
+                            ];
+                          return (
+                            <Badge key={`${study}-${idx}`} className={`${colorClass} mr-2 mb-1`}>
+                              {study}
+                            </Badge>
+                          );
+                        })}
+                      {!d.matchedStudies.trim() && <span className="text-xs text-gray-500">—</span>}
                     </TableCell>
                   </TableRow>
                 ))}
@@ -336,9 +385,70 @@ export default function FullyMatchedVariantsPage() {
           {totalPages > 1 && (
             <div className="flex justify-between items-center py-4">
               <span className="text-sm text-gray-600">Page {page} / {totalPages}</span>
-              <div className="space-x-2">
-                <button disabled={page===1} onClick={() => setPage(p=>p-1)} className="px-2 py-1 border rounded">Prev</button>
-                <button disabled={page===totalPages} onClick={() => setPage(p=>p+1)} className="px-2 py-1 border rounded">Next</button>
+              <div className="flex items-center space-x-2">
+                <button 
+                  disabled={page===1} 
+                  onClick={() => setPage(p=>p-1)} 
+                  className="px-2 py-1 border rounded disabled:opacity-50 hover:bg-gray-50"
+                >
+                  Prev
+                </button>
+                
+                {/* Page Numbers */}
+                <div className="flex items-center space-x-1">
+                  {/* First page */}
+                  {page > 3 && (
+                    <>
+                      <button
+                        onClick={() => setPage(1)}
+                        className="px-2 py-1 border rounded hover:bg-gray-50 text-sm"
+                      >
+                        1
+                      </button>
+                      {page > 4 && <span className="px-1 text-gray-400">...</span>}
+                    </>
+                  )}
+                  
+                  {/* Current page and neighbors */}
+                  {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                    const pageNum = Math.max(1, Math.min(totalPages - 4, page - 2)) + i;
+                    if (pageNum > totalPages) return null;
+                    return (
+                      <button
+                        key={pageNum}
+                        onClick={() => setPage(pageNum)}
+                        className={`px-2 py-1 border rounded text-sm ${
+                          pageNum === page 
+                            ? 'bg-blue-600 text-white border-blue-600' 
+                            : 'hover:bg-gray-50'
+                        }`}
+                      >
+                        {pageNum}
+                      </button>
+                    );
+                  })}
+                  
+                  {/* Last page */}
+                  {page < totalPages - 2 && (
+                    <>
+                      {page < totalPages - 3 && <span className="px-1 text-gray-400">...</span>}
+                      <button
+                        onClick={() => setPage(totalPages)}
+                        className="px-2 py-1 border rounded hover:bg-gray-50 text-sm"
+                      >
+                        {totalPages}
+                      </button>
+                    </>
+                  )}
+                </div>
+                
+                <button 
+                  disabled={page===totalPages} 
+                  onClick={() => setPage(p=>p+1)} 
+                  className="px-2 py-1 border rounded disabled:opacity-50 hover:bg-gray-50"
+                >
+                  Next
+                </button>
               </div>
             </div>
           )}
@@ -387,25 +497,62 @@ export default function FullyMatchedVariantsPage() {
                 <div><strong>Alt allele:</strong> {selected.altAllele}</div>
                 <div><strong>Gene:</strong> {selected.nearestGene}</div>
                 <div><strong>Function:</strong> <Badge className={`ml-2 ${ROLE_COLOR_MAP[selected.functionalRole]|| 'bg-gray-100 text-gray-800'}`}>{selected.functionalRole}</Badge></div>
-                <div><strong>Matched Studies:</strong> {selected.matchedStudies.split(';').map((s,i)=><Badge key={i} className="ml-2 mr-1 bg-gray-200 text-gray-800">{s.trim()}</Badge>)}</div>
+                <div>
+                  <strong>Matched Studies:</strong>{' '}
+                  {selected.matchedStudies
+                    .split(';')
+                    .map(s => s.trim())
+                    .filter(Boolean)
+                    .map((s, i) => (
+                      <Badge key={i} className="ml-2 mr-1 bg-gray-200 text-gray-800">
+                        {s}
+                      </Badge>
+                    ))}
+                  {!selected.matchedStudies.trim() && <span className="ml-2 text-gray-500">—</span>}
+                </div>
               </div>
               <div className="space-y-6">
-                <div className="h-40">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={[{name:'CADD',value:selected.caddScore}]} layout="vertical" margin={{left:40,right:20,top:10,bottom:10}}>
-                      <XAxis type="number" tick={{fontSize:12}} />
-                      <YAxis dataKey="name" type="category" width={60} tick={{fontSize:12}} />
-                      <RechartsTooltip formatter={v=> (v as number).toFixed(2)} />
-                      <Bar dataKey="value" fill="#6366F1" />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
+                {typeof selected.caddScore === 'number' && !Number.isNaN(selected.caddScore) && (
+                  <div className="h-40">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart
+                        data={[{ name: 'CADD', value: selected.caddScore }]}
+                        layout="vertical"
+                        margin={{ left: 40, right: 20, top: 10, bottom: 10 }}
+                      >
+                        <XAxis type="number" tick={{ fontSize: 12 }} />
+                        <YAxis dataKey="name" type="category" width={60} tick={{ fontSize: 12 }} />
+                        <RechartsTooltip formatter={value => (value as number).toFixed(2)} />
+                        <Bar dataKey="value" fill="#6366F1" />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                )}
                 <div>
                   <h4 className="text-sm font-medium mb-2">RegulomeDB Score</h4>
                   <div className="grid grid-cols-5 gap-1">
                     {REGDB_CATEGORIES.map(cat=>(<div key={cat} className={`w-10 h-10 flex items-center justify-center text-xs font-semibold border rounded ${selected.regulomeDB===cat?'bg-orange-600 text-white':'bg-gray-100 text-gray-500 border-gray-200'}`}>{cat}</div>))}
                   </div>
                 </div>
+                {[selected.studyDetail1, selected.studyDetail2, selected.studyDetail3, selected.studyDetail4]
+                  .filter(detail => detail && detail.trim().length > 0)
+                  .length > 0 && (
+                  <div>
+                    <h4 className="text-sm font-medium mb-2">Published study excerpts</h4>
+                    <div className="space-y-3 text-sm text-gray-700">
+                      {[selected.studyDetail1, selected.studyDetail2, selected.studyDetail3, selected.studyDetail4]
+                        .filter(detail => detail && detail.trim().length > 0)
+                        .map((detail, idx) => (
+                          <div
+                            key={idx}
+                            className="bg-slate-50 border border-slate-200 rounded-md p-3 whitespace-pre-wrap"
+                          >
+                            {detail}
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>

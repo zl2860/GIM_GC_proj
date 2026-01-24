@@ -1,70 +1,87 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BarChart3, Database, Beaker, Activity, Download, ExternalLink, Users, Target, Microscope } from 'lucide-react';
+import { BarChart3, Database, Beaker, Activity, ExternalLink, Users, Target, Microscope, Mail } from 'lucide-react';
 import { Shuffle } from 'lucide-react';
+import cover4 from '@/assets/cover4.png';
 
 const HomePage: React.FC = () => {
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      {/* Hero Section */}
-      <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Genetically Influenced Metabotypes for Gastric Cancer Risk
-            </h1>
-            <p className="text-lg text-gray-600 mb-6">
-              Welcome to the supplementary panel showcasing our study’s summary statistics on genetically influenced metabotypes (GIMs) for gastric cancer. 
-              Here you’ll find all additional data and details as mentioned by our manuscript.
-            </p>
-            <div className="flex space-x-4">
-              <Link
-                to="/risk-associations"
-                className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors flex items-center space-x-2"
-              >
-                <BarChart3 className="w-5 h-5" />
-                <span>Risk Estimates</span>
-              </Link>
-              <Link
-                to="/gene-metabolite"
-                className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2"
-              >
-                <Database className="w-5 h-5" />
-                <span>Network for GIM traits</span>
-              </Link>
+    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 py-6">
+      {/* Hero Section with cover image */}
+      <div className="relative overflow-hidden rounded-2xl shadow-lg mb-8">
+        {/* Background image */}
+        <img
+          src={cover4}
+          alt="Cover background"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/20" />
+
+        {/* 3) Hero content */}
+        <div className="relative z-10 flex flex-col items-center gap-5 p-6 sm:p-8 md:p-12 lg:p-14 text-center">
+          <div className="max-w-5xl w-full rounded-2xl border border-white/30 bg-black/5 backdrop-blur-[1px] p-6 sm:p-8 text-white/95 space-y-4 text-left">
+            <div className="flex items-start gap-3">
+              <Microscope className="h-10 w-10 text-white/80" />
+              <h1 className="text-xl sm:text-2xl font-semibold leading-snug text-balance">
+                Genetically determined metabolomic individuality reveals impacts of germline variations on gastric cancer susceptibility and informs precision prevention
+              </h1>
+            </div>
+            <div className="space-y-2 text-sm sm:text-[0.95rem] leading-relaxed text-pretty">
+              <p>
+                Zong-Chao Liu<sup>1,†</sup>, Yue He<sup>2,†</sup>, Ting Guo<sup>3,†</sup>, Heng-Min Xu<sup>1</sup>, Xuan Han<sup>1</sup>, Zhi-Qiang Hu<sup>1</sup>, Zhou-Yi Yin<sup>1</sup>, Yu Jin<sup>1</sup>, Lan-Xin Yang<sup>1</sup>, Yu-Xin Wang<sup>1</sup>, Chao Zhang<sup>1</sup>, Meng-Yuan Wang<sup>1</sup>, Yang Zhang<sup>4</sup>, Jing-Ying Zhang<sup>4</sup>, Tong Zhou<sup>4</sup>, Wei-Cheng You<sup>4</sup>, Kai-Feng Pan<sup>1,*</sup>, Peng Cui<sup>2,*</sup>, Jia-Fu Ji<sup>5,*</sup>, Wen-Qing Li<sup>1,*</sup>
+              </p>
+              <p className="text-xs text-white/75">
+                † Equal contribution · * Corresponding authors &nbsp;|&nbsp; pan-kf@263.net · cuip@tsinghua.edu.cn  · jijiafu@hsc.pku.edu.cn · wenqing_li@bjmu.edu.cn
+              </p>
+              <div className="grid gap-1 text-xs text-white/70 sm:grid-cols-2 md:grid-cols-3">
+                <span>1&nbsp;State Key Laboratory of Holistic Integrative Management of Gastrointestinal Cancers, Department of Cancer Epidemiology, Peking University Cancer Hospital &amp; Institute, Beijing 100142, China</span>
+                <span>2&nbsp;Department of Computer Science and Technology, Tsinghua University, Beijing 100084, China</span>
+                <span>3&nbsp;Key Laboratory of Carcinogenesis and Translational Research (Ministry of Education/Beijing), Division of Gastrointestinal Cancer Translational Research Laboratory, Peking University Cancer Hospital &amp; Institute, Beijing 100142, China</span>
+                <span>4&nbsp;Key Laboratory of Carcinogenesis and Translational Research (Ministry of Education/Beijing), Department of Cancer Epidemiology, Peking University Cancer Hospital &amp; Institute, Beijing 100142, China</span>
+                <span>5&nbsp;State Key Laboratory of Holistic Integrative Management of Gastrointestinal Cancers, Peking University Cancer Hospital &amp; Institute, Beijing 100142, China</span>
+              </div>
             </div>
           </div>
-          <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-lg">
-            <div className="text-center">
-              <Microscope className="w-16 h-16 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Research Paper
-              </h3>
-              <p className="text-gray-600 text-sm">
-                "Genetically influenced metabotypes reveal inherited gastric cancer susceptibility and inform targeted prevention strategies"
-              </p>
-              <p className="text-gray-500 text-xs mt-2">
-                Zong-Chao Liu, Yue He, xxx, et al 2025
-              </p>
-            </div>
+
+          <p className="max-w-4xl text-white/80 text-pretty text-sm sm:text-base leading-relaxed mt-8">
+            The online platform allows to interactively explore resources accompanying the manuscript, including multi-cohort analyses of genetically influenced metabotypes and regulatory landscapes.
+          </p>
+
+          <div className="flex flex-row flex-wrap justify-center gap-3 mt-4">
+            <Link
+              to="/risk-associations"
+              className="bg-red-600/50 hover:bg-red-700/70 text-white px-6 py-3 rounded-lg transition flex items-center gap-2"
+            >
+              <BarChart3 className="h-5 w-5" />
+              <span>Risk Estimates</span>
+            </Link>
+            <Link
+              to="/gene-metabolite"
+              className="bg-green-600/50 hover:bg-green-700/70 text-white px-6 py-3 rounded-lg transition flex items-center gap-2"
+            >
+              <Database className="h-5 w-5" />
+              <span>Network for GIM traits</span>
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Key Findings Summary */}
-      <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+      <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Data Overview & Features</h2>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid gap-6 md:grid-cols-2">
           <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-3">Objectives</h3>
-            <ul className="space-y-2 text-gray-600">
+            <ul className="space-y-2 text-gray-600 text-pretty">
               <li className="flex items-start space-x-2">
                 <Target className="w-4 h-4 text-blue-600 mt-1 flex-shrink-0" />
-                <span>Explore putative causal gene loci influencing metabolic profiles related to gastric cancer</span>
+                <span>Explore putative causal gene loci influencing metabolomic profiles related to gastric cancer</span>
               </li>
               <li className="flex items-start space-x-2">
                 <Target className="w-4 h-4 text-blue-600 mt-1 flex-shrink-0" />
-                <span>Examine multi-ancestry genetic regulatory effects across the causal gene loci and metabolic traits</span>
+                <span>Examine multi-ancestry genetic regulatory effects across the causal gene loci and metabolomic traits</span>
               </li>
               <li className="flex items-start space-x-2">
                 <Target className="w-4 h-4 text-blue-600 mt-1 flex-shrink-0" />
@@ -74,18 +91,18 @@ const HomePage: React.FC = () => {
           </div>
           <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-3">Features</h3>
-            <ul className="space-y-2 text-gray-600">
+            <ul className="space-y-2 text-gray-600 text-pretty">
               <li className="flex items-start space-x-2">
                 <Microscope className="w-4 h-4 text-purple-600 mt-1 flex-shrink-0" />
-                <span>Our study covers the analysis of 249 NMR blood biomarkers</span>
+                <span>The study covers the analysis of 249 NMR traits on a total of 436,480 individuals </span>
               </li>
               <li className="flex items-start space-x-2">
                 <Microscope className="w-4 h-4 text-purple-600 mt-1 flex-shrink-0" />
-                <span>We introduced the Causal Stable Learning (CSL) approach for causal gene loci prioritization</span>
+                <span>We introduced the Causal Stable Learning (CSL) approach to prioritize putative causal gene loci for metabolomic traits</span>
               </li>
               <li className="flex items-start space-x-2">
                 <Microscope className="w-4 h-4 text-purple-600 mt-1 flex-shrink-0" />
-                <span>We performed external validations across multiple cohorts, inclduing the UKBB, SIT, MITS, and UGCED cohorts</span>
+                <span>We performed external validations across multiple cohorts, including UKBB, SIT, MITS, and UGCED cohorts</span>
               </li>
             </ul>
           </div>
@@ -93,15 +110,15 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* Research Data Exploration Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
-        <div className="bg-white rounded-lg shadow-lg p-6">
+      <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-5 mb-8">
+        <div className="bg-white rounded-2xl shadow-lg p-5 sm:p-6 flex flex-col">
           <div className="flex items-center space-x-3 mb-4">
             <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
               <BarChart3 className="w-6 h-6 text-red-600" />
             </div>
             <h3 className="text-lg font-semibold text-gray-900">Risk Estimates</h3>
           </div>
-          <p className="text-gray-600 text-sm mb-4">
+          <p className="text-gray-600 text-sm sm:text-base text-pretty mb-4 flex-1">
             Examine associations of genetically predicted traits with gastric cancer risk across multiple cohorts.
           </p>
           <Link
@@ -113,15 +130,15 @@ const HomePage: React.FC = () => {
           </Link>
         </div>
 
-        <div className="bg-white rounded-lg shadow-lg p-6">
+        <div className="bg-white rounded-2xl shadow-lg p-5 sm:p-6 flex flex-col">
           <div className="flex items-center space-x-3 mb-4">
             <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
               <Database className="w-6 h-6 text-green-600" />
             </div>
             <h3 className="text-lg font-semibold text-gray-900">GGM network</h3>
           </div>
-          <p className="text-gray-600 text-sm mb-4">
-            Check partial correlations estimated using Gaussian Graph Model among the GIM-traits identified by CSL models.
+          <p className="text-gray-600 text-sm sm:text-base text-pretty mb-4 flex-1">
+            Check partial correlations estimated using Gaussian Graph Model among the the traits in the GIMs.
           </p>
           <Link
             to="/gene-metabolite"
@@ -132,18 +149,18 @@ const HomePage: React.FC = () => {
           </Link>
         </div>
 
-        <div className="bg-white rounded-lg shadow-lg p-6">
+        <div className="bg-white rounded-2xl shadow-lg p-5 sm:p-6 flex flex-col">
           <div className="flex items-center space-x-3 mb-4">
             <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
               <Beaker className="w-6 h-6 text-purple-600" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900">Metabolic traits</h3>
+            <h3 className="text-lg font-semibold text-gray-900">Metabolomic traits</h3>
           </div>
-          <p className="text-gray-600 text-sm mb-4">
-            See detailed information on 249 NMR blood metabolci traits including descriptions, units, and classifications.
+          <p className="text-gray-600 text-sm sm:text-base text-pretty mb-4 flex-1">
+            See detailed information on the 249 NMR metabolomic traits including descriptions, units, and classifications.
           </p>
           <Link
-            to="/biomarkers"
+            to="/metabolic-traits"
             className="text-purple-600 hover:text-purple-700 text-sm font-medium flex items-center space-x-1"
           >
             <span>View Traits</span>
@@ -151,117 +168,91 @@ const HomePage: React.FC = () => {
           </Link>
         </div>
 
-        <div className="bg-white rounded-lg shadow-lg p-6">
+        <div className="bg-white rounded-2xl shadow-lg p-5 sm:p-6 flex flex-col">
           <div className="flex items-center space-x-3 mb-4">
             <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
               <Activity className="w-6 h-6 text-orange-600" />
             </div>
             <h3 className="text-lg font-semibold text-gray-900">Regulatory Effects</h3>
           </div>
-          <p className="text-gray-600 text-sm mb-4">
-            Check multi-ancestry regulatory effects of gene loci identified by CSL on GIM traits.
+          <p className="text-gray-600 text-sm sm:text-base text-pretty mb-4 flex-1">
+            Check multi-ancestry regulatory effects of the regulatory paris in the GIMs.
           </p>
           <Link
             to="/regulatory-effects"
             className="text-orange-600 hover:text-orange-700 text-sm font-medium flex items-center space-x-1"
           >
-            <span>Explore Effects</span>
+            <span>View Effects</span>
             <ExternalLink className="w-4 h-4" />
           </Link>
         </div>
 
-        <div className="bg-white rounded-lg shadow-lg p-6">
+        <div className="bg-white rounded-2xl shadow-lg p-5 sm:p-6 flex flex-col">
           <div className="flex items-center space-x-3 mb-4">
-            <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
-              <Shuffle className="w-6 h-6 text-yellow-600" />
+            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+              <Shuffle className="w-6 h-6 text-blue-600" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900">LC-MS Correlations</h3>
+            <h3 className="text-lg font-semibold text-gray-900">Model Assessment</h3>
           </div>
-          <p className="text-gray-600 text-sm mb-4">
-            Explore  correlations between predicted NMR traits and metabolites detected by LC-MS.
+          <p className="text-gray-600 text-sm sm:text-base text-pretty mb-4 flex-1">
+            Comprehensive evaluation of model performance and validation across different assessment centers in UKBB and ancestris.
           </p>
           <Link
-            to="/correlations"
-            className="text-yellow-600 hover:text-yellow-700 text-sm font-medium flex items-center space-x-1">
-            <span>View Pairs</span>
+            to="/model-assessment"
+            className="text-blue-600 hover:text-blue-700 text-sm font-medium flex items-center space-x-1"
+          >
+            <span>Assess Models</span>
             <ExternalLink className="w-4 h-4" />
           </Link>
         </div>
       </div>
 
-      {/* Study Statistics */}
-<div className="bg-white rounded-lg shadow-lg p-8">
-  <h2 className="text-2xl font-bold text-gray-900 mb-6">Cohort & Study Statistics</h2>
+      {/* Additional Research Sections */}
+      <div className="grid gap-6 md:grid-cols-2 mb-8">
+        <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-7">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center space-x-2">
+            <Users className="w-5 h-5 text-indigo-600" />
+            <span>Study Overview</span>
+          </h3>
+          <div className="space-y-3 text-gray-600 text-pretty">
+            <p>
+            We developed a causal stable learning (CSL) framework to predict genetically determined metabolomic 
+            profiles and depict the GIMs, which enables the identification of causal gene loci for metabolomic 
+            traits across heterogeneous populations. 
+            </p>
+            <p>
+            Using this framework, genome-wide variants were integrated with NMR-based metabolomics data to derive
+            genetically imputed profiles representing germline‐encoded metabolic individuality. 
+            </p>
+          </div>
+        </div>
 
-  {/* 1) Sample size cohorts (4 panels) */}
-  <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
-    {[
-      { label: 'UKBB Discovery', count: '145,938',   Icon: Users, color: 'text-blue-600' },
-      { label: 'UKBB Independent Validation',count: '284,694',     Icon: Users, color: 'text-green-600' },
-      { label: 'UGCED',          count: '370',       Icon: Users, color: 'text-teal-600' },
-      { label: 'MITS',           count: '2,804',     Icon: Users, color: 'text-purple-600' },
-      { label: 'SIT',            count: '2,755',     Icon: Users, color: 'text-green-600' },
-
-
-    ].map(({ label, count, Icon, color }) => (
-      <div
-        key={label}
-        className="bg-gray-50 rounded-lg p-6 flex flex-col items-center justify-center text-center"
-      >
-        <Icon className={`w-8 h-8 mb-2 ${color}`} />
-        <div className={`text-3xl font-bold mb-1 ${color}`}>{count}</div>
-        <div className="text-sm text-gray-600">{label}</div>
+        <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-7">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center space-x-2">
+            <Database className="w-5 h-5 text-green-600" />
+            <span>Data Access</span>
+          </h3>
+          <div className="space-y-3 text-gray-600 text-pretty">
+            <p>
+              Part of the key and detailed results from the supplementary data are available 
+              through this platform.
+            </p>
+            <p>
+              Navigate through the different sections to explore specific aspects of our findings 
+              and access detailed information.
+            </p>
+          </div>
+        </div>
       </div>
-    ))}
-  </div>
-
-  {/* 2) UKBB independent validation (full-width line) */}
-  <div className="text-center mb-8">
-    <span className="text-sm text-gray-600">
-      About the metabolic profiles:{' '}
-      <span className="font-semibold text-red-600">249 metabolic traits spanning 18 categories</span>
-    </span>
-  </div>
-
-  {/* 3) Other metrics (3 panels) */}
-  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-    <div className="bg-gray-50 rounded-lg p-6 flex flex-col items-center justify-center text-center">
-      <div className="flex items-center mb-2">
-        <Beaker className="w-8 h-8 text-green-600 mr-2" />
-        <div className="text-3xl font-bold text-green-600">249</div>
-      </div>
-      <div className="text-sm text-gray-600">NMR Metabolic Traits</div>
-      <div className="text-xs text-gray-500 mt-1">Analyzed and predicted by this study</div>
-    </div>
-
-    <div className="bg-gray-50 rounded-lg p-6 flex flex-col items-center justify-center text-center">
-      <div className="flex items-center mb-2">
-        <Database className="w-8 h-8 text-purple-600 mr-2" />
-        <div className="text-3xl font-bold text-purple-600">117</div>
-      </div>
-      <div className="text-sm text-gray-600">Causal Gene Loci</div>
-      <div className="text-xs text-gray-500 mt-1">Identified by CSL framework</div>
-    </div>
-
-    <div className="bg-gray-50 rounded-lg p-6 flex flex-col items-center justify-center text-center">
-      <div className="flex items-center mb-2">
-        <BarChart3 className="w-8 h-8 text-red-600 mr-2" />
-        <div className="text-3xl font-bold text-red-600">134</div>
-      </div>
-      <div className="text-sm text-gray-600">Significant Traits with FDR Control</div>
-      <div className="text-xs text-gray-500 mt-1">Associated with GC incidence in genetically predicted levels</div>
-    </div>
-  </div>
-</div>
 
       {/* Research Team & Contact */}
-      <div className="bg-white rounded-lg shadow-lg p-8 mt-8">
+      <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Research Team & Data Access</h2>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid gap-6 md:grid-cols-2">
           <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-3">About the project</h3>
-            <p className="text-gray-600 mb-4">
-              This research was conducted by an multi-displinary team of researchers specializing in 
+            <p className="text-gray-600 text-pretty mb-4">
+              This research was conducted by an multi-disciplinary team of researchers specializing in 
               genetic epidemiology, artificial intelligence, and gastric cancer research.
             </p>
             <p className="text-sm text-gray-500">
@@ -271,19 +262,34 @@ const HomePage: React.FC = () => {
           </div>
           <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-3">Contact us</h3>
-            <p className="text-gray-600 mb-4">
-              Summary statistics and analysis results are available through this interactive platform. 
-              However, individual-level data is subject to institutional approval and ethical review.
+            <p className="text-gray-600 text-pretty mb-4">
+              Summary statistics and analysis results are available in the manuscript or through this 
+              interactive platform. However, individual-level data is subject to institutional approval 
+              and ethical review.
             </p>
             <button 
               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2"
               onClick={() => window.open('mailto:wenqing_li@bjmu.edu.cn', '_blank')}
             >
-              <Download className="w-4 h-4" />
-              <span>Request Data Access</span>
+              <Mail className="w-4 h-4" />
+              <span>Contact Us</span>
             </button>
           </div>
         </div>
+      </div>
+
+      {/* Footer Note */}
+      <div className="bg-gray-50 rounded-2xl p-6 text-center">
+        <p className="text-gray-600 text-pretty">
+          This platform provides an interactive interface to explore part of the key supplementary data for the submitted research paper: 
+          <br />
+          <span className="font-medium text-gray-800">
+            "Genetically determined metabolomic individuality reveals impacts of germline variations on gastric cancer susceptibility and informs precision prevention"
+          </span>
+        </p>
+        <p className="text-gray-500 text-sm mt-2">
+          The webpage is maintained by Department of Cancer Epidemiology, Peking University Cancer Hospital & Institute
+        </p>
       </div>
     </div>
   );

@@ -1,15 +1,6 @@
 // src/components/pages/MetabolicTraitsPage.tsx
 import React, { useState, useEffect, useMemo } from 'react';
-import {
-  Download,
-  Search,
-  Filter,
-  ArrowUpDown,
-  ArrowUp,
-  ArrowDown,
-  Beaker,
-  Info
-} from 'lucide-react';
+import { Search, Filter, ArrowUpDown, ArrowUp, ArrowDown, Beaker, Info } from 'lucide-react';
 import { Input } from '../ui/input';
 import {
   Select,
@@ -68,8 +59,8 @@ const MetabolicTraitsPage: React.FC = () => {
         const traitData = await response.json();
         setData(traitData);
       } catch (error) {
-        console.error('Error loading metabolic trait data:', error);
-        toast.error('Failed to load metabolic trait information');
+        console.error('Error loading metabolomic trait data:', error);
+        toast.error('Failed to load metabolomic trait information');
       } finally {
         setLoading(false);
       }
@@ -170,58 +161,12 @@ const MetabolicTraitsPage: React.FC = () => {
     return colors[group] || 'bg-gray-100 text-gray-800';
   };
 
-  const exportData = () => {
-    if (!data) return;
-    const payload = {
-      title: data.title,
-      description: data.description,
-      filtered_data: filteredAndSortedData,
-      filters: {
-        search: searchTerm,
-        group: selectedGroup,
-        sub_group: selectedSubGroup,
-        sort: { field: sortField, direction: sortDirection }
-      },
-      total_records: filteredAndSortedData.length,
-      timestamp: new Date().toISOString()
-    };
-    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'metabolic-traits-information.json';
-    a.click();
-    URL.revokeObjectURL(url);
-    toast.success('Metabolic traits information exported successfully!');
-  };
-
-  const exportCSV = () => {
-    if (!data) return;
-    const headers = ['Metabolic Trait', 'Description', 'Units', 'Group', 'Sub Group'];
-    const rows = filteredAndSortedData.map(row => [
-      `"${row.metabolic_trait}"`,
-      `"${row.description}"`,
-      `"${row.units}"`,
-      `"${row.group}"`,
-      `"${row.sub_group}"`
-    ]);
-    const csv = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
-    const blob = new Blob([csv], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'metabolic-traits-information.csv';
-    a.click();
-    URL.revokeObjectURL(url);
-    toast.success('Metabolic traits information exported as CSV!');
-  };
-
   if (loading) {
     return (
       <div className="p-6 flex items-center justify-center min-h-[20rem]">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4" />
-          <p className="text-gray-600">Loading metabolic trait information...</p>
+          <p className="text-gray-600">Loading metabolomic trait information...</p>
         </div>
       </div>
     );
@@ -231,7 +176,7 @@ const MetabolicTraitsPage: React.FC = () => {
     return (
       <div className="p-6 text-center">
         <p className="text-red-600">
-          Failed to load metabolic trait information. Please refresh.
+          Failed to load metabolomic trait information. Please refresh.
         </p>
       </div>
     );
@@ -243,28 +188,11 @@ const MetabolicTraitsPage: React.FC = () => {
       <div className="flex justify-between items-start">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            NMR Blood Metabolic Traits Information
+          The 249 NMR Blood Metabolomic Traits in the UK Biobank
           </h1>
           <p className="text-gray-600">
-            Comprehensive information about 249 NMR blood metabolic traits measured for UKBB
-            participants.
+            Click to search for annotations, units, biological groupings, and other related information for the 249 metabolomic traits.
           </p>
-        </div>
-        <div className="flex space-x-2">
-          <button
-            onClick={exportCSV}
-            className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 flex items-center space-x-2"
-          >
-            <Download className="w-4 h-4" />
-            <span>CSV</span>
-          </button>
-          <button
-            onClick={exportData}
-            className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 flex items-center space-x-2"
-          >
-            <Download className="w-4 h-4" />
-            <span>JSON</span>
-          </button>
         </div>
       </div>
 
@@ -349,7 +277,7 @@ const MetabolicTraitsPage: React.FC = () => {
                     onClick={() => handleSort('metabolic_trait')}
                   >
                     <div className="flex items-center space-x-2">
-                      <span>Metabolic Trait</span>
+                      <span>Metabolomic Trait</span>
                       {getSortIcon('metabolic_trait')}
                     </div>
                   </TableHead>
@@ -390,7 +318,7 @@ const MetabolicTraitsPage: React.FC = () => {
                     onClick={() => setSelectedTrait(row)}
                   >
                     <TableCell className="font-medium text-purple-700">
-                      {row.metabolic_trait.replace(/_/g, ' ')}
+                      {row.metabolic_trait.replace(/_/g, '_')}
                     </TableCell>
                     <TableCell className="max-w-xs truncate" title={row.description}>
                       {row.description}
@@ -465,7 +393,7 @@ const MetabolicTraitsPage: React.FC = () => {
               <div className="flex items-center space-x-2 mb-4">
                 <Info className="w-5 h-5 text-blue-600" />
                 <h3 className="text-lg font-semibold text-gray-900">
-                  Metabolic Trait Details
+                  Metabolomic Trait Details
                 </h3>
               </div>
               <div className="space-y-4">
@@ -479,7 +407,7 @@ const MetabolicTraitsPage: React.FC = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <div className="text-sm font-medium text-gray-700">Units</div>
+                    <div className="text-sm font-medium text-gray-700">Unit</div>
                     <div className="font-mono text-sm text-gray-900">
                       {selectedTrait.units}
                     </div>
@@ -503,7 +431,7 @@ const MetabolicTraitsPage: React.FC = () => {
             <div className="bg-white rounded-lg shadow-lg p-6 text-center">
               <Beaker className="w-12 h-12 text-gray-400 mx-auto mb-3" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Select a Metabolic Trait
+                Select a Metabolomic Trait
               </h3>
               <p className="text-gray-600 text-sm">
                 Click a row to view detailed information.

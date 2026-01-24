@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Download, Search, Filter, Info, Network } from 'lucide-react';
+import { Search, Filter, Info, Network, Play, Pause } from 'lucide-react';
 import { Input } from '../ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Badge } from '../ui/badge';
@@ -41,6 +41,10 @@ const GCGimsPage: React.FC = () => {
   const [selectedMetabolite, setSelectedMetabolite] = useState('all');
   const [selectedFunctional, setSelectedFunctional] = useState('all');
   const [selectedAssociation, setSelectedAssociation] = useState<GCGimData | null>(null);
+  const [geneSort, setGeneSort] = useState<'alphabetical' | 'pValue'>('alphabetical');
+  const [showCausalOnly, setShowCausalOnly] = useState(false);
+  const [autoCycle, setAutoCycle] = useState(false);
+  const [activeGene, setActiveGene] = useState<string | null>(null);
 
   useEffect(() => {
     const loadData = async () => {
@@ -115,62 +119,81 @@ const GCGimsPage: React.FC = () => {
     return colors[functionalType] || 'bg-gray-100 text-gray-800';
   };
 
-  const exportData = () => {
-    if (!data) return;
-    
-    const exportData = {
-      title: data.title,
-      description: data.description,
-      filtered_data: filteredData,
-      filters: {
-        search: searchTerm,
-        gene: selectedGene,
-        metabolite: selectedMetabolite,
-        functional_type: selectedFunctional
-      },
-      total_records: filteredData.length,
-      timestamp: new Date().toISOString()
-    };
-    
-    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'gc-gims-associations.json';
-    a.click();
-    URL.revokeObjectURL(url);
-    
-    toast.success('GC GIMs data exported successfully!');
+  const workingData = useMemo(() => {
+    return showCausalOnly
+      ? filteredData.filter(item => item.is_causal === 'Yes')
+      : filteredData;
+  }, [filteredData, showCausalOnly]);
+
+  const geneStats = useMemo(() => {
+    const stats = new Map<string, { minP: number }>();
+
+    workingData.forEach(item => {
+      const current = stats.get(item.gene);
+      if (!current || item.P_value < current.minP) {
+        stats.set(item.gene, { minP: item.P_value });
+      }
+    });
+
+    return stats;
+  }, [workingData]);
+
+  const heatmapGenes = useMemo(() => {
+    const genesAvailable = [...new Set(workingData.map(item => item.gene))];
+
+    if (geneSort === 'pValue') {
+      return genesAvailable.sort((a, b) => {
+        const statsA = geneStats.get(a);
+        const statsB = geneStats.get(b);
+        const pA = statsA?.minP ?? Number.POSITIVE_INFINITY;
+        const pB = statsB?.minP ?? Number.POSITIVE_INFINITY;
+        return pA - pB;
+      });
+    }
+
+    return genesAvailable.sort();
+  }, [workingData, geneSort, geneStats]);
+
+  const heatmapMetabolites = useMemo(() => {
+    return [...new Set(workingData.map(item => item.Metabolite))].sort();
+  }, [workingData]);
+
+  useEffect(() => {
+    if (!heatmapGenes.length) {
+      setActiveGene(null);
+      return;
+    }
+
+    if (!activeGene || !heatmapGenes.includes(activeGene)) {
+      setActiveGene(heatmapGenes[0]);
+    }
+  }, [heatmapGenes]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (!autoCycle || !heatmapGenes.length) return;
+
+    let index = activeGene ? heatmapGenes.indexOf(activeGene) : 0;
+    const interval = window.setInterval(() => {
+      index = (index + 1) % heatmapGenes.length;
+      setActiveGene(heatmapGenes[index]);
+    }, 2600);
+
+    return () => window.clearInterval(interval);
+  }, [autoCycle, heatmapGenes, activeGene]);
+
+  const handleGeneSelect = (value: string) => {
+    setSelectedGene(value);
+    if (value !== 'all') {
+      setActiveGene(value);
+      setAutoCycle(false);
+    }
   };
 
-  const exportCSV = () => {
-    if (!data) return;
-    
-    const headers = ['Gene', 'Metabolic Trait', 'Functional Type', 'P-value', 'Beta Pred', 'Beta True', 'Beta MR', 'Is Causal'];
-    const csvContent = [
-      headers.join(','),
-      ...filteredData.map(row => [
-        `"${row.gene}"`,
-        `"${row.Metabolite}"`,
-        `"${row['value.update']}"`,
-        row.P_value,
-        row['Beta.pred'],
-        row['Beta.true'],
-        row['Beta.MR'],
-        `"${row.is_causal}"`
-      ].join(','))
-    ].join('\n');
-    
-    const blob = new Blob([csvContent], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'gc-gims-associations.csv';
-    a.click();
-    URL.revokeObjectURL(url);
-    
-    toast.success('GC GIMs data exported as CSV!');
-  };
+  useEffect(() => {
+    if (selectedGene !== 'all') {
+      setActiveGene(selectedGene);
+    }
+  }, [selectedGene]);
 
   if (loading) {
     return (
@@ -198,28 +221,12 @@ const GCGimsPage: React.FC = () => {
         <div className="flex justify-between items-start mb-4">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Co-regulatory genetic effects from the GIM for Gastric Cancer
+              Co-regulatory Genetic Effects of the GIM for Gastric Cancer
             </h1>
             <p className="text-gray-600">
-              The interactive heatmap shows putative causal relationships between gene loci (for the nearest genes functionally annotated by the tag variants based on both distance and variant functions) and metabolic traits 
+              The interactive heatmap shows putative causal relationships between gene loci (for the nearest genes functionally annotated by the lead variants based on both distance and variant functions) and metabolomic traits 
               for gastric cancer.
             </p>
-          </div>
-          <div className="flex space-x-2">
-            <button
-              onClick={exportCSV}
-              className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2"
-            >
-              <Download className="w-4 h-4" />
-              <span>CSV</span>
-            </button>
-            <button
-              onClick={exportData}
-              className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2"
-            >
-              <Download className="w-4 h-4" />
-              <span>JSON</span>
-            </button>
           </div>
         </div>
 
@@ -236,7 +243,7 @@ const GCGimsPage: React.FC = () => {
               <div className="relative">
                 <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                 <Input
-                  placeholder="Search gene, trait, exposure..."
+                  placeholder="Search gene or trait"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-10"
@@ -246,7 +253,7 @@ const GCGimsPage: React.FC = () => {
             
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Gene</label>
-              <Select value={selectedGene} onValueChange={setSelectedGene}>
+              <Select value={selectedGene} onValueChange={handleGeneSelect}>
                 <SelectTrigger>
                   <SelectValue placeholder="Select gene" />
                 </SelectTrigger>
@@ -260,7 +267,7 @@ const GCGimsPage: React.FC = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Metabolic Trait</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Metabolomic Trait</label>
               <Select value={selectedMetabolite} onValueChange={setSelectedMetabolite}>
                 <SelectTrigger>
                   <SelectValue placeholder="Select trait" />
@@ -303,35 +310,85 @@ const GCGimsPage: React.FC = () => {
         </div>
       </div>
 
+      {/* Heatmap controls */}
+      <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
+        <div className="flex items-center space-x-2 mb-3">
+          <Network className="w-5 h-5 text-gray-600" />
+          <h3 className="font-semibold text-gray-900">Heatmap controls</h3>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Gene ordering</label>
+              <Select value={geneSort} onValueChange={value => setGeneSort(value as 'alphabetical' | 'pValue')}>
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="alphabetical">Alphabetical</SelectItem>
+                <SelectItem value="pValue">Smallest P-value first</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="flex items-center space-x-2">
+            <input
+              id="causal-checkbox"
+              type="checkbox"
+              checked={showCausalOnly}
+              onChange={event => setShowCausalOnly(event.target.checked)}
+              className="h-4 w-4 text-green-600 rounded border-gray-300 focus:ring-green-500"
+            />
+            <label htmlFor="causal-checkbox" className="text-sm text-gray-700">
+              Show only causal associations
+            </label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <button
+              type="button"
+              onClick={() => setAutoCycle(prev => !prev)}
+              className="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-100 transition"
+              disabled={!heatmapGenes.length}
+            >
+              {autoCycle ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+              <span>{autoCycle ? 'Pause gene tour' : 'Auto-cycle genes'}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
       {/* Main Content */}
-      <div className="grid lg:grid-cols-3 gap-8">
+      <div className="grid lg:grid-cols-3 gap-8 lg:items-start">
         {/* Heatmap */}
         <div className="lg:col-span-2">
           <div className="bg-white rounded-lg shadow-lg p-6">
             <div className="mb-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Gene-Metabolic Trait Association Heatmap</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Gene–Metabolomic Trait Association Heatmap</h3>
               <p className="text-gray-600 text-sm">
-                Interactive heatmap showing associations between {uniqueGenes.length} genes and {uniqueMetabolites.length} metabolic traits. 
-                Colors represent functional annotation types. "*" indicates causal relationships.
+                Interactive heatmap showing associations between {uniqueGenes.length} genes and {uniqueMetabolites.length} metabolomic traits. 
+                Colors represent functional annotation types. "*" indicates putative causal relationships identified by CSL models.
               </p>
             </div>
             
             <div className="overflow-auto">
               <GCGimHeatmap
-                data={filteredData}
-                genes={uniqueGenes}
-                metabolites={uniqueMetabolites}
-                onAssociationClick={setSelectedAssociation}
+                data={workingData}
+                genes={heatmapGenes}
+                metabolites={heatmapMetabolites}
+                onAssociationClick={(assoc) => {
+                  setSelectedAssociation(assoc);
+                  setActiveGene(assoc.gene);
+                }}
+                activeGene={activeGene}
               />
             </div>
           </div>
         </div>
 
-        {/* Details Panel */}
-        <div className="space-y-6">
+        {/* Details Panel - Sticky positioned for better alignment */}
+        <div className="lg:sticky lg:top-6 lg:self-start lg:max-h-screen lg:overflow-y-auto">
+          <div className="space-y-6">
           {/* Functional Type Legend */}
           <div className="bg-white rounded-lg shadow-lg p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Functional Annotation Legend</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Functional Annotations</h3>
             <div className="space-y-2">
               {uniqueFunctionalTypes.map(type => (
                 <div key={type} className="flex items-center justify-between">
@@ -355,7 +412,7 @@ const GCGimsPage: React.FC = () => {
           {/* Selected Association Details */}
           {selectedAssociation ? (
             <div className="bg-white rounded-lg shadow-lg p-6">
-              <div className="flex items-center space-x-2 mb-4">
+                <div className="flex items-center space-x-2 mb-4">
                 <Info className="w-5 h-5 text-blue-600" />
                 <h3 className="text-lg font-semibold text-gray-900">Association Details</h3>
               </div>
@@ -385,7 +442,7 @@ const GCGimsPage: React.FC = () => {
                     </div>
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-gray-700">Causal</div>
+                    <div className="text-sm font-medium text-gray-700">Putative causal</div>
                     <Badge variant={selectedAssociation.is_causal === 'Yes' ? 'destructive' : 'secondary'}>
                       {selectedAssociation.is_causal}
                     </Badge>
@@ -425,21 +482,22 @@ const GCGimsPage: React.FC = () => {
               <Network className="w-12 h-12 text-gray-400 mx-auto mb-3" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Select an Association</h3>
               <p className="text-gray-600 text-sm">
-                Click on any cell in the heatmap to view detailed information about that gene-metabolic trait association.
+                Click on any cell in the heatmap to view detailed information about that gene–metabolomic trait association.
               </p>
             </div>
           )}
 
           {/* Summary Statistics */}
           <div className="bg-white rounded-lg shadow-lg p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">Study Statistics</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Statistics</h3>
             <div className="space-y-2 text-sm text-gray-600">
               <div><strong>Total Associations:</strong> {filteredData.length}</div>
               <div><strong>Unique Genes:</strong> {uniqueGenes.length}</div>
-              <div><strong>Unique Metabolic Traits:</strong> {uniqueMetabolites.length}</div>
+              <div><strong>Unique Metabolomic Traits:</strong> {uniqueMetabolites.length}</div>
               <div><strong>Causal Relationships:</strong> {filteredData.filter(item => item.is_causal === 'Yes').length}</div>
               <div><strong>Functional Types:</strong> {uniqueFunctionalTypes.length}</div>
             </div>
+          </div>
           </div>
         </div>
       </div>

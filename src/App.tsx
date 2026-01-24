@@ -14,6 +14,8 @@ import GeneMetaboliteNetworkPage from './components/pages/GeneMetaboliteNetworkP
 import CorrelationPairs from './components/pages/CorrelationPairs';
 import FullyMatchedVariantsPage from './components/pages/FullyMatchedVariantsPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import RightsNoticePage from './components/pages/RightsNoticePage';
+import CSLIdentifiedLociPage from './components/pages/CSLIdentifiedLociPage';
 import './index.css';
 
 function App() {
@@ -32,9 +34,10 @@ function App() {
               <Route path="/variants" element={<FullyMatchedVariantsPage />} />
               <Route path="/incremental-r2" element={<IncrementalR2Page />} />
               <Route path="/regulatory-effects" element={<RegulatoryEffectsPage />} />
+              <Route path="/csl-loci" element={<CSLIdentifiedLociPage />} />
               <Route path="/gene-metabolite" element={<GeneMetaboliteNetworkPage />} />
               <Route path="/model-assessment" element={<ModelAssessmentPage />} />
-  
+              <Route path="/rights" element={<RightsNoticePage />} />
             </Routes>
           </Layout>
           <Toaster position="top-right" />

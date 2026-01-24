@@ -238,7 +238,7 @@ const LesionProgressionPage: React.FC = () => {
         <div className="flex justify-between items-start mb-4">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Co-regulatory genetic effects from the GIM for Gastric Lesion Progression
+              Co-regulatory Genetic Effects of the GIM for Gastric Lesion Progression
             </h1>
             <p className="text-gray-600">
               The interactive heatmap shows gene-metabolic trait associations for {filteredAndSortedData.filter(item => item.is_causal === true).length} causal relationships 
@@ -276,7 +276,7 @@ const LesionProgressionPage: React.FC = () => {
               <div className="relative">
                 <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                 <Input
-                  placeholder="Search gene, trait, group..."
+                  placeholder="Search gene or traits"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-10"
@@ -315,7 +315,7 @@ const LesionProgressionPage: React.FC = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Causal Status</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Putative Causal</label>
               <Select value={selectedCausal} onValueChange={setSelectedCausal}>
                 <SelectTrigger>
                   <SelectValue placeholder="Select status" />
@@ -341,7 +341,7 @@ const LesionProgressionPage: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="grid lg:grid-cols-3 gap-8">
+      <div className="grid lg:grid-cols-3 gap-8 lg:items-start">
         {/* Effect Estimates Plot */}
         <div className="lg:col-span-2">
           <div className="bg-white rounded-lg shadow-lg p-6">
@@ -362,82 +362,84 @@ const LesionProgressionPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Details Panel */}
-        <div className="space-y-6">
-          {/* Group Legend */}
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Metabolic Trait Groups</h3>
-            <div className="space-y-2">
-              {uniqueGroups.map(group => (
-                <div key={group} className="flex items-center justify-between">
-                  <Badge className={getGroupColor(group)}>
-                    {group}
-                  </Badge>
-                  <span className="text-sm text-gray-600">
-                    {filteredAndSortedData.filter(item => item.group === group).length}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Selected Cell Details */}
-          {selectedCell ? (
+        {/* Details Panel - Sticky positioned for better alignment */}
+        <div className="lg:sticky lg:top-6 lg:self-start lg:max-h-screen lg:overflow-y-auto">
+          <div className="space-y-6">
+            {/* Group Legend */}
             <div className="bg-white rounded-lg shadow-lg p-6">
-              <div className="flex items-center space-x-2 mb-4">
-                <Info className="w-5 h-5 text-blue-600" />
-                <h3 className="text-lg font-semibold text-gray-900">Association Details</h3>
-              </div>
-              
-              <div className="space-y-4">
-                <div>
-                  <div className="font-medium text-indigo-700 mb-1">
-                    {selectedCell.gene} → {selectedCell.metabolic_trait.replace(/_/g, ' ')}
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Metabolomic Trait Groups</h3>
+              <div className="space-y-2">
+                {uniqueGroups.map(group => (
+                  <div key={group} className="flex items-center justify-between">
+                    <Badge className={getGroupColor(group)}>
+                      {group}
+                    </Badge>
+                    <span className="text-sm text-gray-600">
+                      {filteredAndSortedData.filter(item => item.group === group).length}
+                    </span>
                   </div>
-                </div>
+                ))}
+              </div>
+            </div>
 
-                <div className="grid grid-cols-2 gap-4">
+            {/* Selected Cell Details */}
+            {selectedCell ? (
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <div className="flex items-center space-x-2 mb-4">
+                  <Info className="w-5 h-5 text-blue-600" />
+                  <h3 className="text-lg font-semibold text-gray-900">Association Details</h3>
+                </div>
+                
+                <div className="space-y-4">
                   <div>
-                    <div className="text-sm font-medium text-gray-700">Association Strength</div>
-                    <div className="font-mono text-lg text-gray-900">
-                      {selectedCell.association_strength.toFixed(4)}
+                    <div className="font-medium text-indigo-700 mb-1">
+                      {selectedCell.gene} → {selectedCell.metabolic_trait.replace(/_/g, ' ')}
                     </div>
                   </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <div className="text-sm font-medium text-gray-700">Standardized Effects</div>
+                      <div className="font-mono text-lg text-gray-900">
+                        {selectedCell.association_strength.toFixed(4)}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-sm font-medium text-gray-700">Group</div>
+                      <Badge className={getGroupColor(selectedCell.group)}>
+                        {selectedCell.group}
+                      </Badge>
+                    </div>
+                  </div>
+
                   <div>
-                    <div className="text-sm font-medium text-gray-700">Group</div>
-                    <Badge className={getGroupColor(selectedCell.group)}>
-                      {selectedCell.group}
+                    <div className="text-sm font-medium text-gray-700">Putative Causal</div>
+                    <Badge className={getCausalColor(selectedCell.is_causal)}>
+                      {selectedCell.is_causal ? 'Causal' : 'Non-causal'}
                     </Badge>
                   </div>
                 </div>
-
-                <div>
-                  <div className="text-sm font-medium text-gray-700">Causal Status</div>
-                  <Badge className={getCausalColor(selectedCell.is_causal)}>
-                    {selectedCell.is_causal ? 'Causal' : 'Non-causal'}
-                  </Badge>
-                </div>
               </div>
-            </div>
-          ) : (
-            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-              <Activity className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Select a Gene-Trait Association</h3>
-              <p className="text-gray-600 text-sm">
-                Click on any cell in the heatmap to view detailed information about that gene-trait association.
-              </p>
-            </div>
-          )}
+            ) : (
+              <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+                <Activity className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Select a Gene-Trait Association</h3>
+                <p className="text-gray-600 text-sm">
+                  Click on any cell in the heatmap to view detailed information about that gene-trait association.
+                </p>
+              </div>
+            )}
 
-          {/* Summary Statistics */}
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">Summary Statistics</h3>
-            <div className="space-y-2 text-sm text-gray-600">
-              <div><strong>Total Associations:</strong> {filteredAndSortedData.length}</div>
-              <div><strong>Unique Genes:</strong> {uniqueGenes.length}</div>
-              <div><strong>Causal Relationships:</strong> {filteredAndSortedData.filter(item => item.is_causal === true).length}</div>
-              <div><strong>Trait Groups:</strong> {uniqueGroups.length}</div>
-              <div><strong>Average Association:</strong> {(filteredAndSortedData.reduce((sum, item) => sum + item.association_strength, 0) / filteredAndSortedData.length).toFixed(4)}</div>
+            {/* Summary Statistics */}
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Summary Statistics</h3>
+              <div className="space-y-2 text-sm text-gray-600">
+                <div><strong>Total Associations:</strong> {filteredAndSortedData.length}</div>
+                <div><strong>Unique Genes:</strong> {uniqueGenes.length}</div>
+                <div><strong>Causal Relationships:</strong> {filteredAndSortedData.filter(item => item.is_causal === true).length}</div>
+                <div><strong>Trait Groups:</strong> {uniqueGroups.length}</div>
+                <div><strong>Average Association:</strong> {(filteredAndSortedData.reduce((sum, item) => sum + item.association_strength, 0) / filteredAndSortedData.length).toFixed(4)}</div>
+              </div>
             </div>
           </div>
         </div>
