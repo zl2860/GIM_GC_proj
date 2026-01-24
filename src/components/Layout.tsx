@@ -23,6 +23,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const navigationItems = [
     { path: '/', icon: Home, label: 'Home', color: 'text-blue-400' },
@@ -77,7 +78,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       )}
 
       {/* Left Sidebar - Desktop */}
-      <div className="hidden lg:flex lg:w-64 xl:w-72 bg-[#1A2844] text-white flex-col fixed h-full z-30">
+      <div className={`hidden ${isSidebarOpen ? 'lg:flex' : 'lg:hidden'} lg:w-64 xl:w-72 bg-[#000435] text-white flex-col fixed h-full z-30 transition-all duration-300`}>
         {/* Logo/Brand */}
         <div className="p-4 lg:p-6 border-b border-gray-600">
           <div className="flex items-center space-x-3">
@@ -112,7 +113,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </div>
 
       {/* Mobile Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#1A2844] text-white transform transition-transform duration-300 ease-in-out lg:hidden ${
+      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#000435] text-white transform transition-transform duration-300 ease-in-out lg:hidden ${
         isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
         {/* Mobile Header */}
@@ -153,7 +154,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col w-full min-h-0 lg:overflow-hidden lg:ml-64 xl:ml-72">
+      <div className={`flex-1 flex flex-col w-full min-h-0 transition-all duration-300 lg:overflow-hidden ${isSidebarOpen ? 'lg:ml-64 xl:ml-72' : 'lg:ml-0'}`}>
         {/* Header */}
         <header className="bg-white shadow-sm border-b border-gray-200 px-4 sm:px-6 py-4">
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">
@@ -162,6 +163,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
                 className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
+              >
+                <Menu className="w-6 h-6" />
+              </button>
+
+              {/* Desktop Sidebar Toggle Button */}
+              <button
+                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                className="hidden lg:block p-2 rounded-lg hover:bg-gray-100"
+                title={isSidebarOpen ? "Hide sidebar" : "Show sidebar"}
               >
                 <Menu className="w-6 h-6" />
               </button>
