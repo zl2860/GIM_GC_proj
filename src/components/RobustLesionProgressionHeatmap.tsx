@@ -1,9 +1,6 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import * as d3 from 'd3';
-import { Loader2, Download, Search, Filter, Info } from 'lucide-react';
-import { Input } from './ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-import { Badge } from './ui/badge';
+import { Loader2, Info } from 'lucide-react';
 
 interface LesionProgressionData {
   gene: string;
@@ -26,13 +23,9 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const [isRendering, setIsRendering] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedGene, setSelectedGene] = useState<string>('all');
-  const [selectedGroup, setSelectedGroup] = useState<string>('all');
-  const [showCausalOnly, setShowCausalOnly] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Process and filter data
+  // Process data (filtering is done by parent component)
   const processedData = useMemo(() => {
     if (!data || data.length === 0) return { genes: [], groups: [], traits: [], matrixData: [] };
 
@@ -40,17 +33,8 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
     const groups = Array.from(new Set(data.map(d => d.group))).sort();
     const traits = Array.from(new Set(data.map(d => d.metabolic_trait))).sort();
 
-    // Filter data
-    let filteredData = data.filter(d => {
-      const geneMatch = selectedGene === 'all' || d.gene === selectedGene;
-      const groupMatch = selectedGroup === 'all' || d.group === selectedGroup;
-      const causalMatch = !showCausalOnly || d.is_causal;
-      const searchMatch = searchTerm === '' || 
-        d.gene.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        d.metabolic_trait.toLowerCase().includes(searchTerm.toLowerCase());
-      
-      return geneMatch && groupMatch && causalMatch && searchMatch;
-    });
+    // Use data as-is (already filtered by parent)
+    const filteredData = data;
 
     // Create matrix data for heatmap
     const filteredGenes = Array.from(new Set(filteredData.map(d => d.gene))).sort();
@@ -72,7 +56,7 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
     );
 
     return { genes: filteredGenes, groups, traits: filteredTraits, matrixData };
-  }, [data, searchTerm, selectedGene, selectedGroup, showCausalOnly]);
+  }, [data]);
 
   const renderHeatmap = React.useCallback(() => {
     if (!svgRef.current || processedData.matrixData.length === 0) return;
@@ -311,30 +295,6 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
     renderHeatmap();
   }, [renderHeatmap]);
 
-  const exportData = () => {
-    const exportData = processedData.matrixData
-      .filter(d => d.hasData)
-      .map(d => ({
-        Gene: d.gene,
-        'Metabolic Trait': d.trait,
-        'Association Strength': d.value,
-        'Is Causal': d.isCausal,
-        Group: d.group
-      }));
-    
-    const csv = [
-      Object.keys(exportData[0]).join(','),
-      ...exportData.map(row => Object.values(row).join(','))
-    ].join('\n');
-    
-    const blob = new Blob([csv], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'lesion_progression_heatmap.csv';
-    a.click();
-  };
-
   if (error) {
     return (
       <div className="p-6 bg-red-50 border border-red-200 rounded-lg">
@@ -352,64 +312,6 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
 
   return (
     <div className="space-y-6">
-      {/* Controls */}
-      <div className="flex flex-wrap gap-4 items-center justify-between">
-        <div className="flex items-center space-x-4">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-            <Input
-              placeholder="Search genes or traits..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 w-64"
-            />
-          </div>
-          
-          <Select value={selectedGene} onValueChange={setSelectedGene}>
-            <SelectTrigger className="w-48">
-              <SelectValue placeholder="Select gene" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Genes</SelectItem>
-              {processedData.genes.map(gene => (
-                <SelectItem key={gene} value={gene}>{gene}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          
-          <Select value={selectedGroup} onValueChange={setSelectedGroup}>
-            <SelectTrigger className="w-48">
-              <SelectValue placeholder="Select group" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Groups</SelectItem>
-              {processedData.groups.map(group => (
-                <SelectItem key={group} value={group}>Group {group}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          
-          <button
-            onClick={() => setShowCausalOnly(!showCausalOnly)}
-            className={`px-4 py-2 rounded-lg border transition-colors ${
-              showCausalOnly 
-                ? 'bg-red-500 text-white border-red-500' 
-                : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
-            }`}
-          >
-            {showCausalOnly ? 'Show All' : 'Causal Only'}
-          </button>
-        </div>
-        
-        <button
-          onClick={exportData}
-          className="flex items-center space-x-2 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
-        >
-          <Download className="h-4 w-4" />
-          <span>Export CSV</span>
-        </button>
-      </div>
-
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="bg-white p-4 rounded-lg border">
