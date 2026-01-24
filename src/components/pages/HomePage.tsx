@@ -7,9 +7,9 @@ import GlobalSearch from '@/components/GlobalSearch';
 
 const HomePage: React.FC = () => {
   return (
-    <div className="w-full bg-[#000435]">
-      {/* Hero Section with cover image - Full width */}
-      <div className="relative overflow-hidden shadow-lg w-full h-screen max-h-[600px] flex items-center justify-center">
+    <div className="w-full bg-[#000435] min-h-screen">
+      {/* Hero Section with cover image - Full width with margins */}
+      <div className="relative overflow-hidden shadow-lg mx-4 sm:mx-6 md:mx-8 lg:mx-12 h-screen max-h-[600px] flex items-center justify-center rounded-xl">
         {/* Background image */}
         <img
           src={cover4}
@@ -75,7 +75,8 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
+      <div className="w-full bg-[#000435]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
 
       {/* Key Findings Summary */}
       <div className="bg-[#000435] rounded-2xl shadow-lg p-6 sm:p-8 mb-8 border border-white/10">
