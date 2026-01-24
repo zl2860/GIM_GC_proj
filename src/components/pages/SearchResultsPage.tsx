@@ -360,6 +360,47 @@ const SearchResultsPage: React.FC = () => {
                 );
               })}
             </div>
+
+          {/* Related resources (GIM & Network) */}
+          {results.some((r) => r.isGIMRelevant) && (
+            <div className="mb-8 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border-2 border-green-200 p-6">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
+                Related GIM & Regulatory Network Resources
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Your search results are related to genetically influenced metabotypes. Explore the following pages:
+              </p>
+              <div className="grid gap-3 md:grid-cols-3">
+                <button
+                  onClick={() => navigate('/gc-gims')}
+                  className="flex items-center justify-between p-4 bg-green-100 hover:bg-green-200 rounded-lg transition border border-green-300"
+                >
+                  <span className="font-semibold text-green-900">
+                    GIMs - Gastric Cancer
+                  </span>
+                  <ChevronRight className="w-5 h-5 text-green-600" />
+                </button>
+                <button
+                  onClick={() => navigate('/lesion-progression')}
+                  className="flex items-center justify-between p-4 bg-blue-100 hover:bg-blue-200 rounded-lg transition border border-blue-300"
+                >
+                  <span className="font-semibold text-blue-900">
+                    GIMs - Gastric Lesion Progression
+                  </span>
+                  <ChevronRight className="w-5 h-5 text-blue-600" />
+                </button>
+                <button
+                  onClick={() => navigate('/gene-metabolite')}
+                  className="flex items-center justify-between p-4 bg-purple-100 hover:bg-purple-200 rounded-lg transition border border-purple-300"
+                >
+                  <span className="font-semibold text-purple-900">
+                    Gene–Metabolite Network
+                  </span>
+                  <ChevronRight className="w-5 h-5 text-purple-600" />
+                </button>
+              </div>
+            </div>
+          )}
           </div>
 
           {/* Results by Category */}
@@ -432,46 +473,6 @@ const SearchResultsPage: React.FC = () => {
                 );
               })}
 
-              {/* GIMs Resources Links */}
-              {results.some((r) => r.isGIMRelevant) && (
-                <div className="mt-8 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border-2 border-green-200 p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-4">
-                    Related GIM & Network Resources
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4">
-                    Your search results are related to genetically influenced metabotypes. Explore the following pages:
-                  </p>
-                  <div className="grid gap-3 md:grid-cols-3">
-                    <button
-                      onClick={() => navigate('/gc-gims')}
-                      className="flex items-center justify-between p-4 bg-green-100 hover:bg-green-200 rounded-lg transition border border-green-300"
-                    >
-                      <span className="font-semibold text-green-900">
-                        GIMs - Gastric Cancer
-                      </span>
-                      <ChevronRight className="w-5 h-5 text-green-600" />
-                    </button>
-                    <button
-                      onClick={() => navigate('/lesion-progression')}
-                      className="flex items-center justify-between p-4 bg-blue-100 hover:bg-blue-200 rounded-lg transition border border-blue-300"
-                    >
-                      <span className="font-semibold text-blue-900">
-                        GIMs - Gastric Lesion Progression
-                      </span>
-                      <ChevronRight className="w-5 h-5 text-blue-600" />
-                    </button>
-                    <button
-                      onClick={() => navigate('/gene-metabolite')}
-                      className="flex items-center justify-between p-4 bg-purple-100 hover:bg-purple-200 rounded-lg transition border border-purple-300"
-                    >
-                      <span className="font-semibold text-purple-900">
-                        Gene–Metabolite Network
-                      </span>
-                      <ChevronRight className="w-5 h-5 text-purple-600" />
-                    </button>
-                  </div>
-                </div>
-              )}
             </div>
           )}
         </>
