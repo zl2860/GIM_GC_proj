@@ -8,8 +8,8 @@ import GlobalSearch from '@/components/GlobalSearch';
 const HomePage: React.FC = () => {
   return (
     <div className="w-full bg-[#000435] min-h-screen">
-      {/* Hero Section with cover image - Full width with margins */}
-      <div className="relative overflow-hidden shadow-lg mx-4 sm:mx-6 md:mx-8 lg:mx-12 h-screen max-h-[600px] flex items-center justify-center rounded-xl">
+      {/* Hero Section with cover image - Full width */}
+      <div className="relative overflow-hidden shadow-lg w-full flex items-center justify-center" style={{minHeight: '400px', maxHeight: '650px'}}>
         {/* Background image */}
         <img
           src={cover4}
@@ -21,7 +21,7 @@ const HomePage: React.FC = () => {
         <div className="absolute inset-0 bg-black/20" />
 
         {/* Hero content */}
-        <div className="relative z-10 flex flex-col items-center gap-5 p-6 sm:p-8 md:p-12 lg:p-14 text-center w-full max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="relative z-10 flex flex-col items-center gap-5 p-6 sm:p-8 md:p-12 lg:p-14 text-center w-full max-w-6xl mx-auto px-4 sm:px-6 py-12">
           <div className="max-w-5xl w-full rounded-2xl border border-white/30 bg-black/5 backdrop-blur-[1px] p-6 sm:p-8 text-white/95 space-y-4 text-left">
             <div className="flex items-start gap-3">
               <Microscope className="h-10 w-10 text-white/80" />
