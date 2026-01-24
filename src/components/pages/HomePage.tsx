@@ -8,9 +8,8 @@ import GlobalSearch from '@/components/GlobalSearch';
 const HomePage: React.FC = () => {
   return (
     <div className="w-full bg-[#000435]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
-      {/* Hero Section with cover image */}
-      <div className="relative overflow-hidden rounded-2xl shadow-lg mb-8">
+      {/* Hero Section with cover image - Full width */}
+      <div className="relative overflow-hidden shadow-lg w-full h-screen max-h-[600px] flex items-center justify-center">
         {/* Background image */}
         <img
           src={cover4}
@@ -21,8 +20,8 @@ const HomePage: React.FC = () => {
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/20" />
 
-        {/* 3) Hero content */}
-        <div className="relative z-10 flex flex-col items-center gap-5 p-6 sm:p-8 md:p-12 lg:p-14 text-center">
+        {/* Hero content */}
+        <div className="relative z-10 flex flex-col items-center gap-5 p-6 sm:p-8 md:p-12 lg:p-14 text-center w-full max-w-6xl mx-auto px-4 sm:px-6">
           <div className="max-w-5xl w-full rounded-2xl border border-white/30 bg-black/5 backdrop-blur-[1px] p-6 sm:p-8 text-white/95 space-y-4 text-left">
             <div className="flex items-start gap-3">
               <Microscope className="h-10 w-10 text-white/80" />
@@ -74,6 +73,9 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Main Content */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
 
       {/* Key Findings Summary */}
       <div className="bg-[#000435] rounded-2xl shadow-lg p-6 sm:p-8 mb-8 border border-white/10">
@@ -298,7 +300,7 @@ const HomePage: React.FC = () => {
           The webpage is maintained by Department of Cancer Epidemiology, Peking University Cancer Hospital & Institute
         </p>
       </div>
-    </div>
+      </div>
     </div>
   );
 };
