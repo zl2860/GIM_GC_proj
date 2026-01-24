@@ -301,6 +301,7 @@ const HomePage: React.FC = () => {
           The webpage is maintained by Department of Cancer Epidemiology, Peking University Cancer Hospital & Institute
         </p>
       </div>
+        </div>
       </div>
     </div>
   );
