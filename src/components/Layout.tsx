@@ -24,6 +24,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const isHome = location.pathname === '/';
 
   const navigationItems = [
     { path: '/', icon: Home, label: 'Home', color: 'text-blue-400' },
@@ -193,7 +194,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 overflow-y-auto overflow-x-hidden bg-gray-50 p-4 sm:p-6">
+        <main
+          className={`flex-1 overflow-y-auto overflow-x-hidden ${
+            isHome ? 'bg-[#000435] p-0' : 'bg-gray-50 p-4 sm:p-6'
+          }`}
+        >
           {children}
         </main>
       </div>
