@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { BarChart3, Database, Beaker, Activity, ExternalLink, Users, Target, Microscope, Mail } from 'lucide-react';
 import { Shuffle } from 'lucide-react';
 import cover4 from '@/assets/cover4.png';
+import GlobalSearch from '@/components/GlobalSearch';
 
 const HomePage: React.FC = () => {
   return (
@@ -48,6 +49,11 @@ const HomePage: React.FC = () => {
           <p className="max-w-4xl text-white/80 text-pretty text-sm sm:text-base leading-relaxed mt-8">
             The online platform allows to interactively explore resources accompanying the manuscript, including multi-cohort analyses of genetically influenced metabotypes and regulatory landscapes.
           </p>
+
+          {/* Global Search Bar */}
+          <div className="w-full max-w-3xl mt-6 mb-6">
+            <GlobalSearch />
+          </div>
 
           <div className="flex flex-row flex-wrap justify-center gap-3 mt-4">
             <Link
