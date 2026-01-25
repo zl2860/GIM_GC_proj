@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Download, Search, Filter, Info, Activity } from 'lucide-react';
+import { useSearchParams } from 'react-router-dom';
+import { Search, Filter, Info, Activity } from 'lucide-react';
 import { Input } from '../ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Badge } from '../ui/badge';
@@ -26,6 +27,7 @@ type SortDirection = 'asc' | 'desc' | null;
 const LesionProgressionPage: React.FC = () => {
   const [data, setData] = useState<LesionDataset | null>(null);
   const [loading, setLoading] = useState(true);
+  const [searchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedGene, setSelectedGene] = useState('all');
   const [selectedGroup, setSelectedGroup] = useState('all');
@@ -68,6 +70,19 @@ const LesionProgressionPage: React.FC = () => {
       .sort();
     return groups;
   }, [data]);
+
+  useEffect(() => {
+    const rawQuery = searchParams.get('q')?.trim();
+    if (!rawQuery) return;
+    const normalized = rawQuery.toLowerCase();
+    const matchedGene = uniqueGenes.find(gene => gene.toLowerCase() === normalized);
+    if (matchedGene) {
+      setSelectedGene(matchedGene);
+      setSearchTerm('');
+      return;
+    }
+    setSearchTerm(rawQuery);
+  }, [searchParams, uniqueGenes]);
 
   const filteredAndSortedData = useMemo(() => {
     if (!data) return [];
@@ -158,59 +173,6 @@ const LesionProgressionPage: React.FC = () => {
     return colors[group] || 'bg-gray-100 text-gray-800';
   };
 
-  const exportData = () => {
-    if (!data) return;
-    
-    const exportData = {
-      title: data.title,
-      description: data.description,
-      filtered_data: filteredAndSortedData,
-      filters: {
-        search: searchTerm,
-        gene: selectedGene,
-        group: selectedGroup,
-        causal: selectedCausal
-      },
-      total_records: filteredAndSortedData.length,
-      timestamp: new Date().toISOString()
-    };
-    
-    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'lesion-progression-heatmap.json';
-    a.click();
-    URL.revokeObjectURL(url);
-    
-    toast.success('Lesion progression data exported successfully!');
-  };
-
-  const exportCSV = () => {
-    if (!data) return;
-    
-    const headers = ['Gene', 'Metabolic Trait', 'Association Strength', 'Group', 'Causal'];
-    const csvContent = [
-      headers.join(','),
-      ...filteredAndSortedData.map(row => [
-        `"${row.gene}"`,
-        `"${row.metabolic_trait}"`,
-        row.association_strength,
-        `"${row.group}"`,
-        `"${row.is_causal ? 'Yes' : 'No'}"`
-      ].join(','))
-    ].join('\n');
-    
-    const blob = new Blob([csvContent], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'lesion-progression-heatmap.csv';
-    a.click();
-    URL.revokeObjectURL(url);
-    
-    toast.success('Lesion progression data exported as CSV!');
-  };
 
   if (loading) {
     return (
@@ -235,32 +197,14 @@ const LesionProgressionPage: React.FC = () => {
     <div className="p-6 max-w-full mx-auto">
       {/* Header */}
       <div className="mb-6">
-        <div className="flex justify-between items-start mb-4">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Co-regulatory Genetic Effects of the GIM for Gastric Lesion Progression
-            </h1>
-            <p className="text-gray-600">
-              The interactive heatmap shows gene-metabolic trait associations for {filteredAndSortedData.filter(item => item.is_causal === true).length} causal relationships 
-              from {uniqueGenes.length} genes and {data.data.length} total associations
-            </p>
-          </div>
-          <div className="flex space-x-2">
-            <button
-              onClick={exportCSV}
-              className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors flex items-center space-x-2"
-            >
-              <Download className="w-4 h-4" />
-              <span>CSV</span>
-            </button>
-            <button
-              onClick={exportData}
-              className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors flex items-center space-x-2"
-            >
-              <Download className="w-4 h-4" />
-              <span>JSON</span>
-            </button>
-          </div>
+        <div className="mb-4">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            Co-regulatory Genetic Effects of the GIM for Gastric Lesion Progression
+          </h1>
+          <p className="text-gray-600">
+            The interactive heatmap shows gene-metabolic trait associations for {filteredAndSortedData.filter(item => item.is_causal === true).length} causal relationships 
+            from {uniqueGenes.length} genes and {data.data.length} total associations
+          </p>
         </div>
 
         {/* Filters */}
