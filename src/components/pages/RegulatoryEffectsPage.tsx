@@ -614,7 +614,7 @@ const RegulatoryEffectsPage: React.FC = () => {
             </CardTitle>
         </CardHeader>
         <CardContent>
-            <p className="text-2xl font-bold text-slate-900">
+            <p className="text-2xl font-bold text-slate-900 text-center">
               {formatInteger(globalSummary.totalPairs)}
             </p>
           </CardContent>
@@ -628,7 +628,7 @@ const RegulatoryEffectsPage: React.FC = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-2xl font-bold text-slate-900">
+            <p className="text-2xl font-bold text-slate-900 text-center">
               {formatInteger(globalSummary.uniqueTraits)}
             </p>
           </CardContent>
@@ -642,7 +642,7 @@ const RegulatoryEffectsPage: React.FC = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-2xl font-bold text-slate-900">
+            <p className="text-2xl font-bold text-slate-900 text-center">
               {formatInteger(globalSummary.uniqueVariants)}
             </p>
           </CardContent>
@@ -656,7 +656,7 @@ const RegulatoryEffectsPage: React.FC = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-2xl font-bold text-slate-900">
+            <p className="text-2xl font-bold text-slate-900 text-center">
               {formatInteger(globalSummary.highGrade)}{' '}
               <span className="text-sm text-slate-500">
                 ({formatInteger(globalSummary.ultraGrade)})
