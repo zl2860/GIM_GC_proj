@@ -293,13 +293,13 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
       .attr('transform', 'rotate(45)')
       .style('font-size', '10px');
 
-    // Add y-axis (metabolites)
+    // Add y-axis (metabolites) — keep underscores in trait names
     g.append('g')
       .attr('class', 'y-axis')
       .call(d3.axisLeft(yScale).tickSize(0))
       .selectAll('text')
       .style('font-size', '10px')
-      .text(d => String(d).replace(/_/g, ' '));
+      .text(d => String(d));
 
     // Add color legend for -log10(P) values
     const legendWidth = 200;

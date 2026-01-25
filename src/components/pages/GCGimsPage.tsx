@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Search, Filter, Info, Network, Play, Pause } from 'lucide-react';
+import { useSearchParams } from 'react-router-dom';
+import { Search, Filter, Info, Network } from 'lucide-react';
 import { Input } from '../ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Badge } from '../ui/badge';
@@ -36,6 +37,7 @@ interface GCGimDataset {
 const GCGimsPage: React.FC = () => {
   const [data, setData] = useState<GCGimDataset | null>(null);
   const [loading, setLoading] = useState(true);
+  const [searchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedGene, setSelectedGene] = useState('all');
   const [selectedMetabolite, setSelectedMetabolite] = useState('all');
@@ -43,7 +45,6 @@ const GCGimsPage: React.FC = () => {
   const [selectedAssociation, setSelectedAssociation] = useState<GCGimData | null>(null);
   const [geneSort, setGeneSort] = useState<'alphabetical' | 'pValue'>('alphabetical');
   const [showCausalOnly, setShowCausalOnly] = useState(false);
-  const [autoCycle, setAutoCycle] = useState(false);
   const [activeGene, setActiveGene] = useState<string | null>(null);
 
   useEffect(() => {
@@ -86,6 +87,27 @@ const GCGimsPage: React.FC = () => {
       .sort();
     return types;
   }, [data]);
+
+  useEffect(() => {
+    const rawQuery = searchParams.get('q')?.trim();
+    if (!rawQuery) return;
+    const normalized = rawQuery.toLowerCase();
+    const matchedGene = uniqueGenes.find(gene => gene.toLowerCase() === normalized);
+    if (matchedGene) {
+      setSelectedGene(matchedGene);
+      setSearchTerm('');
+      return;
+    }
+    const matchedMetabolite = uniqueMetabolites.find(
+      metabolite => metabolite.toLowerCase() === normalized
+    );
+    if (matchedMetabolite) {
+      setSelectedMetabolite(matchedMetabolite);
+      setSearchTerm('');
+      return;
+    }
+    setSearchTerm(rawQuery);
+  }, [searchParams, uniqueGenes, uniqueMetabolites]);
 
   const filteredData = useMemo(() => {
     if (!data) return [];
@@ -169,23 +191,10 @@ const GCGimsPage: React.FC = () => {
     }
   }, [heatmapGenes]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  useEffect(() => {
-    if (!autoCycle || !heatmapGenes.length) return;
-
-    let index = activeGene ? heatmapGenes.indexOf(activeGene) : 0;
-    const interval = window.setInterval(() => {
-      index = (index + 1) % heatmapGenes.length;
-      setActiveGene(heatmapGenes[index]);
-    }, 2600);
-
-    return () => window.clearInterval(interval);
-  }, [autoCycle, heatmapGenes, activeGene]);
-
   const handleGeneSelect = (value: string) => {
     setSelectedGene(value);
     if (value !== 'all') {
       setActiveGene(value);
-      setAutoCycle(false);
     }
   };
 
@@ -230,127 +239,119 @@ const GCGimsPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Filters */}
+        {/* Filters & Search */}
         <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
           <div className="flex items-center space-x-2 mb-3">
             <Filter className="w-5 h-5 text-gray-600" />
-            <h3 className="font-semibold text-gray-900">Filters & Search</h3>
+            <h3 className="font-semibold text-gray-900">Filters, Search & Display Options</h3>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Search</label>
-              <div className="relative">
-                <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                <Input
-                  placeholder="Search gene or trait"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
-                />
+          <div className="space-y-4">
+            {/* Main filters */}
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Search</label>
+                <div className="relative">
+                  <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                  <Input
+                    placeholder="Search gene or trait"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="pl-10"
+                  />
+                </div>
               </div>
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Gene</label>
-              <Select value={selectedGene} onValueChange={handleGeneSelect}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select gene" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Genes ({uniqueGenes.length})</SelectItem>
-                  {uniqueGenes.map(gene => (
-                    <SelectItem key={gene} value={gene}>{gene}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Metabolomic Trait</label>
-              <Select value={selectedMetabolite} onValueChange={setSelectedMetabolite}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select trait" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Traits ({uniqueMetabolites.length})</SelectItem>
-                  {uniqueMetabolites.map(metabolite => (
-                    <SelectItem key={metabolite} value={metabolite}>
-                      {metabolite ? metabolite.replace(/_/g, ' ') : ''}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Functional Type</label>
-              <Select value={selectedFunctional} onValueChange={setSelectedFunctional}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select type" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Types ({uniqueFunctionalTypes.length})</SelectItem>
-                  {uniqueFunctionalTypes.map(type => (
-                    <SelectItem key={type} value={type}>{type}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-            
-            <div className="flex items-end">
-              <div className="text-sm text-gray-600">
-                <div>Showing {filteredData.length} associations</div>
-                <div className="text-xs text-gray-500 mt-1">
-                  {filteredData.filter(item => item.is_causal === 'Yes').length} causal
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Gene</label>
+                <Select value={selectedGene} onValueChange={handleGeneSelect}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select gene" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Genes ({uniqueGenes.length})</SelectItem>
+                    {uniqueGenes.map(gene => (
+                      <SelectItem key={gene} value={gene}>{gene}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Metabolomic Trait</label>
+                <Select value={selectedMetabolite} onValueChange={setSelectedMetabolite}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select trait" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Traits ({uniqueMetabolites.length})</SelectItem>
+                    {uniqueMetabolites.map(metabolite => (
+                      <SelectItem key={metabolite} value={metabolite}>
+                        {metabolite ?? ''}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Functional Type</label>
+                <Select value={selectedFunctional} onValueChange={setSelectedFunctional}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Types ({uniqueFunctionalTypes.length})</SelectItem>
+                    {uniqueFunctionalTypes.map(type => (
+                      <SelectItem key={type} value={type}>{type}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              <div className="flex items-end">
+                <div className="text-sm text-gray-600">
+                  <div>Showing {filteredData.length} associations</div>
+                  <div className="text-xs text-gray-500 mt-1">
+                    {filteredData.filter(item => item.is_causal === 'Yes').length} causal
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Heatmap controls */}
-      <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
-        <div className="flex items-center space-x-2 mb-3">
-          <Network className="w-5 h-5 text-gray-600" />
-          <h3 className="font-semibold text-gray-900">Heatmap controls</h3>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Gene ordering</label>
-              <Select value={geneSort} onValueChange={value => setGeneSort(value as 'alphabetical' | 'pValue')}>
-              <SelectTrigger>
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="alphabetical">Alphabetical</SelectItem>
-                <SelectItem value="pValue">Smallest P-value first</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="flex items-center space-x-2">
-            <input
-              id="causal-checkbox"
-              type="checkbox"
-              checked={showCausalOnly}
-              onChange={event => setShowCausalOnly(event.target.checked)}
-              className="h-4 w-4 text-green-600 rounded border-gray-300 focus:ring-green-500"
-            />
-            <label htmlFor="causal-checkbox" className="text-sm text-gray-700">
-              Show only causal associations
-            </label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <button
-              type="button"
-              onClick={() => setAutoCycle(prev => !prev)}
-              className="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-100 transition"
-              disabled={!heatmapGenes.length}
-            >
-              {autoCycle ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-              <span>{autoCycle ? 'Pause gene tour' : 'Auto-cycle genes'}</span>
-            </button>
+            {/* Display options */}
+            <div className="border-t pt-4">
+              <label className="block text-sm font-medium text-gray-700 mb-3">Display Options</label>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Gene ordering</label>
+                  <Select value={geneSort} onValueChange={value => setGeneSort(value as 'alphabetical' | 'pValue')}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select ordering" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="alphabetical">Alphabetical</SelectItem>
+                      <SelectItem value="pValue">Smallest P-value first (min P across a gene)</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <p className="mt-1 text-xs text-gray-500">
+                    When choosing “Smallest P-value”, genes are ordered by the minimum P-value observed among their associations.
+                  </p>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <input
+                    id="causal-checkbox"
+                    type="checkbox"
+                    checked={showCausalOnly}
+                    onChange={event => setShowCausalOnly(event.target.checked)}
+                    className="h-4 w-4 text-green-600 rounded border-gray-300 focus:ring-green-500"
+                  />
+                  <label htmlFor="causal-checkbox" className="text-sm text-gray-700">
+                    Show only causal associations
+                  </label>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

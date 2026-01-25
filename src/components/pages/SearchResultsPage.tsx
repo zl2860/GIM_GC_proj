@@ -84,7 +84,6 @@ const SearchResultsPage: React.FC = () => {
                 description: trait.description,
                 details: `${trait.group}${trait.sub_group !== '-' ? ` - ${trait.sub_group}` : ''}`,
                 link: '/metabolic-traits',
-                isGIMRelevant: true,
                 matchFields: [
                   trait.metabolic_trait,
                   trait.description,
@@ -109,7 +108,6 @@ const SearchResultsPage: React.FC = () => {
                 description: `Gene locus with ${geneData.trait_groups?.length || 0} trait associations`,
                 details: `Trait groups: ${traitGroups}`,
                 link: '/csl-loci',
-                isGIMRelevant: true,
                 matchFields: [geneData.gene]
               });
               matchedGenes.add(geneData.gene.toLowerCase());
@@ -134,7 +132,6 @@ const SearchResultsPage: React.FC = () => {
                             description: `Genomic region associated with metabolomic traits`,
                             details: `Gene: ${geneData.gene} | Trait group: ${tg.trait_group}`,
                             link: '/csl-loci',
-                            isGIMRelevant: true,
                             matchFields: [region]
                           });
                           matchedGenes.add(geneData.gene.toLowerCase());
@@ -162,7 +159,6 @@ const SearchResultsPage: React.FC = () => {
                 description: `Chr${variant.chromosome}:${variant.position}`,
                 details: `Nearest gene: ${variant.nearestGene}`,
                 link: '/variants',
-                isGIMRelevant: true,
                 matchFields: [
                   variant.reportedVariant,
                   variant.nearestGene
@@ -276,7 +272,6 @@ const SearchResultsPage: React.FC = () => {
               description: `Colocalized with gene: ${gene}`,
               details: `Coloc Gene: ${gene}`,
               link: '/gene-metabolite',
-              isGIMRelevant: true,
               matchFields: [variant],
               colocGene: gene
             });
@@ -294,7 +289,6 @@ const SearchResultsPage: React.FC = () => {
               description: `Colocalized with gene: ${gene}`,
               details: `Coloc Gene: ${gene}`,
               link: '/csl-loci',
-              isGIMRelevant: true,
               matchFields: [region],
               colocGene: gene
             });
@@ -345,6 +339,30 @@ const SearchResultsPage: React.FC = () => {
         ]);
         const gcGimData = await gcGimResponse.json();
         const lesionData = await lesionResponse.json();
+
+        // Build strict GIM gene/trait sets from the two heatmaps only
+        const gimGeneSet = new Set<string>();
+        const gimTraitSet = new Set<string>();
+        (gcGimData?.data ?? []).forEach((row: any) => {
+          if (row.gene) gimGeneSet.add(String(row.gene).toLowerCase());
+          if (row.Metabolite) gimTraitSet.add(String(row.Metabolite).toLowerCase());
+        });
+        (lesionData?.data ?? []).forEach((row: any) => {
+          if (row.gene) gimGeneSet.add(String(row.gene).toLowerCase());
+          if (row.metabolic_trait) gimTraitSet.add(String(row.metabolic_trait).toLowerCase());
+        });
+
+        // Only gene or trait strictly in heatmaps get GIM-related
+        foundResults.forEach((r) => {
+          if (r.type === 'gene') {
+            r.isGIMRelevant = gimGeneSet.has(r.name.toLowerCase());
+          } else if (r.type === 'trait') {
+            r.isGIMRelevant = gimTraitSet.has(r.name.toLowerCase());
+          } else {
+            r.isGIMRelevant = false;
+          }
+        });
+
         const gcGimMatch =
           gcGimData?.data?.some((row: any) =>
             ['gene', 'Metabolite', 'Biomarker', 'Exposure', 'ID'].some((field) =>
