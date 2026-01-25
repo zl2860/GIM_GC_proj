@@ -178,17 +178,22 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </button>
 
               <div className="flex-1 min-w-0">
-                <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white truncate">
+                <h2 className="text-base sm:text-lg lg:text-xl font-bold text-white truncate">
                   Genetically Influenced Metabotypes for Gastric Cancer and Gastric Lesion Progression
                 </h2>
-                <p className="text-xs sm:text-sm text-gray-300 hidden sm:block">
+                <p className="text-[11px] sm:text-xs text-gray-300 hidden sm:block">
                   Interactive exploration of research findings on genetically influenced metabotypes for gastric cancer risk
                 </p>
               </div>
             </div>
             
-            <div className="w-full sm:w-auto sm:ml-auto sm:text-right mt-1 sm:mt-0 text-xs sm:text-sm text-gray-400">
-              For academic research use only
+            <div className="w-full sm:w-auto sm:ml-auto mt-2 sm:mt-0">
+              <div className="inline-block max-w-xs sm:max-w-sm bg-blue-50 border border-blue-200 rounded-lg px-3 py-2 text-xs text-blue-800 shadow-sm">
+                <p className="font-medium mb-0.5">Note</p>
+                <p className="leading-relaxed">
+                  The manuscript is currently under review. Summary statistics will be available for download upon publication.
+                </p>
+              </div>
             </div>
           </div>
         </header>

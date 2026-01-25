@@ -694,8 +694,8 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({
           </div>
           <Slider
             min={0}
-            max={1}
-            step={0.05}
+            max={0.5}
+            step={0.01}
             value={[minAbsCorrelation]}
             onValueChange={([value]) => setMinAbsCorrelation(value)}
           />
