@@ -149,6 +149,11 @@ const CorrelationPairs: React.FC = () => {
     return Array.from(new Set(resp.data.map(d => d.platform).filter(Boolean))).sort();
   }, [resp]);
 
+  const maxAbsCorrelation = useMemo(() => {
+    if (!resp?.data || resp.data.length === 0) return 1;
+    return Math.max(...resp.data.map(d => Math.abs(d.correlation)));
+  }, [resp]);
+
   const toggleFilter = (key: FilterKey) => {
     setFilters(prev => ({ ...prev, [key]: !prev[key] }));
   };
@@ -437,6 +442,7 @@ const CorrelationPairs: React.FC = () => {
           setPlatform={setPlatform}
           minAbsCorrelation={minAbsCorrelation}
           setMinAbsCorrelation={setMinAbsCorrelation}
+          maxAbsCorrelation={maxAbsCorrelation}
           groupQuery={groupQuery}
           setGroupQuery={setGroupQuery}
           resetFilters={resetFilters}
@@ -462,6 +468,7 @@ const CorrelationPairs: React.FC = () => {
           setPlatform={setPlatform}
           minAbsCorrelation={minAbsCorrelation}
           setMinAbsCorrelation={setMinAbsCorrelation}
+          maxAbsCorrelation={maxAbsCorrelation}
           groupQuery={groupQuery}
           setGroupQuery={setGroupQuery}
           resetFilters={resetFilters}
@@ -529,6 +536,7 @@ const CorrelationPairs: React.FC = () => {
         setPlatform={setPlatform}
         minAbsCorrelation={minAbsCorrelation}
         setMinAbsCorrelation={setMinAbsCorrelation}
+        maxAbsCorrelation={maxAbsCorrelation}
         groupQuery={groupQuery}
         setGroupQuery={setGroupQuery}
         resetFilters={resetFilters}
@@ -593,6 +601,7 @@ interface HeaderSectionProps {
   setPlatform: (value: string) => void;
   minAbsCorrelation: number;
   setMinAbsCorrelation: (value: number) => void;
+  maxAbsCorrelation: number;
   groupQuery: string;
   setGroupQuery: (value: string) => void;
   resetFilters: () => void;
@@ -611,6 +620,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({
   setPlatform,
   minAbsCorrelation,
   setMinAbsCorrelation,
+  maxAbsCorrelation,
   resetFilters
 }) => {
   return (
@@ -694,7 +704,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({
           </div>
           <Slider
             min={0}
-            max={0.5}
+            max={maxAbsCorrelation}
             step={0.01}
             value={[minAbsCorrelation]}
             onValueChange={([value]) => setMinAbsCorrelation(value)}

@@ -188,8 +188,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </div>
             
             <div className="w-full sm:w-auto sm:ml-auto mt-2 sm:mt-0">
-              <div className="inline-block max-w-xs sm:max-w-sm bg-blue-50 border border-blue-200 rounded-lg px-3 py-2 text-xs text-blue-800 shadow-sm">
-                <p className="font-medium mb-0.5">Note</p>
+              <div className="inline-block max-w-xs sm:max-w-sm bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-3 py-2 text-xs text-gray-200/80 shadow-sm">
+                <p className="font-medium mb-0.5 text-gray-100/90">Note</p>
                 <p className="leading-relaxed">
                   The manuscript is currently under review. Summary statistics will be available for download upon publication.
                 </p>
