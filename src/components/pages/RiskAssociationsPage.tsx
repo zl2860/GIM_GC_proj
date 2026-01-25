@@ -252,7 +252,8 @@ export default function RiskAssociationsPage() {
   const [selectedCohorts, setSelectedCohorts] = useState<CohortKey[]>(
     COHORTS.map(c => c.key)
   );
-  const [metric, setMetric] = useState<MetricKey>('log_rr');
+  // Fixed to log_rr only
+  const metric: MetricKey = 'log_rr';
   const [sortState, setSortState] = useState<{ key: SortKey; direction: 'asc' | 'desc' }>(
     { key: 'trait', direction: 'asc' }
   );
@@ -613,8 +614,6 @@ export default function RiskAssociationsPage() {
     );
   }
 
-  const currentMetricOption =
-    METRIC_OPTIONS.find(option => option.key === metric) ?? METRIC_OPTIONS[0];
   const totalColumns = 1 + selectedCohorts.length + 7;
 
   const renderSortIcon = (key: SortKey) => {
@@ -630,33 +629,9 @@ export default function RiskAssociationsPage() {
 
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-8">
-      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-800">{resp.title}</h1>
-          <p className="text-gray-600 mt-1">{resp.description}</p>
-        </div>
-        <div className="flex flex-col sm:flex-row gap-3">
-          <div className="flex rounded-full border border-gray-200 overflow-hidden">
-            {METRIC_OPTIONS.map(option => {
-              const active = metric === option.key;
-              return (
-        <button
-                  key={option.key}
-                  type="button"
-                  onClick={() => setMetric(option.key)}
-                  className={`px-3 py-1 text-sm font-medium transition ${
-                    active
-                      ? 'bg-blue-700 text-white'
-                      : 'bg-white text-gray-600 hover:bg-gray-100'
-                  }`}
-                  title={option.helper}
-                >
-                  {option.label}
-        </button>
-              );
-            })}
-        </div>
-        </div>
+      <div>
+        <h1 className="text-3xl font-bold text-gray-800">{resp.title}</h1>
+        <p className="text-gray-600 mt-1">{resp.description}</p>
       </div>
 
       {summaryCards.length > 0 && (
@@ -761,10 +736,10 @@ export default function RiskAssociationsPage() {
       <div className="bg-white rounded-lg shadow p-6">
         <div className="flex items-center justify-between gap-3 mb-4">
           <h2 className="text-xl font-semibold text-gray-800">
-            {currentMetricOption.label} by trait and cohort
+            Log(RR) by trait and cohort
           </h2>
           <p className="text-xs text-gray-500">
-            Bars reflect {currentMetricOption.helper.toLowerCase()}.
+            Bars reflect natural logarithm of the relative risk; 0 indicates no effect.
           </p>
         </div>
         <div style={{ overflowX: 'auto' }}>
@@ -789,7 +764,7 @@ export default function RiskAssociationsPage() {
                   }
                 />
                 <ReferenceLine
-                  y={metric === 'log_rr' ? 0 : 1}
+                  y={0}
                   stroke="#6B7280"
                   strokeDasharray="3 3"
                 />
@@ -798,13 +773,10 @@ export default function RiskAssociationsPage() {
                     if (typeof value !== 'number') {
                       return ['-', name];
                     }
-                    if (metric === 'log_rr') {
-                      return [
-                        `${value.toFixed(3)} (RR ${Math.exp(value).toFixed(2)})`,
-                        name
-                      ];
-                    }
-                    return [value.toFixed(3), name];
+                    return [
+                      `${value.toFixed(3)} (RR ${Math.exp(value).toFixed(2)})`,
+                      name
+                    ];
                   }}
                   labelFormatter={label => label as string}
                 />
@@ -1030,7 +1002,7 @@ export default function RiskAssociationsPage() {
                             <span className="text-right">
                               {COHORTS.find(item => item.key === cohort)?.label}{' '}
                               <span className="text-gray-400">
-                                ({currentMetricOption.label})
+                                (Log(RR))
                               </span>
                             </span>
                             <Tooltip>
