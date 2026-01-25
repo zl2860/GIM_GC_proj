@@ -353,12 +353,14 @@ const SearchResultsPage: React.FC = () => {
         });
 
         // Only gene or trait strictly in heatmaps get GIM-related
+        // Variant and region results never get GIM-related badge
         foundResults.forEach((r) => {
           if (r.type === 'gene') {
             r.isGIMRelevant = gimGeneSet.has(r.name.toLowerCase());
           } else if (r.type === 'trait') {
             r.isGIMRelevant = gimTraitSet.has(r.name.toLowerCase());
           } else {
+            // variant and region: explicitly set to false
             r.isGIMRelevant = false;
           }
         });
