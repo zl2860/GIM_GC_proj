@@ -165,7 +165,8 @@ type Filters = {
   measuredSignificant: boolean;
   predictedSignificant: boolean;
   consistentDirection: boolean;
-  highlightsOnly: boolean;
+  highlightUkbbOnly: boolean;
+  highlightMultiOnly: boolean;
 };
 
 const FILTER_DEFINITIONS: { key: keyof Filters; label: string; helper?: string }[] = [
@@ -181,13 +182,18 @@ const FILTER_DEFINITIONS: { key: keyof Filters; label: string; helper?: string }
   },
   {
     key: 'consistentDirection',
-    label: 'Same direction',
-    helper: 'Measured and predicted effects align in UKBB'
+    label: 'Same direction (UKBB)',
+    helper: 'Measured and predicted effects align in direction in the UKBB Discovery cohort'
   },
   {
-    key: 'highlightsOnly',
-    label: 'Highlight set only',
-    helper: 'Keep traits highlighted by authors (UKBB or ≥3 cohorts)'
+    key: 'highlightUkbbOnly',
+    label: 'Highlighted (UKBB)',
+    helper: 'Traits highlighted as consistent and significant in UKBB Discovery cohort'
+  },
+  {
+    key: 'highlightMultiOnly',
+    label: 'Highlighted (≥3 cohorts)',
+    helper: 'Traits highlighted with consistent direction across ≥3 cohorts'
   }
 ];
 
@@ -205,7 +211,7 @@ const COLUMN_DESCRIPTIONS = {
   sigMeasured: 'Significance of measured levels vs GC incidence (FDR q-value< 0.05) in the UKBB Discovery cohort.',
   sigPredicted:
     'Significance of genetically predicted levels vs GC incidence (P-value<0.05) in the UKBB Discovery cohort.',
-  sameDirection: 'Indicates whether measured and genetically predicted effects align in the UKBB Discovery cohort.',
+  sameDirection: 'Indicates whether measured and genetically predicted effects align in direction in the UKBB Discovery cohort.',
   consistentCombined:
     'Number of cohorts where measured and predicted metrics share the same direction (includes UKBB).',
   consistentGenetic:
@@ -254,7 +260,8 @@ export default function RiskAssociationsPage() {
     measuredSignificant: false,
     predictedSignificant: false,
     consistentDirection: false,
-    highlightsOnly: false
+    highlightUkbbOnly: false,
+    highlightMultiOnly: false
   });
   const [columnFilters, setColumnFilters] = useState<ColumnFilterState>({
     measured: 'all',
@@ -341,19 +348,19 @@ export default function RiskAssociationsPage() {
         helper: 'Traits significantly associated with GC in genetically predicted levels in the UKBB Discovery cohort'
       },
       {
-        label: 'Aligned directions',
+        label: 'Same direction (UKBB)',
         value: s.consistent_direction_count,
-        helper: 'Traits where measured and predicted effects align in directions in the UKBB Discovery cohort'
+        helper: 'Traits where measured and predicted effects align in direction in the UKBB Discovery cohort'
       },
       {
         label: 'Highlighted (UKBB)',
         value: s.highlighted_in_ukbb_count,
-        helper: 'The highlighted traits significantly associated with GC in measured and predicted levels'
+        helper: 'Traits highlighted as consistent and significant in UKBB Discovery cohort (measured and predicted levels both significant and in same direction)'
       },
       {
         label: 'Highlighted (≥3 cohorts)',
         value: s.highlighted_multicohort_count,
-        helper: 'The highlighted traits significantly associated with GC in measured and predicted levels, with effect directions consistent across ≥3 cohorts'
+        helper: 'Traits highlighted with consistent effect direction across ≥3 cohorts (using genetically predicted levels)'
       }
     ];
   }, [resp]);
@@ -375,12 +382,8 @@ export default function RiskAssociationsPage() {
       if (filters.measuredSignificant && !measuredSig) return false;
       if (filters.predictedSignificant && !predictedSig) return false;
       if (filters.consistentDirection && !sameDirection) return false;
-      if (
-        filters.highlightsOnly &&
-        !(highlightUkbb || highlightMulti)
-      ) {
-        return false;
-      }
+      if (filters.highlightUkbbOnly && !highlightUkbb) return false;
+      if (filters.highlightMultiOnly && !highlightMulti) return false;
 
       // Column-level filters
       switch (columnFilters.measured) {
