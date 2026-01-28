@@ -202,7 +202,7 @@ const LesionProgressionPage: React.FC = () => {
             Co-regulatory Genetic Effects of the GIM for Gastric Lesion Progression
           </h1>
           <p className="text-gray-600">
-            The interactive heatmap shows gene-metabolic trait associations for {filteredAndSortedData.filter(item => item.is_causal === true).length} causal relationships 
+              The interactive heatmap shows gene-metabolic trait associations for {filteredAndSortedData.filter(item => item.is_causal === true).length} putative causal relationships
             from {uniqueGenes.length} genes and {data.data.length} total associations
           </p>
         </div>
@@ -266,7 +266,7 @@ const LesionProgressionPage: React.FC = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">All ({filteredAndSortedData.length})</SelectItem>
-                  <SelectItem value="causal">Causal ({filteredAndSortedData.filter(item => item.is_causal === true).length})</SelectItem>
+                  <SelectItem value="causal">Putative causal ({filteredAndSortedData.filter(item => item.is_causal === true).length})</SelectItem>
                   <SelectItem value="non-causal">Non-causal ({filteredAndSortedData.filter(item => item.is_causal === false).length})</SelectItem>
                 </SelectContent>
               </Select>
@@ -276,7 +276,7 @@ const LesionProgressionPage: React.FC = () => {
               <div className="text-sm text-gray-600">
                 <div>Showing {filteredAndSortedData.length} estimates</div>
                 <div className="text-xs text-gray-500 mt-1">
-                  {filteredAndSortedData.filter(item => item.is_causal === true).length} causal
+                  {filteredAndSortedData.filter(item => item.is_causal === true).length} putative causal
                 </div>
               </div>
             </div>
@@ -292,7 +292,7 @@ const LesionProgressionPage: React.FC = () => {
             <div className="mb-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Effect Estimates Comparison Plot</h3>
               <p className="text-gray-600 text-sm">
-                Interactive heatmap showing gene-metabolic trait associations. Causal relationships marked with "*" in the cells.
+                Interactive heatmap showing gene-metabolic trait associations. Putative causal relationships marked with "*" in the cells.
                 Color intensity represents association strength.
               </p>
             </div>
@@ -359,7 +359,7 @@ const LesionProgressionPage: React.FC = () => {
                   <div>
                     <div className="text-sm font-medium text-gray-700">Putative Causal</div>
                     <Badge className={getCausalColor(selectedCell.is_causal)}>
-                      {selectedCell.is_causal ? 'Causal' : 'Non-causal'}
+                      {selectedCell.is_causal ? 'Putative causal' : 'Non-causal'}
                     </Badge>
                   </div>
                 </div>
@@ -380,7 +380,7 @@ const LesionProgressionPage: React.FC = () => {
               <div className="space-y-2 text-sm text-gray-600">
                 <div><strong>Total Associations:</strong> {filteredAndSortedData.length}</div>
                 <div><strong>Unique Genes:</strong> {uniqueGenes.length}</div>
-                <div><strong>Causal Relationships:</strong> {filteredAndSortedData.filter(item => item.is_causal === true).length}</div>
+                <div><strong>Putative Causal Relationships:</strong> {filteredAndSortedData.filter(item => item.is_causal === true).length}</div>
                 <div><strong>Trait Groups:</strong> {uniqueGroups.length}</div>
                 <div><strong>Average Association:</strong> {(filteredAndSortedData.reduce((sum, item) => sum + item.association_strength, 0) / filteredAndSortedData.length).toFixed(4)}</div>
               </div>

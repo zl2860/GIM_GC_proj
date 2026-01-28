@@ -230,7 +230,7 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
           <strong>Functional Type:</strong> ${d.data['value.update'] || 'Unknown'}<br/>
           <strong>P-value:</strong> ${d.data.P_value.toExponential(2)}<br/>
           <strong>-log10(P):</strong> ${logP.toFixed(2)}<br/>
-          <strong>Causal:</strong> ${d.data.is_causal}<br/>
+          <strong>Putative causal:</strong> ${d.data.is_causal}<br/>
           <strong>Beta (Pred):</strong> ${d.data['Beta.pred'].toFixed(3)}<br/>
           <strong>Beta (True):</strong> ${d.data['Beta.true'].toFixed(3)}<br/>
           <strong>Beta (MR):</strong> ${d.data['Beta.MR'].toFixed(3)}
@@ -437,7 +437,7 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
           .attr('x', 20)
           .attr('y', 12)
           .style('font-size', '12px')
-          .text('Causal');
+          .text('Putative causal');
       });
 
     // Clean up tooltip on unmount

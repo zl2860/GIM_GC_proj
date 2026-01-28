@@ -144,7 +144,7 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
               <strong>${d.gene} - ${d.trait}</strong><br/>
               Association: ${d.value.toFixed(3)}<br/>
               Group: ${d.group}<br/>
-              ${d.isCausal ? '<span style="color: #ff6666;">⚠ Causal</span>' : 'Non-causal'}<br/>
+              ${d.isCausal ? '<span style="color: #ff6666;">⚠ Putative causal</span>' : 'Non-causal'}<br/>
               <em>Click for details</em>
             `)
             .style("left", (event.pageX + 10) + "px")
@@ -220,7 +220,7 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
         .attr("text-anchor", "middle")
         .style("font-size", "12px")
         .style("fill", "#666")
-        .text(`${processedData.matrixData.filter(d => d.hasData).length} associations | Red borders indicate causal relationships`);
+        .text(`${processedData.matrixData.filter(d => d.hasData).length} associations | Red borders indicate putative causal relationships`);
 
       // Color legend
       const legendWidth = 200;
@@ -281,7 +281,7 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
         .attr("x", 20)
         .attr("y", 12)
         .style("font-size", "10px")
-        .text("Causal");
+        .text("Putative causal");
 
     } catch (err) {
       console.error('Error rendering lesion progression heatmap:', err);
@@ -321,7 +321,7 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
           </p>
         </div>
         <div className="bg-white p-4 rounded-lg border">
-          <h3 className="text-sm font-medium text-gray-500">Causal Associations</h3>
+          <h3 className="text-sm font-medium text-gray-500">Putative Causal Associations</h3>
           <p className="text-2xl font-bold text-red-600">
             {processedData.matrixData.filter(d => d.hasData && d.isCausal).length}
           </p>
@@ -344,7 +344,7 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
             <h3 className="font-medium text-blue-900">Heatmap Guide</h3>
             <p className="text-sm text-blue-700 mt-1">
               Each cell represents a gene-metabolic trait association. Color intensity indicates association strength. 
-              Red borders highlight causal relationships. Click on cells for detailed information.
+              Red borders highlight putative causal relationships. Click on cells for detailed information.
             </p>
           </div>
         </div>

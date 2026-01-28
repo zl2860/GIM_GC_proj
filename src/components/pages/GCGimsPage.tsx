@@ -313,7 +313,7 @@ const GCGimsPage: React.FC = () => {
                 <div className="text-sm text-gray-600">
                   <div>Showing {filteredData.length} associations</div>
                   <div className="text-xs text-gray-500 mt-1">
-                    {filteredData.filter(item => item.is_causal === 'Yes').length} causal
+                    {filteredData.filter(item => item.is_causal === 'Yes').length} putative causal
                   </div>
                 </div>
               </div>
@@ -347,7 +347,7 @@ const GCGimsPage: React.FC = () => {
                     className="h-4 w-4 text-green-600 rounded border-gray-300 focus:ring-green-500"
                   />
                   <label htmlFor="causal-checkbox" className="text-sm text-gray-700">
-                    Show only causal associations
+                    Show only putative causal associations
                   </label>
                 </div>
               </div>
@@ -405,7 +405,7 @@ const GCGimsPage: React.FC = () => {
             <div className="mt-4 pt-4 border-t border-gray-200">
               <div className="flex items-center space-x-2">
                 <span className="text-lg">*</span>
-                <span className="text-sm text-gray-600">Indicates causal relationship</span>
+                <span className="text-sm text-gray-600">Indicates putative causal relationship</span>
               </div>
             </div>
           </div>
@@ -495,7 +495,7 @@ const GCGimsPage: React.FC = () => {
               <div><strong>Total Associations:</strong> {filteredData.length}</div>
               <div><strong>Unique Genes:</strong> {uniqueGenes.length}</div>
               <div><strong>Unique Metabolomic Traits:</strong> {uniqueMetabolites.length}</div>
-              <div><strong>Causal Relationships:</strong> {filteredData.filter(item => item.is_causal === 'Yes').length}</div>
+                <div><strong>Putative Causal Relationships:</strong> {filteredData.filter(item => item.is_causal === 'Yes').length}</div>
               <div><strong>Functional Types:</strong> {uniqueFunctionalTypes.length}</div>
             </div>
           </div>
