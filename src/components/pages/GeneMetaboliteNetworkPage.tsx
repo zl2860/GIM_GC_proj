@@ -1,5 +1,5 @@
 // src/components/pages/GeneMetaboliteNetworkPage.tsx
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import * as d3 from 'd3';
 import toast from 'react-hot-toast';
@@ -98,18 +98,174 @@ const GeneMetaboliteNetworkPage: React.FC = () => {
   const [colocError, setColocError] = useState<string|null>(null);
   const [selectedColocNode, setSelectedColocNode] = useState<ColocNodeData|null>(null);
   const [colocSearchTerm, setColocSearchTerm] = useState('');
+  const [autoNodeNames, setAutoNodeNames] = useState<string[]>([]);
+  const [autoNetworkQuery, setAutoNetworkQuery] = useState<string>('');
+  const variantDataCache = useRef<any[] | null>(null);
+  const cslLociCache = useRef<any[] | null>(null);
+  const colocSupplementCache = useRef<any[] | null>(null);
+  const [colocSupplement, setColocSupplement] = useState<any[]>([]);
+
+  const gatherNodeNamesForQuery = useCallback(async (query: string) => {
+    const normalized = query.toLowerCase();
+    const nodeSet = new Set<string>();
+    const includeNode = (value?: string | null) => {
+      if (value && value.trim()) {
+        nodeSet.add(value.trim());
+      }
+    };
+
+    try {
+      // Supplemental colocalization data (takes precedence if overlaps)
+      if (!colocSupplementCache.current) {
+        const resp = await fetch(`${import.meta.env.BASE_URL}data/coloc_supplement.json`);
+        const json = await resp.json();
+        colocSupplementCache.current = Array.isArray(json) ? json : [];
+      }
+
+      if (normalized.startsWith('rs')) {
+        (colocSupplementCache.current || []).forEach((row: any) => {
+          const h1 = row.hit1?.toLowerCase();
+          const h2 = row.hit2?.toLowerCase();
+          if (h1 === normalized || h2 === normalized) {
+            includeNode(row.gene);
+            includeNode(row.trait);
+          }
+        });
+      }
+
+      if (/^\d/.test(normalized) || normalized.includes('q')) {
+        (colocSupplementCache.current || []).forEach((row: any) => {
+          const region = row.region?.toLowerCase();
+          if (region && region.includes(normalized)) {
+            includeNode(row.gene);
+            includeNode(row.trait);
+          }
+        });
+      }
+
+      if (normalized.startsWith('rs')) {
+        if (!variantDataCache.current) {
+          const response = await fetch(`${import.meta.env.BASE_URL}data/matched_variants_2026.json`);
+          const json = await response.json();
+          variantDataCache.current = Array.isArray(json.data) ? json.data : [];
+        }
+        (variantDataCache.current || []).forEach((row: any) => {
+          const reported = row.reportedVariant?.toLowerCase();
+          if (reported && reported.includes(normalized)) {
+            includeNode(row.nearestGene);
+            includeNode(row.Metabolite);
+            includeNode(row.Biomarker);
+            includeNode(row.Exposure);
+            includeNode(row.ID);
+          }
+        });
+      }
+
+      if (/^\d/.test(normalized) || normalized.includes('q')) {
+        if (!cslLociCache.current) {
+          const response = await fetch(`${import.meta.env.BASE_URL}data/csl_loci_2026.json`);
+          const json = await response.json();
+          cslLociCache.current = Array.isArray(json.data) ? json.data : [];
+        }
+        (cslLociCache.current || []).forEach((geneData: any) => {
+          const geneName = geneData.gene;
+          geneData.trait_groups?.forEach((group: any) => {
+            group.traits?.forEach((trait: any) => {
+              trait.regions?.forEach((region: string) => {
+                if (region?.toLowerCase().includes(normalized)) {
+                  includeNode(geneName);
+                  includeNode(trait.metabolomic_trait);
+                }
+              });
+            });
+          });
+        });
+      }
+    } catch (err) {
+      console.error('Auto node resolution failed', err);
+    }
+
+    return Array.from(nodeSet);
+  }, []);
+
+  const isVariantOrRegionQuery = (normalized: string) =>
+    normalized.startsWith('rs') || /^\d/.test(normalized) || normalized.includes('q');
 
   // Autofill from query param ?q=
   useEffect(() => {
-    const q = searchParams.get('q');
-    if (q) {
-      setSearchTerm(q);
-      setColocSearchTerm(q);
-      const lower = q.toLowerCase();
-      const looksVariantOrRegion = lower.startsWith('rs') || /^\d/.test(lower) || lower.includes('q');
-      setNetworkType(looksVariantOrRegion ? 'coloc' : 'ggm');
+    const rawQuery = searchParams.get('q')?.trim();
+    const networkPref = searchParams.get('network');
+    if (rawQuery) {
+      setSearchTerm(rawQuery);
+      setColocSearchTerm(rawQuery);
+      const normalized = rawQuery.toLowerCase();
+      const looksVariantOrRegion = isVariantOrRegionQuery(normalized);
+      if (networkPref === 'coloc' || networkPref === 'ggm') {
+        setNetworkType(networkPref);
+      } else {
+        setNetworkType(looksVariantOrRegion ? 'coloc' : 'ggm');
+      }
+    } else {
+      setAutoNetworkQuery('');
+      setAutoNodeNames([]);
     }
   }, [searchParams]);
+
+  useEffect(() => {
+    const rawQuery = searchParams.get('q')?.trim();
+    if (!rawQuery) {
+      setAutoNetworkQuery('');
+      setAutoNodeNames([]);
+      return;
+    }
+    const normalized = rawQuery.toLowerCase();
+    const looksVariantOrRegion = isVariantOrRegionQuery(normalized);
+    if (!looksVariantOrRegion && networkType !== 'coloc') {
+      setAutoNetworkQuery('');
+      setAutoNodeNames([]);
+      return;
+    }
+    if (networkType !== 'coloc') return;
+    if (autoNetworkQuery === normalized) {
+      return;
+    }
+
+    (async () => {
+      const nodeNames = await gatherNodeNamesForQuery(rawQuery);
+      setAutoNodeNames(nodeNames);
+      setAutoNetworkQuery(normalized);
+      if (nodeNames.length) {
+        setColocSearchTerm(nodeNames[0]);
+      }
+    })();
+  }, [searchParams, networkType, autoNetworkQuery, gatherNodeNamesForQuery]);
+
+  useEffect(() => {
+    if (!autoNodeNames.length || !colocNodes.length) return;
+    const normalizedTargets = autoNodeNames.map((name) => name.toLowerCase());
+    const match = colocNodes.find((node) =>
+      normalizedTargets.includes(node.node.toLowerCase())
+    );
+    if (match && match.id !== selectedColocNode?.id) {
+      setSelectedColocNode(match);
+    }
+  }, [autoNodeNames, colocNodes, selectedColocNode]);
+
+  const getSupplementForNode = React.useCallback(
+    (node: ColocNodeData | null) => {
+      if (!node || !colocSupplement?.length) return [];
+      const key = node.node.toLowerCase();
+      if (node.node_type === 'Gene') {
+        return colocSupplement.filter(
+          (row: any) => typeof row.gene === 'string' && row.gene.toLowerCase() === key
+        );
+      }
+      return colocSupplement.filter(
+        (row: any) => typeof row.trait === 'string' && row.trait.toLowerCase() === key
+      );
+    },
+    [colocSupplement]
+  );
 
   // load data
   useEffect(() => {
@@ -205,6 +361,22 @@ const GeneMetaboliteNetworkPage: React.FC = () => {
     };
 
     loadColocData();
+  }, []);
+
+  // Load supplemental colocalization hits (priority data)
+  useEffect(() => {
+    const loadSupplement = async () => {
+      try {
+        const resp = await fetch(`${import.meta.env.BASE_URL}data/coloc_supplement.json`);
+        const json = await resp.json();
+        const arr = Array.isArray(json) ? json : [];
+        setColocSupplement(arr);
+        colocSupplementCache.current = arr;
+      } catch (err) {
+        console.error('Failed to load supplemental coloc data', err);
+      }
+    };
+    loadSupplement();
   }, []);
 
   // draw GGM network
@@ -876,6 +1048,34 @@ const GeneMetaboliteNetworkPage: React.FC = () => {
                       </div>
                     </div>
                   )}
+
+                  {/* Supplemental coloc hits for the selected node */}
+                  {(() => {
+                    const supplement = getSupplementForNode(selectedColocNode);
+                    if (!supplement.length) return null;
+                    return (
+                      <div className="mt-4">
+                        <p className="font-semibold text-sm text-gray-700 mb-2">
+                          Supplemental colocalization hits ({supplement.length})
+                        </p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                          {supplement.slice(0, 8).map((row: any, idx: number) => (
+                            <div key={`${row.gene}-${row.trait}-${idx}`} className="rounded border border-gray-200 p-2 bg-gray-50">
+                              <p className="font-semibold text-indigo-700">{row.gene}</p>
+                              <p className="text-gray-700">{row.trait}</p>
+                              <p className="font-mono text-[11px] text-gray-600">Hit1: {row.hit1}</p>
+                              <p className="font-mono text-[11px] text-gray-600">Hit2: {row.hit2}</p>
+                              <p className="text-gray-700">PP4: {row.pp4 ?? row.PP_H4 ?? row.PP_H4_abf ?? row.PP?.H4 ?? ''}</p>
+                              <p className="text-gray-600">Region: {row.region}</p>
+                            </div>
+                          ))}
+                        </div>
+                        {supplement.length > 8 && (
+                          <p className="mt-2 text-[11px] text-gray-500">Showing first 8 matches.</p>
+                        )}
+                      </div>
+                    );
+                  })()}
                 </CardContent>
               </Card>
               <Card className="lg:flex-1">

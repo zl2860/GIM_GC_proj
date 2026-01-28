@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { Search, Filter, ArrowUpDown, ArrowUp, ArrowDown, Table as TableIcon } from 'lucide-react'
 import { Input } from '../ui/input'
 import {
@@ -89,6 +90,7 @@ type SortField = keyof VariantRecord
 type SortDirection = 'asc' | 'desc'
 
 export default function FullyMatchedVariantsPage() {
+  const [searchParams] = useSearchParams();
   const [data, setData] = useState<VariantRecord[]>([])
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
@@ -101,6 +103,15 @@ export default function FullyMatchedVariantsPage() {
   const [tab, setTab] = useState<'table'|'summary'>('table')
   const [selected, setSelected] = useState<VariantRecord|null>(null)
   const perPage = 20
+
+  // Auto-fill from query param ?q=
+  useEffect(() => {
+    const q = searchParams.get('q');
+    if (q) {
+      setSearch(q);
+      setPage(1);
+    }
+  }, [searchParams]);
 
   // Load JSON dataset
   useEffect(() => {

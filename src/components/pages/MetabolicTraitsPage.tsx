@@ -1,5 +1,6 @@
 // src/components/pages/MetabolicTraitsPage.tsx
 import React, { useState, useEffect, useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Search, Filter, ArrowUpDown, ArrowUp, ArrowDown, Beaker, Info } from 'lucide-react';
 import { Input } from '../ui/input';
 import {
@@ -39,6 +40,7 @@ type SortField = keyof MetabolicTraitData;
 type SortDirection = 'asc' | 'desc' | null;
 
 const MetabolicTraitsPage: React.FC = () => {
+  const [searchParams] = useSearchParams();
   const [data, setData] = useState<MetabolicTraitDataset | null>(null);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -49,6 +51,15 @@ const MetabolicTraitsPage: React.FC = () => {
   const [selectedTrait, setSelectedTrait] = useState<MetabolicTraitData | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 25;
+
+  // Auto-fill from query param ?q=
+  useEffect(() => {
+    const q = searchParams.get('q');
+    if (q) {
+      setSearchTerm(q);
+      setCurrentPage(1);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     const loadData = async () => {

@@ -21,7 +21,7 @@ const GlobalSearch: React.FC = () => {
   const examples = [
     { type: 'Gene', example: 'ABCA1' },
     { type: 'Metabolite', example: 'LDL_C' },
-    { type: 'Variant', example: 'rs1800978' },
+    { type: 'Variant', example: 'rs10006043' },
     { type: 'Region', example: '9q31.2' }
   ];
 

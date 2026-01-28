@@ -36,6 +36,7 @@ import {
   YAxis
 } from 'recharts';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../ui/dialog';
+import RegulatoryChessboard from '../RegulatoryChessboard';
 
 const ANCESTRY_DEFS = [
   { key: 'effect_europeans', label: 'Europeans', short: 'EUR' },
@@ -306,8 +307,8 @@ const RegulatoryEffectsPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   const [searchTerm, setSearchTerm] = useState('');
-  const [minGrade, setMinGrade] = useState<number>(5);
-  const [minAncestries, setMinAncestries] = useState<number>(2);
+  const [minGrade, setMinGrade] = useState<number>(1);
+  const [minAncestries, setMinAncestries] = useState<number>(0);
   const [directionFilter, setDirectionFilter] = useState<'any' | DirectionCategory>('any');
   const [focusAncestry, setFocusAncestry] = useState<'all' | AncestryKey>('all');
   const [sortKey, setSortKey] = useState<SortKey>('region');
@@ -315,6 +316,9 @@ const RegulatoryEffectsPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [detailsOpen, setDetailsOpen] = useState(false);
+  const [chessboardSelectedRegion, setChessboardSelectedRegion] = useState<string | null>(null);
+  const [chessboardSelectedTrait, setChessboardSelectedTrait] = useState<string | null>(null);
+  const [gimContextFilter, setGimContextFilter] = useState<'all' | 'Gastric cancer' | 'Gastric lesion progression'>('all');
 
   const itemsPerPage = 18;
 
@@ -386,13 +390,33 @@ const RegulatoryEffectsPage: React.FC = () => {
     };
   }, [pairRecords]);
 
-  const filteredRecords = useMemo(() => {
-    const lowerSearch = searchTerm.trim().toLowerCase();
-
+  // Base filtered records (for chessboard) - only basic filters
+  // Note: Some pairs have gim === "Gastric cancer & Gastric lesion progression" and should appear in both contexts
+  const baseFilteredRecords = useMemo(() => {
     return pairRecords.filter(record => {
       if (record.grade === null || record.grade < minGrade) return false;
       if (record.availableCount < minAncestries) return false;
+      // Filter by GIM context if specified
+      if (gimContextFilter !== 'all') {
+        // Include pairs that match the filter OR pairs that belong to both contexts
+        if (record.gim !== gimContextFilter && record.gim !== 'Gastric cancer & Gastric lesion progression') {
+          return false;
+        }
+      }
+      return true;
+    });
+  }, [pairRecords, minGrade, minAncestries, gimContextFilter]);
+
+  // Fully filtered records (for table) - includes all filters including chessboard selection
+  const filteredRecords = useMemo(() => {
+    const lowerSearch = searchTerm.trim().toLowerCase();
+
+    return baseFilteredRecords.filter(record => {
       if (directionFilter !== 'any' && record.direction !== directionFilter) return false;
+
+      // Filter by chessboard selection
+      if (chessboardSelectedRegion && record.regionLabel !== chessboardSelectedRegion) return false;
+      if (chessboardSelectedTrait && record.trait !== chessboardSelectedTrait) return false;
 
       if (lowerSearch) {
         const haystack = [
@@ -411,7 +435,7 @@ const RegulatoryEffectsPage: React.FC = () => {
 
       return true;
     });
-  }, [pairRecords, searchTerm, minGrade, minAncestries, directionFilter]);
+  }, [baseFilteredRecords, searchTerm, directionFilter, chessboardSelectedRegion, chessboardSelectedTrait]);
 
   const sortedRecords = useMemo(() => {
     const sorted = [...filteredRecords];
@@ -455,7 +479,7 @@ const RegulatoryEffectsPage: React.FC = () => {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchTerm, minGrade, minAncestries, directionFilter, focusAncestry, sortKey, sortDirection]);
+  }, [searchTerm, minGrade, minAncestries, directionFilter, focusAncestry, sortKey, sortDirection, chessboardSelectedRegion, chessboardSelectedTrait]);
 
   useEffect(() => {
     if (!filteredRecords.length) {
@@ -591,6 +615,24 @@ const RegulatoryEffectsPage: React.FC = () => {
   const openDetailsForRecord = (recordId: string) => {
     setSelectedId(recordId);
     setDetailsOpen(true);
+  };
+
+  const handleChessboardCellClick = (region: string, trait: string) => {
+    // Toggle selection: if clicking the same cell, deselect
+    if (chessboardSelectedRegion === region && chessboardSelectedTrait === trait) {
+      setChessboardSelectedRegion(null);
+      setChessboardSelectedTrait(null);
+    } else {
+      setChessboardSelectedRegion(region);
+      setChessboardSelectedTrait(trait);
+      // Find and select the corresponding record in the table
+      const matchingRecord = filteredRecords.find(
+        r => r.regionLabel === region && r.trait === trait
+      );
+      if (matchingRecord) {
+        setSelectedId(matchingRecord.id);
+      }
+    }
   };
 
   return (
@@ -775,15 +817,198 @@ const RegulatoryEffectsPage: React.FC = () => {
                   </CardContent>
                 </Card>
 
-      <div className="space-y-6">
-        <Card className="shadow-sm border">
-          <CardHeader className="pb-2 flex items-center justify-between">
+      {/* Chessboard Visualization and Table in the same panel */}
+      <Card className="shadow-sm border">
+        <CardHeader className="pb-3 flex items-center justify-between">
+          <div className="flex items-center gap-4">
             <CardTitle className="text-lg font-semibold text-slate-800 flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-orange-600" />
-              Regulatory pairs ({filteredRecords.length})
+              <BarChart3 className="w-5 h-5 text-orange-600" />
+              Regulatory Effects Matrix & Table
             </CardTitle>
-          </CardHeader>
-          <CardContent className="p-0">
+            <div className="flex items-center gap-2">
+              <label className="text-xs font-semibold text-slate-600">GIM Context:</label>
+              <Select
+                value={gimContextFilter}
+                onValueChange={value => setGimContextFilter(value as typeof gimContextFilter)}
+              >
+                <SelectTrigger className="h-8 w-[200px] text-xs">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All contexts</SelectItem>
+                  <SelectItem value="Gastric cancer">Gastric cancer</SelectItem>
+                  <SelectItem value="Gastric lesion progression">Gastric lesion progression</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          {(chessboardSelectedRegion || chessboardSelectedTrait) && (
+            <button
+              onClick={() => {
+                setChessboardSelectedRegion(null);
+                setChessboardSelectedTrait(null);
+              }}
+              className="px-4 py-2 text-sm font-semibold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-md transition-colors flex items-center gap-2"
+            >
+              <span>Clear selection</span>
+            </button>
+          )}
+        </CardHeader>
+        <CardContent className="p-4 space-y-6">
+          {/* Heatmap section */}
+          <div>
+            <div className="mb-3 text-sm text-slate-600">
+              <p className="mb-1">
+                Interactive heatmap matrix showing regulatory effects between genomic regions (rows) and metabolomic traits (columns).
+                Each colored cell represents a regulatory pair, with color intensity indicating harmony grade. All pairs are displayed in the matrix.
+              </p>
+              <p className="text-xs text-slate-500">
+                Use the "Order" dropdown to reorder by Name, Frequency, Grade, or Cluster. Click on a cell to filter the table below. Hover over cells or axis labels for details. Use zoom controls to adjust view.
+              </p>
+            </div>
+            <div className="flex gap-6">
+              {/* Heatmap */}
+              <div className="flex-1 flex justify-center min-w-0">
+                <RegulatoryChessboard
+                  data={baseFilteredRecords.map(record => ({
+                    id: record.id,
+                    trait: record.trait,
+                    regionLabel: record.regionLabel,
+                    availableCount: record.availableCount,
+                    positiveCount: record.positiveCount,
+                    negativeCount: record.negativeCount,
+                    grade: record.grade,
+                    maxAbsEffect: record.maxAbsEffect,
+                    gim: record.gim
+                  }))}
+                  onCellClick={handleChessboardCellClick}
+                  selectedRegion={chessboardSelectedRegion}
+                  selectedTrait={chessboardSelectedTrait}
+                  gimFilter={gimContextFilter}
+                />
+              </div>
+              
+              {/* Heatmap filters panel on the right */}
+              <div className="w-80 flex-shrink-0">
+                <Card className="shadow-sm border">
+                  <CardHeader className="pb-2 flex items-center gap-2">
+                    <Filter className="w-5 h-5 text-slate-600" />
+                    <CardTitle className="text-sm font-semibold text-slate-700">Heatmap Filters</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-5">
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-500 mb-2">Minimum harmony grade</label>
+                        <div className="flex items-center gap-3">
+                          <Slider
+                            value={[minGrade]}
+                            min={1}
+                            max={6}
+                            step={1}
+                            onValueChange={([value]) => setMinGrade(value ?? minGrade)}
+                          />
+                          <Badge className="bg-slate-100 text-slate-700 border border-slate-200">≥ {minGrade}</Badge>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-500 mb-2">Required ancestry coverage</label>
+                        <Select value={String(minAncestries)} onValueChange={value => setMinAncestries(Number(value))}>
+                          <SelectTrigger>
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {[0, 1, 2, 3, 4, 5, 6].map(option => (
+                              <SelectItem key={option} value={String(option)}>
+                                {option === 0 ? 'No minimum' : `At least ${option}`}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+
+                    <div className="rounded-md border border-slate-200 bg-slate-50 p-3 text-xs text-slate-600 space-y-1">
+                      <p className="font-semibold text-slate-700 mb-2">Heatmap filters</p>
+                      <p className="mb-1">
+                        <strong>Minimum harmony grade</strong> filters by evidence strength (scale 1–6).
+                      </p>
+                      <p>
+                        <strong>Ancestry coverage</strong> requires at least the selected number of ancestries with non-null effects.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+
+          {/* Table section */}
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <CardTitle className="text-lg font-semibold text-slate-800 flex items-center gap-2">
+                <TrendingUp className="w-5 h-5 text-orange-600" />
+                Regulatory pairs ({filteredRecords.length})
+              </CardTitle>
+            </div>
+            
+            {/* Table filters - Search, Focus ancestry, Directional signature */}
+            <div className="mb-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="flex flex-col">
+                  <label className="block text-xs font-semibold text-slate-500 mb-2">Search</label>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
+                    <Input
+                      placeholder="Search trait, region, lead variants…"
+                      value={searchTerm}
+                      onChange={event => setSearchTerm(event.target.value)}
+                      className="pl-10 h-10"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex flex-col">
+                  <label className="block text-xs font-semibold text-slate-500 mb-2">Focus ancestry</label>
+                  <Select value={focusAncestry} onValueChange={value => setFocusAncestry(value as typeof focusAncestry)}>
+                    <SelectTrigger className="h-10">
+                      <SelectValue placeholder="All ancestries" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All ancestries</SelectItem>
+                      {ANCESTRY_DEFS.map(def => (
+                        <SelectItem key={def.key} value={def.key}>
+                          {def.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="flex flex-col">
+                  <label className="block text-xs font-semibold text-slate-500 mb-2">Directional signature</label>
+                  <Select
+                    value={directionFilter}
+                    onValueChange={value => setDirectionFilter(value as typeof directionFilter)}
+                  >
+                    <SelectTrigger className="h-10">
+                      <SelectValue placeholder="All patterns" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="any">Any direction</SelectItem>
+                      <SelectItem value="positive">All positive</SelectItem>
+                      <SelectItem value="negative">All negative</SelectItem>
+                      <SelectItem value="balanced">Balanced</SelectItem>
+                      <SelectItem value="leansPositive">Leans positive</SelectItem>
+                      <SelectItem value="leansNegative">Leans negative</SelectItem>
+                      <SelectItem value="none">No signal</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+            </div>
+            
+            {/* Table */}
             <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
@@ -935,9 +1160,11 @@ const RegulatoryEffectsPage: React.FC = () => {
                 </button>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </CardContent>
+      </Card>
 
+      <div className="space-y-6">
         {(filteredSummary || (focusSummary && focusMeta)) && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {filteredSummary && (

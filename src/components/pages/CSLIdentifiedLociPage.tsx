@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import {
   AlertCircle,
   ArrowDown,
@@ -80,6 +81,7 @@ type SortKey = 'gene' | 'traitGroupCount' | 'totalTraits';
 const numericKeys = new Set<SortKey>(['traitGroupCount', 'totalTraits']);
 
 const CSLIdentifiedLociPage: React.FC = () => {
+  const [searchParams] = useSearchParams();
   const [dataset, setDataset] = useState<CslDataset | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -94,6 +96,36 @@ const CSLIdentifiedLociPage: React.FC = () => {
     gene: string;
     traitGroup: TraitGroupData;
   } | null>(null);
+
+  // Auto-fill from query param ?q=
+  useEffect(() => {
+    const q = searchParams.get('q');
+    if (q) {
+      setSearchTerm(q);
+    }
+  }, [searchParams]);
+
+  // If query looks like a region (e.g., 17q24.2), map it to its gene and auto-filter by gene
+  useEffect(() => {
+    const rawQuery = searchParams.get('q')?.trim();
+    if (!rawQuery || !dataset?.data) return;
+    const normalized = rawQuery.toLowerCase();
+    const looksRegion = /\d/.test(normalized) && (normalized.includes('q') || normalized.includes('p'));
+    if (!looksRegion) return;
+
+    const regionMatch = dataset.data.find((geneData) =>
+      geneData.trait_groups?.some((group) =>
+        group.traits?.some((trait) =>
+          trait.regions?.some((region: string) => region?.toLowerCase().includes(normalized))
+        )
+      )
+    );
+
+    if (regionMatch?.gene) {
+      setGeneFilter(regionMatch.gene);
+      setSearchTerm('');
+    }
+  }, [searchParams, dataset]);
 
   useEffect(() => {
     const load = async () => {
