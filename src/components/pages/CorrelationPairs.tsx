@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Search, Info, ArrowLeft } from 'lucide-react';
+import { Search, Info, ArrowLeft, Filter } from 'lucide-react';
 import toast from 'react-hot-toast';
 import D3Heatmap, { Cell } from '../D3Heatmap';
 import { Input } from '../ui/input';
@@ -12,6 +12,7 @@ import {
 } from '../ui/select';
 import { Slider } from '../ui/slider';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 
 interface CorrelationRecord {
   nmr_trait: string;
@@ -432,20 +433,6 @@ const CorrelationPairs: React.FC = () => {
         <HeaderSection
           resp={resp}
           summaryCards={summaryCards}
-          platforms={platforms}
-          directionOptions={directionOptions}
-          filters={filters}
-          toggleFilter={toggleFilter}
-          direction={direction}
-          setDirection={setDirection}
-          platform={platform}
-          setPlatform={setPlatform}
-          minAbsCorrelation={minAbsCorrelation}
-          setMinAbsCorrelation={setMinAbsCorrelation}
-          maxAbsCorrelation={maxAbsCorrelation}
-          groupQuery={groupQuery}
-          setGroupQuery={setGroupQuery}
-          resetFilters={resetFilters}
         />
         <InfoMessage>No groups match the current filter settings.</InfoMessage>
       </div>
@@ -458,63 +445,153 @@ const CorrelationPairs: React.FC = () => {
         <HeaderSection
           resp={resp}
           summaryCards={summaryCards}
-          platforms={platforms}
-          directionOptions={directionOptions}
-          filters={filters}
-          toggleFilter={toggleFilter}
-          direction={direction}
-          setDirection={setDirection}
-          platform={platform}
-          setPlatform={setPlatform}
-          minAbsCorrelation={minAbsCorrelation}
-          setMinAbsCorrelation={setMinAbsCorrelation}
-          maxAbsCorrelation={maxAbsCorrelation}
-          groupQuery={groupQuery}
-          setGroupQuery={setGroupQuery}
-          resetFilters={resetFilters}
         />
 
-      <div className="bg-white shadow-lg rounded-xl overflow-hidden border border-gray-200">
-          <div className="p-4 bg-gray-50 border-b border-gray-200 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-             <div>
-              <h2 className="text-xl font-semibold text-gray-800">Group-level heatmap</h2>
-              <p className="text-sm text-gray-500">
-                Average correlations by NMR and LC-MS groups. Click a cell to explore individual trait pairs.
-              </p>
+      <Card className="shadow-lg border border-gray-200">
+        <CardHeader className="pb-3">
+          <CardTitle className="text-xl font-semibold text-gray-800">Group-level heatmap</CardTitle>
+          <p className="text-sm text-gray-500 mt-1">
+            Average correlations by NMR and LC-MS groups. Click a cell to explore individual trait pairs.
+          </p>
+        </CardHeader>
+        <CardContent className="p-4">
+          <div className="flex gap-6">
+            {/* Heatmap */}
+            <div className="flex-1 min-w-0">
+              <div className="mb-4">
+                <div className="relative w-full max-w-md">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                  <Input
+                    value={groupQuery}
+                    onChange={event => setGroupQuery(event.target.value)}
+                    placeholder="Search group names…"
+                    className="pl-10"
+                  />
+                </div>
+              </div>
+              <div
+                className="overflow-auto relative"
+                onMouseLeave={handleMouseOut}
+              >
+                {tooltipComponent}
+                {nmrGroups.length > 0 && lcmsGroups.length > 0 ? (
+                  <TooltipProvider delayDuration={150}>
+                     <D3Heatmap
+                        rows={nmrGroups.map(id => ({ id, label: id }))}
+                        columns={lcmsGroups.map(id => ({ id, label: id }))}
+                        data={groupData}
+                        onCellClick={(row, col) => setDrill({ nmrGroup: row.id, lcmsGroup: col.id })}
+                        onCellMouseOver={handleMouseOver}
+                        onCellMouseOut={handleMouseOut}
+                    />
+                  </TooltipProvider>
+                ) : (
+                  <InfoMessage>No groups match the current search.</InfoMessage>
+                )}
+              </div>
             </div>
-            <TooltipProvider delayDuration={150}>
-              <div className="relative w-full md:w-72">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                <Input
-                  value={groupQuery}
-                  onChange={event => setGroupQuery(event.target.value)}
-                  placeholder="Search group names…"
-                  className="pl-10"
-                />
+            
+            {/* Filters panel on the right */}
+            <div className="w-80 flex-shrink-0">
+              <Card className="shadow-sm border">
+                <CardHeader className="pb-2 flex items-center gap-2">
+                  <Filter className="w-5 h-5 text-slate-600" />
+                  <CardTitle className="text-sm font-semibold text-slate-700">Filters</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-5">
+                  <div className="space-y-4">
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-500 mb-2">
+                        Correlation direction
+                      </label>
+                      <Select value={direction} onValueChange={value => setDirection(value as DirectionFilter)}>
+                        <SelectTrigger className="h-10">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {directionOptions.map(option => (
+                            <SelectItem key={option.value} value={option.value}>
+                              {option.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-500 mb-2">Platform</label>
+                      <Select value={platform} onValueChange={value => setPlatform(value)}>
+                        <SelectTrigger className="h-10">
+                          <SelectValue placeholder="All platforms" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="all">All platforms</SelectItem>
+                          {platforms.map(item => (
+                            <SelectItem key={item} value={item}>
+                              {item}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <label className="block text-xs font-semibold text-slate-500">
+                          Minimum absolute correlation
+                        </label>
+                        <span className="text-xs text-gray-600 font-medium">
+                          |r| ≥ {minAbsCorrelation.toFixed(2)}
+                        </span>
+                      </div>
+                      <Slider
+                        min={0}
+                        max={maxAbsCorrelation}
+                        step={0.01}
+                        value={[minAbsCorrelation]}
+                        onValueChange={([value]) => setMinAbsCorrelation(value)}
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-500 mb-2">Significance filters</label>
+                      <div className="space-y-2">
+                        {FILTER_DEFINITIONS.map(definition => (
+                          <label
+                            key={definition.key}
+                            className="flex items-start gap-2 text-sm text-gray-700 cursor-pointer"
+                            title={definition.helper}
+                          >
+                            <input
+                              type="checkbox"
+                              checked={filters[definition.key]}
+                              onChange={() => toggleFilter(definition.key)}
+                              className="mt-1 h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+                            />
+                            <span>
+                              <span className="font-medium block">{definition.label}</span>
+                              <span className="text-xs text-gray-500">{definition.helper}</span>
+                            </span>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-2 border-t">
+                    <button
+                      onClick={resetFilters}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100 transition"
+                    >
+                      Reset filters
+                    </button>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
-            </TooltipProvider>
-        </div>
-          <div
-            className="overflow-auto p-4 relative"
-            onMouseLeave={handleMouseOut}
-          >
-            {tooltipComponent}
-            {nmrGroups.length > 0 && lcmsGroups.length > 0 ? (
-              <TooltipProvider delayDuration={150}>
-                 <D3Heatmap
-                    rows={nmrGroups.map(id => ({ id, label: id }))}
-                    columns={lcmsGroups.map(id => ({ id, label: id }))}
-                    data={groupData}
-                    onCellClick={(row, col) => setDrill({ nmrGroup: row.id, lcmsGroup: col.id })}
-                    onCellMouseOver={handleMouseOver}
-                    onCellMouseOut={handleMouseOut}
-                />
-              </TooltipProvider>
-            ) : (
-              <InfoMessage>No groups match the current search.</InfoMessage>
-            )}
           </div>
-        </div>
+        </CardContent>
+      </Card>
       </div>
     );
   }
@@ -526,64 +603,160 @@ const CorrelationPairs: React.FC = () => {
       <HeaderSection
         resp={resp}
         summaryCards={summaryCards}
-        platforms={platforms}
-        directionOptions={directionOptions}
-        filters={filters}
-        toggleFilter={toggleFilter}
-        direction={direction}
-        setDirection={setDirection}
-        platform={platform}
-        setPlatform={setPlatform}
-        minAbsCorrelation={minAbsCorrelation}
-        setMinAbsCorrelation={setMinAbsCorrelation}
-        maxAbsCorrelation={maxAbsCorrelation}
-        groupQuery={groupQuery}
-        setGroupQuery={setGroupQuery}
-        resetFilters={resetFilters}
       />
 
-    <div className="bg-white shadow-lg rounded-xl overflow-hidden border border-gray-200">
-        <div className="p-4 bg-gray-50 border-b border-gray-200 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-             <button
-                className="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold transition-colors"
+    <Card className="shadow-lg border border-gray-200">
+      <CardHeader className="pb-3">
+        <div className="flex items-center justify-between">
+          <div>
+            <CardTitle className="text-xl font-semibold text-gray-800">{nmrGroup}</CardTitle>
+            <p className="text-sm text-gray-500 mt-1">vs. {lcmsGroup}</p>
+          </div>
+          <button
+            className="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold transition-colors"
             onClick={() => setDrill(null)}
           >
             <ArrowLeft size={18} /> Back to group heatmap
-            </button>
-            <div className="text-center">
-            <h2 className="text-xl font-semibold text-gray-800">{nmrGroup}</h2>
-                 <p className="text-sm text-gray-500">vs. {lcmsGroup}</p>
-            </div>
-          <div className="relative w-full md:w-72">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-            <Input
-              value={traitSearch}
-              onChange={event => setTraitSearch(event.target.value)}
-              placeholder="Filter trait names…"
-              className="pl-10"
-                />
-            </div>
+          </button>
         </div>
-        <div
-          className="overflow-auto p-4 relative"
-          onMouseLeave={handleMouseOut}
-        >
-          {tooltipComponent}
-          {traitNMRs.length > 0 && traitLCMS.length > 0 ? (
-            <TooltipProvider delayDuration={150}>
-                 <D3Heatmap
-                    rows={traitNMRs.map(id => ({ id, label: id }))}
-                    columns={traitLCMS.map(id => ({ id, label: id }))}
-                    data={traitData}
-                    onCellMouseOver={handleMouseOver}
-                    onCellMouseOut={handleMouseOut}
+      </CardHeader>
+      <CardContent className="p-4">
+        <div className="flex gap-6">
+          {/* Heatmap */}
+          <div className="flex-1 min-w-0">
+            <div className="mb-4">
+              <div className="relative w-full max-w-md">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                <Input
+                  value={traitSearch}
+                  onChange={event => setTraitSearch(event.target.value)}
+                  placeholder="Filter trait names…"
+                  className="pl-10"
                 />
-            </TooltipProvider>
-          ) : (
-            <InfoMessage>No trait pairs match the current filters.</InfoMessage>
-          )}
+              </div>
+            </div>
+            <div
+              className="overflow-auto relative"
+              onMouseLeave={handleMouseOut}
+            >
+              {tooltipComponent}
+              {traitNMRs.length > 0 && traitLCMS.length > 0 ? (
+                <TooltipProvider delayDuration={150}>
+                   <D3Heatmap
+                      rows={traitNMRs.map(id => ({ id, label: id }))}
+                      columns={traitLCMS.map(id => ({ id, label: id }))}
+                      data={traitData}
+                      onCellMouseOver={handleMouseOver}
+                      onCellMouseOut={handleMouseOut}
+                  />
+                </TooltipProvider>
+              ) : (
+                <InfoMessage>No trait pairs match the current filters.</InfoMessage>
+              )}
+            </div>
+          </div>
+          
+          {/* Filters panel on the right */}
+          <div className="w-80 flex-shrink-0">
+            <Card className="shadow-sm border">
+              <CardHeader className="pb-2 flex items-center gap-2">
+                <Filter className="w-5 h-5 text-slate-600" />
+                <CardTitle className="text-sm font-semibold text-slate-700">Filters</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-5">
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-500 mb-2">
+                      Correlation direction
+                    </label>
+                    <Select value={direction} onValueChange={value => setDirection(value as DirectionFilter)}>
+                      <SelectTrigger className="h-10">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {directionOptions.map(option => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-500 mb-2">Platform</label>
+                    <Select value={platform} onValueChange={value => setPlatform(value)}>
+                      <SelectTrigger className="h-10">
+                        <SelectValue placeholder="All platforms" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">All platforms</SelectItem>
+                        {platforms.map(item => (
+                          <SelectItem key={item} value={item}>
+                            {item}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <label className="block text-xs font-semibold text-slate-500">
+                        Minimum absolute correlation
+                      </label>
+                      <span className="text-xs text-gray-600 font-medium">
+                        |r| ≥ {minAbsCorrelation.toFixed(2)}
+                      </span>
+                    </div>
+                    <Slider
+                      min={0}
+                      max={maxAbsCorrelation}
+                      step={0.01}
+                      value={[minAbsCorrelation]}
+                      onValueChange={([value]) => setMinAbsCorrelation(value)}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-500 mb-2">Significance filters</label>
+                    <div className="space-y-2">
+                      {FILTER_DEFINITIONS.map(definition => (
+                        <label
+                          key={definition.key}
+                          className="flex items-start gap-2 text-sm text-gray-700 cursor-pointer"
+                          title={definition.helper}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={filters[definition.key]}
+                            onChange={() => toggleFilter(definition.key)}
+                            className="mt-1 h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+                          />
+                          <span>
+                            <span className="font-medium block">{definition.label}</span>
+                            <span className="text-xs text-gray-500">{definition.helper}</span>
+                          </span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t">
+                  <button
+                    onClick={resetFilters}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100 transition"
+                  >
+                    Reset filters
+                  </button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-      </div>
+      </CardContent>
+    </Card>
     </div>
   );
 };
@@ -591,37 +764,11 @@ const CorrelationPairs: React.FC = () => {
 interface HeaderSectionProps {
   resp: CorrelationResponse;
   summaryCards: { label: string; value: number; helper: string }[];
-  platforms: string[];
-  directionOptions: { value: DirectionFilter; label: string }[];
-  filters: FiltersState;
-  toggleFilter: (key: FilterKey) => void;
-  direction: DirectionFilter;
-  setDirection: (value: DirectionFilter) => void;
-  platform: string;
-  setPlatform: (value: string) => void;
-  minAbsCorrelation: number;
-  setMinAbsCorrelation: (value: number) => void;
-  maxAbsCorrelation: number;
-  groupQuery: string;
-  setGroupQuery: (value: string) => void;
-  resetFilters: () => void;
 }
 
 const HeaderSection: React.FC<HeaderSectionProps> = ({
   resp,
-  summaryCards,
-  platforms,
-  directionOptions,
-  filters,
-  toggleFilter,
-  direction,
-  setDirection,
-  platform,
-  setPlatform,
-  minAbsCorrelation,
-  setMinAbsCorrelation,
-  maxAbsCorrelation,
-  resetFilters
+  summaryCards
 }) => {
   return (
     <div className="bg-white shadow rounded-xl border border-gray-200 p-6 space-y-6">
@@ -629,14 +776,6 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({
         <div>
           <h1 className="text-3xl font-bold text-gray-800">{resp.title}</h1>
           <p className="text-gray-600 mt-1">{resp.description}</p>
-        </div>
-        <div className="flex flex-col sm:flex-row gap-3">
-          <button
-            onClick={resetFilters}
-            className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100 transition"
-          >
-            Reset filters
-          </button>
         </div>
       </div>
 
@@ -656,85 +795,6 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({
           ))}
         </div>
       )}
-
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        <div className="space-y-1">
-          <label className="text-sm font-medium text-gray-700">
-            Correlation direction
-          </label>
-          <Select value={direction} onValueChange={value => setDirection(value as DirectionFilter)}>
-            <SelectTrigger className="h-10">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {directionOptions.map(option => (
-                <SelectItem key={option.value} value={option.value}>
-                  {option.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-
-        <div className="space-y-1">
-          <label className="text-sm font-medium text-gray-700">Platform</label>
-          <Select value={platform} onValueChange={value => setPlatform(value)}>
-            <SelectTrigger className="h-10">
-              <SelectValue placeholder="All platforms" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All platforms</SelectItem>
-              {platforms.map(item => (
-                <SelectItem key={item} value={item}>
-                  {item}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-
-        <div className="space-y-2 md:col-span-2">
-          <div className="flex items-center justify-between">
-            <label className="text-sm font-medium text-gray-700">
-              Minimum absolute correlation
-            </label>
-            <span className="text-sm text-gray-600 font-medium">
-              |r| ≥ {minAbsCorrelation.toFixed(2)}
-            </span>
-          </div>
-          <Slider
-            min={0}
-            max={maxAbsCorrelation}
-            step={0.01}
-            value={[minAbsCorrelation]}
-            onValueChange={([value]) => setMinAbsCorrelation(value)}
-          />
-        </div>
-      </div>
-
-      <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-        <p className="text-sm font-semibold text-gray-700">Significance filters</p>
-        <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {FILTER_DEFINITIONS.map(definition => (
-            <label
-              key={definition.key}
-              className="flex items-start gap-2 text-sm text-gray-700"
-              title={definition.helper}
-            >
-              <input
-                type="checkbox"
-                checked={filters[definition.key]}
-                onChange={() => toggleFilter(definition.key)}
-                className="mt-1 h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
-              />
-              <span>
-                <span className="font-medium block">{definition.label}</span>
-                <span className="text-xs text-gray-500">{definition.helper}</span>
-              </span>
-            </label>
-          ))}
-        </div>
-      </div>
 
       <div className="bg-blue-50 border border-blue-200 text-blue-900 rounded-lg p-4 flex gap-3">
         <Info className="w-5 h-5 mt-1 shrink-0" />
