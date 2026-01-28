@@ -34,7 +34,6 @@ const RegulatoryChessboard: React.FC<RegulatoryChessboardProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [orderType, setOrderType] = useState<OrderType>('name');
-  const [zoomLevel, setZoomLevel] = useState(1);
   const gRef = useRef<d3.Selection<SVGGElement, unknown, null, undefined> | null>(null);
 
   // Filter data by GIM context
@@ -569,7 +568,7 @@ const RegulatoryChessboard: React.FC<RegulatoryChessboardProps> = ({
     return () => {
       tooltip.remove();
     };
-  }, [filteredData, regions, traits, onCellClick, orderType, zoomLevel]);
+  }, [filteredData, regions, traits, onCellClick, orderType]);
 
   // Separate effect to update selection highlights without triggering full re-render
   useEffect(() => {
@@ -601,7 +600,7 @@ const RegulatoryChessboard: React.FC<RegulatoryChessboardProps> = ({
       
       <div ref={containerRef} className="w-full overflow-auto flex justify-center">
         <div className="relative inline-block" style={{ minWidth: '100%' }}>
-          {/* Fixed position controls - top left for Order, top right for Zoom */}
+          {/* Fixed position controls - top left for Order */}
           <div className="absolute top-2 left-2 flex gap-2 bg-white/95 backdrop-blur-sm rounded-lg p-2 shadow-lg border border-slate-300 z-10">
             <label className="text-xs font-semibold text-slate-700 flex items-center">Order:</label>
             <select
@@ -618,25 +617,6 @@ const RegulatoryChessboard: React.FC<RegulatoryChessboardProps> = ({
             </select>
           </div>
           <svg ref={svgRef} style={{ display: 'block', margin: '0 auto' }} />
-          <div className="absolute top-2 right-2 flex gap-2 bg-white/95 backdrop-blur-sm rounded-lg p-2 shadow-lg border border-slate-300 z-10">
-            <button
-              onClick={() => setZoomLevel(prev => Math.max(0.5, prev - 0.2))}
-              className="px-3 py-1.5 text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded border border-slate-300 transition-colors min-w-[36px]"
-              title="Zoom out"
-            >
-              −
-            </button>
-            <span className="px-3 py-1.5 text-sm font-semibold text-slate-700 min-w-[50px] text-center">
-              {Math.round(zoomLevel * 100)}%
-            </span>
-            <button
-              onClick={() => setZoomLevel(prev => Math.min(3, prev + 0.2))}
-              className="px-3 py-1.5 text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded border border-slate-300 transition-colors min-w-[36px]"
-              title="Zoom in"
-            >
-              +
-            </button>
-          </div>
         </div>
       </div>
     </div>
