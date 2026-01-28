@@ -41,8 +41,9 @@ const D3Heatmap: React.FC<D3HeatmapProps> = ({
     // --- SETUP ---
     // Increased margins to prevent label cutoff
     const margin = { top: 250, right: 10, bottom: 10, left: 250 };
-    const width = columns.length * 30;
-    const height = rows.length * 30;
+    const cellSize = 20; // Reduced from 30 to make cells smaller
+    const width = columns.length * cellSize;
+    const height = rows.length * cellSize;
 
     const svg = d3.select(svgRef.current)
       .attr('width', width + margin.left + margin.right)

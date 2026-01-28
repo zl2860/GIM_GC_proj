@@ -455,11 +455,11 @@ const CorrelationPairs: React.FC = () => {
           </p>
         </CardHeader>
         <CardContent className="p-4">
-          <div className="flex gap-6">
+          <div className="flex gap-6 items-start justify-center">
             {/* Heatmap */}
-            <div className="flex-1 min-w-0">
-              <div className="mb-4">
-                <div className="relative w-full max-w-md">
+            <div className="flex-1 min-w-0 flex flex-col items-center">
+              <div className="mb-4 w-full max-w-md">
+                <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                   <Input
                     value={groupQuery}
@@ -470,7 +470,7 @@ const CorrelationPairs: React.FC = () => {
                 </div>
               </div>
               <div
-                className="overflow-auto relative"
+                className="overflow-auto relative w-full flex justify-center"
                 onMouseLeave={handleMouseOut}
               >
                 {tooltipComponent}
@@ -621,11 +621,11 @@ const CorrelationPairs: React.FC = () => {
         </div>
       </CardHeader>
       <CardContent className="p-4">
-        <div className="flex gap-6">
+        <div className="flex gap-6 items-start justify-center">
           {/* Heatmap */}
-          <div className="flex-1 min-w-0">
-            <div className="mb-4">
-              <div className="relative w-full max-w-md">
+          <div className="flex-1 min-w-0 flex flex-col items-center">
+            <div className="mb-4 w-full max-w-md">
+              <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                 <Input
                   value={traitSearch}
@@ -636,7 +636,7 @@ const CorrelationPairs: React.FC = () => {
               </div>
             </div>
             <div
-              className="overflow-auto relative"
+              className="overflow-auto relative w-full flex justify-center"
               onMouseLeave={handleMouseOut}
             >
               {tooltipComponent}
