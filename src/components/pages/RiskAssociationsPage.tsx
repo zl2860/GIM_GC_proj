@@ -172,28 +172,28 @@ type Filters = {
 const FILTER_DEFINITIONS: { key: keyof Filters; label: string; helper?: string }[] = [
   {
     key: 'measuredSignificant',
-    label: 'Measured significant',
-    helper: 'FDR-q < 0.05 in UKBB measured levels'
+    label: 'Significantly associated with GC (measured levels, UKBB)',
+    helper: 'Keep only traits with FDR q < 0.05 for directly measured levels in UKBB'
   },
   {
     key: 'predictedSignificant',
-    label: 'Predicted significant',
-    helper: 'P < 0.05 for genetically predicted levels in UKBB'
+    label: 'Significantly associated with GC (genetically predicted, UKBB)',
+    helper: 'Keep only traits with P < 0.05 for genetically predicted levels in UKBB'
   },
   {
     key: 'consistentDirection',
-    label: 'Same direction (UKBB)',
-    helper: 'Measured and predicted effects align in direction in the UKBB Discovery cohort'
+    label: 'Measured and predicted in same direction (UKBB)',
+    helper: 'Keep only traits where measured and predicted effects point the same way in the UKBB Discovery cohort'
   },
   {
     key: 'highlightUkbbOnly',
-    label: 'Highlighted (UKBB)',
-    helper: 'Traits highlighted as consistent and significant in UKBB Discovery cohort'
+    label: 'Significant in both measured and predicted (UKBB)',
+    helper: 'Keep only traits that are significant in both levels in UKBB with same direction'
   },
   {
     key: 'highlightMultiOnly',
-    label: 'Highlighted (≥3 cohorts)',
-    helper: 'Traits highlighted with consistent direction across ≥3 cohorts'
+    label: 'Consistent direction in ≥3 cohorts',
+    helper: 'Keep only traits whose genetically predicted effect direction is consistent across ≥3 cohorts'
   }
 ];
 
@@ -323,9 +323,9 @@ export default function RiskAssociationsPage() {
     const multiHighlight = resp.summary?.highlighted_multicohort_count ?? 0;
 
     return [
-      `Relative-risk estimates are shown for ${traitCount.toLocaleString()} metabolomic traits, pairing directly measured levels in the UKBB Disocvery Cohort with CSL-predicted trait values evaluated across the SIT, MITS, and UGCED cohorts.`,
-      `Each cohort column reports log-relative risk (and the exponentiated value when selected) from cohort-specific regression models. The direction string summarises whether genetically predicted levels increase (+) or decrease (–) risk across cohorts, and highlight badges mark traits that align in UKBB or replicate in at least three cohorts (${multiHighlight.toLocaleString()} traits currently).`,
-      `Use the filters to focus on the ${measuredSig.toLocaleString()} traits significant in measured data, the ${predictedSig.toLocaleString()} significant in predicted levels, or the overlap where both signals agree; column filters and cohort selectors help you drill into specific populations or model outputs.`
+      `Relative-risk (RR) estimates are shown for ${traitCount.toLocaleString()} metabolomic traits. Directly measured levels are from the UKBB Discovery cohort (¹H-NMR metabolomics); genetically predicted levels are from CSL models and were evaluated in the SIT, MITS, and UGCED cohorts.`,
+      `Each cohort column reports log-relative risk (log-RR) or RR from cohort-specific regression models. Association directions indicate whether genetically predicted levels are positively (+) or inversely (–) associated with GC risk. Highlighted traits are those significant in both measured and predicted levels in UKBB and/or with consistent direction in ≥3 cohorts (${multiHighlight.toLocaleString()} traits).`,
+      `Use the filters to restrict to traits significant in directly measured levels (${measuredSig.toLocaleString()} traits, FDR q < 5% in UKBB), in genetically predicted levels (${predictedSig.toLocaleString()} traits, P < 0.05 in UKBB), or to the overlap where both agree; column filters and cohort toggles refine the view.`
     ];
   }, [resp]);
 
@@ -334,34 +334,34 @@ export default function RiskAssociationsPage() {
     const s = resp.summary;
     return [
       {
-        label: 'Total traits',
+        label: 'Metabolomic traits assessed',
         value: s.trait_count,
-        helper: 'NMR metabolomic traits evaluated across cohorts'
+        helper: 'Number of NMR metabolomic traits with relative-risk estimates in this table'
       },
       {
-        label: 'Measured significant',
+        label: 'Significantly associated with GC (measured levels, UKBB)',
         value: s.significant_measured_count,
-        helper: 'Traits significantly associated with GC in measured levels in the UKBB Discovery cohort'
+        helper: 'Traits whose directly measured levels are significantly associated with gastric cancer incidence in the UKBB Discovery cohort (FDR q < 0.05)'
       },
       {
-        label: 'Predicted significant',
+        label: 'Significantly associated with GC (genetically predicted, UKBB)',
         value: s.significant_predicted_count,
-        helper: 'Traits significantly associated with GC in genetically predicted levels in the UKBB Discovery cohort'
+        helper: 'Traits whose genetically predicted levels are significantly associated with gastric cancer incidence in the UKBB Discovery cohort (P < 0.05)'
       },
       {
-        label: 'Same direction (UKBB)',
+        label: 'Measured and predicted effects in same direction (UKBB)',
         value: s.consistent_direction_count,
-        helper: 'Traits where measured and predicted effects align in direction in the UKBB Discovery cohort'
+        helper: 'Traits for which directly measured and genetically predicted associations with GC point the same way (higher or lower risk) in the UKBB Discovery cohort'
       },
       {
-        label: 'Highlighted (UKBB)',
+        label: 'Significant in both measured and predicted levels (UKBB)',
         value: s.highlighted_in_ukbb_count,
-        helper: 'Traits highlighted as consistent and significant in UKBB Discovery cohort (measured and predicted levels both significant and in same direction)'
+        helper: 'Traits that are significant in both directly measured and genetically predicted levels in UKBB, with both effects in the same direction'
       },
       {
-        label: 'Highlighted (≥3 cohorts)',
+        label: 'Consistent effect direction in ≥3 cohorts',
         value: s.highlighted_multicohort_count,
-        helper: 'Traits highlighted with consistent effect direction across ≥3 cohorts (using genetically predicted levels)'
+        helper: 'Traits significant in UKBB (measured and predicted) whose genetically predicted effect direction is consistent across at least three independent cohorts (UKBB, SIT, MITS, UGCED)'
       }
     ];
   }, [resp]);
@@ -656,7 +656,7 @@ export default function RiskAssociationsPage() {
           <Info className="w-5 h-5 mt-1 shrink-0" />
         <div>
             <h2 className="text-sm font-semibold uppercase tracking-wide">
-              About the comparison for the relative risks across multiple cohorts
+              Relative risks of gastric cancer for directly measured and genetically predicted metabolomic traits across cohorts
             </h2>
             {notesParagraphs.map((paragraph, idx) => (
               <p key={idx} className="text-sm leading-6 mt-1">

@@ -226,7 +226,7 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
 
         const logP = d.data.P_value === 0 ? significantMax : -Math.log10(d.data.P_value);
         const tooltipContent = `
-          <strong>${d.data.gene} ↔ ${d.data.Metabolite}</strong><br/>
+          <strong>${d.data.gene} → ${d.data.Metabolite}</strong><br/>
           <strong>Functional Type:</strong> ${d.data['value.update'] || 'Unknown'}<br/>
           <strong>P-value:</strong> ${d.data.P_value.toExponential(2)}<br/>
           <strong>-log10(P):</strong> ${logP.toFixed(2)}<br/>
@@ -277,7 +277,7 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
       .attr('dominant-baseline', 'central')
       .style('font-size', '14px')
       .style('font-weight', 'bold')
-      .style('fill', 'white')
+      .style('fill', 'black')
       .style('pointer-events', 'none')
       .text('*');
 
@@ -379,7 +379,7 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
       .style('text-anchor', 'middle')
       .style('font-size', '14px')
       .style('font-weight', 'bold')
-      .text('Metabolic Traits');
+      .text('Metabolomic Traits');
 
     // Add title
     g.append('text')
@@ -387,7 +387,7 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
       .style('text-anchor', 'middle')
       .style('font-size', '16px')
       .style('font-weight', 'bold')
-      .text('Gene-Metabolic Trait Associations (GC GIMs)');
+      .text('The GIM for GC');
 
     // Add legend
     const legendData = Object.entries(functionalTypeColors);
@@ -430,7 +430,7 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
           .attr('text-anchor', 'middle')
           .style('font-size', '12px')
           .style('font-weight', 'bold')
-          .style('fill', 'white')
+          .style('fill', 'black')
           .text('*');
           
         g.append('text')

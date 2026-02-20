@@ -87,15 +87,40 @@ const FILTER_DEFINITIONS: { key: FilterKey; label: string; helper: string }[] = 
   },
   {
     key: 'gcAssociated',
-    label: 'LC-MS linked to GC',
+    label: 'Metabolite associated with GC',
     helper: 'LC-MS detected metabolites associated with GC (P-value < 0.05)'
   },
   {
     key: 'hginAssociated',
-    label: 'LC-MS linked to GC/HGIN',
+    label: 'Metabolite associated with GC or HGIN',
     helper: 'LC-MS detected metabolites associated with GC or HGIN (P-value < 0.05)'
   }
 ];
+
+/** LC-MS metabolite class abbreviations (lipid and other classes) for consistent display and tooltips */
+const LCMS_CLASS_FULL_NAMES: Record<string, string> = {
+  'FFA': 'Free fatty acids',
+  'GM3': 'Monosialodihexosylganglioside (ganglioside GM3)',
+  'LBPA': 'Bis(monoacylglycero)phosphate',
+  'LPA': 'Lysophosphatidic acid',
+  'LPC': 'Lysophosphatidylcholine',
+  'LPI': 'Lysophosphatidylinositol',
+  'PC': 'Phosphatidylcholine',
+  'PE': 'Phosphatidylethanolamine',
+  'PG': 'Phosphatidylglycerol',
+  'PI': 'Phosphatidylinositol',
+  'PS': 'Phosphatidylserine',
+  'SM': 'Sphingomyelin',
+  'TAG': 'Triacylglycerol (also known as triglyceride)'
+};
+
+/** Format LC-MS group label for display: show "Abbreviation (full name)" when abbreviation is known */
+function formatLcmsGroupLabel(raw: string): string {
+  const base = raw.replace(/\s*\(LC-MS\)\s*$/, '').trim();
+  const full = LCMS_CLASS_FULL_NAMES[base];
+  if (full) return `${base} (${full})`;
+  return raw;
+}
 
 const LoadingSpinner: React.FC = () => (
   <div className="flex items-center justify-center h-full p-8">
@@ -196,9 +221,9 @@ const CorrelationPairs: React.FC = () => {
         helper: 'Pairs with adjusted P-value<0.05'
       },
       {
-        label: 'LC-MS detected metabolites linked to GC/HGIN',
+        label: 'Correlation pairs with LC-MS metabolites linked to GC/HGIN',
         value: s.hgin_associated_lcms_traits,
-        helper: 'correlation pairs related to the metabolites involved association with GC/HGIN risk'
+        helper: 'Number of correlation pairs in which the LC-MS detected metabolite is associated with GC or HGIN (P-value < 0.05)'
       }
     ];
   }, [resp]);
@@ -344,7 +369,7 @@ const CorrelationPairs: React.FC = () => {
     const content = (
         <div className="space-y-1">
           <div className="font-semibold text-sm">
-            {cell.rowId} vs. {cell.colId}
+            {cell.rowId} vs. {formatLcmsGroupLabel(cell.colId)}
           </div>
           <div>Average correlation: {cell.value.toFixed(3)}</div>
           {stats && (
@@ -392,10 +417,10 @@ const CorrelationPairs: React.FC = () => {
           </div>
         )}
         {record.lcms_associated_gc && (
-          <div className="text-emerald-500">LC-MS trait associated with GC</div>
+          <div className="text-emerald-500">LC-MS detected metabolite (linked to GC)</div>
         )}
         {record.lcms_associated_hgin && (
-          <div className="text-sky-500">LC-MS trait associated with GC/HGIN</div>
+          <div className="text-sky-500">LC-MS detected metabolite (linked to GC/HGIN)</div>
         )}
         {record.passes_bonferroni && (
           <div className="text-rose-500">Bonferroni significant</div>
@@ -453,6 +478,14 @@ const CorrelationPairs: React.FC = () => {
           <p className="text-sm text-gray-500 mt-1">
             Average correlations by NMR and LC-MS groups. Click a cell to explore individual trait pairs.
           </p>
+          <div className="mt-3 pt-3 border-t border-gray-200">
+            <p className="text-xs font-semibold text-gray-600 mb-2">LC-MS metabolite class abbreviations</p>
+            <ul className="text-xs text-gray-600 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-1 list-none pl-0">
+              {Object.entries(LCMS_CLASS_FULL_NAMES).map(([abbr, full]) => (
+                <li key={abbr}><span className="font-medium text-gray-700">{abbr}</span> = {full}</li>
+              ))}
+            </ul>
+          </div>
         </CardHeader>
         <CardContent className="p-4">
           <div className="flex gap-6 items-start justify-center">
@@ -478,7 +511,7 @@ const CorrelationPairs: React.FC = () => {
                   <TooltipProvider delayDuration={150}>
                      <D3Heatmap
                         rows={nmrGroups.map(id => ({ id, label: id }))}
-                        columns={lcmsGroups.map(id => ({ id, label: id }))}
+                        columns={lcmsGroups.map(id => ({ id, label: formatLcmsGroupLabel(id) }))}
                         data={groupData}
                         onCellClick={(row, col) => setDrill({ nmrGroup: row.id, lcmsGroup: col.id })}
                         onCellMouseOver={handleMouseOver}
@@ -610,7 +643,7 @@ const CorrelationPairs: React.FC = () => {
         <div className="flex items-center justify-between">
           <div>
             <CardTitle className="text-xl font-semibold text-gray-800">{nmrGroup}</CardTitle>
-            <p className="text-sm text-gray-500 mt-1">vs. {lcmsGroup}</p>
+            <p className="text-sm text-gray-500 mt-1">vs. {formatLcmsGroupLabel(lcmsGroup)}</p>
           </div>
           <button
             className="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold transition-colors"

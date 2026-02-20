@@ -29,7 +29,7 @@ const HomePage: React.FC = () => {
             <div className="flex items-start gap-3">
               <Microscope className="h-10 w-10 text-white/80" />
               <h1 className="text-xl sm:text-2xl font-semibold leading-snug text-balance">
-                Genetically determined metabolomic individuality reveals impacts of germline variations on gastric cancer susceptibility and informs precision prevention
+                Genetically determined metabolic individuality reveals the effects of germline variations on gastric cancer susceptibility and informs precision prevention
               </h1>
             </div>
             <div className="space-y-2 text-sm sm:text-[0.95rem] leading-relaxed text-pretty">
@@ -41,10 +41,10 @@ const HomePage: React.FC = () => {
               </p>
               <div className="grid gap-1 text-xs text-white/70 sm:grid-cols-2 md:grid-cols-3">
                 <span>1&nbsp;State Key Laboratory of Holistic Integrative Management of Gastrointestinal Cancers, Department of Cancer Epidemiology, Peking University Cancer Hospital &amp; Institute, Beijing 100142, China</span>
-                <span>2&nbsp;Department of Computer Science and Technology, Tsinghua University, Beijing 100084, China</span>
-                <span>3&nbsp;Key Laboratory of Carcinogenesis and Translational Research (Ministry of Education/Beijing), Division of Gastrointestinal Cancer Translational Research Laboratory, Peking University Cancer Hospital &amp; Institute, Beijing 100142, China</span>
-                <span>4&nbsp;Key Laboratory of Carcinogenesis and Translational Research (Ministry of Education/Beijing), Department of Cancer Epidemiology, Peking University Cancer Hospital &amp; Institute, Beijing 100142, China</span>
-                <span>5&nbsp;State Key Laboratory of Holistic Integrative Management of Gastrointestinal Cancers, Peking University Cancer Hospital &amp; Institute, Beijing 100142, China</span>
+                <span>2&nbsp;Department of Computer Science and Technology, Tsinghua University, Beijing, 100084, China</span>
+                <span>3&nbsp;Key Laboratory of Carcinogenesis and Translational Research (Ministry of Education/Beijing), Division of Gastrointestinal Cancer Translational Research Laboratory, Peking University Cancer Hospital &amp; Institute, Beijing, 100142, People&apos;s Republic of China</span>
+                <span>4&nbsp;Key Laboratory of Carcinogenesis and Translational Research (Ministry of Education/Beijing), Department of Cancer Epidemiology, Peking University Cancer Hospital and Institute, Haidian District, Beijing 100142, China</span>
+                <span>5&nbsp;State Key Laboratory of Holistic Integrative Management of Gastrointestinal Cancers, Beijing Key Laboratory of Carcinogenesis and Translational Research, Peking University Cancer Hospital &amp; Institute, Beijing 100142, China</span>
               </div>
             </div>
           </div>
@@ -90,7 +90,7 @@ const HomePage: React.FC = () => {
             <ul className="space-y-2 text-gray-300 text-pretty">
               <li className="flex items-start space-x-2">
                 <Target className="w-4 h-4 text-cyan-400 mt-1 flex-shrink-0" />
-                <span>Explore putative causal gene loci influencing metabolomic profiles related to gastric cancer</span>
+                <span>Identify putative causal genomic loci linked to metabolomic traits and gastric cancer risk</span>
               </li>
               <li className="flex items-start space-x-2">
                 <Target className="w-4 h-4 text-cyan-400 mt-1 flex-shrink-0" />
@@ -98,7 +98,7 @@ const HomePage: React.FC = () => {
               </li>
               <li className="flex items-start space-x-2">
                 <Target className="w-4 h-4 text-cyan-400 mt-1 flex-shrink-0" />
-                <span>Explore GIMs for gastric carcinogenesis</span>
+                <span>Characterize GIM landscapes for gastric cancer and gastric lesion progression</span>
               </li>
             </ul>
           </div>
@@ -111,11 +111,11 @@ const HomePage: React.FC = () => {
               </li>
               <li className="flex items-start space-x-2">
                 <Microscope className="w-4 h-4 text-cyan-400 mt-1 flex-shrink-0" />
-                <span>We introduced the Causal Stable Learning (CSL) approach to prioritize putative causal gene loci for metabolomic traits</span>
+                <span>We used the causal stable learning (CSL) framework to derive genetically predicted metabolomic profiles and prioritize putative causal loci</span>
               </li>
               <li className="flex items-start space-x-2">
                 <Microscope className="w-4 h-4 text-cyan-400 mt-1 flex-shrink-0" />
-                <span>We performed external validations across multiple cohorts, including UKBB, SIT, MITS, and UGCED cohorts</span>
+                <span>Findings were evaluated in independent cohorts: UKBB Discovery and Test, UGCED, SIT, and MITS</span>
               </li>
             </ul>
           </div>
@@ -132,13 +132,13 @@ const HomePage: React.FC = () => {
             <h3 className="text-lg font-semibold text-white">Risk Estimates</h3>
           </div>
           <p className="text-gray-300 text-sm sm:text-base text-pretty mb-4 flex-1">
-            Examine associations of genetically predicted traits with gastric cancer risk across multiple cohorts.
+            Relative risks of gastric cancer for directly measured and genetically predicted metabolomic traits across UKBB, SIT, MITS, and UGCED.
           </p>
           <Link
             to="/risk-associations"
             className="text-red-400 hover:text-red-300 text-sm font-medium flex items-center space-x-1"
           >
-            <span>Explore Heatmap</span>
+            <span>View risk estimates</span>
             <ExternalLink className="w-4 h-4" />
           </Link>
         </div>
@@ -151,7 +151,7 @@ const HomePage: React.FC = () => {
             <h3 className="text-lg font-semibold text-white">GGM network</h3>
           </div>
           <p className="text-gray-300 text-sm sm:text-base text-pretty mb-4 flex-1">
-            Check partial correlations estimated using Gaussian Graph Model among the the traits in the GIMs.
+            Check partial correlations among the traits in the GIMs (Gaussian graphical model).
           </p>
           <Link
             to="/gene-metabolite"
@@ -189,7 +189,7 @@ const HomePage: React.FC = () => {
             <h3 className="text-lg font-semibold text-white">Regulatory Effects</h3>
           </div>
           <p className="text-gray-300 text-sm sm:text-base text-pretty mb-4 flex-1">
-            Check multi-ancestry regulatory effects of the regulatory paris in the GIMs.
+            Check multi-ancestry regulatory effects of the locus–trait pairs in the GIMs.
           </p>
           <Link
             to="/regulatory-effects"
@@ -208,7 +208,7 @@ const HomePage: React.FC = () => {
             <h3 className="text-lg font-semibold text-white">Model Assessment</h3>
           </div>
           <p className="text-gray-300 text-sm sm:text-base text-pretty mb-4 flex-1">
-            Comprehensive evaluation of model performance and validation across different assessment centers in UKBB and ancestris.
+            CSL model performance (Pearson’s r between predicted and actual trait levels) by UKBB assessment center and ancestry.
           </p>
           <Link
             to="/model-assessment"
@@ -265,7 +265,7 @@ const HomePage: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold text-white mb-3">About the project</h3>
             <p className="text-gray-300 text-pretty mb-4">
-              This research was conducted by an multi-disciplinary team of researchers specializing in 
+              This research was conducted by a multidisciplinary team of researchers specializing in 
               genetic epidemiology, artificial intelligence, and gastric cancer research.
             </p>
             <p className="text-sm text-gray-400">
@@ -297,7 +297,7 @@ const HomePage: React.FC = () => {
           This platform provides an interactive interface to explore part of the key supplementary data for the submitted research paper: 
           <br />
           <span className="font-medium text-white">
-            "Genetically determined metabolomic individuality reveals impacts of germline variations on gastric cancer susceptibility and informs precision prevention"
+            "Genetically determined metabolic individuality reveals the effects of germline variations on gastric cancer susceptibility and informs precision prevention"
           </span>
         </p>
         <p className="text-gray-400 text-sm mt-2">

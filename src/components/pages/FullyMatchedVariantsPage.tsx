@@ -549,7 +549,7 @@ export default function FullyMatchedVariantsPage() {
                   .filter(detail => detail && detail.trim().length > 0)
                   .length > 0 && (
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Published study excerpts</h4>
+                    <h4 className="text-sm font-medium mb-2">Previously reported studies</h4>
                     <div className="space-y-3 text-sm text-gray-700">
                       {[selected.studyDetail1, selected.studyDetail2, selected.studyDetail3, selected.studyDetail4]
                         .filter(detail => detail && detail.trim().length > 0)

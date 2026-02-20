@@ -202,7 +202,7 @@ const LesionProgressionPage: React.FC = () => {
             Co-regulatory Genetic Effects of the GIM for Gastric Lesion Progression
           </h1>
           <p className="text-gray-600">
-              The interactive heatmap shows gene-metabolic trait associations for {filteredAndSortedData.filter(item => item.is_causal === true).length} putative causal relationships
+              The interactive heatmap shows gene–metabolomic trait associations for {filteredAndSortedData.filter(item => item.is_causal === true).length} putative causal relationships
             from {uniqueGenes.length} genes and {data.data.length} total associations
           </p>
         </div>
@@ -290,9 +290,9 @@ const LesionProgressionPage: React.FC = () => {
         <div className="lg:col-span-2">
           <div className="bg-white rounded-lg shadow-lg p-6">
             <div className="mb-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Effect Estimates Comparison Plot</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">The GIM for the progression of gastric lesions</h3>
               <p className="text-gray-600 text-sm">
-                Interactive heatmap showing gene-metabolic trait associations. Putative causal relationships marked with "*" in the cells.
+                Interactive heatmap showing gene–metabolomic trait associations. Putative causal relationships are indicated by red borders and a red dot on the cells.
                 Color intensity represents association strength.
               </p>
             </div>

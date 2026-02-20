@@ -328,15 +328,13 @@ const ModelAssessmentPage: React.FC = () => {
   return (
     <div className="p-6 max-w-full mx-auto space-y-6">
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-          <div>
+          <div className="min-w-0 flex-1">
           <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-2">
               <Building className="w-8 h-8 text-orange-600" />
-            <span>CSL Model Performance in the UKBB Discovery Cohort</span>
+            <span>CSL Model Performance</span>
             </h1>
-          <p className="text-gray-600 mt-2 max-w-3xl">
-            The CSL predictions were evaluated for each specific trait by assessment centers and ancestries in UKBB Discovery Cohort.
-            Use the focus selectors to highlight a specific assessment center or reported
-            ancestry and obtain summaries for the filtered trait set.
+          <p className="text-gray-600 mt-2">
+            The causal stable learning (CSL) predictions were evaluated for each specific trait by assessment centers and ancestries in UKBB Discovery Cohort. Use the selectors to highlight a specific assessment center or reported ancestry and obtain summaries for the filtered trait set.
           </p>
           </div>
         </div>
@@ -344,7 +342,7 @@ const ModelAssessmentPage: React.FC = () => {
       <div className="bg-white rounded-lg shadow-sm p-5 space-y-4">
         <div className="flex flex-wrap items-center gap-2">
             <Filter className="w-5 h-5 text-gray-600" />
-          <h3 className="font-semibold text-gray-900">Filter and focus controls</h3>
+          <h3 className="font-semibold text-gray-900">Filter and view controls</h3>
           </div>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
           <div className="lg:col-span-2">
@@ -360,7 +358,7 @@ const ModelAssessmentPage: React.FC = () => {
               </div>
             </div>
             <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Focus center</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Center</label>
             <Select value={focusCenter} onValueChange={value => setFocusCenter(value)}>
                 <SelectTrigger>
                   <SelectValue placeholder="All centers" />
@@ -376,7 +374,7 @@ const ModelAssessmentPage: React.FC = () => {
               </Select>
             </div>
             <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Focus ancestry</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Ancestry</label>
             <Select value={focusAncestry} onValueChange={value => setFocusAncestry(value)}>
               <SelectTrigger>
                 <SelectValue placeholder="All ancestries" />
@@ -402,8 +400,8 @@ const ModelAssessmentPage: React.FC = () => {
                 <SelectItem value="centerBest">Best center value</SelectItem>
                 <SelectItem value="centerWorst">Lowest center value</SelectItem>
                 <SelectItem value="ancestryAverage">Ancestry average</SelectItem>
-                <SelectItem value="focusCenter">Focused center value</SelectItem>
-                <SelectItem value="focusAncestry">Focused ancestry value</SelectItem>
+                <SelectItem value="focusCenter">Selected center value</SelectItem>
+                <SelectItem value="focusAncestry">Selected ancestry value</SelectItem>
                 <SelectItem value="trait">Trait name</SelectItem>
               </SelectContent>
             </Select>
@@ -674,14 +672,13 @@ const ModelAssessmentPage: React.FC = () => {
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center gap-2">
                 <Crosshair className="h-5 w-5 text-indigo-600" />
-                Focus summaries
+                Summaries
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-5 text-sm text-gray-700">
               {focusCenter === 'all' && focusAncestry === 'all' ? (
                 <p className="text-gray-500">
-                  Pick a center or ancestry from the focus selectors above to compute quick summaries
-                  across the current trait filter.
+                  Select a center or ancestry above to compute quick summaries across the current trait filter.
                 </p>
               ) : (
                 <>

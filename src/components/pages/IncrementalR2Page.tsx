@@ -248,23 +248,17 @@ const IncrementalR2Page: React.FC = () => {
     [filtered, total]
   );
 
-  // Calculate average GIM R2
-  const avgGim = useMemo(
-    () =>
-      total
-        ? filtered.reduce((s, d) => s + d.gim_r2, 0) / total
-        : 0,
-    [filtered, total]
-  );
-
-  // Calculate average Other R2 (Renamed from NonGim for clarity)
-  const avgOther = useMemo(
-    () =>
-      total
-        ? filtered.reduce((s, d) => s + d.other_r2, 0) / total
-        : 0,
-    [filtered, total]
-  );
+  // Mean R² per determinant (for current filtered set)
+  const meanR2ByDeterminant = useMemo(() => {
+    if (!total || !filtered.length) return {} as Record<string, number>;
+    const out: Record<string, number> = {};
+    determinants.forEach((key) => {
+      out[key] =
+        filtered.reduce((s, d) => s + (d.determinant_breakdown[key] ?? 0), 0) /
+        total;
+    });
+    return out;
+  }, [filtered, total]);
 
   // render chart on data changes
   useEffect(() => {
@@ -339,31 +333,45 @@ const IncrementalR2Page: React.FC = () => {
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-          {[
-            { title: 'Total Traits', value: total, color: 'indigo', desc: 'Metabolic traits assessed' },
-            { title: 'Mean Total R²', value: avgTotal.toFixed(3), color: 'green', desc: 'Avg total variance explained' },
-            { title: 'Mean Predicted GIM-trait R²', value: avgGim.toFixed(3), color: 'purple', desc: 'Avg genetic contribution' },
-            { title: 'Mean Other Deteraminants R²', value: avgOther.toFixed(3), color: 'red', desc: 'Avg other determinants' },
-          ].map((card) => (
-            <div
-              key={card.title}
-              className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm"
-            >
-              <h3 className="text-lg font-semibold text-gray-900">
-                {card.title}
-              </h3>
-              <p
-                className={`text-3xl font-bold text-${card.color}-600 mt-2`}
-              >
-                {card.value}
-              </p>
-              <p className="text-sm text-gray-500 mt-1">
-                {card.desc}
-              </p>
+        {/* Summary + Mean R² by determinant */}
+        <div className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+              <h3 className="text-lg font-semibold text-gray-900">Total traits</h3>
+              <p className="text-3xl font-bold text-indigo-600 mt-2">{total}</p>
+              <p className="text-sm text-gray-500 mt-1">Metabolomic traits in current view</p>
             </div>
-          ))}
+            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+              <h3 className="text-lg font-semibold text-gray-900">Mean total R²</h3>
+              <p className="text-3xl font-bold text-green-600 mt-2">{avgTotal.toFixed(3)}</p>
+              <p className="text-sm text-gray-500 mt-1">Average total variance explained</p>
+            </div>
+          </div>
+          <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+            <h3 className="text-base font-semibold text-gray-900 mb-3">Mean R² by determinant</h3>
+            <p className="text-sm text-gray-500 mb-4">Average incremental variance explained by each determinant (over the traits in current view).</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4">
+              {determinants.map((key) => (
+                <div
+                  key={key}
+                  className="flex flex-col items-start p-4 rounded-lg border border-gray-100 bg-gray-50/80 min-w-0"
+                >
+                  <div className="flex items-center gap-2 w-full min-w-0">
+                    <span
+                      className="w-3 h-3 rounded flex-shrink-0"
+                      style={{ backgroundColor: colorMap[key] }}
+                    />
+                    <span className="text-sm font-medium text-gray-700 break-words">
+                      {legendLabels[key]}
+                    </span>
+                  </div>
+                  <p className="text-xl font-bold text-gray-900 mt-2">
+                    {total ? (meanR2ByDeterminant[key] ?? 0).toFixed(3) : '—'}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Chart Panel */}

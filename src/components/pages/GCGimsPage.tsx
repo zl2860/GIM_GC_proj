@@ -362,7 +362,7 @@ const GCGimsPage: React.FC = () => {
         <div className="lg:col-span-2">
           <div className="bg-white rounded-lg shadow-lg p-6">
             <div className="mb-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Gene–Metabolomic Trait Association Heatmap</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">The GIM for GC</h3>
               <p className="text-gray-600 text-sm">
                 Interactive heatmap showing associations between {uniqueGenes.length} genes and {uniqueMetabolites.length} metabolomic traits. 
                 Colors represent functional annotation types. "*" indicates putative causal relationships identified by CSL models.
@@ -421,7 +421,7 @@ const GCGimsPage: React.FC = () => {
               <div className="space-y-4">
                 <div>
                   <div className="font-medium text-green-700 mb-1">
-                    {selectedAssociation.gene} ↔ {selectedAssociation.Metabolite}
+                    {selectedAssociation.gene} → {selectedAssociation.Metabolite}
                   </div>
                   <div className="text-sm text-gray-600">
                     {selectedAssociation.Exposure}

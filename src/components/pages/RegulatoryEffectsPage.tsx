@@ -711,7 +711,7 @@ const RegulatoryEffectsPage: React.FC = () => {
       <Card className="shadow-sm border">
         <CardHeader className="pb-2 flex items-center gap-2">
           <Filter className="w-5 h-5 text-slate-600" />
-          <CardTitle className="text-sm font-semibold text-slate-700">Filter and focus</CardTitle>
+          <CardTitle className="text-sm font-semibold text-slate-700">Filter and view</CardTitle>
         </CardHeader>
         <CardContent className="space-y-5">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -726,7 +726,7 @@ const RegulatoryEffectsPage: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-500 mb-2">Focus ancestry</label>
+              <label className="block text-xs font-semibold text-slate-500 mb-2">Ancestry</label>
               <Select value={focusAncestry} onValueChange={value => setFocusAncestry(value as typeof focusAncestry)}>
                 <SelectTrigger>
                   <SelectValue placeholder="All ancestries" />
@@ -802,7 +802,7 @@ const RegulatoryEffectsPage: React.FC = () => {
               <strong>Search</strong> scans traits, lead variants, cytobands, and formatted genomic regions.
             </p>
             <p>
-              <strong>Focus ancestry</strong> adds an ancestry-specific column and summary so you can track one group at a time.
+              <strong>Ancestry</strong> adds an ancestry-specific column and summary so you can track one group at a time.
             </p>
             <p>
               <strong>Directional signature</strong> keeps only records with the chosen cross-ancestry pattern. “All positive” means every available ancestry has a positive effect estimate, “All negative” the inverse, “Balanced” mixes equal counts of positives and negatives, and the “leans” options capture cases where one sign dominates but the opposite sign is still present.
@@ -952,7 +952,7 @@ const RegulatoryEffectsPage: React.FC = () => {
               </CardTitle>
             </div>
             
-            {/* Table filters - Search, Focus ancestry, Directional signature */}
+            {/* Table filters - Search, Ancestry, Directional signature */}
             <div className="mb-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="flex flex-col">
@@ -969,7 +969,7 @@ const RegulatoryEffectsPage: React.FC = () => {
                 </div>
 
                 <div className="flex flex-col">
-                  <label className="block text-xs font-semibold text-slate-500 mb-2">Focus ancestry</label>
+                  <label className="block text-xs font-semibold text-slate-500 mb-2">Ancestry</label>
                   <Select value={focusAncestry} onValueChange={value => setFocusAncestry(value as typeof focusAncestry)}>
                     <SelectTrigger className="h-10">
                       <SelectValue placeholder="All ancestries" />
@@ -1063,7 +1063,7 @@ const RegulatoryEffectsPage: React.FC = () => {
                         className="min-w-[150px] text-center cursor-pointer"
                         onClick={() => requestSort('focus')}
                       >
-                        {focusMeta ? `${focusMeta.short} effect` : 'Focus effect'} {getSortIcon('focus')}
+                        {focusMeta ? `${focusMeta.short} effect` : 'Selected ancestry effect'} {getSortIcon('focus')}
                       </TableHead>
                     )}
                   </TableRow>

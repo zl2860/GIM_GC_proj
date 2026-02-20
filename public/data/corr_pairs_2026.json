@@ -1,6 +1,6 @@
 {
-  "title": "Correlation Paris Between Predicted NMR Traits and Measured LC-MS Metabolites",
-  "description": "Click to check the correlation pairs with detailed association flags.",
+  "title": "Correlation Pairs Between Predicted NMR Traits and Measured LC-MS Metabolites",
+  "description": "Correlations between genetically predicted NMR trait levels and directly measured LC-MS blood metabolites. The table presents pairs that passed initial screening (nominal P < 0.05). Use filters to restrict to P < 0.001 or to Bonferroni-adjusted significance. Click a cell for association details and GC/HGIN relevance.",
   "source_file": "association_pairs_from_study-2026.xlsx",
   "generated_at": "2026-01-22T08:24:27.392131Z",
   "summary": {

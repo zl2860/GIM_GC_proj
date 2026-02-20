@@ -1033,34 +1033,24 @@ const GeneMetaboliteNetworkPage: React.FC = () => {
                     <p><strong>{formatPPValue('PP.H4.abf')}:</strong> {parseFloat(selectedColocNode['PP.H4.abf']).toFixed(6)}</p>
                   )}
 
-                  {/* Show colocalization info for traits */}
-                  {selectedColocNode.node_type === 'GIM Biomarkers' && getTraitColocalizationInfo(selectedColocNode) && (
-                    <div className="mt-4">
-                      <p className="font-semibold text-sm text-gray-700 mb-2">Colocalized signals:</p>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {getTraitColocalizationInfo(selectedColocNode)?.map((coloc, index) => (
-                          <div key={index} className="rounded bg-gray-50 p-2 text-xs">
-                            <p><strong>{coloc.gene}</strong></p>
-                            <p className="text-gray-600">{coloc.geneGroup}</p>
-                            <p>PP H4: {coloc.pp4.toFixed(4)} | {formatQTLType(coloc.qtl_type)}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Supplemental coloc hits for the selected node */}
+                  {/* Colocalization hits for the selected node (deduplicated) */}
                   {(() => {
-                    const supplement = getSupplementForNode(selectedColocNode);
+                    const raw = getSupplementForNode(selectedColocNode);
+                    if (!raw.length) return null;
+                    const seen = new Set<string>();
+                    const supplement = raw.filter((row: any) => {
+                      const key = [row.gene, row.trait, row.hit1, row.hit2, row.region].map(String).join('|');
+                      if (seen.has(key)) return false;
+                      seen.add(key);
+                      return true;
+                    });
                     if (!supplement.length) return null;
                     return (
                       <div className="mt-4">
-                        <p className="font-semibold text-sm text-gray-700 mb-2">
-                          Supplemental colocalization hits ({supplement.length})
-                        </p>
+                        <p className="font-semibold text-sm text-gray-700 mb-2">Colocalization hits</p>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                           {supplement.slice(0, 8).map((row: any, idx: number) => (
-                            <div key={`${row.gene}-${row.trait}-${idx}`} className="rounded border border-gray-200 p-2 bg-gray-50">
+                            <div key={`${row.gene}-${row.trait}-${row.hit1}-${row.hit2}-${idx}`} className="rounded border border-gray-200 p-2 bg-gray-50">
                               <p className="font-semibold text-indigo-700">{row.gene}</p>
                               <p className="text-gray-700">{row.trait}</p>
                               <p className="font-mono text-[11px] text-gray-600">Hit1: {row.hit1}</p>
@@ -1071,7 +1061,7 @@ const GeneMetaboliteNetworkPage: React.FC = () => {
                           ))}
                         </div>
                         {supplement.length > 8 && (
-                          <p className="mt-2 text-[11px] text-gray-500">Showing first 8 matches.</p>
+                          <p className="mt-2 text-[11px] text-gray-500">Showing first 8 of {supplement.length} unique matches.</p>
                         )}
                       </div>
                     );

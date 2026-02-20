@@ -203,7 +203,7 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
         .style("text-anchor", "middle")
         .style("font-size", "14px")
         .style("font-weight", "bold")
-        .text("Metabolic Traits");
+        .text("Metabolomic Traits");
 
       // Title
       g.append("text")
@@ -331,7 +331,7 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
           <p className="text-2xl font-bold text-blue-600">{processedData.genes.length}</p>
         </div>
         <div className="bg-white p-4 rounded-lg border">
-          <h3 className="text-sm font-medium text-gray-500">Metabolic Traits</h3>
+          <h3 className="text-sm font-medium text-gray-500">Metabolomic Traits</h3>
           <p className="text-2xl font-bold text-green-600">{processedData.traits.length}</p>
         </div>
       </div>
@@ -343,7 +343,7 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
           <div>
             <h3 className="font-medium text-blue-900">Heatmap Guide</h3>
             <p className="text-sm text-blue-700 mt-1">
-              Each cell represents a gene-metabolic trait association. Color intensity indicates association strength. 
+              Each cell represents a gene–metabolomic trait association. Color intensity indicates association strength. 
               Red borders highlight putative causal relationships. Click on cells for detailed information.
             </p>
           </div>

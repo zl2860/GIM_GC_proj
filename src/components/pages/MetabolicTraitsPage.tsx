@@ -199,10 +199,10 @@ const MetabolicTraitsPage: React.FC = () => {
       <div className="flex justify-between items-start">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          The 249 NMR Blood Metabolomic Traits in the UK Biobank
+          The 249 ¹H-NMR blood metabolomic traits in the UK Biobank
           </h1>
           <p className="text-gray-600">
-            Click to search for annotations, units, biological groupings, and other related information for the 249 metabolomic traits.
+            Annotations, units, biological groupings, and related information for the 249 metabolomic traits (18 categories) quantified by ¹H-NMR in UKBB.
           </p>
         </div>
       </div>
