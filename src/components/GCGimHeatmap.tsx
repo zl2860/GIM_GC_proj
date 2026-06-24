@@ -32,6 +32,9 @@ interface GCGimHeatmapProps {
 
 const SIGNIFICANCE_THRESHOLD = 5e-8;
 
+const getSpatialTraitHref = (trait: string) =>
+  `${import.meta.env.BASE_URL}spatial-distribution?trait=${encodeURIComponent(trait)}&layer=trait`;
+
 const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
   data,
   genes,
@@ -41,6 +44,7 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
+  const [zoomScale, setZoomScale] = useState(0.72);
 
   // More vibrant and distinct colors for each functional type
   const functionalTypeColors: { [key: string]: string } = {
@@ -65,7 +69,10 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
     const width = Math.max(800, genes.length * 25);
     const height = Math.max(600, metabolites.length * 20);
     
-    setDimensions({ width: width + margin.left + margin.right, height: height + margin.top + margin.bottom });
+    const totalWidth = width + margin.left + margin.right;
+    const totalHeight = height + margin.top + margin.bottom;
+    setDimensions({ width: totalWidth, height: totalHeight });
+    svg.attr('viewBox', `0 0 ${totalWidth} ${totalHeight}`);
 
     const innerWidth = width;
     const innerHeight = height;
@@ -100,7 +107,8 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
       dataMap.set(key, d);
     });
 
-    // Create tooltip
+    // Create tooltip. Hover previews disappear; clicked cells pin the tooltip so links are usable.
+    d3.select('body').selectAll('.gc-gim-tooltip').remove();
     const tooltip = d3.select('body').append('div')
       .attr('class', 'gc-gim-tooltip')
       .style('position', 'absolute')
@@ -111,7 +119,73 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
       .style('border-radius', '5px')
       .style('font-size', '12px')
       .style('z-index', '1000')
-      .style('max-width', '300px');
+      .style('max-width', '320px')
+      .style('pointer-events', 'auto');
+
+    let hideTimer: number | undefined;
+    let tooltipPinned = false;
+
+    const closeTooltip = () => {
+      tooltipPinned = false;
+      if (hideTimer) window.clearTimeout(hideTimer);
+      tooltip.style('visibility', 'hidden');
+    };
+
+    const hideTooltip = () => {
+      if (tooltipPinned) return;
+      if (hideTimer) window.clearTimeout(hideTimer);
+      hideTimer = window.setTimeout(() => {
+        if (!tooltipPinned) tooltip.style('visibility', 'hidden');
+      }, 220);
+    };
+
+    const showTooltip = (pinned = false) => {
+      if (hideTimer) window.clearTimeout(hideTimer);
+      tooltipPinned = pinned || tooltipPinned;
+      tooltip.style('visibility', 'visible');
+    };
+
+    const positionTooltip = (event: MouseEvent) => {
+      tooltip
+        .style('left', `${event.pageX + 12}px`)
+        .style('top', `${event.pageY + 12}px`);
+    };
+
+    const renderTooltip = (association: GCGimData, pinned = false) => {
+      const logP = association.P_value === 0 ? significantMax : -Math.log10(association.P_value);
+      const tooltipContent = `
+        <div class="gim-tooltip-header">
+          <strong>${association.gene} → ${association.Metabolite}</strong>
+          ${pinned ? '<button class="gim-tooltip-close" type="button" aria-label="Close tooltip">×</button>' : ''}
+        </div>
+        <strong>Functional type:</strong> ${association['value.update'] || 'Unknown'}<br/>
+        <strong>P-value:</strong> ${association.P_value.toExponential(2)}<br/>
+        <strong>-log10(P):</strong> ${logP.toFixed(2)}<br/>
+        <strong>Putative causal:</strong> ${association.is_causal}<br/>
+        <strong>Beta (Pred):</strong> ${association['Beta.pred'].toFixed(3)}<br/>
+        <strong>Beta (True):</strong> ${association['Beta.true'].toFixed(3)}<br/>
+        <strong>Beta (MR):</strong> ${association['Beta.MR'].toFixed(3)}
+        <br/><a class="gim-tooltip-spatial-link" href="${getSpatialTraitHref(association.Metabolite)}">View trait signals in spatial transcriptomic profiles</a>
+      `;
+
+      tooltip.html(tooltipContent);
+      tooltip.select('.gim-tooltip-close').on('click', (event) => {
+        event.stopPropagation();
+        closeTooltip();
+      });
+    };
+
+    tooltip
+      .on('mouseenter', () => {
+        if (hideTimer) window.clearTimeout(hideTimer);
+        tooltip.style('visibility', 'visible');
+      })
+      .on('mouseleave', hideTooltip)
+      .on('click', event => {
+        event.stopPropagation();
+      });
+
+    d3.select(window).on('click.gc-gim-tooltip', closeTooltip);
 
     // Create color scale
     const pValues = data.map(d => d.P_value).filter(p => p > 0);
@@ -176,7 +250,7 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
       .attr('width', xScale.bandwidth())
       .attr('height', yScale.bandwidth())
       .attr('fill', d => {
-        if (!d.data) return '#ffffff';
+        if (!d.data) return '#0b1220';
 
         const functionalType = d.data['value.update'];
         const baseColor = functionalTypeColors[functionalType] || '#2563eb';
@@ -186,14 +260,14 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
             : -Math.log10(d.data.P_value);
 
         if (d.data.P_value > SIGNIFICANCE_THRESHOLD) {
-          return '#ffffff';
+          return '#0f172a';
         }
 
         const t = intensityScale(logP);
         return d3.interpolateRgb('#172554', baseColor)(t);
       })
       .attr('stroke', d => {
-        if (!d.data) return '#e5e7eb';
+        if (!d.data) return '#1e293b';
         const functionalType = d.data['value.update'];
         const baseColor = functionalTypeColors[functionalType] || '#2563eb';
         return d3.interpolateRgb('#0f172a', baseColor)(0.6);
@@ -224,27 +298,15 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
           .style('opacity', 1)
           .attr('stroke-width', 3);
 
-        const logP = d.data.P_value === 0 ? significantMax : -Math.log10(d.data.P_value);
-        const tooltipContent = `
-          <strong>${d.data.gene} → ${d.data.Metabolite}</strong><br/>
-          <strong>Functional Type:</strong> ${d.data['value.update'] || 'Unknown'}<br/>
-          <strong>P-value:</strong> ${d.data.P_value.toExponential(2)}<br/>
-          <strong>-log10(P):</strong> ${logP.toFixed(2)}<br/>
-          <strong>Putative causal:</strong> ${d.data.is_causal}<br/>
-          <strong>Beta (Pred):</strong> ${d.data['Beta.pred'].toFixed(3)}<br/>
-          <strong>Beta (True):</strong> ${d.data['Beta.true'].toFixed(3)}<br/>
-          <strong>Beta (MR):</strong> ${d.data['Beta.MR'].toFixed(3)}
-        `;
-        
-        tooltip.html(tooltipContent)
-          .style('visibility', 'visible')
-          .style('left', (event.pageX + 10) + 'px')
-          .style('top', (event.pageY + 10) + 'px');
+        if (tooltipPinned) return;
+        renderTooltip(d.data, false);
+        positionTooltip(event);
+        showTooltip();
       })
       .on('mousemove', function(event) {
-        tooltip
-          .style('left', (event.pageX + 10) + 'px')
-          .style('top', (event.pageY + 10) + 'px');
+        if (!tooltipPinned) {
+          positionTooltip(event);
+        }
       })
       .on('mouseout', function(event, d) {
         if (!d.data) return;
@@ -260,11 +322,16 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
             return isActiveGene(d.gene) ? Math.min(base + 0.2, 1) : base;
           })
           .attr('stroke-width', isActiveGene(d.gene) ? 2.5 : 0.8);
-        tooltip.style('visibility', 'hidden');
+        hideTooltip();
       })
       .on('click', function(event, d) {
         if (d.data) {
+          event.stopPropagation();
           onAssociationClick(d.data);
+          tooltipPinned = true;
+          renderTooltip(d.data, true);
+          positionTooltip(event);
+          showTooltip(true);
         }
       });
 
@@ -277,7 +344,7 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
       .attr('dominant-baseline', 'central')
       .style('font-size', '14px')
       .style('font-weight', 'bold')
-      .style('fill', 'black')
+      .style('fill', '#f8fafc')
       .style('pointer-events', 'none')
       .text('*');
 
@@ -345,7 +412,7 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
       .attr('y', legendY - 5)
       .attr('text-anchor', 'start')
       .style('font-size', '12px')
-      .style('fill', '#666')
+      .style('fill', '#cbd5e1')
       .text(`-log10(P): ${minLogP.toFixed(1)}`);
 
     g.append('text')
@@ -353,7 +420,7 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
       .attr('y', legendY - 5)
       .attr('text-anchor', 'end')
       .style('font-size', '12px')
-      .style('fill', '#666')
+      .style('fill', '#cbd5e1')
       .text(`${maxLogP.toFixed(1)}`);
 
     // Add legend title
@@ -363,8 +430,8 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
       .attr('text-anchor', 'middle')
       .style('font-size', '14px')
       .style('font-weight', 'bold')
-      .style('fill', '#333')
-      .text('Opacity Intensity (-log10 P-value)');
+      .style('fill', '#f8fafc')
+      .text('Opacity intensity (-log10 P-value)');
 
     // Add axis labels
     g.append('text')
@@ -379,7 +446,7 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
       .style('text-anchor', 'middle')
       .style('font-size', '14px')
       .style('font-weight', 'bold')
-      .text('Metabolomic Traits');
+      .text('Metabolomic traits');
 
     // Add title
     g.append('text')
@@ -430,7 +497,7 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
           .attr('text-anchor', 'middle')
           .style('font-size', '12px')
           .style('font-weight', 'bold')
-          .style('fill', 'black')
+          .style('fill', '#f8fafc')
           .text('*');
           
         g.append('text')
@@ -442,19 +509,40 @@ const GCGimHeatmap: React.FC<GCGimHeatmapProps> = ({
 
     // Clean up tooltip on unmount
     return () => {
+      if (hideTimer) window.clearTimeout(hideTimer);
+      d3.select(window).on('click.gc-gim-tooltip', null);
       d3.select('.gc-gim-tooltip').remove();
     };
 
   }, [data, genes, metabolites, onAssociationClick, activeGene]);
 
   return (
-    <div className="w-full overflow-auto">
+    <div className="w-full">
+      <div className="mb-3 flex flex-wrap items-center gap-2 text-xs">
+        <span className="font-semibold text-slate-300">Zoom</span>
+        {[0.7, 0.85, 1, 1.2].map((scale) => (
+          <button
+            key={scale}
+            type="button"
+            onClick={() => setZoomScale(scale)}
+            className={`rounded-md border px-2.5 py-1 font-semibold transition ${
+              zoomScale === scale
+                ? 'border-cyan-300 bg-cyan-400/20 text-cyan-100'
+                : 'border-slate-600 bg-slate-900 text-slate-300 hover:border-cyan-400'
+            }`}
+          >
+            {Math.round(scale * 100)}%
+          </button>
+        ))}
+      </div>
+      <div className="w-full overflow-auto">
       <svg
         ref={svgRef}
-        width={dimensions.width}
-        height={dimensions.height}
-        className="border border-gray-200 rounded"
+        width={dimensions.width * zoomScale}
+        height={dimensions.height * zoomScale}
+        className="rounded border border-slate-700 bg-slate-950"
       />
+      </div>
     </div>
   );
 };

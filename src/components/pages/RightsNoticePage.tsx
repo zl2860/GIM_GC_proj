@@ -3,7 +3,7 @@ import React from 'react';
 const RightsNoticePage: React.FC = () => (
   <div className="max-w-3xl mx-auto bg-white border border-gray-200 rounded-xl shadow-sm p-8 space-y-6">
     <header className="space-y-2">
-      <h1 className="text-3xl font-semibold text-gray-900">Academic Use Only</h1>
+      <h1 className="text-3xl font-semibold text-gray-900">Academic use only</h1>
       <p className="text-gray-600">
         This research platform is shared exclusively for scholarly collaboration, peer review,
         and educational inquiry. Redistribution or reuse beyond academic purposes is not permitted

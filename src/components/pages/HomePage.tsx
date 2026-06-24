@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BarChart3, Database, Beaker, Activity, ExternalLink, Users, Target, Microscope, Mail } from 'lucide-react';
+import { BarChart3, Database, Beaker, Activity, ExternalLink, Users, Target, Microscope, Mail, Map as MapIcon } from 'lucide-react';
 import { Shuffle } from 'lucide-react';
 import cover4 from '@/assets/cover4.png';
 import GlobalSearch from '@/components/GlobalSearch';
@@ -64,7 +64,7 @@ const HomePage: React.FC = () => {
               className="bg-red-600/50 hover:bg-red-700/70 text-white px-6 py-3 rounded-lg transition flex items-center gap-2"
             >
               <BarChart3 className="h-5 w-5" />
-              <span>Risk Estimates</span>
+              <span>Risk estimates</span>
             </Link>
             <Link
               to="/gene-metabolite"
@@ -72,6 +72,13 @@ const HomePage: React.FC = () => {
             >
               <Database className="h-5 w-5" />
               <span>Network for GIM traits</span>
+            </Link>
+            <Link
+              to="/spatial-distribution"
+              className="bg-cyan-600/50 hover:bg-cyan-700/70 text-white px-6 py-3 rounded-lg transition flex items-center gap-2"
+            >
+              <MapIcon className="h-5 w-5" />
+              <span>Spatial distribution</span>
             </Link>
           </div>
         </div>
@@ -83,7 +90,7 @@ const HomePage: React.FC = () => {
 
       {/* Key Findings Summary */}
       <div className="bg-[#000435] rounded-2xl shadow-lg p-6 sm:p-8 mb-8 border border-white/10">
-        <h2 className="text-2xl font-bold text-white mb-4">Data Overview & Features</h2>
+        <h2 className="text-2xl font-bold text-white mb-4">Data overview and features</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <div>
             <h3 className="text-lg font-semibold text-white mb-3">Objectives</h3>
@@ -115,7 +122,7 @@ const HomePage: React.FC = () => {
               </li>
               <li className="flex items-start space-x-2">
                 <Microscope className="w-4 h-4 text-cyan-400 mt-1 flex-shrink-0" />
-                <span>Findings were evaluated in independent cohorts: UKBB Discovery and Test, UGCED, SIT, and MITS</span>
+            <span>Findings were evaluated in independent cohorts: UKBB discovery and test, UGCED, SIT, and MITS</span>
               </li>
             </ul>
           </div>
@@ -123,13 +130,13 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* Research Data Exploration Grid */}
-      <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-5 mb-8">
+      <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 mb-8">
         <div className="bg-[#001a4d] border border-white/10 rounded-2xl shadow-lg p-5 sm:p-6 flex flex-col hover:border-white/20 transition">
           <div className="flex items-center space-x-3 mb-4">
             <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
               <BarChart3 className="w-6 h-6 text-red-400" />
             </div>
-            <h3 className="text-lg font-semibold text-white">Risk Estimates</h3>
+            <h3 className="text-lg font-semibold text-white">Risk estimates</h3>
           </div>
           <p className="text-gray-300 text-sm sm:text-base text-pretty mb-4 flex-1">
             Relative risks of gastric cancer for directly measured and genetically predicted metabolomic traits across UKBB, SIT, MITS, and UGCED.
@@ -157,7 +164,26 @@ const HomePage: React.FC = () => {
             to="/gene-metabolite"
             className="text-green-400 hover:text-green-300 text-sm font-medium flex items-center space-x-1"
           >
-            <span>Browse Interactions</span>
+            <span>Browse interactions</span>
+            <ExternalLink className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="bg-[#001a4d] border border-white/10 rounded-2xl shadow-lg p-5 sm:p-6 flex flex-col hover:border-white/20 transition">
+          <div className="flex items-center space-x-3 mb-4">
+            <div className="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center">
+              <MapIcon className="w-6 h-6 text-cyan-300" />
+            </div>
+            <h3 className="text-lg font-semibold text-white">Spatial distribution</h3>
+          </div>
+          <p className="text-gray-300 text-sm sm:text-base text-pretty mb-4 flex-1">
+            Explore gsMap trait relevance and deconvolution niches across gastric cancer spatial transcriptomics samples.
+          </p>
+          <Link
+            to="/spatial-distribution"
+            className="text-cyan-300 hover:text-cyan-200 text-sm font-medium flex items-center space-x-1"
+          >
+            <span>Open spatial browser</span>
             <ExternalLink className="w-4 h-4" />
           </Link>
         </div>
@@ -176,7 +202,7 @@ const HomePage: React.FC = () => {
             to="/metabolic-traits"
             className="text-purple-400 hover:text-purple-300 text-sm font-medium flex items-center space-x-1"
           >
-            <span>View Traits</span>
+            <span>View traits</span>
             <ExternalLink className="w-4 h-4" />
           </Link>
         </div>
@@ -186,7 +212,7 @@ const HomePage: React.FC = () => {
             <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center">
               <Activity className="w-6 h-6 text-orange-400" />
             </div>
-            <h3 className="text-lg font-semibold text-white">Regulatory Effects</h3>
+            <h3 className="text-lg font-semibold text-white">Regulatory effects</h3>
           </div>
           <p className="text-gray-300 text-sm sm:text-base text-pretty mb-4 flex-1">
             Check multi-ancestry regulatory effects of the locus–trait pairs in the GIMs.
@@ -195,7 +221,7 @@ const HomePage: React.FC = () => {
             to="/regulatory-effects"
             className="text-orange-400 hover:text-orange-300 text-sm font-medium flex items-center space-x-1"
           >
-            <span>View Effects</span>
+            <span>View effects</span>
             <ExternalLink className="w-4 h-4" />
           </Link>
         </div>
@@ -205,7 +231,7 @@ const HomePage: React.FC = () => {
             <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
               <Shuffle className="w-6 h-6 text-blue-400" />
             </div>
-            <h3 className="text-lg font-semibold text-white">Model Assessment</h3>
+            <h3 className="text-lg font-semibold text-white">Model assessment</h3>
           </div>
           <p className="text-gray-300 text-sm sm:text-base text-pretty mb-4 flex-1">
             CSL model performance (Pearson’s r between predicted and actual trait levels) by UKBB assessment center and ancestry.
@@ -214,7 +240,7 @@ const HomePage: React.FC = () => {
             to="/model-assessment"
             className="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center space-x-1"
           >
-            <span>Assess Models</span>
+            <span>Assess models</span>
             <ExternalLink className="w-4 h-4" />
           </Link>
         </div>
@@ -225,7 +251,7 @@ const HomePage: React.FC = () => {
         <div className="bg-[#001a4d] border border-white/10 rounded-2xl shadow-lg p-6 sm:p-7">
           <h3 className="text-lg font-semibold text-white mb-4 flex items-center space-x-2">
             <Users className="w-5 h-5 text-cyan-400" />
-            <span>Study Overview</span>
+            <span>Study overview</span>
           </h3>
           <div className="space-y-3 text-gray-300 text-pretty">
             <p>
@@ -243,7 +269,7 @@ const HomePage: React.FC = () => {
         <div className="bg-[#001a4d] border border-white/10 rounded-2xl shadow-lg p-6 sm:p-7">
           <h3 className="text-lg font-semibold text-white mb-4 flex items-center space-x-2">
             <Database className="w-5 h-5 text-green-400" />
-            <span>Data Access</span>
+            <span>Data access</span>
           </h3>
           <div className="space-y-3 text-gray-300 text-pretty">
             <p>
@@ -260,7 +286,7 @@ const HomePage: React.FC = () => {
 
       {/* Research Team & Contact */}
       <div className="bg-[#001a4d] border border-white/10 rounded-2xl shadow-lg p-6 sm:p-8 mb-8">
-        <h2 className="text-2xl font-bold text-white mb-4">Research Team & Data Access</h2>
+        <h2 className="text-2xl font-bold text-white mb-4">Research team and data access</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <div>
             <h3 className="text-lg font-semibold text-white mb-3">About the project</h3>
@@ -285,7 +311,7 @@ const HomePage: React.FC = () => {
               onClick={() => window.open('mailto:wenqing_li@bjmu.edu.cn', '_blank')}
             >
               <Mail className="w-4 h-4" />
-              <span>Contact Us</span>
+              <span>Contact us</span>
             </button>
           </div>
         </div>

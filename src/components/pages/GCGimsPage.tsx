@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { Search, Filter, Info, Network } from 'lucide-react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { ArrowRight, Search, Filter, Info, Map as MapIcon, Network } from 'lucide-react';
 import { Input } from '../ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Badge } from '../ui/badge';
@@ -46,6 +46,12 @@ const GCGimsPage: React.FC = () => {
   const [geneSort, setGeneSort] = useState<'alphabetical' | 'pValue'>('alphabetical');
   const [showCausalOnly, setShowCausalOnly] = useState(false);
   const [activeGene, setActiveGene] = useState<string | null>(null);
+
+  const getSpatialTraitPath = (trait?: string) => {
+    const params = new URLSearchParams({ layer: 'trait' });
+    if (trait) params.set('trait', trait);
+    return `/spatial-distribution?${params.toString()}`;
+  };
 
   useEffect(() => {
     const loadData = async () => {
@@ -230,7 +236,7 @@ const GCGimsPage: React.FC = () => {
         <div className="flex justify-between items-start mb-4">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Co-regulatory Genetic Effects of the GIM for Gastric Cancer
+              Co-regulatory genetic effects of the GIM for gastric cancer
             </h1>
             <p className="text-gray-600">
               The interactive heatmap shows putative causal relationships between gene loci (for the nearest genes functionally annotated by the lead variants based on both distance and variant functions) and metabolomic traits 
@@ -243,7 +249,7 @@ const GCGimsPage: React.FC = () => {
         <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
           <div className="flex items-center space-x-2 mb-3">
             <Filter className="w-5 h-5 text-gray-600" />
-            <h3 className="font-semibold text-gray-900">Filters, Search & Display Options</h3>
+            <h3 className="font-semibold text-gray-900">Filters, search and display options</h3>
           </div>
           
           <div className="space-y-4">
@@ -269,7 +275,7 @@ const GCGimsPage: React.FC = () => {
                     <SelectValue placeholder="Select gene" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">All Genes ({uniqueGenes.length})</SelectItem>
+                    <SelectItem value="all">All genes ({uniqueGenes.length})</SelectItem>
                     {uniqueGenes.map(gene => (
                       <SelectItem key={gene} value={gene}>{gene}</SelectItem>
                     ))}
@@ -278,13 +284,13 @@ const GCGimsPage: React.FC = () => {
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Metabolomic Trait</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Metabolomic trait</label>
                 <Select value={selectedMetabolite} onValueChange={setSelectedMetabolite}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select trait" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">All Traits ({uniqueMetabolites.length})</SelectItem>
+                    <SelectItem value="all">All traits ({uniqueMetabolites.length})</SelectItem>
                     {uniqueMetabolites.map(metabolite => (
                       <SelectItem key={metabolite} value={metabolite}>
                         {metabolite ?? ''}
@@ -295,13 +301,13 @@ const GCGimsPage: React.FC = () => {
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Functional Type</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Functional type</label>
                 <Select value={selectedFunctional} onValueChange={setSelectedFunctional}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select type" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">All Types ({uniqueFunctionalTypes.length})</SelectItem>
+                    <SelectItem value="all">All types ({uniqueFunctionalTypes.length})</SelectItem>
                     {uniqueFunctionalTypes.map(type => (
                       <SelectItem key={type} value={type}>{type}</SelectItem>
                     ))}
@@ -321,7 +327,7 @@ const GCGimsPage: React.FC = () => {
 
             {/* Display options */}
             <div className="border-t pt-4">
-              <label className="block text-sm font-medium text-gray-700 mb-3">Display Options</label>
+              <label className="block text-sm font-medium text-gray-700 mb-3">Display options</label>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Gene ordering</label>
@@ -389,7 +395,7 @@ const GCGimsPage: React.FC = () => {
           <div className="space-y-6">
           {/* Functional Type Legend */}
           <div className="bg-white rounded-lg shadow-lg p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Functional Annotations</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Functional annotations</h3>
             <div className="space-y-2">
               {uniqueFunctionalTypes.map(type => (
                 <div key={type} className="flex items-center justify-between">
@@ -415,7 +421,7 @@ const GCGimsPage: React.FC = () => {
             <div className="bg-white rounded-lg shadow-lg p-6">
                 <div className="flex items-center space-x-2 mb-4">
                 <Info className="w-5 h-5 text-blue-600" />
-                <h3 className="text-lg font-semibold text-gray-900">Association Details</h3>
+                <h3 className="text-lg font-semibold text-gray-900">Association details</h3>
               </div>
               
               <div className="space-y-4">
@@ -428,8 +434,17 @@ const GCGimsPage: React.FC = () => {
                   </div>
                 </div>
 
+                <Link
+                  to={getSpatialTraitPath(selectedAssociation.Metabolite)}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 hover:text-cyan-200"
+                >
+                  <MapIcon className="w-4 h-4" />
+                  View trait in spatial
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
                 <div>
-                  <div className="text-sm font-medium text-gray-700">Functional Type</div>
+                  <div className="text-sm font-medium text-gray-700">Functional type</div>
                   <Badge className={getFunctionalColor(selectedAssociation['value.update'])}>
                     {selectedAssociation['value.update']}
                   </Badge>
@@ -451,7 +466,7 @@ const GCGimsPage: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <h4 className="font-medium text-gray-700">Beta Estimates for GC incidence risk:</h4>
+                  <h4 className="font-medium text-gray-700">Beta estimates for GC incidence risk:</h4>
                   <div className="grid grid-cols-1 gap-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">by predicted levels:</span>
@@ -481,7 +496,7 @@ const GCGimsPage: React.FC = () => {
           ) : (
             <div className="bg-white rounded-lg shadow-lg p-6 text-center">
               <Network className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Select an Association</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Select an association</h3>
               <p className="text-gray-600 text-sm">
                 Click on any cell in the heatmap to view detailed information about that gene–metabolomic trait association.
               </p>
@@ -492,11 +507,11 @@ const GCGimsPage: React.FC = () => {
           <div className="bg-white rounded-lg shadow-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-3">Statistics</h3>
             <div className="space-y-2 text-sm text-gray-600">
-              <div><strong>Total Associations:</strong> {filteredData.length}</div>
-              <div><strong>Unique Genes:</strong> {uniqueGenes.length}</div>
-              <div><strong>Unique Metabolomic Traits:</strong> {uniqueMetabolites.length}</div>
-                <div><strong>Putative Causal Relationships:</strong> {filteredData.filter(item => item.is_causal === 'Yes').length}</div>
-              <div><strong>Functional Types:</strong> {uniqueFunctionalTypes.length}</div>
+              <div><strong>Total associations:</strong> {filteredData.length}</div>
+              <div><strong>Unique genes:</strong> {uniqueGenes.length}</div>
+              <div><strong>Unique metabolomic traits:</strong> {uniqueMetabolites.length}</div>
+                <div><strong>Putative causal relationships:</strong> {filteredData.filter(item => item.is_causal === 'Yes').length}</div>
+              <div><strong>Functional types:</strong> {uniqueFunctionalTypes.length}</div>
             </div>
           </div>
           </div>

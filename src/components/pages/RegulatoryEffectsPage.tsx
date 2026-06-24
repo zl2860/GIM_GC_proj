@@ -336,7 +336,7 @@ const RegulatoryEffectsPage: React.FC = () => {
         const parsed = (json.rows ?? []).map(transformPairRow);
 
         setMeta({
-          title: json.title ?? 'Regulatory Effects Explorer',
+          title: json.title ?? 'Regulatory effects explorer',
           description: json.description ?? '',
           source_file: json.source_file,
           generated_at: json.generated_at
@@ -636,630 +636,450 @@ const RegulatoryEffectsPage: React.FC = () => {
   };
 
   return (
-    <div className="p-6 max-w-[1500px] mx-auto space-y-6">
-      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-        <div className="space-y-2 w-full max-w-4xl">
-          <h1 className="text-3xl font-bold text-slate-900 flex items-center gap-3">
-            <BarChart3 className="w-8 h-8 text-orange-600" />
-            <span>{meta?.title ?? 'Regulatory Effects Explorer'}</span>
+    <div className="p-4 max-w-[1800px] mx-auto space-y-4">
+      <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_minmax(620px,760px)] gap-4 items-start">
+        <div className="space-y-2 w-full">
+          <h1 className="text-2xl font-bold text-slate-100 flex items-center gap-3">
+            <BarChart3 className="w-7 h-7 text-orange-400" />
+            <span>{meta?.title ?? 'Regulatory effects explorer'}</span>
           </h1>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{meta?.description}</p>
+          <p className="text-slate-300 text-sm leading-relaxed">{meta?.description}</p>
+        </div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <Card className="h-full border-slate-700 bg-slate-950/70 text-slate-100">
+            <CardContent className="h-24 p-3 flex flex-col items-center justify-center gap-2 text-center">
+              <TrendingUp className="w-5 h-5 text-orange-400" />
+              <div>
+                <p className="text-xs font-semibold text-slate-300">Region–trait pairs</p>
+                <p className="text-xl font-bold text-slate-50">{formatInteger(globalSummary.totalPairs)}</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="h-full border-slate-700 bg-slate-950/70 text-slate-100">
+            <CardContent className="h-24 p-3 flex flex-col items-center justify-center gap-2 text-center">
+              <Target className="w-5 h-5 text-orange-400" />
+              <div>
+                <p className="text-xs font-semibold text-slate-300">Unique metabolomic traits</p>
+                <p className="text-xl font-bold text-slate-50">{formatInteger(globalSummary.uniqueTraits)}</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="h-full border-slate-700 bg-slate-950/70 text-slate-100">
+            <CardContent className="h-24 p-3 flex flex-col items-center justify-center gap-2 text-center">
+              <Gauge className="w-5 h-5 text-orange-400" />
+              <div>
+                <p className="text-xs font-semibold text-slate-300">Unique lead variants</p>
+                <p className="text-xl font-bold text-slate-50">{formatInteger(globalSummary.uniqueVariants)}</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="h-full border-slate-700 bg-slate-950/70 text-slate-100">
+            <CardContent className="h-24 p-3 flex flex-col items-center justify-center gap-1 text-center">
+              <BarChart3 className="w-5 h-5 text-orange-400" />
+              <p className="text-xs font-semibold text-slate-300">Harmony grade ≥ 5 (≥ 6)</p>
+              <p className="text-xl font-bold text-slate-50">
+                {formatInteger(globalSummary.highGrade)}{' '}
+                <span className="text-sm text-slate-400">({formatInteger(globalSummary.ultraGrade)})</span>
+              </p>
+              <p className="text-[10px] text-slate-400">Grade 1–6; 6 is most consistent</p>
+            </CardContent>
+          </Card>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="shadow-sm border">
-          <CardHeader className="pb-2 flex items-center gap-3">
-            <TrendingUp className="w-5 h-5 text-orange-600" />
-            <CardTitle className="text-sm font-semibold text-slate-700">
-              Region–trait pairs
-            </CardTitle>
-        </CardHeader>
-        <CardContent>
-            <p className="text-2xl font-bold text-slate-900 text-center">
-              {formatInteger(globalSummary.totalPairs)}
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="shadow-sm border">
-          <CardHeader className="pb-2 flex items-center gap-3">
-            <Target className="w-5 h-5 text-orange-600" />
-            <CardTitle className="text-sm font-semibold text-slate-700">
-              Unique metabolomic traits
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-2xl font-bold text-slate-900 text-center">
-              {formatInteger(globalSummary.uniqueTraits)}
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="shadow-sm border">
-          <CardHeader className="pb-2 flex items-center gap-3">
-            <Gauge className="w-5 h-5 text-orange-600" />
-            <CardTitle className="text-sm font-semibold text-slate-700">
-              Unique lead variants in the highlighted genomic regions
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-2xl font-bold text-slate-900 text-center">
-              {formatInteger(globalSummary.uniqueVariants)}
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="shadow-sm border">
-          <CardHeader className="pb-2 flex items-center gap-3">
-            <BarChart3 className="w-5 h-5 text-orange-600" />
-            <CardTitle className="text-sm font-semibold text-slate-700">
-              Grade ≥ 5 (≥ 6)
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-2xl font-bold text-slate-900 text-center">
-              {formatInteger(globalSummary.highGrade)}{' '}
-              <span className="text-sm text-slate-500">
-                ({formatInteger(globalSummary.ultraGrade)})
-              </span>
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-
-      <Card className="shadow-sm border">
-        <CardHeader className="pb-2 flex items-center gap-2">
-          <Filter className="w-5 h-5 text-slate-600" />
-          <CardTitle className="text-sm font-semibold text-slate-700">Filter and view</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-5">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-              <Input
-                placeholder="Search trait, region, lead variants…"
-                value={searchTerm}
-                onChange={event => setSearchTerm(event.target.value)}
-                className="pl-10"
-              />
-            </div>
-
+      <Card className="shadow-sm border border-slate-700 bg-slate-950/85 text-slate-100 overflow-hidden">
+        <CardHeader className="p-4 pb-3 border-b border-slate-800">
+          <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-3">
             <div>
-              <label className="block text-xs font-semibold text-slate-500 mb-2">Ancestry</label>
-              <Select value={focusAncestry} onValueChange={value => setFocusAncestry(value as typeof focusAncestry)}>
-                <SelectTrigger>
-                  <SelectValue placeholder="All ancestries" />
-                </SelectTrigger>
-              <SelectContent>
-                  <SelectItem value="all">All ancestries</SelectItem>
-                  {ANCESTRY_DEFS.map(def => (
-                    <SelectItem key={def.key} value={def.key}>
-                      {def.label}
-                    </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            </div>
-
-            <div>
-              <label className="block text-xs font-semibold text-slate-500 mb-2">Directional signature</label>
-              <Select
-                value={directionFilter}
-                onValueChange={value => setDirectionFilter(value as typeof directionFilter)}
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder="All patterns" />
-                </SelectTrigger>
-              <SelectContent>
-                  <SelectItem value="any">Any direction</SelectItem>
-                  <SelectItem value="positive">All positive</SelectItem>
-                  <SelectItem value="negative">All negative</SelectItem>
-                  <SelectItem value="balanced">Balanced</SelectItem>
-                  <SelectItem value="leansPositive">Leans positive</SelectItem>
-                  <SelectItem value="leansNegative">Leans negative</SelectItem>
-                  <SelectItem value="none">No signal</SelectItem>
-              </SelectContent>
-            </Select>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-semibold text-slate-500 mb-2">Minimum harmony grade</label>
-              <div className="flex items-center gap-3">
-                <Slider
-                  value={[minGrade]}
-                  min={1}
-                  max={6}
-                  step={1}
-                  onValueChange={([value]) => setMinGrade(value ?? minGrade)}
-                />
-                <Badge className="bg-slate-100 text-slate-700 border border-slate-200">≥ {minGrade}</Badge>
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-xs font-semibold text-slate-500 mb-2">Required ancestry coverage</label>
-              <Select value={String(minAncestries)} onValueChange={value => setMinAncestries(Number(value))}>
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
-              <SelectContent>
-                  {[0, 1, 2, 3, 4, 5, 6].map(option => (
-                    <SelectItem key={option} value={String(option)}>
-                      {option === 0 ? 'No minimum' : `At least ${option}`}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          </div>
-
-          <div className="rounded-md border border-slate-200 bg-slate-50 p-4 text-xs text-slate-600 space-y-1">
-            <p className="font-semibold text-slate-700">What each control does</p>
-            <p>
-              <strong>Search</strong> scans traits, lead variants, cytobands, and formatted genomic regions.
-            </p>
-            <p>
-              <strong>Ancestry</strong> adds an ancestry-specific column and summary so you can track one group at a time.
-            </p>
-            <p>
-              <strong>Directional signature</strong> keeps only records with the chosen cross-ancestry pattern. “All positive” means every available ancestry has a positive effect estimate, “All negative” the inverse, “Balanced” mixes equal counts of positives and negatives, and the “leans” options capture cases where one sign dominates but the opposite sign is still present.
-            </p>
-            <p>
-              <strong>Minimum harmony grade</strong> filters by evidence strength (scale 1–6). Harmony grade summarises the consistency of the ancestry signals in the source table: higher grades indicate tighter agreement across ancestries (Grade 6 is the most consistent).
-            </p>
-            <p>
-              <strong>Ancestry coverage</strong> requires at least the selected number of ancestries with non-null effects.
-            </p>
-                    </div>
-                  </CardContent>
-                </Card>
-
-      {/* Chessboard Visualization and Table in the same panel */}
-      <Card className="shadow-sm border">
-        <CardHeader className="pb-3 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <CardTitle className="text-lg font-semibold text-slate-800 flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-orange-600" />
-              Regulatory Effects Matrix & Table
-            </CardTitle>
-            <div className="flex items-center gap-2">
-              <label className="text-xs font-semibold text-slate-600">GIM Context:</label>
-              <Select
-                value={gimContextFilter}
-                onValueChange={value => setGimContextFilter(value as typeof gimContextFilter)}
-              >
-                <SelectTrigger className="h-8 w-[200px] text-xs">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All contexts</SelectItem>
-                  <SelectItem value="Gastric cancer">Gastric cancer</SelectItem>
-                  <SelectItem value="Gastric lesion progression">Gastric lesion progression</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-          {(chessboardSelectedRegion || chessboardSelectedTrait) && (
-            <button
-              onClick={() => {
-                setChessboardSelectedRegion(null);
-                setChessboardSelectedTrait(null);
-              }}
-              className="px-4 py-2 text-sm font-semibold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-md transition-colors flex items-center gap-2"
-            >
-              <span>Clear selection</span>
-            </button>
-          )}
-        </CardHeader>
-        <CardContent className="p-4 space-y-6">
-          {/* Heatmap section */}
-          <div>
-            <div className="mb-3 text-sm text-slate-600">
-              <p className="mb-1">
-                Interactive heatmap matrix showing regulatory effects between genomic regions (rows) and metabolomic traits (columns).
-                Each colored cell represents a regulatory pair, with color intensity indicating harmony grade. All pairs are displayed in the matrix.
-              </p>
-              <p className="text-xs text-slate-500">
-                Use the "Order" dropdown to reorder by Name, Frequency, Grade, or Cluster. Click on a cell to filter the table below. Hover over cells or axis labels for details. Use zoom controls to adjust view.
-              </p>
-            </div>
-            <div className="flex gap-6">
-              {/* Heatmap */}
-              <div className="flex-1 flex justify-center min-w-0">
-                <RegulatoryChessboard
-                  data={baseFilteredRecords.map(record => ({
-                    id: record.id,
-                    trait: record.trait,
-                    regionLabel: record.regionLabel,
-                    availableCount: record.availableCount,
-                    positiveCount: record.positiveCount,
-                    negativeCount: record.negativeCount,
-                    grade: record.grade,
-                    maxAbsEffect: record.maxAbsEffect,
-                    gim: record.gim
-                  }))}
-                  onCellClick={handleChessboardCellClick}
-                  selectedRegion={chessboardSelectedRegion}
-                  selectedTrait={chessboardSelectedTrait}
-                  gimFilter={gimContextFilter}
-                />
-              </div>
-              
-              {/* Heatmap filters panel on the right */}
-              <div className="w-80 flex-shrink-0">
-                <Card className="shadow-sm border">
-                  <CardHeader className="pb-2 flex items-center gap-2">
-                    <Filter className="w-5 h-5 text-slate-600" />
-                    <CardTitle className="text-sm font-semibold text-slate-700">Heatmap Filters</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-5">
-                    <div className="space-y-4">
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-500 mb-2">Minimum harmony grade</label>
-                        <div className="flex items-center gap-3">
-                          <Slider
-                            value={[minGrade]}
-                            min={1}
-                            max={6}
-                            step={1}
-                            onValueChange={([value]) => setMinGrade(value ?? minGrade)}
-                          />
-                          <Badge className="bg-slate-100 text-slate-700 border border-slate-200">≥ {minGrade}</Badge>
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-500 mb-2">Required ancestry coverage</label>
-                        <Select value={String(minAncestries)} onValueChange={value => setMinAncestries(Number(value))}>
-                          <SelectTrigger>
-                            <SelectValue />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {[0, 1, 2, 3, 4, 5, 6].map(option => (
-                              <SelectItem key={option} value={String(option)}>
-                                {option === 0 ? 'No minimum' : `At least ${option}`}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-
-                    <div className="rounded-md border border-slate-200 bg-slate-50 p-3 text-xs text-slate-600 space-y-1">
-                      <p className="font-semibold text-slate-700 mb-2">Heatmap filters</p>
-                      <p className="mb-1">
-                        <strong>Minimum harmony grade</strong> filters by evidence strength (scale 1–6).
-                      </p>
-                      <p>
-                        <strong>Ancestry coverage</strong> requires at least the selected number of ancestries with non-null effects.
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
-
-          {/* Table section */}
-          <div>
-            <div className="flex items-center justify-between mb-4">
-              <CardTitle className="text-lg font-semibold text-slate-800 flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-orange-600" />
-                Regulatory pairs ({filteredRecords.length})
+              <CardTitle className="text-lg font-semibold text-slate-100 flex items-center gap-2">
+                <BarChart3 className="w-5 h-5 text-orange-400" />
+                Regulatory effects matrix and pairs
               </CardTitle>
+              <p className="mt-1 text-xs text-slate-400">
+                Controls apply to both the matrix and the table. Click a matrix cell to filter the table to that region–trait pair.
+              </p>
             </div>
-            
-            {/* Table filters - Search, Ancestry, Directional signature */}
-            <div className="mb-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="flex flex-col">
-                  <label className="block text-xs font-semibold text-slate-500 mb-2">Search</label>
-                  <div className="relative">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
-                    <Input
-                      placeholder="Search trait, region, lead variants…"
-                      value={searchTerm}
-                      onChange={event => setSearchTerm(event.target.value)}
-                      className="pl-10 h-10"
-                    />
-                  </div>
-                </div>
 
-                <div className="flex flex-col">
-                  <label className="block text-xs font-semibold text-slate-500 mb-2">Ancestry</label>
-                  <Select value={focusAncestry} onValueChange={value => setFocusAncestry(value as typeof focusAncestry)}>
-                    <SelectTrigger className="h-10">
-                      <SelectValue placeholder="All ancestries" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">All ancestries</SelectItem>
-                      {ANCESTRY_DEFS.map(def => (
-                        <SelectItem key={def.key} value={def.key}>
-                          {def.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="flex items-center gap-2">
+                <label className="text-xs font-semibold text-slate-300">GIM context</label>
+                <Select
+                  value={gimContextFilter}
+                  onValueChange={value => setGimContextFilter(value as typeof gimContextFilter)}
+                >
+                  <SelectTrigger className="h-8 w-[210px] border-slate-700 bg-slate-900 text-xs text-slate-100">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All contexts</SelectItem>
+                    <SelectItem value="Gastric cancer">Gastric cancer</SelectItem>
+                    <SelectItem value="Gastric lesion progression">Gastric lesion progression</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
 
-                <div className="flex flex-col">
-                  <label className="block text-xs font-semibold text-slate-500 mb-2">Directional signature</label>
-                  <Select
-                    value={directionFilter}
-                    onValueChange={value => setDirectionFilter(value as typeof directionFilter)}
-                  >
-                    <SelectTrigger className="h-10">
-                      <SelectValue placeholder="All patterns" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="any">Any direction</SelectItem>
-                      <SelectItem value="positive">All positive</SelectItem>
-                      <SelectItem value="negative">All negative</SelectItem>
-                      <SelectItem value="balanced">Balanced</SelectItem>
-                      <SelectItem value="leansPositive">Leans positive</SelectItem>
-                      <SelectItem value="leansNegative">Leans negative</SelectItem>
-                      <SelectItem value="none">No signal</SelectItem>
-                    </SelectContent>
-                  </Select>
+              {(chessboardSelectedRegion || chessboardSelectedTrait) && (
+                <button
+                  onClick={() => {
+                    setChessboardSelectedRegion(null);
+                    setChessboardSelectedTrait(null);
+                  }}
+                  className="h-8 px-3 text-xs font-semibold text-white bg-orange-600 hover:bg-orange-700 rounded-md shadow-md transition-colors"
+                >
+                  Clear matrix selection
+                </button>
+              )}
+            </div>
+          </div>
+        </CardHeader>
+
+        <CardContent className="p-4 space-y-4">
+          <div className="rounded-lg border border-slate-800 bg-slate-900/65 p-3">
+            <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1.1fr_0.9fr_0.9fr_1fr_0.9fr] gap-3 items-end">
+              <div className="flex flex-col">
+                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Search</label>
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 w-4 h-4" />
+                  <Input
+                    placeholder="Search trait, region, lead variants…"
+                    value={searchTerm}
+                    onChange={event => setSearchTerm(event.target.value)}
+                    className="pl-9 h-9 border-slate-700 bg-slate-950 text-slate-100 placeholder:text-slate-500"
+                  />
                 </div>
               </div>
+
+              <div className="flex flex-col">
+                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Ancestry</label>
+                <Select value={focusAncestry} onValueChange={value => setFocusAncestry(value as typeof focusAncestry)}>
+                  <SelectTrigger className="h-9 border-slate-700 bg-slate-950 text-slate-100">
+                    <SelectValue placeholder="All ancestries" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All ancestries</SelectItem>
+                    {ANCESTRY_DEFS.map(def => (
+                      <SelectItem key={def.key} value={def.key}>
+                        {def.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="flex flex-col">
+                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Directional signature</label>
+                <Select
+                  value={directionFilter}
+                  onValueChange={value => setDirectionFilter(value as typeof directionFilter)}
+                >
+                  <SelectTrigger className="h-9 border-slate-700 bg-slate-950 text-slate-100">
+                    <SelectValue placeholder="All patterns" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="any">Any direction</SelectItem>
+                    <SelectItem value="positive">All positive</SelectItem>
+                    <SelectItem value="negative">All negative</SelectItem>
+                    <SelectItem value="balanced">Balanced</SelectItem>
+                    <SelectItem value="leansPositive">Leans positive</SelectItem>
+                    <SelectItem value="leansNegative">Leans negative</SelectItem>
+                    <SelectItem value="none">No signal</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="flex flex-col">
+                <div className="mb-1.5 flex items-center justify-between gap-2">
+                  <label className="block text-xs font-semibold text-slate-300">Minimum harmony grade</label>
+                  <Badge className="min-w-10 justify-center border border-cyan-500/40 bg-cyan-950/70 text-cyan-200">
+                    ≥ {minGrade}
+                  </Badge>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Slider
+                    value={[minGrade]}
+                    min={1}
+                    max={6}
+                    step={1}
+                    onValueChange={([value]) => setMinGrade(value ?? minGrade)}
+                  />
+                </div>
+                <p className="mt-1.5 text-[11px] leading-snug text-slate-400">
+                  Grade 1–6 summarises cross-ancestry agreement; higher means more consistent signals.
+                </p>
+              </div>
+
+              <div className="flex flex-col">
+                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Required ancestry coverage</label>
+                <Select value={String(minAncestries)} onValueChange={value => setMinAncestries(Number(value))}>
+                  <SelectTrigger className="h-9 border-slate-700 bg-slate-950 text-slate-100">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {[0, 1, 2, 3, 4, 5, 6].map(option => (
+                      <SelectItem key={option} value={String(option)}>
+                        {option === 0 ? 'No minimum' : `At least ${option}`}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <p className="mt-1.5 text-[11px] leading-snug text-slate-400">
+                  Counts ancestries with non-null effect estimates.
+                </p>
+              </div>
             </div>
-            
-            {/* Table */}
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead
-                      className="min-w-[220px] cursor-pointer"
-                      onClick={() => requestSort('region')}
-                    >
-                      Region {getSortIcon('region')}
-                    </TableHead>
-                    <TableHead
-                      className="min-w-[180px] cursor-pointer"
-                      onClick={() => requestSort('trait')}
-                    >
-                      Trait {getSortIcon('trait')}
-                    </TableHead>
-                    <TableHead className="min-w-[180px] text-center">
-                      Details
-                    </TableHead>
-                    <TableHead
-                      className="min-w-[90px] text-center cursor-pointer"
-                      onClick={() => requestSort('grade')}
-                    >
-                      Harmony grade {getSortIcon('grade')}
-                    </TableHead>
-                    <TableHead
-                      className="min-w-[150px] text-center cursor-pointer"
-                      onClick={() => requestSort('direction')}
-                    >
-                      Direction {getSortIcon('direction')}
-                    </TableHead>
-                    <TableHead
-                      className="min-w-[120px] text-center cursor-pointer"
-                      onClick={() => requestSort('available')}
-                    >
-                      Coverage {getSortIcon('available')}
-                    </TableHead>
-                    <TableHead
-                      className="min-w-[130px] text-center cursor-pointer"
-                      onClick={() => requestSort('avgEffect')}
-                    >
-                      Avg effect {getSortIcon('avgEffect')}
-                    </TableHead>
-                    <TableHead
-                      className="min-w-[130px] text-center cursor-pointer"
-                      onClick={() => requestSort('maxEffect')}
-                    >
-                      Max |effect| {getSortIcon('maxEffect')}
-                    </TableHead>
-                    {focusAncestry !== 'all' && (
+
+            {(filteredSummary || (focusSummary && focusMeta)) && (
+              <div className="mt-3 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-7 gap-2 text-xs">
+                {filteredSummary && (
+                  <>
+                    <div className="rounded border border-slate-800 bg-slate-950/70 px-3 py-2">
+                      <p className="text-slate-500">Avg grade</p>
+                      <p className="font-semibold text-slate-100">{formatDecimal(filteredSummary.avgGrade, 2)}</p>
+                    </div>
+                    <div className="rounded border border-slate-800 bg-slate-950/70 px-3 py-2">
+                      <p className="text-slate-500">Avg |effect|</p>
+                      <p className="font-semibold text-slate-100">{formatDecimal(filteredSummary.avgAbsEffect, 3)}</p>
+                    </div>
+                    <div className="rounded border border-slate-800 bg-slate-950/70 px-3 py-2">
+                      <p className="text-slate-500">Median |effect|</p>
+                      <p className="font-semibold text-slate-100">{formatDecimal(filteredSummary.medianAbsEffect, 3)}</p>
+                    </div>
+                    <div className="rounded border border-slate-800 bg-slate-950/70 px-3 py-2">
+                      <p className="text-slate-500">Mean coverage</p>
+                      <p className="font-semibold text-slate-100">{formatDecimal(filteredSummary.coverageMean, 1)}</p>
+                    </div>
+                    <div className="rounded border border-slate-800 bg-slate-950/70 px-3 py-2">
+                      <p className="text-slate-500">Unidirectional</p>
+                      <p className="font-semibold text-slate-100">{formatPercentage(filteredSummary.strongDirectionalShare, 0)}</p>
+                    </div>
+                  </>
+                )}
+                {focusSummary && focusMeta && (
+                  <>
+                    <div className="rounded border border-slate-800 bg-slate-950/70 px-3 py-2">
+                      <p className="text-slate-500">{focusMeta.short} estimates</p>
+                      <p className="font-semibold text-slate-100">{formatInteger(focusSummary.count)}</p>
+                    </div>
+                    <div className="rounded border border-slate-800 bg-slate-950/70 px-3 py-2">
+                      <p className="text-slate-500">{focusMeta.short} mean</p>
+                      <p className="font-semibold text-slate-100">{formatEffect(focusSummary.mean)}</p>
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
+
+          <div className="grid grid-cols-1 2xl:grid-cols-[minmax(760px,1.12fr)_minmax(560px,0.88fr)] gap-4 items-stretch">
+            <section className="min-w-0 rounded-lg border border-slate-800 bg-black/40 p-3">
+              <div className="mb-2 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-2">
+                <div>
+                  <h2 className="text-sm font-semibold text-slate-100">Matrix view</h2>
+                  <p className="text-xs text-slate-400">
+                    Cell color encodes harmony grade. Click a cell to focus the pairs table.
+                  </p>
+                </div>
+                <Badge className="w-fit border border-slate-700 bg-slate-900 text-slate-200">
+                  {formatInteger(baseFilteredRecords.length)} matrix pairs
+                </Badge>
+              </div>
+
+              <RegulatoryChessboard
+                data={baseFilteredRecords.map(record => ({
+                  id: record.id,
+                  trait: record.trait,
+                  regionLabel: record.regionLabel,
+                  availableCount: record.availableCount,
+                  positiveCount: record.positiveCount,
+                  negativeCount: record.negativeCount,
+                  grade: record.grade,
+                  maxAbsEffect: record.maxAbsEffect,
+                  gim: record.gim
+                }))}
+                onCellClick={handleChessboardCellClick}
+                selectedRegion={chessboardSelectedRegion}
+                selectedTrait={chessboardSelectedTrait}
+                gimFilter={gimContextFilter}
+              />
+            </section>
+
+            <section className="min-w-0 rounded-lg border border-slate-800 bg-slate-950/70 flex flex-col overflow-hidden">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-slate-800 px-3 py-3">
+                <div>
+                  <h2 className="text-sm font-semibold text-slate-100 flex items-center gap-2">
+                    <TrendingUp className="w-4 h-4 text-orange-400" />
+                    Regulatory pairs ({filteredRecords.length})
+                  </h2>
+                  <p className="text-xs text-slate-500">
+                    Sort columns or open details without leaving the matrix context.
+                  </p>
+                </div>
+                {(chessboardSelectedRegion || chessboardSelectedTrait) && (
+                  <Badge className="w-fit border border-cyan-500/40 bg-cyan-950/70 text-cyan-200">
+                    Matrix filtered
+                  </Badge>
+                )}
+              </div>
+
+              <div className="min-h-[520px] max-h-[68vh] overflow-auto">
+                <Table className="min-w-[980px] text-xs">
+                  <TableHeader className="sticky top-0 z-10 bg-slate-950/95">
+                    <TableRow className="border-slate-800 hover:bg-transparent">
                       <TableHead
-                        className="min-w-[150px] text-center cursor-pointer"
-                        onClick={() => requestSort('focus')}
+                        className="min-w-[190px] cursor-pointer text-slate-300"
+                        onClick={() => requestSort('region')}
                       >
-                        {focusMeta ? `${focusMeta.short} effect` : 'Selected ancestry effect'} {getSortIcon('focus')}
+                        Region {getSortIcon('region')}
                       </TableHead>
-                    )}
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {paginatedRecords.map(record => {
-                    const isActive = record.id === selectedId;
-                    const focusValue =
-                      focusAncestry === 'all'
-                        ? null
-                        : record.effects[focusAncestry] ?? null;
-                    return (
-                      <TableRow
-                        key={record.id}
-                        className={`cursor-pointer transition-colors ${
-                          isActive ? 'bg-orange-50/80 border-l-4 border-orange-500' : 'hover:bg-slate-50'
-                        }`}
-                        onClick={() => setSelectedId(record.id)}
+                      <TableHead
+                        className="min-w-[160px] cursor-pointer text-slate-300"
+                        onClick={() => requestSort('trait')}
                       >
-                        <TableCell className="text-slate-700">{record.regionLabel}</TableCell>
-                        <TableCell className="font-medium text-slate-900">{record.trait}</TableCell>
-                        <TableCell className="text-center">
-                          <button
-                            type="button"
-                            onClick={event => {
-                              event.stopPropagation();
-                              openDetailsForRecord(record.id);
-                            }}
-                            className="text-sm font-semibold text-orange-600 hover:text-orange-700"
-                          >
-                            Click to see regulatory effects
-                          </button>
-                        </TableCell>
-                        <TableCell className="text-center">
-                          <Badge className={`${gradeBadgeClass(record.grade)} px-2`}>
-                            {record.grade ?? '—'}
-                          </Badge>
-                        </TableCell>
-                        <TableCell className="text-center">
-                          <Badge className={`${directionBadgeClass(record.direction)} px-2`}>
-                            {DIRECTION_LABELS[record.direction]}
-                          </Badge>
-                        </TableCell>
-                        <TableCell className="text-center text-sm text-slate-700">
-                          {record.availableCount}
-                        </TableCell>
-                        <TableCell className="text-center">
-                          <Badge className={`${effectBadgeClass(record.averageEffect)} px-2`}>
-                            {formatEffect(record.averageEffect)}
-                          </Badge>
-                        </TableCell>
-                        <TableCell className="text-center text-sm text-slate-700">
-                          {formatDecimal(record.maxAbsEffect, 3)}
-                        </TableCell>
-                        {focusAncestry !== 'all' && (
+                        Trait {getSortIcon('trait')}
+                      </TableHead>
+                      <TableHead className="min-w-[150px] text-center text-slate-300">
+                        Details
+                      </TableHead>
+                      <TableHead
+                        className="min-w-[110px] text-center cursor-pointer text-slate-300"
+                        onClick={() => requestSort('grade')}
+                      >
+                        Harmony grade {getSortIcon('grade')}
+                      </TableHead>
+                      <TableHead
+                        className="min-w-[140px] text-center cursor-pointer text-slate-300"
+                        onClick={() => requestSort('direction')}
+                      >
+                        Direction {getSortIcon('direction')}
+                      </TableHead>
+                      <TableHead
+                        className="min-w-[95px] text-center cursor-pointer text-slate-300"
+                        onClick={() => requestSort('available')}
+                      >
+                        Coverage {getSortIcon('available')}
+                      </TableHead>
+                      <TableHead
+                        className="min-w-[115px] text-center cursor-pointer text-slate-300"
+                        onClick={() => requestSort('avgEffect')}
+                      >
+                        Avg effect {getSortIcon('avgEffect')}
+                      </TableHead>
+                      <TableHead
+                        className="min-w-[115px] text-center cursor-pointer text-slate-300"
+                        onClick={() => requestSort('maxEffect')}
+                      >
+                        Max |effect| {getSortIcon('maxEffect')}
+                      </TableHead>
+                      {focusAncestry !== 'all' && (
+                        <TableHead
+                          className="min-w-[130px] text-center cursor-pointer text-slate-300"
+                          onClick={() => requestSort('focus')}
+                        >
+                          {focusMeta ? `${focusMeta.short} effect` : 'Selected ancestry effect'} {getSortIcon('focus')}
+                        </TableHead>
+                      )}
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {paginatedRecords.map(record => {
+                      const isActive = record.id === selectedId;
+                      const focusValue =
+                        focusAncestry === 'all'
+                          ? null
+                          : record.effects[focusAncestry] ?? null;
+                      return (
+                        <TableRow
+                          key={record.id}
+                          className={`cursor-pointer border-slate-800 transition-colors ${
+                            isActive ? 'bg-orange-950/35 border-l-4 border-orange-500' : 'hover:bg-slate-900/70'
+                          }`}
+                          onClick={() => setSelectedId(record.id)}
+                        >
+                          <TableCell className="text-slate-300">{record.regionLabel}</TableCell>
+                          <TableCell className="font-medium text-slate-100">{record.trait}</TableCell>
                           <TableCell className="text-center">
-                            <Badge className={`${effectBadgeClass(focusValue)} px-2`}>
-                              {formatEffect(focusValue)}
+                            <button
+                              type="button"
+                              onClick={event => {
+                                event.stopPropagation();
+                                openDetailsForRecord(record.id);
+                              }}
+                              className="text-xs font-semibold text-orange-300 hover:text-orange-200"
+                            >
+                              Open details
+                            </button>
+                          </TableCell>
+                          <TableCell className="text-center">
+                            <Badge className={`${gradeBadgeClass(record.grade)} px-2`}>
+                              {record.grade ?? '—'}
                             </Badge>
                           </TableCell>
-                        )}
+                          <TableCell className="text-center">
+                            <Badge className={`${directionBadgeClass(record.direction)} px-2`}>
+                              {DIRECTION_LABELS[record.direction]}
+                            </Badge>
+                          </TableCell>
+                          <TableCell className="text-center text-slate-300">
+                            {record.availableCount}
+                          </TableCell>
+                          <TableCell className="text-center">
+                            <Badge className={`${effectBadgeClass(record.averageEffect)} px-2`}>
+                              {formatEffect(record.averageEffect)}
+                            </Badge>
+                          </TableCell>
+                          <TableCell className="text-center text-slate-300">
+                            {formatDecimal(record.maxAbsEffect, 3)}
+                          </TableCell>
+                          {focusAncestry !== 'all' && (
+                            <TableCell className="text-center">
+                              <Badge className={`${effectBadgeClass(focusValue)} px-2`}>
+                                {formatEffect(focusValue)}
+                              </Badge>
+                            </TableCell>
+                          )}
+                        </TableRow>
+                      );
+                    })}
+                    {!paginatedRecords.length && (
+                      <TableRow className="border-slate-800">
+                        <TableCell colSpan={focusAncestry === 'all' ? 8 : 9} className="py-8 text-center text-slate-400">
+                          No region–trait pairs satisfy the current filters.
+                        </TableCell>
                       </TableRow>
-                    );
-                  })}
-                  {!paginatedRecords.length && (
-                    <TableRow>
-                      <TableCell colSpan={focusAncestry === 'all' ? 8 : 9} className="py-8 text-center">
-                        No region–trait pairs satisfy the current filters.
-                      </TableCell>
-                    </TableRow>
-                  )}
-                </TableBody>
-              </Table>
-            </div>
-
-            <div className="flex items-center justify-between px-4 py-3 text-sm text-slate-500 border-t">
-              <span>
-                Page {Math.min(currentPage, totalPages)} of {totalPages}
-              </span>
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setCurrentPage(page => Math.max(1, page - 1))}
-                  disabled={currentPage === 1}
-                  className="px-3 py-1 rounded border text-slate-600 disabled:opacity-40 hover:bg-slate-50"
-                >
-                  Previous
-                </button>
-                <button
-                  onClick={() => setCurrentPage(page => Math.min(totalPages, page + 1))}
-                  disabled={currentPage === totalPages}
-                  className="px-3 py-1 rounded border text-slate-600 disabled:opacity-40 hover:bg-slate-50"
-                >
-                  Next
-                </button>
+                    )}
+                  </TableBody>
+                </Table>
               </div>
-            </div>
+
+              <div className="flex items-center justify-between border-t border-slate-800 px-3 py-2 text-xs text-slate-400">
+                <span>
+                  Page {Math.min(currentPage, totalPages)} of {totalPages}
+                </span>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setCurrentPage(page => Math.max(1, page - 1))}
+                    disabled={currentPage === 1}
+                    className="px-3 py-1 rounded border border-slate-700 text-slate-200 disabled:opacity-40 hover:bg-slate-900"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    onClick={() => setCurrentPage(page => Math.min(totalPages, page + 1))}
+                    disabled={currentPage === totalPages}
+                    className="px-3 py-1 rounded border border-slate-700 text-slate-200 disabled:opacity-40 hover:bg-slate-900"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            </section>
           </div>
         </CardContent>
       </Card>
-
-      <div className="space-y-6">
-        {(filteredSummary || (focusSummary && focusMeta)) && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {filteredSummary && (
-              <Card className="shadow-sm border">
-                <CardHeader className="pb-2 flex items-center gap-2">
-                  <Gauge className="w-5 h-5 text-indigo-600" />
-                  <CardTitle className="text-sm font-semibold text-slate-700">
-                    Filtered set overview
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2 text-sm text-slate-700">
-                  <div className="flex items-center justify-between">
-                    <span>Average harmony grade</span>
-                    <span className="font-semibold text-slate-900">
-                      {formatDecimal(filteredSummary.avgGrade, 2)}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span>Average |effect|</span>
-                    <span className="font-semibold text-slate-900">
-                      {formatDecimal(filteredSummary.avgAbsEffect, 3)}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span>Median |effect|</span>
-                    <span className="font-semibold text-slate-900">
-                      {formatDecimal(filteredSummary.medianAbsEffect, 3)}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span>Mean ancestry coverage</span>
-                    <span className="font-semibold text-slate-900">
-                      {formatDecimal(filteredSummary.coverageMean, 1)}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span>Strictly unidirectional</span>
-                    <span className="font-semibold text-slate-900">
-                      {formatPercentage(filteredSummary.strongDirectionalShare, 0)}
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
-            )}
-
-            {focusSummary && focusMeta && (
-              <Card className="shadow-sm border">
-                <CardHeader className="pb-2 flex items-center gap-2">
-                  <Target className="w-5 h-5 text-emerald-600" />
-                  <CardTitle className="text-sm font-semibold text-slate-700">
-                    {focusMeta.label} summary
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2 text-sm text-slate-700">
-                  <div className="flex items-center justify-between">
-                    <span>Pairs with estimates</span>
-                    <span className="font-semibold text-slate-900">
-                      {formatInteger(focusSummary.count)}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span>Mean effect</span>
-                    <span className="font-semibold text-slate-900">
-                      {formatEffect(focusSummary.mean)}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span>Median effect</span>
-                    <span className="font-semibold text-slate-900">
-                      {formatEffect(focusSummary.median)}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span>Positive direction</span>
-                    <span className="font-semibold text-slate-900">
-                      {formatInteger(focusSummary.positive)} · {formatPercentage(focusSummary.positiveShare, 0)}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span>Negative direction</span>
-                    <span className="font-semibold text-slate-900">
-                      {formatInteger(focusSummary.negative)} · {formatPercentage(focusSummary.negativeShare, 0)}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span>Near zero</span>
-                    <span className="font-semibold text-slate-900">
-                      {formatInteger(focusSummary.neutral)} · {formatPercentage(focusSummary.neutralShare, 0)}
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
-            )}
-          </div>
-        )}
 
         <Dialog
           open={detailsOpen && !!selectedRecord}
@@ -1449,7 +1269,6 @@ const RegulatoryEffectsPage: React.FC = () => {
           </DialogContent>
         </Dialog>
       </div>
-    </div>
   );
 };
 

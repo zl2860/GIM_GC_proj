@@ -248,7 +248,7 @@ export default function FullyMatchedVariantsPage() {
         <div>
           <h1 className="text-3xl font-bold flex items-center space-x-2">
             <TableIcon className="w-8 h-8 text-green-600" />
-            <span>Lead Variants in the mGWAS Reported as Associated with Gastric Cancer & Gastric Lesion Progression</span>
+            <span>Lead variants in the mGWAS reported as associated with gastric cancer and gastric lesion progression</span>
           </h1>
           <p className="text-gray-600">Showing {filtered.length} of {data.length} variants.</p>
         </div>
@@ -258,7 +258,7 @@ export default function FullyMatchedVariantsPage() {
       <Card>
         <CardHeader className="flex items-center space-x-2">
           <Filter className="w-5 h-5 text-gray-600" />
-          <CardTitle>Filters & Search</CardTitle>
+          <CardTitle>Filters and search</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -272,23 +272,23 @@ export default function FullyMatchedVariantsPage() {
               />
             </div>
             <Select value={filterGene} onValueChange={v => { setFilterGene(v); setPage(1); }}>
-              <SelectTrigger><SelectValue placeholder="All Genes" /></SelectTrigger>
+              <SelectTrigger><SelectValue placeholder="All genes" /></SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">Nearest Genes</SelectItem>
+                <SelectItem value="all">Nearest genes</SelectItem>
                 {genes.map(g => <SelectItem key={g} value={g}>{g}</SelectItem>)}
               </SelectContent>
             </Select>
             <Select value={filterRole} onValueChange={v => { setFilterRole(v); setPage(1); }}>
-              <SelectTrigger><SelectValue placeholder="All Functions" /></SelectTrigger>
+              <SelectTrigger><SelectValue placeholder="All functions" /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">Functional role of variants</SelectItem>
                 {roles.map(r => <SelectItem key={r} value={r}>{r}</SelectItem>)}
               </SelectContent>
             </Select>
             <Select value={filterStudy} onValueChange={v => { setFilterStudy(v); setPage(1); }}>
-              <SelectTrigger><SelectValue placeholder="All Studies" /></SelectTrigger>
+              <SelectTrigger><SelectValue placeholder="All studies" /></SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">Matched Studies</SelectItem>
+                <SelectItem value="all">Matched studies</SelectItem>
                 {studies.map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}
               </SelectContent>
             </Select>
@@ -330,7 +330,7 @@ export default function FullyMatchedVariantsPage() {
                     ['functionalRole','Function'],
                     ['caddScore','CADD'],
                     ['regulomeDB','RegDB'],
-                    ['matchedStudies','Matched Studies']
+                    ['matchedStudies','Matched studies']
                   ] as [SortField,string][]).map(([key,label]) => (
                     <TableHead
                       key={key}
@@ -468,13 +468,13 @@ export default function FullyMatchedVariantsPage() {
         {/* Summary View */}
         <TabsContent value="summary">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            <Card><CardHeader><CardTitle>Total Variants</CardTitle></CardHeader><CardContent className="text-2xl font-bold">{stats.total}</CardContent></Card>
-            <Card><CardHeader><CardTitle>Unique Reported</CardTitle></CardHeader><CardContent className="text-2xl font-bold">{stats.uniqueRpt}</CardContent></Card>
-            <Card><CardHeader><CardTitle>Unique Genes</CardTitle></CardHeader><CardContent className="text-2xl font-bold">{stats.uniqueGenes}</CardContent></Card>
+            <Card><CardHeader><CardTitle>Total variants</CardTitle></CardHeader><CardContent className="text-2xl font-bold">{stats.total}</CardContent></Card>
+            <Card><CardHeader><CardTitle>Unique reported variants</CardTitle></CardHeader><CardContent className="text-2xl font-bold">{stats.uniqueRpt}</CardContent></Card>
+            <Card><CardHeader><CardTitle>Unique genes</CardTitle></CardHeader><CardContent className="text-2xl font-bold">{stats.uniqueGenes}</CardContent></Card>
             <Card><CardHeader><CardTitle>Avg CADD</CardTitle></CardHeader><CardContent className="text-2xl font-bold">{stats.avgCADD.toFixed(2)}</CardContent></Card>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-2">By Functional Role</h3>
+            <h3 className="text-lg font-semibold mb-2">By functional role</h3>
             <div style={{ height: 300 }}> 
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={stats.roleCounts} margin={{ top:20,right:30,left:20,bottom:50 }}>
@@ -496,7 +496,7 @@ export default function FullyMatchedVariantsPage() {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[90vh] overflow-auto space-y-6">
             <div className="flex justify-between">
-              <h3 className="text-2xl font-semibold">Variant Details</h3>
+              <h3 className="text-2xl font-semibold">Variant details</h3>
               <button onClick={()=>setSelected(null)} className="text-gray-400 hover:text-gray-600">×</button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
@@ -509,7 +509,7 @@ export default function FullyMatchedVariantsPage() {
                 <div><strong>Gene:</strong> {selected.nearestGene}</div>
                 <div><strong>Function:</strong> <Badge className={`ml-2 ${ROLE_COLOR_MAP[selected.functionalRole]|| 'bg-gray-100 text-gray-800'}`}>{selected.functionalRole}</Badge></div>
                 <div>
-                  <strong>Matched Studies:</strong>{' '}
+                  <strong>Matched studies:</strong>{' '}
                   {selected.matchedStudies
                     .split(';')
                     .map(s => s.trim())
@@ -540,7 +540,7 @@ export default function FullyMatchedVariantsPage() {
                   </div>
                 )}
                 <div>
-                  <h4 className="text-sm font-medium mb-2">RegulomeDB Score</h4>
+                  <h4 className="text-sm font-medium mb-2">RegulomeDB score</h4>
                   <div className="grid grid-cols-5 gap-1">
                     {REGDB_CATEGORIES.map(cat=>(<div key={cat} className={`w-10 h-10 flex items-center justify-center text-xs font-semibold border rounded ${selected.regulomeDB===cat?'bg-orange-600 text-white':'bg-gray-100 text-gray-500 border-gray-200'}`}>{cat}</div>))}
                   </div>

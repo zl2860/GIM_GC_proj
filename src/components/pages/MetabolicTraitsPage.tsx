@@ -235,10 +235,10 @@ const MetabolicTraitsPage: React.FC = () => {
             }}
           >
             <SelectTrigger>
-              <SelectValue placeholder={`All Groups (${uniqueGroups.length})`} />
+              <SelectValue placeholder={`All groups (${uniqueGroups.length})`} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Groups ({uniqueGroups.length})</SelectItem>
+              <SelectItem value="all">All groups ({uniqueGroups.length})</SelectItem>
               {uniqueGroups.map(g => (
                 <SelectItem key={g} value={g}>
                   {g}
@@ -248,7 +248,7 @@ const MetabolicTraitsPage: React.FC = () => {
           </Select>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Sub Group</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Sub group</label>
           <Select
             value={selectedSubGroup}
             onValueChange={value => {
@@ -257,11 +257,11 @@ const MetabolicTraitsPage: React.FC = () => {
             }}
           >
             <SelectTrigger>
-              <SelectValue placeholder={`All Sub Groups (${uniqueSubGroups.length})`} />
+              <SelectValue placeholder={`All subgroups (${uniqueSubGroups.length})`} />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">
-                All Sub Groups ({uniqueSubGroups.length})
+                All subgroups ({uniqueSubGroups.length})
               </SelectItem>
               {uniqueSubGroups.map(sg => (
                 <SelectItem key={sg} value={sg}>
@@ -288,7 +288,7 @@ const MetabolicTraitsPage: React.FC = () => {
                     onClick={() => handleSort('metabolic_trait')}
                   >
                     <div className="flex items-center space-x-2">
-                      <span>Metabolomic Trait</span>
+                      <span>Metabolomic trait</span>
                       {getSortIcon('metabolic_trait')}
                     </div>
                   </TableHead>
@@ -404,7 +404,7 @@ const MetabolicTraitsPage: React.FC = () => {
               <div className="flex items-center space-x-2 mb-4">
                 <Info className="w-5 h-5 text-blue-600" />
                 <h3 className="text-lg font-semibold text-gray-900">
-                  Metabolomic Trait Details
+                  Metabolomic trait details
                 </h3>
               </div>
               <div className="space-y-4">
@@ -432,7 +432,7 @@ const MetabolicTraitsPage: React.FC = () => {
                 </div>
                 {selectedTrait.sub_group && selectedTrait.sub_group !== '-' && (
                   <div>
-                    <div className="text-sm font-medium text-gray-700">Sub Group</div>
+                    <div className="text-sm font-medium text-gray-700">Sub group</div>
                     <Badge variant="outline">{selectedTrait.sub_group}</Badge>
                   </div>
                 )}
@@ -442,7 +442,7 @@ const MetabolicTraitsPage: React.FC = () => {
             <div className="bg-white rounded-lg shadow-lg p-6 text-center">
               <Beaker className="w-12 h-12 text-gray-400 mx-auto mb-3" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Select a Metabolomic Trait
+                Select a metabolomic trait
               </h3>
               <p className="text-gray-600 text-sm">
                 Click a row to view detailed information.
@@ -451,7 +451,7 @@ const MetabolicTraitsPage: React.FC = () => {
           )}
 
           <div className="bg-white rounded-lg shadow-lg p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Group Summary</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Group summary</h3>
             <div className="space-y-2 text-sm text-gray-600">
               {uniqueGroups.map(g => {
                 const count = data.data.filter(d => d.group === g).length;
@@ -472,23 +472,23 @@ const MetabolicTraitsPage: React.FC = () => {
           <div className="text-2xl font-bold text-purple-600">
             {filteredAndSortedData.length}
           </div>
-          <div className="text-sm text-gray-600">Filtered Traits</div>
+          <div className="text-sm text-gray-600">Filtered traits</div>
         </div>
         <div className="bg-white rounded-lg shadow p-4">
           <div className="text-2xl font-bold text-blue-600">{uniqueGroups.length}</div>
-          <div className="text-sm text-gray-600">Trait Groups</div>
+          <div className="text-sm text-gray-600">Trait groups</div>
         </div>
         <div className="bg-white rounded-lg shadow p-4">
           <div className="text-2xl font-bold text-green-600">
             {uniqueSubGroups.length}
           </div>
-          <div className="text-sm text-gray-600">Sub Groups</div>
+          <div className="text-sm text-gray-600">Subgroups</div>
         </div>
         <div className="bg-white rounded-lg shadow p-4">
           <div className="text-2xl font-bold text-orange-600">
             {data.data.filter(d => d.group === 'Cholesterol').length}
           </div>
-          <div className="text-sm text-gray-600">Cholesterol Traits</div>
+          <div className="text-sm text-gray-600">Cholesterol traits</div>
         </div>
       </div>
     </div>

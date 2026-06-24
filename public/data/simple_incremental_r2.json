@@ -1,6 +1,6 @@
 {
   "title": "Incremental R² of GIMs-related traits vs Other Determinants",
-  "description": "This chart shows the incremental R² (variance in measured metabolite levels) attributable to each determinant, including genetically predicted traits (GIM) and other determinants (age, sex, smoking, BMI, assessment center, diet, etc.), for the 71 distinct traits in the GIMs for gastric cancer and gastric lesion progression.",
+  "description": "This chart shows the incremental R² (variance in measured metabolite levels) attributable to each determinant, including genetically predicted trait levels and other determinants (age, sex, smoking, BMI, assessment center, diet, etc.), for the 71 distinct traits in the GIMs for gastric cancer and gastric lesion progression.",
   "data": [
     {
       "metabolic_trait": "Gly",

@@ -13,6 +13,7 @@ import {
 import { Slider } from '../ui/slider';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { toSentenceCaseTitle } from '../../lib/utils';
 
 interface CorrelationRecord {
   nmr_trait: string;
@@ -807,7 +808,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({
     <div className="bg-white shadow rounded-xl border border-gray-200 p-6 space-y-6">
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-800">{resp.title}</h1>
+          <h1 className="text-3xl font-bold text-gray-800">{toSentenceCaseTitle(resp.title)}</h1>
           <p className="text-gray-600 mt-1">{resp.description}</p>
         </div>
       </div>

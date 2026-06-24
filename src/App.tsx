@@ -17,13 +17,14 @@ import SearchResultsPage from './components/pages/SearchResultsPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import RightsNoticePage from './components/pages/RightsNoticePage';
 import CSLIdentifiedLociPage from './components/pages/CSLIdentifiedLociPage';
+import SpatialDistributionPage from './components/pages/SpatialDistributionPage';
 import './index.css';
 
 function App() {
   return (
     <ErrorBoundary>
       <Router basename={import.meta.env.BASE_URL}>
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-[#020617]">
           <Layout>
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -32,6 +33,7 @@ function App() {
               <Route path="/correlations" element={<CorrelationPairs />} />
               <Route path="/risk-associations" element={<RiskAssociationsPage />} />
               <Route path="/gc-gims" element={<GCGimsPage />} />
+              <Route path="/spatial-distribution" element={<SpatialDistributionPage />} />
               <Route path="/lesion-progression" element={<LesionProgressionPage />} />
               <Route path="/variants" element={<FullyMatchedVariantsPage />} />
               <Route path="/incremental-r2" element={<IncrementalR2Page />} />

@@ -312,13 +312,13 @@ const ModelAssessmentPage: React.FC = () => {
       <div className="p-6 text-center">
         <div className="bg-red-50 border border-red-200 rounded-lg p-6">
           <Activity className="w-12 h-12 text-red-600 mx-auto mb-4" />
-          <h3 className="text-lg font-semibold text-red-800 mb-2">Data Loading Error</h3>
+          <h3 className="text-lg font-semibold text-red-800 mb-2">Data loading error</h3>
           <p className="text-red-600 mb-4">{error ?? 'Unknown error'}</p>
           <button 
             onClick={() => window.location.reload()} 
             className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
           >
-            Retry Loading
+            Retry loading
           </button>
         </div>
       </div>
@@ -331,10 +331,10 @@ const ModelAssessmentPage: React.FC = () => {
           <div className="min-w-0 flex-1">
           <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-2">
               <Building className="w-8 h-8 text-orange-600" />
-            <span>CSL Model Performance</span>
+            <span>CSL model performance</span>
             </h1>
           <p className="text-gray-600 mt-2">
-            The causal stable learning (CSL) predictions were evaluated for each specific trait by assessment centers and ancestries in UKBB Discovery Cohort. Use the selectors to highlight a specific assessment center or reported ancestry and obtain summaries for the filtered trait set.
+            The causal stable learning (CSL) predictions were evaluated for each specific trait by assessment centers and ancestries in UKBB discovery cohort. Use the selectors to highlight a specific assessment center or reported ancestry and obtain summaries for the filtered trait set.
           </p>
           </div>
         </div>

@@ -861,7 +861,7 @@ const GeneMetaboliteNetworkPage: React.FC = () => {
   return (
     <div className="space-y-6 p-4 sm:p-6">
       <div className="rounded-lg bg-white p-4 sm:p-6 shadow">
-        <h1 className="text-2xl font-bold mb-2">Network Visualization</h1>
+        <h1 className="text-2xl font-bold mb-2">Network visualization</h1>
         <p className="text-gray-700 mb-4">
           Explore different types of networks: GGM partial correlations and colocalization networks.
           Drag nodes to explore, and click to inspect connections.
@@ -872,13 +872,13 @@ const GeneMetaboliteNetworkPage: React.FC = () => {
             variant={networkType === 'ggm' ? 'default' : 'outline'}
             onClick={() => setNetworkType('ggm')}
           >
-            GGM Network
+            GGM network
           </Button>
           <Button
             variant={networkType === 'coloc' ? 'default' : 'outline'}
             onClick={() => setNetworkType('coloc')}
           >
-            Colocalization Network
+            Colocalization network
           </Button>
         </div>
       </div>
@@ -895,11 +895,11 @@ const GeneMetaboliteNetworkPage: React.FC = () => {
               <div className="flex flex-wrap items-center justify-center gap-4 mb-2 text-sm text-gray-600">
                 <div className="flex items-center space-x-2">
                   <div className="w-4 h-0.5 bg-slate-400"></div>
-                  <span>Solid line: Positive correlation (ρ {'>'} 0)</span>
+                  <span>Solid line: positive correlation (ρ {'>'} 0)</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-4 h-0.5 border-t-2 border-dashed border-slate-400"></div>
-                  <span>Dashed line: Negative correlation (ρ {'<'} 0)</span>
+                  <span>Dashed line: negative correlation (ρ {'<'} 0)</span>
                 </div>
               </div>
               <svg
@@ -921,7 +921,7 @@ const GeneMetaboliteNetworkPage: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-4 h-4 rounded-full bg-[#ece399]"></div>
-                  <span className="text-sm">GIM Biomarkers</span>
+                  <span className="text-sm">GIM biomarkers</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-4 h-2 bg-[#FF4757]"></div>
@@ -963,7 +963,7 @@ const GeneMetaboliteNetworkPage: React.FC = () => {
                 </CardContent>
               </Card>
               <Card className="lg:flex-1">
-                <CardHeader><CardTitle>Top 5 Partial Correlations</CardTitle></CardHeader>
+                <CardHeader><CardTitle>Top 5 partial correlations</CardTitle></CardHeader>
                 <CardContent>
                   <div className="overflow-x-auto">
                     <Table>
@@ -1070,7 +1070,7 @@ const GeneMetaboliteNetworkPage: React.FC = () => {
               </Card>
               <Card className="lg:flex-1">
                 <CardHeader>
-                  <CardTitle>Connected Nodes ({colocConnectedNodes.length})</CardTitle>
+                  <CardTitle>Connected nodes ({colocConnectedNodes.length})</CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-col lg:h-full">
                   <div className="overflow-x-auto">
@@ -1080,7 +1080,7 @@ const GeneMetaboliteNetworkPage: React.FC = () => {
                           <TableRow>
                             <TableHead className="w-1/4">Node</TableHead>
                             <TableHead className="w-1/4">Type</TableHead>
-                            <TableHead className="w-1/2">Connected Type</TableHead>
+                            <TableHead className="w-1/2">Connected type</TableHead>
                           </TableRow>
                         </TableHeader>
                         <TableBody>

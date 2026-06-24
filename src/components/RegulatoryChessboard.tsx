@@ -201,7 +201,7 @@ const RegulatoryChessboard: React.FC<RegulatoryChessboardProps> = ({
   // Color mapping based on grade with opacity based on maxAbsEffect
   // Colors: #bcbd22 (yellow-green), #9467bd (purple), #d62728 (red), #777777 (gray), #2ca02c (green)
   const getColor = (grade: number | null, maxAbsEffect: number | null | undefined): string => {
-    if (grade === null || grade === 0) return '#f1f5f9'; // light gray for no data
+    if (grade === null || grade === 0) return '#111827'; // dark slate for no data
     
     // Map grade to one of the 5 colors
     // Grade 6 -> red, Grade 5 -> purple, Grade 4 -> green, Grade 3 -> yellow-green, Grade 2/1 -> gray
@@ -261,16 +261,15 @@ const RegulatoryChessboard: React.FC<RegulatoryChessboardProps> = ({
     setDimensions({ width: totalWidth, height: totalHeight });
 
     const svg = d3.select(svgRef.current);
+    svg
+      .attr('width', totalWidth)
+      .attr('height', totalHeight)
+      .style('font-family', 'Inter, ui-sans-serif, system-ui, sans-serif')
+      .style('font-size', '11px')
+      .style('background', '#020617');
     
     // Initialize SVG if needed
     if (svg.select('g.main-group').empty()) {
-      svg
-        .attr('width', totalWidth)
-        .attr('height', totalHeight)
-        .style('font-family', 'sans-serif')
-        .style('font-size', '11px')
-        .style('background', '#ffffff'); // white background
-      
       gRef.current = svg.append('g').attr('class', 'main-group').attr('transform', `translate(${margin.left},${margin.top})`);
     } else {
       svg
@@ -357,12 +356,12 @@ const RegulatoryChessboard: React.FC<RegulatoryChessboardProps> = ({
       rect
         .attr('width', xScale.bandwidth())
         .attr('height', yScale.bandwidth())
-        .attr('fill', d.pair ? getColor(d.pair.grade, d.pair.maxAbsEffect) : '#f1f5f9')
+        .attr('fill', d.pair ? getColor(d.pair.grade, d.pair.maxAbsEffect) : '#111827')
         .attr('stroke', () => {
           const isSelected =
             (selectedRegion && selectedRegion === d.region) ||
             (selectedTrait && selectedTrait === d.trait);
-          return isSelected ? '#60a5fa' : '#ffffff'; // soft blue for selection, white grid lines
+          return isSelected ? '#67e8f9' : '#1e293b'; // cyan for selection, slate grid lines
         })
         .attr('stroke-width', () => {
           const isSelected =
@@ -401,7 +400,7 @@ const RegulatoryChessboard: React.FC<RegulatoryChessboardProps> = ({
             (selectedRegion && selectedRegion === d.region) ||
             (selectedTrait && selectedTrait === d.trait);
           d3.select(this)
-            .attr('stroke', isSelected ? '#60a5fa' : '#ffffff')
+            .attr('stroke', isSelected ? '#67e8f9' : '#1e293b')
             .attr('stroke-width', isSelected ? 2 : 1);
           tooltip.style('opacity', 0);
         })
@@ -421,13 +420,13 @@ const RegulatoryChessboard: React.FC<RegulatoryChessboardProps> = ({
       .attr('text-anchor', 'middle')
       .attr('dominant-baseline', 'middle')
       .attr('fill', d => {
-        if (!d.pair) return '#cbd5e1';
+        if (!d.pair) return '#475569';
         // Use white text for darker colors, dark text for lighter colors
         const grade = d.pair.grade;
         if (grade === null || grade === 0) return '#cbd5e1';
         if (grade >= 5) return '#ffffff';
         if (grade >= 3) return '#ffffff';
-        return '#1f2937';
+        return '#f8fafc';
       })
       .attr('font-size', d => {
         const size = Math.min(xScale.bandwidth(), yScale.bandwidth());
@@ -453,11 +452,11 @@ const RegulatoryChessboard: React.FC<RegulatoryChessboardProps> = ({
       .attr('y', d => yScale(d)! + yScale.bandwidth() / 2)
       .attr('text-anchor', 'end')
       .attr('dominant-baseline', 'middle')
-      .attr('fill', '#374151')
+      .attr('fill', '#cbd5e1')
       .attr('font-size', '11px')
       .text(d => d)
       .on('mouseenter', function (event, d: string) {
-        d3.select(this).attr('font-weight', 'bold').attr('fill', '#3b82f6');
+        d3.select(this).attr('font-weight', 'bold').attr('fill', '#67e8f9');
         g.selectAll<SVGGElement, CellData>('.cell-group')
           .filter(function(cell: CellData) { return cell.region === d && cell.pair !== null; })
           .select('rect')
@@ -465,15 +464,15 @@ const RegulatoryChessboard: React.FC<RegulatoryChessboardProps> = ({
           .attr('stroke-width', 1.5);
       })
       .on('mouseleave', function () {
-        d3.select(this).attr('font-weight', 'normal').attr('fill', '#374151');
+        d3.select(this).attr('font-weight', 'normal').attr('fill', '#cbd5e1');
         g.selectAll<SVGGElement, CellData>('.cell-group')
           .select('rect')
           .attr('stroke', function (d: CellData) {
-            if (!d.pair) return '#ffffff';
+            if (!d.pair) return '#1e293b';
             const isSelected =
               (selectedRegion && selectedRegion === d.region) ||
               (selectedTrait && selectedTrait === d.trait);
-            return isSelected ? '#60a5fa' : '#ffffff';
+            return isSelected ? '#67e8f9' : '#1e293b';
           })
           .attr('stroke-width', function (d: CellData) {
             if (!d.pair) return 1;
@@ -502,11 +501,11 @@ const RegulatoryChessboard: React.FC<RegulatoryChessboardProps> = ({
         const x = xScale(d)! + xScale.bandwidth() / 2;
         return `rotate(-90, ${x}, ${height + 12})`;
       })
-      .attr('fill', '#374151')
+      .attr('fill', '#cbd5e1')
       .attr('font-size', '10px')
       .text(d => d)
       .on('mouseenter', function (event, d: string) {
-        d3.select(this).attr('font-weight', 'bold').attr('fill', '#3b82f6');
+        d3.select(this).attr('font-weight', 'bold').attr('fill', '#67e8f9');
         g.selectAll<SVGGElement, CellData>('.cell-group')
           .filter(function(cell: CellData) { return cell.trait === d && cell.pair !== null; })
           .select('rect')
@@ -514,15 +513,15 @@ const RegulatoryChessboard: React.FC<RegulatoryChessboardProps> = ({
           .attr('stroke-width', 1.5);
       })
       .on('mouseleave', function () {
-        d3.select(this).attr('font-weight', 'normal').attr('fill', '#374151');
+        d3.select(this).attr('font-weight', 'normal').attr('fill', '#cbd5e1');
         g.selectAll<SVGGElement, CellData>('.cell-group')
           .select('rect')
           .attr('stroke', function (d: CellData) {
-            if (!d.pair) return '#ffffff';
+            if (!d.pair) return '#1e293b';
             const isSelected =
               (selectedRegion && selectedRegion === d.region) ||
               (selectedTrait && selectedTrait === d.trait);
-            return isSelected ? '#60a5fa' : '#ffffff';
+            return isSelected ? '#67e8f9' : '#1e293b';
           })
           .attr('stroke-width', function (d: CellData) {
             if (!d.pair) return 1;
@@ -547,8 +546,8 @@ const RegulatoryChessboard: React.FC<RegulatoryChessboardProps> = ({
       .attr('text-anchor', 'middle')
       .attr('font-size', '14px')
       .attr('font-weight', '600')
-      .attr('fill', '#1f2937')
-      .text('Metabolomic Traits');
+      .attr('fill', '#e2e8f0')
+      .text('Metabolomic traits');
 
     let titleY = svg.select('.title-y');
     if (titleY.empty()) {
@@ -561,8 +560,8 @@ const RegulatoryChessboard: React.FC<RegulatoryChessboardProps> = ({
       .attr('transform', `rotate(-90, 15, ${margin.top + height / 2})`)
       .attr('font-size', '14px')
       .attr('font-weight', '600')
-      .attr('fill', '#1f2937')
-      .text('Genomic Regions');
+      .attr('fill', '#e2e8f0')
+      .text('Genomic regions');
 
     // Cleanup tooltip on unmount
     return () => {
@@ -586,7 +585,7 @@ const RegulatoryChessboard: React.FC<RegulatoryChessboardProps> = ({
           (selectedTrait && selectedTrait === d.trait);
         // Update without transition to avoid flicker
         rect
-          .attr('stroke', isSelected ? '#60a5fa' : '#ffffff')
+          .attr('stroke', isSelected ? '#67e8f9' : '#1e293b')
           .attr('stroke-width', isSelected ? 2 : 1);
       });
   }, [selectedRegion, selectedTrait]);
@@ -594,26 +593,26 @@ const RegulatoryChessboard: React.FC<RegulatoryChessboardProps> = ({
   return (
     <div className="w-full">
       {/* Display pairs count */}
-      <div className="mb-2 text-sm font-semibold text-slate-700 text-center">
+      <div className="mb-2 text-sm font-semibold text-slate-200 text-center">
         Showing {pairsCount} regulatory pair{pairsCount !== 1 ? 's' : ''}
       </div>
       
       <div ref={containerRef} className="w-full overflow-auto flex justify-center">
-        <div className="relative inline-block" style={{ minWidth: '100%' }}>
+        <div className="relative inline-block rounded-lg bg-slate-950" style={{ minWidth: '100%' }}>
           {/* Fixed position controls - top left for Order */}
-          <div className="absolute top-2 left-2 flex gap-2 bg-white/95 backdrop-blur-sm rounded-lg p-2 shadow-lg border border-slate-300 z-10">
-            <label className="text-xs font-semibold text-slate-700 flex items-center">Order:</label>
+          <div className="absolute top-2 left-2 flex gap-2 rounded-lg border border-slate-700 bg-slate-950/92 p-2 shadow-lg shadow-black/40 backdrop-blur-sm z-10">
+            <label className="text-xs font-semibold text-slate-200 flex items-center">Order:</label>
             <select
               value={orderType}
               onChange={e => setOrderType(e.target.value as OrderType)}
-              className="text-xs font-medium text-slate-700 bg-white border border-slate-300 rounded px-2 py-1 cursor-pointer hover:bg-slate-50"
+              className="text-xs font-medium text-slate-100 bg-slate-900 border border-slate-700 rounded px-2 py-1 cursor-pointer hover:bg-slate-800"
             >
-              <option value="name">by Name</option>
-              <option value="frequency">by Number of Pairs</option>
-              <option value="grade">by Grade</option>
-              <option value="cluster">by GIM Context</option>
-              <option value="clusterRegions">Cluster Regions by GIM</option>
-              <option value="clusterTraits">Cluster Traits by GIM</option>
+              <option value="name">by name</option>
+              <option value="frequency">by number of pairs</option>
+              <option value="grade">by grade</option>
+              <option value="cluster">by GIM context</option>
+              <option value="clusterRegions">cluster regions by GIM</option>
+              <option value="clusterTraits">cluster traits by GIM</option>
             </select>
           </div>
           <svg ref={svgRef} style={{ display: 'block', margin: '0 auto' }} />

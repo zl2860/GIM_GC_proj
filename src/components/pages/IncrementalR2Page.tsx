@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import * as d3 from 'd3';
 import { BarChart3, Search, Filter } from 'lucide-react';
+import { toSentenceCaseTitle } from '../../lib/utils';
 
 // --- Data Interfaces ---
 interface SimpleEntry {
@@ -36,7 +37,7 @@ const determinants = [
 const legendLabels: Record<string, string> = {
   center: 'Assessment center',
   'Diet (block)': 'Diet',
-  GIM: 'Genetically predicted traits',
+  GIM: 'Genetically predicted trait levels',
   ethnicity_group: 'Ethnicity',
   age: 'Age',
   sex: 'Sex',
@@ -158,7 +159,7 @@ function createStackedBarChart(
         const entry = d.data;
         const trait = entry.metabolic_trait as string;
         let totalVal = 0;
-        let html = `<strong>${trait}</strong><br/>`;
+        let html = `<strong style="color:#111827">${trait}</strong><br/>`;
         keys.forEach((key) => {
           const v = entry[key] || 0;
           totalVal += v;
@@ -285,7 +286,7 @@ const IncrementalR2Page: React.FC = () => {
           <BarChart3 className="h-8 w-8 text-indigo-600" />
           <div>
             <h1 className="text-2xl font-bold text-gray-900">
-              {dataset.title}
+              {toSentenceCaseTitle(dataset.title)}
             </h1>
             <p className="text-gray-600">
               {dataset.description}

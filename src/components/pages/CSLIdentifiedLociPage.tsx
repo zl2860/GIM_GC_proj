@@ -537,7 +537,7 @@ const CSLIdentifiedLociPage: React.FC = () => {
                       className="flex items-center gap-2 hover:text-orange-600"
                       onClick={() => requestSort('traitGroupCount')}
                     >
-                      Trait Groups {getSortIcon('traitGroupCount')}
+                      Trait groups {getSortIcon('traitGroupCount')}
                     </button>
                   </th>
                   <th className="text-left p-3 text-sm font-semibold text-slate-700 min-w-[150px]">
@@ -545,7 +545,7 @@ const CSLIdentifiedLociPage: React.FC = () => {
                       className="flex items-center gap-2 hover:text-orange-600"
                       onClick={() => requestSort('totalTraits')}
                     >
-                      Total Traits {getSortIcon('totalTraits')}
+                      Total traits {getSortIcon('totalTraits')}
                     </button>
                   </th>
                 </tr>

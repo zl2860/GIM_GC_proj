@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { ExternalLink, Filter, ChevronRight, Search, X } from 'lucide-react';
+import { ExternalLink, Filter, ChevronRight, Search, X, Map as MapIcon } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 interface SearchResult {
@@ -27,6 +27,8 @@ const SearchResultsPage: React.FC = () => {
   const [hasGcGimMatch, setHasGcGimMatch] = useState(false);
   const [hasLesionMatch, setHasLesionMatch] = useState(false);
   const [hasNetworkMatch, setHasNetworkMatch] = useState(false);
+  const [hasSpatialMatch, setHasSpatialMatch] = useState(false);
+  const [matchedSpatialTrait, setMatchedSpatialTrait] = useState('');
   const [networkTraits, setNetworkTraits] = useState<Set<string>>(new Set());
   const [preferColocNetwork, setPreferColocNetwork] = useState(false);
   const [networkGenes, setNetworkGenes] = useState<Set<string>>(new Set());
@@ -43,6 +45,8 @@ const SearchResultsPage: React.FC = () => {
       setHasGcGimMatch(false);
       setHasLesionMatch(false);
       setHasNetworkMatch(false);
+      setHasSpatialMatch(false);
+      setMatchedSpatialTrait('');
       try {
         // Search in traits/biomarkers
         const traitsResponse = await fetch(
@@ -64,10 +68,28 @@ const SearchResultsPage: React.FC = () => {
 
         const foundResults: SearchResult[] = [];
         const matchedGenes = new Set<string>();
+        const spatialTraitsLocal = new Set<string>();
+        const spatialTraitNamesByLower = new Map<string, string>();
         const searchLower = initialQuery.toLowerCase();
         const matchesSearchTerm = (value?: string) =>
           typeof value === 'string' && value.toLowerCase().includes(searchLower);
         const foundRegions = new Set<string>();
+
+        try {
+          const spatialManifestResponse = await fetch(
+            `${import.meta.env.BASE_URL}data/gsmap_spatial/manifest.json`
+          );
+          if (spatialManifestResponse.ok) {
+            const spatialManifest = await spatialManifestResponse.json();
+            (spatialManifest?.traits ?? []).forEach((trait: string) => {
+              const lower = trait.toLowerCase();
+              spatialTraitsLocal.add(lower);
+              spatialTraitNamesByLower.set(lower, trait);
+            });
+          }
+        } catch (err) {
+          console.error('Failed to load spatial trait manifest', err);
+        }
 
         // Search traits
         if (traitsData.data) {
@@ -270,7 +292,7 @@ const SearchResultsPage: React.FC = () => {
               type: 'variant',
               name: variant,
               description: `Colocalized with gene: ${gene}`,
-              details: `Coloc Gene: ${gene}`,
+              details: `Coloc gene: ${gene}`,
               link: '/gene-metabolite',
               matchFields: [variant],
               colocGene: gene
@@ -287,7 +309,7 @@ const SearchResultsPage: React.FC = () => {
               type: 'region',
               name: region,
               description: `Colocalized with gene: ${gene}`,
-              details: `Coloc Gene: ${gene}`,
+              details: `Coloc gene: ${gene}`,
               link: '/csl-loci',
               matchFields: [region],
               colocGene: gene
@@ -295,7 +317,6 @@ const SearchResultsPage: React.FC = () => {
           });
         });
 
-        setResults(foundResults);
         const matchedGeneList = Array.from(matchedGenes);
         const hasNetworkGeneHit = matchedGeneList.some((g) =>
           networkGenesLocal.has(g)
@@ -379,6 +400,29 @@ const SearchResultsPage: React.FC = () => {
           ) ?? false;
         setHasGcGimMatch(gcGimMatch);
         setHasLesionMatch(lesionMatch);
+        const matchedSpatialResult = foundResults.find(
+          (r) => r.type === 'trait' && spatialTraitsLocal.has(r.name.toLowerCase())
+        );
+        const exactSpatialTrait = spatialTraitNamesByLower.get(searchLower);
+        const gcGimSpatialTrait = gcGimData?.data?.find(
+          (row: any) =>
+            matchesSearchTerm(row.Metabolite) &&
+            spatialTraitsLocal.has(String(row.Metabolite).toLowerCase())
+        )?.Metabolite;
+        const lesionSpatialTrait = lesionData?.data?.find(
+          (row: any) =>
+            matchesSearchTerm(row.metabolic_trait) &&
+            spatialTraitsLocal.has(String(row.metabolic_trait).toLowerCase())
+        )?.metabolic_trait;
+        const spatialTraitTarget =
+          matchedSpatialResult?.name ||
+          exactSpatialTrait ||
+          gcGimSpatialTrait ||
+          lesionSpatialTrait ||
+          '';
+        setMatchedSpatialTrait(spatialTraitTarget);
+        setHasSpatialMatch(Boolean(spatialTraitTarget));
+        setResults(foundResults);
         if (foundResults.length === 0) {
           toast.error('No results found for your search');
         }
@@ -523,7 +567,7 @@ const SearchResultsPage: React.FC = () => {
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center justify-between mb-4">
-          <h1 className="text-3xl font-bold text-gray-900">Search Results</h1>
+          <h1 className="text-3xl font-bold text-gray-900">Search results</h1>
           <button
             onClick={() => navigate('/')}
             className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium rounded-lg transition flex items-center gap-2"
@@ -616,22 +660,22 @@ const SearchResultsPage: React.FC = () => {
             </div>
 
           {/* Related resources (GIM & Network) */}
-          {(hasGcGimMatch || hasLesionMatch || hasNetworkMatch) && (
+          {(hasGcGimMatch || hasLesionMatch || hasNetworkMatch || hasSpatialMatch) && (
             <div className="mb-8 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border-2 border-green-200 p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-4">
-                Related GIM & Regulatory Network Resources
+                Related GIM and regulatory network resources
               </h3>
               <p className="text-gray-600 text-sm mb-4">
                 Your search results are tied to genetically influenced metabotypes. Explore the following pages:
               </p>
-              <div className="grid gap-3 md:grid-cols-3">
+              <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
                 {hasGcGimMatch && (
                   <button
                     onClick={() => navigate(`/gc-gims`)}
                     className="flex items-center justify-between p-4 bg-green-100 hover:bg-green-200 rounded-lg transition border border-green-300"
                   >
                     <span className="font-semibold text-green-900">
-                      GIMs - Gastric Cancer
+                      GIMs for gastric cancer
                     </span>
                     <ChevronRight className="w-5 h-5 text-green-600" />
                   </button>
@@ -642,7 +686,7 @@ const SearchResultsPage: React.FC = () => {
                     className="flex items-center justify-between p-4 bg-blue-100 hover:bg-blue-200 rounded-lg transition border border-blue-300"
                   >
                     <span className="font-semibold text-blue-900">
-                      GIMs - Gastric Lesion Progression
+                      GIMs for gastric lesion progression
                     </span>
                     <ChevronRight className="w-5 h-5 text-blue-600" />
                   </button>
@@ -657,9 +701,25 @@ const SearchResultsPage: React.FC = () => {
                     className="flex items-center justify-between p-4 bg-purple-100 hover:bg-purple-200 rounded-lg transition border border-purple-300"
                   >
                     <span className="font-semibold text-purple-900">
-                      Regulatory Network
+                      Regulatory network
                     </span>
                     <ChevronRight className="w-5 h-5 text-purple-600" />
+                  </button>
+                )}
+                {hasSpatialMatch && (
+                  <button
+                    onClick={() =>
+                      navigate(
+                        `/spatial-distribution?trait=${encodeURIComponent(matchedSpatialTrait)}&layer=trait`
+                      )
+                    }
+                    className="flex items-center justify-between p-4 bg-cyan-100 hover:bg-cyan-200 rounded-lg transition border border-cyan-300"
+                  >
+                    <span className="font-semibold text-cyan-900 flex items-center gap-2">
+                      <MapIcon className="w-4 h-4" />
+                      Spatial distribution
+                    </span>
+                    <ChevronRight className="w-5 h-5 text-cyan-600" />
                   </button>
                 )}
               </div>
@@ -711,7 +771,7 @@ const SearchResultsPage: React.FC = () => {
                               </h3>
                               {result.isGIMRelevant && (
                                 <span className="inline-flex px-2 py-1 rounded text-xs font-semibold bg-orange-100 text-orange-800 border border-orange-300">
-                                  GIM-Related
+                                  GIM-related
                                 </span>
                               )}
                             </div>
@@ -746,4 +806,3 @@ const SearchResultsPage: React.FC = () => {
 };
 
 export default SearchResultsPage;
-

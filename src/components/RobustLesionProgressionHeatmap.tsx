@@ -17,6 +17,9 @@ interface RobustLesionProgressionHeatmapProps {
   onCellClick?: (association: LesionProgressionData) => void;
 }
 
+const getSpatialTraitHref = (trait: string) =>
+  `${import.meta.env.BASE_URL}spatial-distribution?trait=${encodeURIComponent(trait)}&layer=trait`;
+
 const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapProps> = ({ 
   data, 
   onCellClick 
@@ -24,6 +27,8 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
   const svgRef = useRef<SVGSVGElement>(null);
   const [isRendering, setIsRendering] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [zoomScale, setZoomScale] = useState(0.82);
+  const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
 
   // Process data (filtering is done by parent component)
   const processedData = useMemo(() => {
@@ -72,10 +77,14 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
       const cellSize = 20;
       const width = processedData.traits.length * cellSize;
       const height = processedData.genes.length * cellSize;
+      const totalWidth = width + margin.left + margin.right;
+      const totalHeight = height + margin.bottom + margin.top;
 
       svg
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.bottom + margin.top);
+        .attr("width", totalWidth)
+        .attr("height", totalHeight)
+        .attr("viewBox", `0 0 ${totalWidth} ${totalHeight}`);
+      setDimensions({ width: totalWidth, height: totalHeight });
 
       const g = svg.append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
@@ -86,7 +95,7 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
           .attr("y", height / 2)
           .attr("text-anchor", "middle")
           .style("font-size", "16px")
-          .style("fill", "#666")
+          .style("fill", "#cbd5e1")
           .text("No data matches current filters");
         setIsRendering(false);
         return;
@@ -106,7 +115,10 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
       const colorScale = d3.scaleSequential(d3.interpolateRdYlBu)
         .domain(d3.extent(processedData.matrixData.filter(d => d.hasData), d => d.value).reverse() as [number, number]);
 
-      // Create tooltip
+      // Create tooltip. Hover previews disappear; clicked cells pin the tooltip so links are usable.
+      d3.select(window).on("click.lesion-heatmap-tooltip", null);
+      let hideTimer: number | undefined;
+      let tooltipPinned = false;
       const tooltip = d3.select("body").selectAll(".lesion-heatmap-tooltip")
         .data([0])
         .join("div")
@@ -117,10 +129,72 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
         .style("padding", "10px")
         .style("border-radius", "6px")
         .style("font-size", "12px")
-        .style("pointer-events", "none")
+        .style("pointer-events", "auto")
         .style("opacity", 0)
         .style("z-index", 1000)
-        .style("max-width", "250px");
+        .style("max-width", "290px");
+
+      const closeTooltip = () => {
+        tooltipPinned = false;
+        if (hideTimer) window.clearTimeout(hideTimer);
+        tooltip.style("opacity", 0);
+      };
+
+      const hideTooltip = () => {
+        if (tooltipPinned) return;
+        if (hideTimer) window.clearTimeout(hideTimer);
+        hideTimer = window.setTimeout(() => {
+          if (!tooltipPinned) tooltip.style("opacity", 0);
+        }, 220);
+      };
+
+      const showTooltip = (pinned = false) => {
+        if (hideTimer) window.clearTimeout(hideTimer);
+        tooltipPinned = pinned || tooltipPinned;
+        tooltip.style("opacity", 1);
+      };
+
+      const positionTooltip = (event: MouseEvent) => {
+        tooltip
+          .style("left", `${event.pageX + 12}px`)
+          .style("top", `${event.pageY - 10}px`);
+      };
+
+      const renderTooltip = (d: {
+        gene: string;
+        trait: string;
+        value: number;
+        group: string;
+        isCausal: boolean;
+      }, pinned = false) => {
+        tooltip.html(`
+          <div class="gim-tooltip-header">
+            <strong>${d.gene} - ${d.trait}</strong>
+            ${pinned ? '<button class="gim-tooltip-close" type="button" aria-label="Close tooltip">×</button>' : ''}
+          </div>
+          Association: ${d.value.toFixed(3)}<br/>
+          Group: ${d.group}<br/>
+          ${d.isCausal ? '<span style="color: #ff6666;">Putative causal</span>' : 'Non-causal'}<br/>
+          <em>${pinned ? 'Pinned cell' : 'Click to pin and show details'}</em>
+          <br/><a class="gim-tooltip-spatial-link" href="${getSpatialTraitHref(d.trait)}">View trait signals in spatial transcriptomic profiles</a>
+        `);
+        tooltip.select(".gim-tooltip-close").on("click", (event) => {
+          event.stopPropagation();
+          closeTooltip();
+        });
+      };
+
+      tooltip
+        .on("mouseenter", () => {
+          if (hideTimer) window.clearTimeout(hideTimer);
+          tooltip.style("opacity", 1);
+        })
+        .on("mouseleave", hideTooltip)
+        .on("click", event => {
+          event.stopPropagation();
+        });
+
+      d3.select(window).on("click.lesion-heatmap-tooltip", closeTooltip);
 
       // Draw heatmap cells
       g.selectAll(".heatmap-cell")
@@ -131,31 +205,34 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
         .attr("y", d => yScale(d.gene) || 0)
         .attr("width", xScale.bandwidth())
         .attr("height", yScale.bandwidth())
-        .style("fill", d => d.hasData ? colorScale(d.value) : "#f5f5f5")
-        .style("stroke", d => d.isCausal ? "#ff4444" : "#ffffff")
+        .style("fill", d => d.hasData ? colorScale(d.value) : "#0b1220")
+        .style("stroke", d => d.isCausal ? "#ff4444" : "#1e293b")
         .style("stroke-width", d => d.isCausal ? 2 : 0.5)
         .style("cursor", d => d.hasData ? "pointer" : "default")
         .on("mouseover", function(event, d) {
           if (!d.hasData) return;
-          
-          tooltip
-            .style("opacity", 1)
-            .html(`
-              <strong>${d.gene} - ${d.trait}</strong><br/>
-              Association: ${d.value.toFixed(3)}<br/>
-              Group: ${d.group}<br/>
-              ${d.isCausal ? '<span style="color: #ff6666;">⚠ Putative causal</span>' : 'Non-causal'}<br/>
-              <em>Click for details</em>
-            `)
-            .style("left", (event.pageX + 10) + "px")
-            .style("top", (event.pageY - 10) + "px");
+
+          if (tooltipPinned) return;
+          renderTooltip(d, false);
+          positionTooltip(event);
+          showTooltip();
+        })
+        .on("mousemove", function(event) {
+          if (!tooltipPinned) {
+            positionTooltip(event);
+          }
         })
         .on("mouseout", function() {
-          tooltip.style("opacity", 0);
+          hideTooltip();
         })
         .on("click", function(event, d) {
           if (d.hasData && d.rawData && onCellClick) {
+            event.stopPropagation();
             onCellClick(d.rawData);
+            tooltipPinned = true;
+            renderTooltip(d, true);
+            positionTooltip(event);
+            showTooltip(true);
           }
         });
 
@@ -203,7 +280,7 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
         .style("text-anchor", "middle")
         .style("font-size", "14px")
         .style("font-weight", "bold")
-        .text("Metabolomic Traits");
+        .text("Metabolomic traits");
 
       // Title
       g.append("text")
@@ -212,14 +289,14 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
         .attr("text-anchor", "middle")
         .style("font-size", "16px")
         .style("font-weight", "bold")
-        .text(`Gene-Trait Association Heatmap`);
+        .text(`Gene-trait association heatmap`);
 
       g.append("text")
         .attr("x", width / 2)
         .attr("y", -40)
         .attr("text-anchor", "middle")
         .style("font-size", "12px")
-        .style("fill", "#666")
+        .style("fill", "#cbd5e1")
         .text(`${processedData.matrixData.filter(d => d.hasData).length} associations | Red borders indicate putative causal relationships`);
 
       // Color legend
@@ -262,7 +339,7 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
         .attr("x", -(legendHeight * 5))
         .attr("text-anchor", "middle")
         .style("font-size", "12px")
-        .text("Association Strength");
+        .text("Association strength");
 
       // Causal legend
       const causalLegend = legend.append("g")
@@ -273,7 +350,7 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
         .attr("y", 0)
         .attr("width", 15)
         .attr("height", 15)
-        .style("fill", "#ddd")
+        .style("fill", "#0b1220")
         .style("stroke", "#ff4444")
         .style("stroke-width", 2);
 
@@ -295,16 +372,23 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
     renderHeatmap();
   }, [renderHeatmap]);
 
+  useEffect(() => {
+    return () => {
+      d3.select(window).on("click.lesion-heatmap-tooltip", null);
+      d3.select("body").selectAll(".lesion-heatmap-tooltip").remove();
+    };
+  }, []);
+
   if (error) {
     return (
       <div className="p-6 bg-red-50 border border-red-200 rounded-lg">
-        <div className="text-red-700 font-medium">Visualization Error</div>
+        <div className="text-red-700 font-medium">Visualization error</div>
         <div className="text-red-600 text-sm mt-1">{error}</div>
         <button 
           onClick={renderHeatmap}
           className="mt-3 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
         >
-          Retry Rendering
+          Retry rendering
         </button>
       </div>
     );
@@ -315,23 +399,23 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="bg-white p-4 rounded-lg border">
-          <h3 className="text-sm font-medium text-gray-500">Total Associations</h3>
+          <h3 className="text-sm font-medium text-gray-500">Total associations</h3>
           <p className="text-2xl font-bold text-gray-900">
             {processedData.matrixData.filter(d => d.hasData).length}
           </p>
         </div>
         <div className="bg-white p-4 rounded-lg border">
-          <h3 className="text-sm font-medium text-gray-500">Putative Causal Associations</h3>
+          <h3 className="text-sm font-medium text-gray-500">Putative causal associations</h3>
           <p className="text-2xl font-bold text-red-600">
             {processedData.matrixData.filter(d => d.hasData && d.isCausal).length}
           </p>
         </div>
         <div className="bg-white p-4 rounded-lg border">
-          <h3 className="text-sm font-medium text-gray-500">Unique Genes</h3>
+          <h3 className="text-sm font-medium text-gray-500">Unique genes</h3>
           <p className="text-2xl font-bold text-blue-600">{processedData.genes.length}</p>
         </div>
         <div className="bg-white p-4 rounded-lg border">
-          <h3 className="text-sm font-medium text-gray-500">Metabolomic Traits</h3>
+          <h3 className="text-sm font-medium text-gray-500">Metabolomic traits</h3>
           <p className="text-2xl font-bold text-green-600">{processedData.traits.length}</p>
         </div>
       </div>
@@ -341,7 +425,7 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
         <div className="flex items-start space-x-3">
           <Info className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
           <div>
-            <h3 className="font-medium text-blue-900">Heatmap Guide</h3>
+            <h3 className="font-medium text-blue-900">Heatmap guide</h3>
             <p className="text-sm text-blue-700 mt-1">
               Each cell represents a gene–metabolomic trait association. Color intensity indicates association strength. 
               Red borders highlight putative causal relationships. Click on cells for detailed information.
@@ -354,14 +438,36 @@ const RobustLesionProgressionHeatmap: React.FC<RobustLesionProgressionHeatmapPro
       <div className="bg-white p-6 rounded-lg border">
         <div className="relative overflow-x-auto">
           {isRendering && (
-            <div className="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center z-10">
+            <div className="absolute inset-0 bg-slate-950/80 flex items-center justify-center z-10">
               <div className="flex items-center space-x-2">
                 <Loader2 className="h-6 w-6 animate-spin text-blue-500" />
                 <span className="text-sm text-gray-600">Rendering heatmap...</span>
               </div>
             </div>
           )}
-          <svg ref={svgRef}></svg>
+          <div className="mb-3 flex flex-wrap items-center gap-2 text-xs">
+            <span className="font-semibold text-slate-300">Zoom</span>
+            {[0.7, 0.85, 1, 1.2].map((scale) => (
+              <button
+                key={scale}
+                type="button"
+                onClick={() => setZoomScale(scale)}
+                className={`rounded-md border px-2.5 py-1 font-semibold transition ${
+                  zoomScale === scale
+                    ? 'border-cyan-300 bg-cyan-400/20 text-cyan-100'
+                    : 'border-slate-600 bg-slate-900 text-slate-300 hover:border-cyan-400'
+                }`}
+              >
+                {Math.round(scale * 100)}%
+              </button>
+            ))}
+          </div>
+          <svg
+            ref={svgRef}
+            width={dimensions.width * zoomScale}
+            height={dimensions.height * zoomScale}
+            className="rounded border border-slate-700 bg-slate-950"
+          ></svg>
         </div>
       </div>
     </div>

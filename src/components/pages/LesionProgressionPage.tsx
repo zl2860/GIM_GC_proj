@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { Search, Filter, Info, Activity } from 'lucide-react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { ArrowRight, Search, Filter, Info, Activity, Map as MapIcon } from 'lucide-react';
 import { Input } from '../ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Badge } from '../ui/badge';
@@ -37,6 +37,12 @@ const LesionProgressionPage: React.FC = () => {
   const [selectedCell, setSelectedCell] = useState<HeatmapData | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 25;
+
+  const getSpatialTraitPath = (trait?: string) => {
+    const params = new URLSearchParams({ layer: 'trait' });
+    if (trait) params.set('trait', trait);
+    return `/spatial-distribution?${params.toString()}`;
+  };
 
   useEffect(() => {
     const loadData = async () => {
@@ -197,21 +203,23 @@ const LesionProgressionPage: React.FC = () => {
     <div className="p-6 max-w-full mx-auto">
       {/* Header */}
       <div className="mb-6">
-        <div className="mb-4">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Co-regulatory Genetic Effects of the GIM for Gastric Lesion Progression
-          </h1>
-          <p className="text-gray-600">
-              The interactive heatmap shows gene–metabolomic trait associations for {filteredAndSortedData.filter(item => item.is_causal === true).length} putative causal relationships
-            from {uniqueGenes.length} genes and {data.data.length} total associations
-          </p>
+        <div className="mb-4 flex justify-between items-start gap-4">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              Co-regulatory genetic effects of the GIM for gastric lesion progression
+            </h1>
+            <p className="text-gray-600">
+                The interactive heatmap shows gene–metabolomic trait associations for {filteredAndSortedData.filter(item => item.is_causal === true).length} putative causal relationships
+              from {uniqueGenes.length} genes and {data.data.length} total associations
+            </p>
+          </div>
         </div>
 
         {/* Filters */}
         <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
           <div className="flex items-center space-x-2 mb-3">
             <Filter className="w-5 h-5 text-gray-600" />
-            <h3 className="font-semibold text-gray-900">Filters & Search</h3>
+            <h3 className="font-semibold text-gray-900">Filters and search</h3>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
@@ -235,7 +243,7 @@ const LesionProgressionPage: React.FC = () => {
                   <SelectValue placeholder="Select gene" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Genes ({uniqueGenes.length})</SelectItem>
+                  <SelectItem value="all">All genes ({uniqueGenes.length})</SelectItem>
                   {uniqueGenes.map(gene => (
                     <SelectItem key={gene} value={gene}>{gene}</SelectItem>
                   ))}
@@ -250,7 +258,7 @@ const LesionProgressionPage: React.FC = () => {
                   <SelectValue placeholder="Select group" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Groups ({uniqueGroups.length})</SelectItem>
+                  <SelectItem value="all">All groups ({uniqueGroups.length})</SelectItem>
                   {uniqueGroups.map(group => (
                     <SelectItem key={group} value={group}>{group}</SelectItem>
                   ))}
@@ -259,7 +267,7 @@ const LesionProgressionPage: React.FC = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Putative Causal</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Putative causal</label>
               <Select value={selectedCausal} onValueChange={setSelectedCausal}>
                 <SelectTrigger>
                   <SelectValue placeholder="Select status" />
@@ -311,7 +319,7 @@ const LesionProgressionPage: React.FC = () => {
           <div className="space-y-6">
             {/* Group Legend */}
             <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Metabolomic Trait Groups</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Metabolomic trait groups</h3>
               <div className="space-y-2">
                 {uniqueGroups.map(group => (
                   <div key={group} className="flex items-center justify-between">
@@ -331,7 +339,7 @@ const LesionProgressionPage: React.FC = () => {
               <div className="bg-white rounded-lg shadow-lg p-6">
                 <div className="flex items-center space-x-2 mb-4">
                   <Info className="w-5 h-5 text-blue-600" />
-                  <h3 className="text-lg font-semibold text-gray-900">Association Details</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">Association details</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -341,9 +349,18 @@ const LesionProgressionPage: React.FC = () => {
                     </div>
                   </div>
 
+                  <Link
+                    to={getSpatialTraitPath(selectedCell.metabolic_trait)}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 hover:text-cyan-200"
+                  >
+                    <MapIcon className="w-4 h-4" />
+                    View trait in spatial
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <div className="text-sm font-medium text-gray-700">Standardized Effects</div>
+                      <div className="text-sm font-medium text-gray-700">Standardized effects</div>
                       <div className="font-mono text-lg text-gray-900">
                         {selectedCell.association_strength.toFixed(4)}
                       </div>
@@ -357,7 +374,7 @@ const LesionProgressionPage: React.FC = () => {
                   </div>
 
                   <div>
-                    <div className="text-sm font-medium text-gray-700">Putative Causal</div>
+                    <div className="text-sm font-medium text-gray-700">Putative causal</div>
                     <Badge className={getCausalColor(selectedCell.is_causal)}>
                       {selectedCell.is_causal ? 'Putative causal' : 'Non-causal'}
                     </Badge>
@@ -367,7 +384,7 @@ const LesionProgressionPage: React.FC = () => {
             ) : (
               <div className="bg-white rounded-lg shadow-lg p-6 text-center">
                 <Activity className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Select a Gene-Trait Association</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Select a gene-trait association</h3>
                 <p className="text-gray-600 text-sm">
                   Click on any cell in the heatmap to view detailed information about that gene-trait association.
                 </p>
@@ -376,13 +393,13 @@ const LesionProgressionPage: React.FC = () => {
 
             {/* Summary Statistics */}
             <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Summary Statistics</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Summary statistics</h3>
               <div className="space-y-2 text-sm text-gray-600">
-                <div><strong>Total Associations:</strong> {filteredAndSortedData.length}</div>
-                <div><strong>Unique Genes:</strong> {uniqueGenes.length}</div>
-                <div><strong>Putative Causal Relationships:</strong> {filteredAndSortedData.filter(item => item.is_causal === true).length}</div>
-                <div><strong>Trait Groups:</strong> {uniqueGroups.length}</div>
-                <div><strong>Average Association:</strong> {(filteredAndSortedData.reduce((sum, item) => sum + item.association_strength, 0) / filteredAndSortedData.length).toFixed(4)}</div>
+                <div><strong>Total associations:</strong> {filteredAndSortedData.length}</div>
+                <div><strong>Unique genes:</strong> {uniqueGenes.length}</div>
+                <div><strong>Putative causal relationships:</strong> {filteredAndSortedData.filter(item => item.is_causal === true).length}</div>
+                <div><strong>Trait groups:</strong> {uniqueGroups.length}</div>
+                <div><strong>Average association:</strong> {(filteredAndSortedData.reduce((sum, item) => sum + item.association_strength, 0) / filteredAndSortedData.length).toFixed(4)}</div>
               </div>
             </div>
           </div>

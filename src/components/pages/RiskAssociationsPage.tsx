@@ -21,6 +21,7 @@ import {
   CartesianGrid,
   ReferenceLine
 } from 'recharts';
+import { toSentenceCaseTitle } from '../../lib/utils';
 
 const PALETTE = ['#d4de9c', '#94c58f', '#86c7b4', '#9cd2ed', '#a992c0'];
 
@@ -75,31 +76,31 @@ interface RiskComparisonResponse {
 const COHORTS: { key: CohortKey; label: string; color: string; description: string }[] = [
   {
     key: 'ukbb_measured',
-    label: 'UKBB Discovery – Measured',
+    label: 'UKBB discovery – measured',
     color: PALETTE[0],
     description: 'Directly measured metabolomic traits in the UKBB discovery cohort'
   },
   {
     key: 'ukbb_predicted',
-    label: 'UKBB Discovery – Predicted',
+    label: 'UKBB discovery – predicted',
     color: PALETTE[1],
     description: 'Genetically predicted trait levels in the UKBB discovery cohort'
   },
   {
     key: 'sit_predicted',
-    label: 'SIT – Predicted',
+    label: 'SIT – predicted',
     color: PALETTE[2],
     description: 'Genetically predicted trait levels in the SIT cohort'
   },
   {
     key: 'mits_predicted',
-    label: 'MITS – Predicted',
+    label: 'MITS – predicted',
     color: PALETTE[3],
     description: 'Genetically predicted trait levels in the MITS cohort'
   },
   {
     key: 'ugced_predicted',
-    label: 'UGCED – Predicted',
+    label: 'UGCED – predicted',
     color: PALETTE[4],
     description: 'Genetically predicted trait levels in the UGCED cohort'
   }
@@ -113,7 +114,7 @@ const METRIC_OPTIONS: { key: MetricKey; label: string; helper: string }[] = [
   },
   {
     key: 'rr',
-    label: 'Relative Risk',
+    label: 'Relative risk',
     helper: 'Exponentiated relative risk; 1 indicates no effect'
   }
 ];
@@ -630,7 +631,7 @@ export default function RiskAssociationsPage() {
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-8">
       <div>
-        <h1 className="text-3xl font-bold text-gray-800">{resp.title}</h1>
+        <h1 className="text-3xl font-bold text-gray-800">{toSentenceCaseTitle(resp.title)}</h1>
         <p className="text-gray-600 mt-1">{resp.description}</p>
       </div>
 
@@ -769,6 +770,16 @@ export default function RiskAssociationsPage() {
                   strokeDasharray="3 3"
                 />
                 <RechartsTooltip
+                  contentStyle={{
+                    backgroundColor: 'rgba(2, 6, 23, 0.96)',
+                    border: '1px solid rgba(103, 232, 249, 0.35)',
+                    borderRadius: 8,
+                    color: '#f8fafc',
+                    boxShadow: '0 18px 44px rgba(0, 0, 0, 0.42)'
+                  }}
+                  labelStyle={{ color: '#f8fafc', fontWeight: 700 }}
+                  itemStyle={{ color: '#e5e7eb' }}
+                  cursor={{ fill: 'rgba(103, 232, 249, 0.08)' }}
                   formatter={(value: number, name: string) => {
                     if (typeof value !== 'number') {
                       return ['-', name];
@@ -808,47 +819,47 @@ export default function RiskAssociationsPage() {
           </p>
         </div>
 
-        <div className="bg-slate-50/60 border border-slate-200 rounded-lg p-4 text-xs text-slate-600">
-          <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+        <div className="bg-slate-900/80 border border-slate-700 rounded-lg p-4 text-xs text-slate-300">
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
             Column definition
           </p>
-          <div className="mt-2 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            <div>
-              <p className="font-medium text-slate-700">Trait</p>
-              <p>{COLUMN_DESCRIPTIONS.trait}</p>
-            </div>
-            <div>
-              <p className="font-medium text-slate-700">Cohort columns</p>
-              <p>{COLUMN_DESCRIPTIONS.cohortMetric}</p>
-            </div>
-            <div>
-              <p className="font-medium text-slate-700">Sig. (Measured)</p>
-              <p>{COLUMN_DESCRIPTIONS.sigMeasured}</p>
-            </div>
-            <div>
-              <p className="font-medium text-slate-700">Sig. (Genetic)</p>
-              <p>{COLUMN_DESCRIPTIONS.sigPredicted}</p>
-            </div>
-            <div>
-              <p className="font-medium text-slate-700">Same direction</p>
-              <p>{COLUMN_DESCRIPTIONS.sameDirection}</p>
-            </div>
-            <div>
-              <p className="font-medium text-slate-700">Consistent (M+G)</p>
-              <p>{COLUMN_DESCRIPTIONS.consistentCombined}</p>
-            </div>
-            <div>
-              <p className="font-medium text-slate-700">Consistent (Genetic)</p>
-              <p>{COLUMN_DESCRIPTIONS.consistentGenetic}</p>
-            </div>
-            <div>
-              <p className="font-medium text-slate-700">Highlights</p>
-              <p>{COLUMN_DESCRIPTIONS.highlight}</p>
-            </div>
-            <div>
-              <p className="font-medium text-slate-700">Directions</p>
-              <p>{COLUMN_DESCRIPTIONS.directions}</p>
-            </div>
+          <div className="mt-2 space-y-1.5 leading-relaxed">
+            <p>
+              <span className="font-semibold text-slate-100">Trait:</span>{' '}
+              <span>{COLUMN_DESCRIPTIONS.trait}</span>
+            </p>
+            <p>
+              <span className="font-semibold text-slate-100">Cohort columns:</span>{' '}
+              <span>{COLUMN_DESCRIPTIONS.cohortMetric}</span>
+            </p>
+            <p>
+              <span className="font-semibold text-slate-100">Sig. (Measured):</span>{' '}
+              <span>{COLUMN_DESCRIPTIONS.sigMeasured}</span>
+            </p>
+            <p>
+              <span className="font-semibold text-slate-100">Sig. (Genetic):</span>{' '}
+              <span>{COLUMN_DESCRIPTIONS.sigPredicted}</span>
+            </p>
+            <p>
+              <span className="font-semibold text-slate-100">Same direction:</span>{' '}
+              <span>{COLUMN_DESCRIPTIONS.sameDirection}</span>
+            </p>
+            <p>
+              <span className="font-semibold text-slate-100">Consistent (M+G):</span>{' '}
+              <span>{COLUMN_DESCRIPTIONS.consistentCombined}</span>
+            </p>
+            <p>
+              <span className="font-semibold text-slate-100">Consistent (Genetic):</span>{' '}
+              <span>{COLUMN_DESCRIPTIONS.consistentGenetic}</span>
+            </p>
+            <p>
+              <span className="font-semibold text-slate-100">Highlights:</span>{' '}
+              <span>{COLUMN_DESCRIPTIONS.highlight}</span>
+            </p>
+            <p>
+              <span className="font-semibold text-slate-100">Directions:</span>{' '}
+              <span>{COLUMN_DESCRIPTIONS.directions}</span>
+            </p>
           </div>
         </div>
 
@@ -1187,9 +1198,9 @@ export default function RiskAssociationsPage() {
                           trait.highlight_ukbb_consistent
                       );
                       const highlightClass = trait.highlight_multicohort_consistent
-                        ? 'border-l-4 border-blue-400 bg-blue-50/70'
+                        ? 'border-l-4 border-blue-400 bg-blue-950/35'
                         : trait.highlight_ukbb_consistent
-                        ? 'border-l-4 border-emerald-400 bg-emerald-50/70'
+                        ? 'border-l-4 border-emerald-950/35'
                         : 'border-l-4 border-transparent';
                       const rowClass = `${highlightClass} ${
                         isHighlighted ? '' : 'odd:bg-slate-50/40 even:bg-white'
