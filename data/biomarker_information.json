@@ -1,8 +1,8 @@
 {
-  "title": "NMR Blood Metabolic Traits Information",
-  "description": "Detailed information about the 249 NMR blood metabolic traits measured for UKBB participants",
+  "title": "NMR Blood Metabolomic Traits Information",
+  "description": "Detailed information about the 249 ¹H-NMR blood metabolomic traits (18 categories) measured for UKBB participants",
   "columns": [
-    "Metabolic Trait",
+    "Metabolomic Trait",
     "Description",
     "Units",
     "Group",

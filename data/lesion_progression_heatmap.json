@@ -1,6 +1,6 @@
 {
-  "title": "GIMs for Gastric Lesion Progression - Gene-Metabolic Trait Heatmap",
-  "description": "Gene-metabolic trait association heatmap with causal indicators for gastric lesion progression",
+  "title": "GIMs for Gastric Lesion Progression - Gene-Metabolomic Trait Heatmap",
+  "description": "Gene–metabolomic trait association heatmap with causal indicators for gastric lesion progression",
   "data": [
     {
       "gene": "ABCA1",

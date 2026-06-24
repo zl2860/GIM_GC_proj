@@ -1,6 +1,6 @@
 {
-  "title": "GIMs for Gastric Cancer - Gene-Metabolic Trait Associations",
-  "description": "Putative causal relationships between gene loci and metabolic traits for gastric cancer",
+  "title": "GIMs for Gastric Cancer - Gene-Metabolomic Trait Associations",
+  "description": "Putative causal relationships between gene loci and metabolomic traits for gastric cancer",
   "data": [
     {
       "gene": "ABCA1",
