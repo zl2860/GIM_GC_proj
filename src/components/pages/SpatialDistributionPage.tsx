@@ -1260,16 +1260,15 @@ function SpatialDistributionPage() {
     return manifest.traits.filter((item) => item.toLowerCase().includes(q));
   }, [manifest, query]);
 
-  const traitOptions = useMemo(() => {
-    if (!trait || visibleTraits.includes(trait)) return visibleTraits;
-    return [trait, ...visibleTraits];
-  }, [trait, visibleTraits]);
+  // Keep every trait in the native picker. Filtering this list by the current
+  // input made the picker contain only the already-selected trait (for example,
+  // "ApoA1"), preventing users from browsing to another option.
+  const traitOptions = useMemo(() => manifest?.traits || [], [manifest]);
 
   const commitTraitInput = useCallback((value, fallbackToFirst = false) => {
     if (!manifest?.traits?.length) return;
     const normalized = value.trim().toLowerCase();
     if (!normalized) {
-      setQuery(trait);
       return;
     }
     const exact = manifest.traits.find((item) => item.toLowerCase() === normalized);
