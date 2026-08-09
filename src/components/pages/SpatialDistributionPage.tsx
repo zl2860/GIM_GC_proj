@@ -1132,7 +1132,6 @@ function SpatialDistributionPage() {
   const [layer, setLayer] = useState("trait");
   const [trait, setTrait] = useState("");
   const [marker, setMarker] = useState("");
-  const [query, setQuery] = useState("");
   const [hover, setHover] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [mapView, setMapView] = useState(null);
@@ -1172,7 +1171,6 @@ function SpatialDistributionPage() {
         setManifest(nextManifest);
         setSampleId(matchedSample?.id || "");
         setTrait(matchedTrait);
-        setQuery(matchedTrait);
         setMarker(data.markers[0] || "");
         if (requestedLayer === "niche" || requestedLayer === "trait") setLayer(requestedLayer);
       })
@@ -1252,48 +1250,6 @@ function SpatialDistributionPage() {
         });
     });
   }, [pathwaySource, pathwayDataBySource]);
-
-  const visibleTraits = useMemo(() => {
-    if (!manifest) return [];
-    const q = query.trim().toLowerCase();
-    if (!q) return manifest.traits;
-    return manifest.traits.filter((item) => item.toLowerCase().includes(q));
-  }, [manifest, query]);
-
-  // Keep every trait in the native picker. Filtering this list by the current
-  // input made the picker contain only the already-selected trait (for example,
-  // "ApoA1"), preventing users from browsing to another option.
-  const traitOptions = useMemo(() => manifest?.traits || [], [manifest]);
-
-  const commitTraitInput = useCallback((value, fallbackToFirst = false) => {
-    if (!manifest?.traits?.length) return;
-    const normalized = value.trim().toLowerCase();
-    if (!normalized) {
-      return;
-    }
-    const exact = manifest.traits.find((item) => item.toLowerCase() === normalized);
-    if (exact) {
-      setTrait(exact);
-      setQuery(exact);
-      return;
-    }
-    if (fallbackToFirst && visibleTraits.length) {
-      setTrait(visibleTraits[0]);
-      setQuery(visibleTraits[0]);
-    }
-  }, [manifest, trait, visibleTraits]);
-
-  const handleTraitInputChange = useCallback((event) => {
-    const value = event.target.value;
-    setQuery(value);
-    commitTraitInput(value);
-  }, [commitTraitInput]);
-
-  const handleTraitInputKeyDown = useCallback((event) => {
-    if (event.key === "Enter") {
-      commitTraitInput(query, true);
-    }
-  }, [commitTraitInput, query]);
 
   const activeValues = useMemo(() => {
     if (!sample) return [];
@@ -1458,23 +1414,15 @@ function SpatialDistributionPage() {
               <>
                 <label className="topbar-control trait-selector-control">
                   <span>Trait</span>
-                  <div className="search-box topbar-search">
-                      <Search size={14} />
-                      <input
-                        list="spatial-trait-options"
-                        value={query}
-                        onChange={handleTraitInputChange}
-                        onKeyDown={handleTraitInputKeyDown}
-                        onBlur={() => commitTraitInput(query, true)}
-                        placeholder="Type or select trait"
-                        aria-label="Type or select trait"
-                      />
-                      <datalist id="spatial-trait-options">
-                      {traitOptions.map((item) => (
-                        <option value={item} key={item}>{item}</option>
-                      ))}
-                      </datalist>
-                  </div>
+                  <select
+                    value={trait}
+                    aria-label="Select trait"
+                    onChange={(event) => setTrait(event.target.value)}
+                  >
+                    {manifest.traits.map((item) => (
+                      <option value={item} key={item}>{item}</option>
+                    ))}
+                  </select>
                 </label>
                 <div className="topbar-control pathway-source-control">
                   <span className="control-label-with-help">
